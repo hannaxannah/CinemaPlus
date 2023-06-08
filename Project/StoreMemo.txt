@@ -1,0 +1,104 @@
+------------------------------------------------------------업종 추가
+drop sequence Product_Category_seq ;
+
+create sequence Product_Category_seq
+increment by 1
+start with 0
+minvalue 0
+maxvalue 10000
+nocache;
+
+drop table Product_Category cascade constraints purge ;
+CREATE TABLE Product_Category (
+	category_num number primary key,
+	category_name varchar2(30) not null
+);
+
+insert into Product_Category values(Product_Category_seq.nextval,'기프트카드');
+
+insert into Product_Category values(Product_Category_seq.nextval,'영화티켓');
+
+insert into Product_Category values(Product_Category_seq.nextval,'팝콘/음료/스낵');
+
+insert into Product_Category values(Product_Category_seq.nextval,'기타');
+---------------------------------------------------------------------------------------------------쿠폰
+drop sequence Coupon_seq;
+
+create sequence Coupon_seq
+increment by 1
+start with 1
+minvalue 0
+maxvalue 10000
+nocache;
+
+drop table Coupon cascade constraints purge ;
+create table Coupon (
+	coupon_number number primary key,
+	coupon_name varchar2(50) NOT NULL,
+	coupon_state number DEFAULT 0 NOT NULL,
+	coupon_rate number NOT NULL,
+	coupon_qty number NOT NULL,
+	member_code varchar2(100) NOT NULL
+);
+
+insert into Coupon values(Coupon_seq.nextval,'welcome',0,20,100,0);
+-----------------------------------------------------------상품 테이블
+drop sequence Product_seq;
+
+create sequence Product_seq
+increment by 1
+start with 1
+minvalue 0
+maxvalue 10000
+nocache;
+
+drop table Product cascade constraints purge ;
+CREATE TABLE Product (
+	product_code varchar2(100) NOT NULL,
+	category_name varchar2(30) NOT NULL,
+	product_name varchar2(100) NOT NULL,
+	product_detail varchar2(4000) NOT NULL,
+	product_image varchar2(100) ,
+	product_qty number NOT NULL,
+	product_price number NULL,
+	product_sprice number NOT NULL,
+	product_state number NOT NULL,
+	product_point number default 0 NOT NULL 
+);
+
+insert into Product values(Product_seq.nextval,'기프트카드','메가박스 기프트카드 2만원권','메가박스 기프트카드 2만원권','메가박스기프트카드2만원권.png',100,null,20000,3,200);
+insert into Product values(Product_seq.nextval,'기프트카드','메가박스 기프트카드 3만원권','메가박스 기프트카드 3만원권','메가박스기프트카드3만원권.png',100,null,30000,3,200);
+insert into Product values(Product_seq.nextval,'기프트카드','메가박스 기프트카드 5만원권','메가박스 기프트카드 5만원권','메가박스기프트카드5만원권.png',100,null,50000,3,200);
+
+insert into Product values(Product_seq.nextval,'영화티켓','더 부티크 스위트 전용관람권','더 부티크 스위트 전용관람권','더부티크스위트전용관람권.png',100,null,40000,5,400);
+insert into Product values(Product_seq.nextval,'영화티켓','더 부티크 전용관람권','더 부티크 전용관람권','더부티크전용관람권.png',100,16000,15000,2,150);
+insert into Product values(Product_seq.nextval,'영화티켓','DolbyCinema 전용관람권 (2D)','DolbyCinema 전용관람권 (2D)','DolbyCinema전용관람권.png',100,18000,17000,5,170);
+insert into Product values(Product_seq.nextval,'영화티켓','MX전용관람권','MX전용관람권','MX전용관람권.png',100,17000,16000,2,160);
+insert into Product values(Product_seq.nextval,'영화티켓','일반관람권 (2D)','일반관람권 (2D)','일반관람권(2D).png',100,13000,12000,6,120);
+
+insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','사이다 M','사이다 M','사이다M.jpg',100,null,2800,2,280);
+insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','사이다 L','사이다 L','사이다L.jpg',100,null,3300,2,330);
+insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','콜라 M','콜라 M','콜라M.jpg',100,null,2800,2,280);
+insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','콜라 L','콜라 L','콜라L.jpg',100,null,3300,2,330);
+
+insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','싱글 패키지','2D 일반관람권 1매 + 팝콘(R)1 + 탄산음료(R)1','싱글패키지.png',100,21000,18000,4,180);
+insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','더블 콤보','팝콘(R) 2 + 탄산음료(R) 2','더블콤보.png',100,null,10000,2,100);
+insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','러브콤보패키지','2D 일반관람권 2매 + 러브콤보 [팝콘(L)1 + 탄산음료(R)2]','러브콤보패키지.png',100,36000,30000,4,300);
+insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','러브 콤보','팝콘(L) 1 + 탄산음료(R) 2','러브콤보.png',100,null,13000,6,130);
+insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','패밀리 패키지','2D 일반관람권 3매 + 팝콘(R)2 + 탄산음료(R)2','패밀리패키지.png',100,52000,43000,2,430);
+
+
+commit;
+---------------------------------------------------------------------------------
+
+
+CREATE TABLE Cart (
+	cart_code number NOT NULL,
+	product_code varchar2(100) NOT NULL,
+	member_code varchar2(30) NOT NULL,
+	cart_qty number NOT NULL,
+	cart_status	number NOT NULL
+);
+
+
+------------------------------------------------------------  주문 테이블
