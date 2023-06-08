@@ -52,5 +52,5 @@ location_code varchar2(10) Primary key,
 area varchar2(30) not null,
 branch varchar2(30) not null
 );
-
+  
       
