@@ -3,6 +3,9 @@
 <%@ include file="../common/common.jsp" %>
 <%@ include file="./top.jsp" %>
 <%@ include file="./cartNavigation.jsp" %>
+
+
+
 <style>
 	.store_detail{
 		margin-top: 10px;
@@ -78,24 +81,18 @@
 	</div>
 </section>
 
+<script type="text/javascript" src="resources/js/jquery.js"></script>
 <script type="text/javascript">
 	
-$(function() {
-	document.getElementById('btn_mins').addEventListener('click',function (){
-		$("#cart_qty").val($("#cart_qty").val() - 1);
-		/* if ($("#cart_qty").val() < 1) {//최소 수량 1
-			$("#cart_qty").val(1);
-		} */
-	});
+
 	
-	$(".btn_plus").click(function() {//물건 개수 더하기 버튼
+	function btn_plus() {
+		alert(2);
 		$("#cart_qty").val(($("#cart_qty").val()) + 1);
 		/* if ($("#cart_qty").val() > 100) {//최대 수량 100
 			$("#cart_qty").val(100);
 		} */
-	});			
-});
-	
+	}
 </script>
 
 <%@ include file="./bottom.jsp" %>
