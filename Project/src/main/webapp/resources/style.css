@@ -1,0 +1,677 @@
+/* Desktop First */
+/*
+.title { font-size: 18px; }
+
+@media (max-width: 1023px) {
+  .title { font-size: 16px; }
+  .container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .title { font-size: 14px; }
+  .container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 639px) {
+  .title { font-size: 12px; }
+  .container {
+    width: 100%;
+  }
+}
+*/
+@import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;600;700;800;900&display=swap')
+	;
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+BODY {
+	/*
+	background-color: #2e2e2e;
+	opacity: 0.8;
+	*/
+	background-color: #fcfcfc;
+}
+
+.header {
+	width: 1080px;
+	height: 20px;
+	margin: 0 auto;
+	display: grid;
+}
+
+.header a {
+	font-size: 0.75em;
+	text-decoration: none;
+	color: black;
+}
+
+.header1 {
+	grid-column: 1;
+	text-align: start;
+}
+
+.header2 {
+	grid-column: 2;
+	text-align: end;
+}
+
+.footer {
+	width: 1080px;
+	height: 60px;
+	margin: 0 auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	vertical-align: middle;
+	font-size: 0.75em;
+	text-decoration: none;
+}
+
+/* 상단 메인 메뉴 */
+.container-mainmenu {
+	width: 1080px;
+	height: 50px;
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	display: grid;
+	grid-template-columns: auto auto auto 200px auto auto auto;
+	place-items: center;
+	place-content: space-around;
+	/* border: 1px solid white; */
+	/* border-bottom: 1px solid black; */
+}
+
+.container-mainmenu a {
+	font-size: 1.2em;
+	font-weight: 500;
+	text-decoration: none;
+	color: black;
+}
+
+.mainmenu-1 {
+	grid-column: 1;
+	/* border: 1px solid white; */
+}
+
+.mainmenu-2 {
+	grid-column: 2;
+	/* border: 1px solid white; */
+}
+
+.mainmenu-3 {
+	grid-column: 3;
+	/* border: 1px solid white; */
+}
+
+.mainmenu-4 {
+	grid-column: 4;
+	/* border: 1px solid white; */
+}
+
+.mainmenu-5 {
+	grid-column: 5;
+	/* border: 1px solid white; */
+}
+
+.mainmenu-6 {
+	grid-column: 6;
+	/* border: 1px solid white; */
+}
+
+.mainmenu-7 {
+	grid-column: 7;
+	/* border: 1px solid white; */
+}
+
+/* 메인 -> 로그인 */
+.container-login {
+	width: 1080px;
+	height: 800px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid;
+}
+
+.login {
+	margin-top: 100px;
+	font-size: 2em;
+	font-weight: 500;
+	text-align: center;
+}
+
+.container-loginMenu {
+	width: 800px;
+	height: 50px;
+	margin: 0 auto;
+	margin-top: 50px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	place-items: center;
+	border: 1px solid;
+}
+
+.container-loginMenu a {
+	font-size: 1em;
+	text-decoration: none;
+	color: black;
+}
+
+.loginmenu-member {
+	grid-column: 1;
+}
+
+.loginmenu-nonmember {
+	grid-column: 2;
+}
+
+.container-loginForm {
+	width: 800px;
+	height: 400px;
+	margin: 0 auto;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+}
+
+/* 회원 로그인 */
+.memberLoginForm {
+	width: 300px;
+	height: 150px;
+	margin: 0 auto;
+	margin-top: 80px;
+	display: grid;
+	align-items: center;
+}
+
+.member-id {
+	grid-row: 1;
+}
+
+.member-password {
+	grid-row: 2;
+}
+
+.member-login-button {
+	grid-row: 3;
+}
+
+.Search-Signup-Check {
+	width: 250px;
+	margin: 0 auto;
+	margin-top: 30px;
+	display: grid;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.Search-Signup-Check a {
+	font-size: 0.75em;
+	text-decoration: none;
+	color: black;
+}
+
+.SSC-1 {
+	grid-column: 1;
+}
+
+.SSC-2 {
+	grid-column: 2;
+}
+
+.SSC-3 {
+	grid-column: 3;
+}
+
+.link-login {
+	width: 250px;
+	margin: 0 auto;
+	margin-top: 30px;
+	display: grid;
+	align-items: center;
+	justify-content: space-evenly;
+}
+.link-login a {
+	font-size: 0.75em;
+	text-decoration: none;
+	color: black;
+}
+.link-login-1 {
+	grid-column: 1;
+}
+.link-login-2 {
+	grid-column: 2;
+}
+.link-login-3 {
+	grid-column: 3;
+}
+
+
+/* 비회원 로그인 */
+.nonmemberLoginForm-0 {
+	width: 740px;
+	height: 350px;
+	margin: 0 auto;
+	margin-top: 30px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-row: auto auto;
+	column-gap: 20px;
+	row-gap: 20px;
+}
+
+.nonmemberLoginForm-1 {
+	grid-row: 1;
+	grid-column: 1;
+	display: grid;
+	grid-template-columns: 30vw, 70vw;
+	grid-template-rows: repeat(5, 1fr);
+	align-items: center;
+	justify-content: space-around;
+}
+
+.nonmemberLoginForm-2 {
+	grid-row: 1;
+	grid-column: 2;
+	padding: 10px;
+	vertical-align: middle;
+}
+
+.nonmember-login-button {
+	grid-row: 2/3;
+	grid-column: 1/3;
+	width: 100%;
+	height: 100%;
+	padding-top: 10px;
+	text-align: center;
+	vertical-align: middle;
+}
+.nonmember-name-1 {
+	grid-row: 1;
+	grid-column: 1;
+}
+
+.nonmember-name-2 {
+	grid-row: 1;
+	grid-column: 2;
+}
+
+.nonmember-phone-1 {
+	grid-row: 2;
+	grid-column: 1;
+}
+
+.nonmember-phone-2 {
+	grid-row: 2;
+	grid-column: 2;
+}
+
+.nonmember-birth-1 {
+	grid-row: 3;
+	grid-column: 1;
+}
+
+.nonmember-birth-2 {
+	grid-row: 3;
+	grid-column: 2;
+}
+
+.nonmember-password-1 {
+	grid-row: 4;
+	grid-column: 1;
+}
+
+.nonmember-password-2 {
+	grid-row: 4;
+	grid-column: 2;
+}
+
+.nonmember-passwordcheck-1 {
+	grid-row: 5;
+	grid-column: 1;
+}
+
+.nonmember-passwordcheck-2 {
+	grid-row: 5;
+	grid-column: 2;
+}
+
+
+/* 메인 -> 회원가입 */
+.container-register {
+	width: 1080px;
+	height: 1500px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid;
+}
+.register {
+	width: 1080px;
+	margin-top: 100px;
+	font-size: 2em;
+	font-weight: 500;
+	text-align: center;
+}
+.register-1 {
+	width: 770px;
+	margin: 0 auto;
+	margin-top: 50px;
+	font-weight: 600;
+}
+.register-1 hr {
+	border: 1.2px solid;
+}
+.registerForm-1 {
+	width: 770px;
+	margin: 0 auto;
+	margin-top: 10px;
+	border-collapse: collapse;
+}
+.registerForm-1 td:nth-child(1) {
+	padding: 10px;
+	width: 220px;
+	vertical-align: middle;
+}
+.registerForm-1 td:nth-child(2) {
+	padding: 10px;
+	width: 550px;
+	vertical-align: middle;
+}
+.registerForm-1 tr:nth-child(3) td, .registerForm-1 tr:nth-child(6) td,
+.registerForm-1 tr:nth-child(8) td, .registerForm-1 tr:nth-child(10) td {
+	padding-bottom: 0px;
+}
+.registerForm-1 tr:nth-child(4) td, .registerForm-1 tr:nth-child(7) td,
+.registerForm-1 tr:nth-child(9) td, .registerForm-1 tr:nth-child(11) td {
+	padding-top: 2px;
+	padding-left: 12px;
+}
+.register-infor {
+	color: #212529;
+	font-size: 0.8em;
+}
+.registerForm-2 {
+	width: 770px;
+	margin: 0 auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-collapse: collapse;
+	
+}
+.registerForm-2 tr:nth-child(1) td:nth-child(1) {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 350px;
+}
+.registerForm-2 td:nth-child(2) {
+	width: 150px;
+	text-align: right;
+}
+.registerForm-2 tr:nth-child(2) td:nth-child(1) {
+	padding: 10px;
+	width: 350px;
+}
+.registerForm-2 tr:nth-child(2) {
+	border: 1px solid;
+}
+.register-button {
+	width: 600px;
+	height: 100px;
+	margin: 0 auto;
+	margin-top: 50px;
+	text-align: center;
+}
+
+
+/* 아이디찾기/비밀번호찾기 */
+.container-find {
+	width: 1080px;
+	height: 800px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid;
+}
+.find {
+	margin-top: 100px;
+	font-size: 2em;
+	font-weight: 500;
+	text-align: center;
+}
+.container-findidpw {
+	width: 800px;
+	height: 50px;
+	margin: 0 auto;
+	margin-top: 50px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	place-items: center;
+	border: 1px solid;
+}
+
+.container-findidpw a {
+	font-size: 1em;
+	text-decoration: none;
+	color: black;
+}
+
+.findmenu-id {
+	grid-column: 1;
+}
+
+.findmenu-pw {
+	grid-column: 2;
+}
+
+.container-findForm {
+	width: 800px;
+	height: 400px;
+	margin: 0 auto;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+}
+
+/* 아이디 찾기 */
+.findIdForm {
+	height: 150px;
+	margin: 0 auto;
+	margin-top: 80px;
+	border-collapse: collapse;
+}
+.findIdForm td:nth-child(1) {
+	width: 125px;
+}
+.findIdForm td:nth-child(2) {
+	width: 250px;
+}
+.find-idpw-button {
+	width: 400px;
+	margin: 0 auto;
+	margin-top: 40px;
+	text-align: center;
+}
+
+/* 비밀번호 찾기 */
+.findPwForm {
+	height: 200px;
+	margin: 0 auto;
+	margin-top: 80px;
+	border-collapse: collapse;
+}
+.findPwForm td:nth-child(1) {
+	width: 125px;
+}
+.findPwForm td:nth-child(2) {
+	width: 250px;
+}
+
+/* 비회원 예매확인 */
+.container-nonmemberReservationCheck {
+	width: 1080px;
+	height: 800px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid;
+}
+.reservationCheck {
+	margin-top: 100px;
+	font-size: 2em;
+	font-weight: 500;
+	text-align: center;
+}
+.container-reservationCheckForm {
+	width: 800px;
+	height: 500px;
+	margin: 0 auto;
+	margin-top: 50px;
+	border: 1px solid black;
+}
+.reservationCheckForm {
+	height: 200px;
+	margin: 0 auto;
+	margin-top: 80px;
+	border-collapse: collapse;
+}
+.reservationCheckForm td:nth-child(1) {
+	width: 125px;
+}
+.reservationCheckForm td:nth-child(2) {
+	width: 250px;
+}
+.before-click-nrc-button {
+	width: 400px;
+	margin: 0 auto;
+	margin-top: 20px;
+	font-size: 0.9em;
+	font-weight: 500;
+}
+.nonmember-reservation-check-button {
+	width: 400px;
+	margin: 0 auto;
+	margin-top: 40px;
+	text-align: center;
+}
+
+/* 비회원 예매확인 -> 팝업창(비회원 예매확인) */
+.popup-nonmember-reservation {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #ffffff;
+	width: 400px;
+	height: 600px;
+}
+.nonmemberReservation {
+	width: 100%;
+	height: 100%;
+	border: 1px solid black;
+}
+.nonmemberReservation td {
+	text-align: center;
+	vertical-align: middle;
+}
+.nonmemberReservation td:nth-child(1) {
+	width: 30%;
+	border: 1px solid black;
+}
+.nonmemberReservation td:nth-child(2) {
+	width: 70%;
+	border: 1px solid black;
+}
+
+
+/* 영화관 */
+.container-theater {
+	width: 1080px;
+	height: 1000px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid;
+}
+.theater {
+	margin-top: 50px;
+	font-size: 2em;
+	font-weight: 500;
+}
+.theaterMain {
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 30px;
+	border-collapse: collapse;
+}
+.theaterMain td {
+	width: 10%;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid;
+	padding: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.area {
+	text-decoration: none;
+	text-size: 1.1em;
+	color: black;
+}
+.theaterMain tr:last-child td {
+	height: 150px;
+	padding: 10px;
+}
+
+/* MY(마이페이지) 메인 */
+.container-mypage {
+	width: 1080px;
+	height: 1000px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 270px 810px;
+	border: 1px solid;
+	
+}
+.container-mypageMenuBar {
+	grid-column: 1;
+	width: 100%;
+	height: 900px;
+	margin-top: 100px;
+	border: 1px solid black;
+}
+.container-mypageContent {
+	grid-column: 2;
+	width: 100%;
+	height: 900px;
+	margin-top: 100px;
+	border: 1px solid black;
+}
+.mypageMenuBar td{
+	text-decoration: none;
+	color: black;
+	padding-left: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.mypageMenuBar td a{
+	text-decoration: none;
+	color: black;
+	/* font-weight: 300; */
+}
+
+
+
+
+
+
+

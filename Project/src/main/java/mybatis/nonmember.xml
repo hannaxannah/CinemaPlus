@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member.model.NonmemberBean">
+
+	<!-- nonmember 테이블 총 레코드 수 -->
+	<select id="GetNonmemberTotal" resultType="int">
+		select count(*) from nonmember
+	</select>
+
+	<!-- 비회원 로그인 -->
+	<insert id="InsertNonmember">
+		insert into nonmember values(
+		#{nonmember_code}, #{nonmember_name}, #{nonmember_phone}, #{nonmember_birth},
+		#{nonmember_pw}, #{nonmember_agree})
+	</insert>
+
+</mapper>
