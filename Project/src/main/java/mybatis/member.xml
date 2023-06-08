@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member.model.MemberBean">
+
+
+	<!-- 회원가입 -->
+	<insert id="InsertMember">
+		insert into
+		member(member_code, member_id, member_pw,
+		member_name, member_birth, member_phone, member_email, pw_question,
+		pw_answer, member_start)
+		values(member_seq.nextval,
+		#{member_id},#{member_pw},#{member_name},#{member_birth},#{member_phone},#{member_email},#{pw_question},#{pw_answer},sysdate)
+	</insert>
+
+	<!-- 중복체크 -->
+	<select id="CheckId" resultType="int">
+		select count(*) from member
+		where member_id = #{member_id}
+	</select>
+
+	<!-- Id넘기기 -->
+	<select id="GetMovieByCode" resultType="member.model.MemberBean">
+		select * from member
+		where member_code = #{member_code}
+	</select>
+
+	<!-- 검색 -->
+	<select id="GetTotalCount" resultType="int">
+		select count(*) from member
+		<if test="whatColumn == 'member_code'">
+			where member_code like #{keyword}
+		</if>
+		<if test="whatColumn == 'member_id'">
+			where member_id like #{keyword}
+		</if>
+		<if test="whatColumn == 'member_name'">
+			where member_name like #{keyword}
+		</if>
+		<if test="whatColumn == 'member_birth'">
+			where member_birth like #{keyword}
+		</if>
+		<if test="whatColumn == 'member_start'">
+			where member_start like #{keyword}
+		</if>
+	</select>
+
+	<!-- 회원목록 -->
+	<select id="GetMemberList" resultType="member.model.MemberBean">
+		select * from member
+		<if test="whatColumn == 'member_code'">
+			where member_code like #{keyword}
+		</if>
+		<if test="whatColumn == 'member_id'">
+			where member_id like #{keyword}
+		</if>
+		<if test="whatColumn == 'member_name'">
+			where member_name like #{keyword}
+		</if>
+		<if test="whatColumn == 'member_birth'">
+			where member_birth like #{keyword}
+		</if>
+		<if test="whatColumn == 'member_start'">
+			where member_start like #{keyword}
+		</if>
+		order by member_code desc
+	</select>
+
+	<!-- 로그인 : 아이디로 검색 -->
+	<select id="GetMemberById" resultType="member.model.MemberBean">
+		select * from member where member_id = #{input_id}
+	</select>
+</mapper>

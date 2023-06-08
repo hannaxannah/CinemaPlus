@@ -10,6 +10,8 @@
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/store.xml"/>
+		<mapper resource="mybatis/member.xml"/>
+		<mapper resource="mybatis/nonmember.xml"/>
 	</mappers>
 </configuration>
 
