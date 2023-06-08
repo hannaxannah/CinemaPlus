@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class StoreProductDao {
 	
-	private String namespace = "Store.model.Product";
+	private String namespace = "Store.model.store";
 
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;

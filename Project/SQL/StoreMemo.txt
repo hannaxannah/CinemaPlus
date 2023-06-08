@@ -21,27 +21,7 @@ insert into Product_Category values(Product_Category_seq.nextval,'영화티켓')
 insert into Product_Category values(Product_Category_seq.nextval,'팝콘/음료/스낵');
 
 insert into Product_Category values(Product_Category_seq.nextval,'기타');
----------------------------------------------------------------------------------------------------쿠폰
-drop sequence Coupon_seq;
 
-create sequence Coupon_seq
-increment by 1
-start with 1
-minvalue 0
-maxvalue 10000
-nocache;
-
-drop table Coupon cascade constraints purge ;
-create table Coupon (
-	coupon_number number primary key,
-	coupon_name varchar2(50) NOT NULL,
-	coupon_state number DEFAULT 0 NOT NULL,
-	coupon_rate number NOT NULL,
-	coupon_qty number NOT NULL,
-	member_code varchar2(100) NOT NULL
-);
-
-insert into Coupon values(Coupon_seq.nextval,'welcome',0,20,100,0);
 -----------------------------------------------------------상품 테이블
 drop sequence Product_seq;
 
@@ -89,8 +69,28 @@ insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','패밀리
 
 
 commit;
----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------쿠폰
+drop sequence Coupon_seq;
 
+create sequence Coupon_seq
+increment by 1
+start with 1
+minvalue 0
+maxvalue 10000
+nocache;
+
+drop table Coupon cascade constraints purge ;
+create table Coupon (
+	coupon_number number primary key,
+	coupon_name varchar2(50) NOT NULL,
+	coupon_state number DEFAULT 0 NOT NULL,
+	coupon_rate number NOT NULL,
+	coupon_qty number NOT NULL,
+	member_code varchar2(100) NOT NULL
+);
+
+insert into Coupon values(Coupon_seq.nextval,'welcome',0,20,100,0);
+------------------------------------------------------------------------------
 
 CREATE TABLE Cart (
 	cart_code number NOT NULL,
