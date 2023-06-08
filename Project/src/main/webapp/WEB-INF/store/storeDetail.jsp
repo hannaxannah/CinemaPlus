@@ -45,10 +45,12 @@
 						<tr>	
 							<td colspan="2" style="padding : 40px">
 								<form action="addCart.store" method="post">
+	                               <input type="hidden" name="product_code" value="${productDetail.product_code}">
+	                               <input type="hidden" name="product_image" value="${productDetail.product_image}">
 									잔여 수량 ${productDetail.product_qty} <br><br>
 	                               <span >수량/금액</span>
 	                               <button type="button" class="btn_minus" title="수량감소" onClick="btn_minus()">-</button>
-	                               <input type="text" id="cart_qty" name="cart_qty" title="수량 입력" readonly="readonly" value="1">
+	                               <input type="text" id="cart_qty" title="수량 입력" readonly="readonly" value="1">
 	                               <button type="button" class="btn_plus" title="수량증가" onClick="btn_plus()">+</button><br><br>
 		                              총 상품 금액 ${productDetail.product_sprice} 원 <br><br>
 		                              적립 포인트 ${productDetail.product_point} point <br><br><br>
@@ -84,15 +86,26 @@
 <script type="text/javascript" src="resources/js/jquery.js"></script>
 <script type="text/javascript">
 	
-
-	
 	function btn_plus() {
-		alert(2);
-		$("#cart_qty").val(($("#cart_qty").val()) + 1);
-		/* if ($("#cart_qty").val() > 100) {//최대 수량 100
-			$("#cart_qty").val(100);
-		} */
+		
+		$("#cart_qty").val(parseInt($("#cart_qty").val()) + 1);
+		if ($("#cart_qty").val() > 10) {//최대 수량 10
+			alert("한번에 선택가능한 수량은 10개입니다.");
+			$("#cart_qty").val(10);
+		}
+		
 	}
+	
+	function btn_minus() {
+		
+		$("#cart_qty").val(parseInt($("#cart_qty").val()) - 1);
+		if ($("#cart_qty").val() < 1) {//최소 수량 1
+			alert("최소 수량은 1개입니다.");
+			$("#cart_qty").val(1);
+		}
+		
+	}
+	
 </script>
 
 <%@ include file="./bottom.jsp" %>
