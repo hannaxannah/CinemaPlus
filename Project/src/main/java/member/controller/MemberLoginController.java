@@ -22,14 +22,14 @@ public class MemberLoginController {
 	private final String getPage = "memberLoginForm";
 	private final String gotoPage = "redirect:/mainLogined.mn";
 
-	@Autowired
+	@Autowired 
 	MemberDao mdao;
 	
 	/* 로그인 폼으로 이동 */
 	@RequestMapping(value=command, method = RequestMethod.GET)
 	public String login() {
 		return getPage;
-	}
+	} 
 
 	
 	@RequestMapping(value=command, method = RequestMethod.POST)
