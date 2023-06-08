@@ -29,7 +29,7 @@ public class MemberLoginController {
 	@RequestMapping(value=command, method = RequestMethod.GET)
 	public String login() {
 		return getPage;
-	}
+	} 
 
 	
 	@RequestMapping(value=command, method = RequestMethod.POST)
