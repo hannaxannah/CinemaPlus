@@ -56,13 +56,13 @@ public class StoreCartController { //장바구니 컨트롤러
 		StoreCartList cart = (StoreCartList)session.getAttribute("cart");
 		//장바구니 cart이 존재하는지 조회
 		
-		Map<Integer,Integer> cartList = cart.getAllCartList();
-		//map으로 등록되있는 cartlist 조회
+		Map<Integer,Integer> product_order_qty = cart.getAllCartList();
+		//상품의 주문 갯수가 저장되있는 map
 		
-		List<StoreCartBean> cartBeanlist = new ArrayList<StoreCartBean>();
-		//StoreCartBean에 저장된 변수기준으로 list생성
+		List<StoreCartBean> cartBeanList = new ArrayList<StoreCartBean>();
+		//StoreCartBean에 저장된 변수기준으로 주문 list생성
 		
-		Set<Integer> keylist = cartList.keySet();
+		Set<Integer> keylist = product_order_qty.keySet();
 		//map에 저장되있는 key값 설정
 		
 		int totalAmount = 0;
@@ -70,12 +70,19 @@ public class StoreCartController { //장바구니 컨트롤러
 		for(Integer product_code:keylist) {
 			StoreCartBean shop = new StoreCartBean();//장바구니 bean 객체 생성
 			StoreProductBean storeProductBean = storeProductDao.getProducDetailByNum(product_code);//상품코드 기준으로 정보 불러오기
+			shop.setProduct_image(storeProductBean.getProduct_image());
+			shop.setProduct_code(storeProductBean.getProduct_code());
+			shop.setProduct_name(storeProductBean.getProduct_name());
+			shop.setProduct_sprice(storeProductBean.getProduct_sprice());
+			shop.setCart_qty(product_order_qty.get(product_code));
+			cartBeanList.add(shop);
+			totalAmount += storeProductBean.getProduct_sprice()*product_order_qty.get(product_code);
+			//총액에 세일금액*수량 더하기
 			
 		}
 		
-		model.addAttribute("cartBeanlist", cartBeanlist);
+		model.addAttribute("cartBeanList", cartBeanList);
 		model.addAttribute("totalAmount", totalAmount);
-		
 		
 		return cartPage;
 	}
