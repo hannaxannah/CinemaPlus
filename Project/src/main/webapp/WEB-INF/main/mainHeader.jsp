@@ -46,7 +46,7 @@
 			</a>
 		</div>
 		<div class="mainmenu-6">
-			<a href="">스토어</a>
+			<a href="list.store">스토어</a>
 		</div>
 		<div class="mainmenu-7">
 			<a href="main.my">MY</a>
