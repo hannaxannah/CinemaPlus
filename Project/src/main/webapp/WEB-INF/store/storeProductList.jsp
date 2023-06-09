@@ -1,13 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp" %>
-<%@ include file="./top.jsp" %>
+<%@ include file="../main/mainHeader.jsp"%>
 <%@ include file="./cartNavigation.jsp" %>
 
 <style>
+	.container_productList {
+		width: 1080px;
+		height: inherit;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		border: 1px solid;
+		position: relative;
+	}
+
 	.contents{
 		overflow: hidden;
-		padding : 50px 0;
+		padding : 50px;
 	}
 	
 	.product_tab .clearfix{
@@ -16,6 +26,7 @@
 	}
 	
 	.clearfix .product_category{
+		list-style:none;
 		float:left;
 		border: 1px solid #ebebeb;
 		width : 19%;
@@ -26,11 +37,18 @@
 		font-size: 20px;
 	}
 	
-	.product_tab{
-		margin-top: 50px;
-		margin-bottom: 50px;
+	.coupon_banner{
+		text-align : center;
+		margin : 30px;
 	}
 </style>
+
+<div class="container_productList">
+	<div class="coupon_banner">
+		<a href="getCoupon.store">
+			쿠폰발급
+		</a>
+	</div>
 
 <section id="store">
         <div class="container">
@@ -46,6 +64,7 @@
 	                     		<li class="product_category"><a href=""><b>기타</b></a></li>
 						</ul>
 					</div>
+					
                     <div>
                     	<h2>기프트 카드</h2>
                     </div>
@@ -92,6 +111,7 @@
                
         </div>
  </section>
+</div>
 
 
-<%@ include file="./bottom.jsp" %>
+<%@ include file="../main/mainFooter.jsp"%>
