@@ -10,6 +10,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import board.model.IndividualBoardBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,28 +67,28 @@ public class IndividualBoardInsertController {
          return null;
       }
 
-      /* �̹��� �߰�4. post��û�� ������ �� uploadPath������ ������Ʈ ��ü ��ġ������ �� */
+      /* 占싱뱄옙占쏙옙 占쌩곤옙4. post占쏙옙청占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙 uploadPath占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙트 占쏙옙체 占쏙옙치占쏙옙占쏙옙占쏙옙 占쏙옙載� */
       //uploadPath:C:\\Users\\user\Downloads\spring-tool-suite-3.9.17.RELEASE\sts-bundle\pivotal-tc-server\instances\Spring3\wtpwebapps\20_Spring_MyBatis_Products\resources
       String uploadPath = servletContext.getRealPath("/resources");
       System.out.println("uploadPath:" + uploadPath);
 
-      // ��� ��� : C:\\Users~~~\resources\lemon.jpg
+      // 占쏙옙占� 占쏙옙占� : C:\\Users~~~\resources\lemon.jpg
       System.out.println("*:" + uploadPath + File.separator + board.getUpload().getOriginalFilename());
 		
 		/* 
-		 �̹��� �߰�5. [���� �ȿ� ������ ���� �������� ����� ���� File��ü�� ����] 
+		 占싱뱄옙占쏙옙 占쌩곤옙5. [占쏙옙占쏙옙 占싫울옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占� 占쏙옙占쏙옙 File占쏙옙체占쏙옙 占쏙옙占쏙옙] 
 		 */
       File destination = new File(uploadPath + File.separator + board.getUpload().getOriginalFilename());
 
-      /* �̹��� �߰�8. �ӽ������� ���� ������ �̹������� �ø� �۾��� �ϴ� �ڵ� */
+      /* 占싱뱄옙占쏙옙 占쌩곤옙8. 占쌈쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占싱뱄옙占쏙옙占쏙옙占쏙옙 占시몌옙 占쌜억옙占쏙옙 占싹댐옙 占쌘듸옙 */
       String str = "c:/tempUpload";
       File destination_local = new File(str + File.separator + board.getUpload().getOriginalFilename());
 
-      /* �̹��� �߰�6. MultipartFile��ü�� �������ִ� productBean.getUpload�� ���� multi������ �޾Ƽ� ���� */
+      /* 占싱뱄옙占쏙옙 占쌩곤옙6. MultipartFile占쏙옙체占쏙옙 占쏙옙占쏙옙占쏙옙占쌍댐옙 productBean.getUpload占쏙옙 占쏙옙占쏙옙 multi占쏙옙占쏙옙占쏙옙 占쌨아쇽옙 占쏙옙占쏙옙 */
       MultipartFile multi = board.getUpload();
 
 
-      // �������� ����.
+      // 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙.
       Map<String, String> result = new HashMap<String, String>();
       MemberBean mb = (MemberBean) session.getAttribute("loginInfo");
       board.setMember_code2(mb.getMember_code());
@@ -101,15 +102,15 @@ public class IndividualBoardInsertController {
       }
 
       try {
-         // DB Insert ����.
+         // DB Insert 占쏙옙占쏙옙.
          idao.InsertBoard(board);
 
-         /* �̹��� �߰�7. ������ ������ �̹��� �ø��� �۾� - transferTo�޼���(����ó���ؾ���)�� MultipartFile��ü�� ���������� multi�� ���� ���� */
+         /* 占싱뱄옙占쏙옙 占쌩곤옙7. 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占싱뱄옙占쏙옙 占시몌옙占쏙옙 占쌜억옙 - transferTo占쌨쇽옙占쏙옙(占쏙옙占쏙옙처占쏙옙占쌔억옙占쏙옙)占쏙옙 MultipartFile占쏙옙체占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 multi占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙 */
          multi.transferTo(destination);
          
          /*
-            �̹��� �߰�9.
-            ������ ����(destination)�� �ø� �̹��������� ����(destination_local)�� �����ؼ� �ø� */
+            占싱뱄옙占쏙옙 占쌩곤옙9.
+            占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙(destination)占쏙옙 占시몌옙 占싱뱄옙占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙(destination_local)占쏙옙 占쏙옙占쏙옙占쌔쇽옙 占시몌옙 */
          //FileCopyUtils.copy(destination_local, destination);
          FileCopyUtils.copy(destination, destination_local);
 
@@ -121,11 +122,32 @@ public class IndividualBoardInsertController {
       }
       return new ResponseEntity<Map<String, String>>(result, HttpStatus.valueOf(200));
    }
-   
-   
-   
-   
-   
-   
-   
+
+
+
+   @RequestMapping(value = "/individualReplyUpdate.in", method = RequestMethod.POST, produces = "application/json")
+   public ResponseEntity<Map<String, Object>> individualReplyUpdate(@ModelAttribute IndividualBoardBean board,
+                                                        HttpSession session,
+                                                        HttpServletRequest request,
+                                                        HttpServletResponse response) throws Exception {
+      Map<String, Object> result = new HashMap<String, Object>();
+
+      try {
+         MemberBean mb = (MemberBean) session.getAttribute("loginInfo");
+         if (session.getAttribute("loginInfo") == null) {
+            result.put("result", "fail");
+            result.put("errorCode", 1);
+            result.put("redirectUrl", request.getContextPath() + "/memberlogin.mb");
+            return new ResponseEntity<Map<String, Object>>(result, HttpStatus.valueOf(200));
+         }
+         idao.updateReplyBoard(board);
+         result.put("errorCode", 0);
+         result.put("result", "success");
+      } catch (Exception e) {
+         result.put("errorCode", -1);
+         result.put("result", "fail");
+      }
+
+      return new ResponseEntity<Map<String, Object>>(result, HttpStatus.valueOf(200));
+   }
 }

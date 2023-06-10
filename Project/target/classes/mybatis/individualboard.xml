@@ -52,7 +52,14 @@
 		delete individualboard
 		where movie_code = #{movie_code}
 	</delete>
-		
+
+
+	<update id="updateReplyBoard" >
+		update individualboard
+		set
+			individual_content = #{individual_content}
+		where movie_code = #{movie_code}
+	</update>
 </mapper>
 
 

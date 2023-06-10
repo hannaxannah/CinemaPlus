@@ -59,31 +59,33 @@
 		</tr>
 	</c:if>
 		
-<c:if test="${fn:length(inboardLists) != 0}">
-	<c:forEach var="board" items="${inboardLists}">
-		<tr>
-			<td align="center">${board.movie_code}</td>
-			<td align="center">${board.customer_id}</td>
-			<td align="center">${board.question_type}</td>
-			<td>
-			<c:if test="${board.re_level > 0 }">
-				<c:set var="wid" value="${board.re_level*20 }"/>
-					<img src="resources/images/level.gif" width="${wid }" height="15">
-					<img src="resources/images/re.gif">
-			</c:if>
-			<a href="detail.in?moviecode=${board.movie_code}&pageNumber=${pageInfo.pageNumber}">${board.subject}</a>
-			</td>
-			<td align="center">
-			<c:if test="${board.re_level eq 0}">
-			${board.individual_content}
-			</c:if>
-			<c:if test="${board.re_level > 0}">
-			${board.individual_content = '답변완료'}
-			</c:if>
-			</td>
-			<td align="center">${board.write_date}</td>
-		</tr>
-	</c:forEach>
+	<c:if test="${fn:length(inboardLists) != 0}">
+		<c:forEach var="board" items="${inboardLists}">
+			<tr>
+				<td align="center">${board.movie_code}</td>
+				<td align="center">${board.customer_id}</td>
+				<td align="center">${board.question_type}</td>
+				<td>
+				<c:if test="${board.re_level > 0 }">
+					<c:set var="wid" value="${board.re_level*20 }"/>
+						<img src="resources/images/level.gif" width="${wid }" height="15">
+						<img src="resources/images/re.gif">
+				</c:if>
+				<a href="detail.in?moviecode=${board.movie_code}&pageNumber=${pageInfo.pageNumber}">${board.subject}</a>
+				</td>
+				<td align="center">
+					<c:if test="${empty board.individual_content}">
+						미 답변
+					</c:if>
+					<c:if test="${not empty board.individual_content}">
+						답변 완료
+					</c:if>
+				</td>
+				<td align="center">
+				<fmt:formatDate value="${board.writeDate}" type="date" pattern="yyyy-MM-dd"/>
+				</td>
+			</tr>
+		</c:forEach>
 	</c:if>
 </table>
 </center>
