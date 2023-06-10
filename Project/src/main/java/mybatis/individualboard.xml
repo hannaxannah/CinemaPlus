@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="board.model.IndividualBoardBean">
+	
+	<!-- 목록보기 -->
+	<select id="GetInBoardList" resultType="board.model.IndividualBoardBean">
+		select movie_code, member_code2, customer_id, name, tel_num, email,select_type,question_type,subject,content,image,individual_content,issecret,
+		writedate
+		from (select rownum as rank, movie_code, member_code2, customer_id, name, tel_num, email,select_type,question_type,subject,content,writedate,image,individual_content,issecret
+		from (select movie_code, member_code2, customer_id, name, tel_num, email,select_type,question_type,subject,content,writedate,image,individual_content,issecret
+		from individualboard
+		order by movie_code desc))
+		<if test="whatColumn == 'subject'">
+		where subject like #{keyword}
+		</if>
+		<if test="whatColumn == 'individual_content'">
+		where individual_content like #{keyword}
+		</if>
+	</select>
+	
+	
+	<!-- 검색기능(카테고리,제목,내용) -->
+	<select id="GetTotalCount" resultType="Integer">
+		select count(*) from individualboard
+			<if test="whatColumn == 'subject'">
+		where subject like #{keyword}
+		</if>
+		<if test="whatColumn == 'individual_content'">
+		where individual_content like #{keyword}
+		</if>
+	</select>
+	
+	
+	<!-- 삽입작업 (절대 resultType은 쓰면 x) -->
+	<update id="InsertInBoard" >
+		insert into individualboard(movie_code,member_code2,customer_id,name,tel_num,email,select_type,question_type,subject,content,writedate,image,individual_content, issecret)
+		values(individualboard_seq.nextval, #{member_code2}, #{customer_id},#{name},#{tel_num},#{email},#{select_type},#{question_type},#{subject},#{content},sysdate,#{image},#{individual_content},#{issecret})
+	</update>
+	
+	<!-- 상세보기 -->
+	<select id="GetOneInBoard" resultType="board.model.IndividualBoardBean">
+  		select * from individualboard
+  		where movie_code = #{movie_code}
+  	</select>
+  	
+  	
+  	<!-- 삭제하기 -->
+	<delete id = "DeleteInBoard">
+		delete individualboard
+		where movie_code = #{movie_code}
+	</delete>
+		
+</mapper>
+
+
+
+
