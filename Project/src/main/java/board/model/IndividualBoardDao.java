@@ -72,6 +72,9 @@ public class IndividualBoardDao {
 		  return cnt;
 	}
 
-
-
+	public int updateReplyBoard(IndividualBoardBean board) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.update(namespace + ".updateReplyBoard", board);
+		return cnt;
+	}
 }
