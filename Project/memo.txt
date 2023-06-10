@@ -10,14 +10,13 @@ create table member(
 	member_email varchar2(50),
 	pw_question varchar2(100),
 	pw_answer varchar2(100),
-	member_marketing_agree varchar2(10);
-	member_email_agree varchar2(10);
-	member_sms_agree varchar2(10);
+	member_marketing_agree varchar2(10),
+	member_email_agree varchar2(10),
+	member_sms_agree varchar2(10),
 	member_start varchar2(10)
 ) ;
 
 insert into member values('1', 'gaga1', 'gaga1234', '김가가', '19990101', '01011111111', 'gaga1@naver.com', '좋아하는 과일은?', '복숭아', sysdate);
-
 
 --nonmember
 drop table nonmember cascade constraints;

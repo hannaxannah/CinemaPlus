@@ -75,6 +75,47 @@
 		<url-pattern>*.mn</url-pattern>
 	</servlet-mapping>
 	
+	<!-- board-servlet -->
+	 <servlet>
+        <servlet-name>board</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/spring/appServlet/board-servlet.xml</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>board</servlet-name>
+        <url-pattern>*.bd</url-pattern>
+    </servlet-mapping>
+
+	<!-- individualboard-servlet -->
+    <servlet>
+        <servlet-name>individualboard</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/spring/appServlet/individualboard-servlet.xml</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>individualboard</servlet-name>
+        <url-pattern>*.in</url-pattern>
+    </servlet-mapping>
+    
+    <!-- mypage-servlet -->
+    <servlet>
+        <servlet-name>mypage</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/spring/appServlet/mypage-servlet.xml</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mypage</servlet-name>
+        <url-pattern>*.mp</url-pattern>
+    </servlet-mapping>
 	
 	 <filter>
 	    <filter-name>encodingFilter</filter-name>

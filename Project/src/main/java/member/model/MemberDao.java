@@ -2,6 +2,7 @@ package member.model;
 
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Map;
 
@@ -70,6 +71,29 @@ public class MemberDao {
 		MemberBean mb = sqlSessionTemplate.selectOne(namespace+".GetMemberById",input_id);
 		return mb;
 	}
+
+	/* 삭제 */
+	public int deleteMember(String member_id) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.delete(namespace+".DeleteMember",member_id);
+		return cnt;
+	}
+
+
+	/* 수정 */
+	public MemberBean GetMemberById(String member_id) {
+		MemberBean member = new MemberBean();
+		member = sqlSessionTemplate.selectOne(namespace+".GetMemberByMyId",member_id); 
+		return member;
+	}
+
+	public int updateMember(MemberBean mb) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.update(namespace + ".UpdateMyMember", mb);
+		System.out.println("cnt:" + cnt);
+		return cnt;
+	}
+
 
 
 
