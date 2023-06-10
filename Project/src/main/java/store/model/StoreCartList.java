@@ -8,7 +8,7 @@ public class StoreCartList {
 	private Map<Integer,Integer> cartlists = null;
 	
 	public StoreCartList() {
-		cartlists = new HashMap<Integer,Integer>(); 
+		cartlists = new HashMap<Integer,Integer>(); // <키(상품코드) , 값(수량)>
 		
 	}
 

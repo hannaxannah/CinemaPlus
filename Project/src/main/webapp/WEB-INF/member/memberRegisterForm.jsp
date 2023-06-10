@@ -22,7 +22,7 @@
 		</td>
 		<td>
 			<input type="text" class="inputText3" name="member_id" value="${mb.member_id}">
-			<input type="button" class="idcheckbutton" value="중복체크">
+			<input type="button" class="idcheckbutton" value="중복체크" id="id_check">
 			<span id="idcheck-message"></span><br>
 			
 		</td>
@@ -55,13 +55,22 @@
 			<a style="color: #DE0000">*&nbsp&nbsp</a>비밀번호 찾기 질문
 		</td>
 		<td>
-			<input type="text" class="inputText3" name="member_pw_qustion" value="${mb.member_pw_qustion}"><br>
+			<select name="pw_question" class="selectBox1">
+				<option value="">선택하세요
+				<option value="q1"<c:if test="${mb.pw_question == 'q1'}">selected</c:if>>기억에 남는 추억의 장소는?
+				<option value="q2"<c:if test="${mb.pw_question == 'q2'}">selected</c:if>>자신의 인생 좌우명은?
+				<option value="q3"<c:if test="${mb.pw_question == 'q3'}">selected</c:if>>자신의 보물 제1호는?
+				<option value="q4"<c:if test="${mb.pw_question == 'q4'}">selected</c:if>>가장 기억에 남는 선생님 성함은?
+				<option value="q5"<c:if test="${mb.pw_question == 'q5'}">selected</c:if>>내가 좋아하는 캐릭터는?
+				<option value="q6"<c:if test="${mb.pw_question == 'q6'}">selected</c:if>>인상깊게 읽은 책 이름은?
+				<option value="q7"<c:if test="${mb.pw_question == 'q7'}">selected</c:if>>다시 태어나면 되고 싶은 것은?
+			</select>
 		</td>
 	</tr>
 	<tr>
 		<td></td>
 		<td>
-			<a class="register-infor">비밀번호 찾기 시 사용할 질문을 입력해주세요</a>
+			<a class="register-infor">비밀번호 찾기 시 사용할 질문을 선택해주세요</a>
 		</td>
 	</tr>
 	<tr>
@@ -69,7 +78,7 @@
 			<a style="color: #DE0000">*&nbsp&nbsp</a>비밀번호 찾기 답변
 		</td>
 		<td>
-			<input type="text" class="inputText3" name="member_pw_answer" value="${mb.member_pw_answer}"><br>
+			<input type="text" class="inputText3" name="pw_answer" value="${mb.pw_answer}"><br>
 		</td>
 	</tr>
 	<tr>
@@ -89,7 +98,7 @@
 	<tr>
 		<td></td>
 		<td>
-			<a class="register-infor">휴대폰 번호는 '-' 없이 10자리의 숫자로 입력해주세요</a>
+			<a class="register-infor">휴대폰 번호는 '-' 없이 11자리의 숫자로 입력해주세요</a>
 		</td>
 	</tr>
 	<tr>
@@ -153,7 +162,7 @@
 </table>
 <div class="register-button">
 	<input type="button" class="registerButton" value="취소" onClick="location.href='main.mn'">
-	<input type="submit" class="registerButton" value="가입하기">
+	<input type="submit" class="registerButton" id="join" value="가입하기">
 </div>
 </form:form>
 </div>
