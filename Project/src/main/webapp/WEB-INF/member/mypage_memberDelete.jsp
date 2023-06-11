@@ -38,7 +38,7 @@
 	<tr>
 	<th>연락처 </th>
 		<td>
-			<input type="text" name="member_phone" size="30" placeholder="'-'를 입력하세요">
+			<input type="text" name="member_phone" size="30" placeholder="'-' 제외하고 입력하세요">
 		</td>
 	</tr>
 	

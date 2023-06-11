@@ -69,14 +69,14 @@ $(document).ready(function() {
 
 <%
 	String[] martketingArr = {"비동의","동의"};
-	String[] emailArr = {"비동의","동의"};
-	String[] smsArr = {"비동의","동의"};
+	String[] emailArr = {"수신동의","수신거부"};
+	String[] smsArr = {"수신동의","수신거부"};
 %>
 
 <center>
 <h3 style="margin-right: 400px">회원 정보</h3>
 <form:form commandName="mb" action="mypage_update.mb" method="post">
-	<input type="hidden" name="member_code" value="${cb.member_code}">
+	<input type="hidden" name="member_code" value="${mb.member_code}">
 	<table border="1" style="width: 500px">
 		<tr>
 			<p>* 회원님의 정보를 정확히 입력해주세요.</p>

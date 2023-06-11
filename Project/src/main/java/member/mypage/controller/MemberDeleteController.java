@@ -20,7 +20,7 @@ import member.model.MemberDao;
 @Controller
 public class MemberDeleteController {
 	private final String command = "/mypage_delete.mb";
-	private String gotoPage = "memberloginForm";
+	private String gotoPage = "redirect:/memberlogin.mb";
 	private final String getPage = "mypage_memberDelete";
 	
 	@Autowired
