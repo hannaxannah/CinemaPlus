@@ -44,12 +44,12 @@
  </tr>
   <tr>
  	<td>
-<a href="update.mp?member_id=${loginInfo.member_id}">회원정보 수정하기</a><br>
+<a href="mypage_update.mb?member_id=${loginInfo.member_id}">회원정보 수정하기</a><br>
  	</td>
  </tr>
  <tr>
  	<td>
-<a href="delete.mp?member_id=${loginInfo.member_id}">회원 탈퇴하기</a><br>
+<a href="mypage_delete.mb?member_id=${loginInfo.member_id}">회원 탈퇴하기</a><br>
  	</td>
  </tr>
  

@@ -75,7 +75,7 @@ $(document).ready(function() {
 
 <center>
 <h3 style="margin-right: 400px">회원 정보</h3>
-<form:form commandName="mb" action="update.mp" method="post">
+<form:form commandName="mb" action="mypage_update.mb" method="post">
 	<input type="hidden" name="member_code" value="${cb.member_code}">
 	<table border="1" style="width: 500px">
 		<tr>
@@ -232,7 +232,7 @@ $(document).ready(function() {
 	
 		<tr>
 			<td colspan="2" align="center">
-			<input type="button" onclick="location.href='list.mp'" value="목록으로">
+			<input type="button" onclick="location.href='memberlogin.mb'" value="목록으로">
 			<input type="submit" class="submit" value="수정하기">
 			<input type="reset" value="취소하기">
 			</td>

@@ -15,8 +15,8 @@
 	}
 </style>
 
-<form:form commandName="member"  action="delete.mp" method="post">
-<input type="hidden" name="mcode" value="${member.member_code}">
+<form:form commandName="member"  action="mypage_delete.mb" method="post">
+<input type="hidden" name="member_code" value="${member.member_code}">
 <table border="1" style="width: 500px">
 	<tr align="center">
 		<td colspan="2"><B>회원님의 정보를 입력하시고 탈퇴 버튼을 클릭해주세요.</B></td>
@@ -44,7 +44,7 @@
 	
 	<tr align="center">
 		<td colspan="2">
-			<input type="submit" value="탈퇴" onclick="location.href='delete.mp'">
+			<input type="submit" value="탈퇴" onclick="location.href='mypage_delete.mb'">
 			<input type="reset" value="취소">
 		</td>
 	</tr>
