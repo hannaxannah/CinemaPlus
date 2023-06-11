@@ -1,4 +1,4 @@
-package mypage.controller;
+package member.mypage.controller;
 
 import java.io.IOException;
 
@@ -18,10 +18,10 @@ import member.model.MemberBean;
 import member.model.MemberDao;
 
 @Controller
-public class MypageMemberDeleteController {
-	private final String command = "/delete.mp";
+public class MemberDeleteController {
+	private final String command = "/mypage_delete.mb";
 	private String gotoPage = "memberloginForm";
-	private final String getPage = "memberDelete";
+	private final String getPage = "mypage_memberDelete";
 	
 	@Autowired
 	MemberDao mdao;

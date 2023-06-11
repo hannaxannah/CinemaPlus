@@ -1,4 +1,4 @@
-package mypage.controller;
+package member.mypage.controller;
 
 import javax.validation.Valid;
 
@@ -16,11 +16,11 @@ import member.model.MemberBean;
 import member.model.MemberDao;
 
 @Controller
-public class MypageMemberUpdateController {
+public class MemberUpdateController {
 
-	private final String command = "/update.mp";
-	private final String getPage = "memberUpdateForm";
-	private final String gotoPage = "redirect:/list.mp";
+	private final String command = "/mypage_update.mb";
+	private final String getPage = "mypage_memberUpdateForm";
+	private final String gotoPage = "redirect:/list.mb";
 
 	@Autowired
 	MemberDao mdao;
