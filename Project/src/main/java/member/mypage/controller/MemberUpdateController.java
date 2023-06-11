@@ -20,7 +20,7 @@ public class MemberUpdateController {
 
 	private final String command = "/mypage_update.mb";
 	private final String getPage = "mypage_memberUpdateForm";
-	private final String gotoPage = "redirect:/list.mb";
+	private final String gotoPage = "redirect:/memberlogin.mb";
 
 	@Autowired
 	MemberDao mdao;
