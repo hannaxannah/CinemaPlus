@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" type="text/css" href="style.css">
 <%@ include file="../common/common.jsp" %>
+<%@ include file="../main/mainHeader.jsp"%>    
 <style type="text/css">
 	table{
 		margin: auto;
@@ -17,7 +18,7 @@
 
 <form:form commandName="member"  action="mypage_delete.mb" method="post">
 <input type="hidden" name="member_code" value="${member.member_code}">
-<table border="1" style="width: 500px">
+<table border="1" style="margin-top: 150px;">
 	<tr align="center">
 		<td colspan="2"><B>회원님의 정보를 입력하시고 탈퇴 버튼을 클릭해주세요.</B></td>
 	</tr>
@@ -38,7 +39,7 @@
 	<tr>
 	<th>연락처 </th>
 		<td>
-			<input type="text" name="member_phone" size="30" placeholder="'-' 제외하고 입력하세요">
+			<input type="text" name="member_phone" size="30" placeholder="'-'를 제외하고 입력하세요">
 		</td>
 	</tr>
 	
@@ -50,3 +51,6 @@
 	</tr>
 </table>
 </form:form>
+
+<%@ include file="../main/mainFooter.jsp"%>
+
