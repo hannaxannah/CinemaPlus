@@ -41,6 +41,11 @@
 		text-align : center;
 		margin : 30px;
 	}
+	
+	.p_img{
+		width:280px;
+		height:280px;
+	}
 </style>
 
 <div class="container_productList">
@@ -74,7 +79,7 @@
 	                       <tr>
 	                       		<td height="200px" width="200px" style="background: #eee;">
 				                    <a href="productDetail.store?product_code=${products.product_code}">
-				                       	<img alt="상품 사진" src="<%=request.getContextPath()%>/resources/store_images/${products.product_image}">
+				                       	<img class="p_img" alt="상품 사진" src="<%=request.getContextPath()%>/resources/store_images/${products.product_image}">
 				                    </a>
 	                       		</td>
 	                       	</tr>

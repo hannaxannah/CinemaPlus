@@ -11,9 +11,6 @@
 		<setting name="defaultExecutorType" value="REUSE" />
 		<setting name="jdbcTypeForNull" value="NULL" />
 	</settings>
-	<typeAliases>
-		<typeAlias type="store.model.StoreProductBean" alias="Store"/>
-	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/store.xml"/>
 		<mapper resource="mybatis/member.xml"/>

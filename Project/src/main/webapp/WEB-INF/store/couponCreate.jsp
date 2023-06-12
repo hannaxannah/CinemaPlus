@@ -53,7 +53,7 @@
 </script> 
  <h2>쿠폰발행 페이지</h2>   
     
-<form name="coupon_form" action="couponAdmin.store" method="post" onSubmit="return emptyCheck()"> 
+<form name="coupon_form" action="couponCreate.store" method="post" onSubmit="return emptyCheck()"> 
 	<table border="1">
 		<tr>
 			<td>
