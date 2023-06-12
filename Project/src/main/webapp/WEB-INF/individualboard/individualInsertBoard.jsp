@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ include file="../common/common.jsp" %>
 individualInsertBoard.jsp<br>
+<%@ include file="../common/common.jsp" %>
+<%@ include file="../main/mainHeader.jsp"%>    
 
 <style>
     .t_red {
@@ -24,15 +25,25 @@ individualInsertBoard.jsp<br>
     String[] questionArr = {"영화정보문의", "회원 및 포인트문의", "예매/결제문의", "이벤트문의", "일반문의", "제안/건의"};
 %>
 
-
-<h3 align="left" style="margin-left: 280px">1:1문의</h3>
-<p align="left" style="margin-left: 280px">
+<table  width="55%" style="text-align: left; margin: auto;">
+<tr>
+	<td>
+<h3 align="left">1:1문의</h3><br>
+	</td>
+</tr>
+<tr>
+	<td>
+	<p align="left">
     <b>고객님의 문의에 답변하는 직원은 <font color="red">고객 여러분의 가족 중 한 사람일 수 있습니다.</font></b><br>
     고객의 언어폭력(비하, 욕설, 협박, 성희롱 등)으로부터 직원을 보호하기 위해<br>
     관련 법에 따라 수사기관에 필요한 조치를 요구할 수 있으며, 형법에 의해 처벌 대상이 될 수 있습니다.<br><br>
 
     문의하시기 전 FAQ를 확인하시면 궁금증을 더욱 빠르게 해결하실 수 있습니다.<br><br><br>
 </p>
+	</td>
+</tr>
+</table>
+
 <h2 align="center">문의글 작성</h2>
 <form name="boardForm" action="insert.in" method="POST" enctype="multipart/form-data" >
     <table width="55%" border="1" style="margin: auto;">
@@ -94,7 +105,7 @@ individualInsertBoard.jsp<br>
         <tr>
             <th>내용<span class="t_red">*</span></th>
             <td>
-               <textarea style="resize: none;" id="content" name="content" cols="93" rows="20"
+               <textarea style="resize: none;" id="content" name="content" cols="103" rows="15"
 					placeholder="- 문의내용에 개인정보(이름,연락처,카드번호 등)가 포함되지 않도록 유의하시기 바랍니다.
 - 회원로그인 후 문의작성시 나의 문의내역을 통해 답변을 확인하실 수 있습니다.">${board.content}</textarea>
                 <form:errors cssClass="err" path="content"/>
@@ -128,6 +139,7 @@ individualInsertBoard.jsp<br>
 
 
 
+<%@ include file="../main/mainFooter.jsp"%>
 
 
 
