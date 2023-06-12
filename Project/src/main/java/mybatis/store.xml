@@ -20,6 +20,7 @@
 		(Coupon_seq.nextval,#{coupon_name},#{coupon_rate},#{coupon_qty},#{coupon_qty})
 	</insert>
 	
+	<!-- 쿠폰목록 불러오기 -->
 	<select id="GetCouponList" resultType="store.model.StoreCouponBean">
 		select * from coupon order by coupon_code 
 	</select>

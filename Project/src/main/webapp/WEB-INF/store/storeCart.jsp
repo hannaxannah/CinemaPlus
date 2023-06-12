@@ -28,7 +28,7 @@
 		text-align : center;
 	}
 	
-	img {
+	.store_cart_img {
 		width : 150px;
 		float : left;
 	}
@@ -52,6 +52,9 @@
 		background-color: #f7f8f9;
 	}
 </style>
+
+
+
 <div class="container_cart">
 	<section id="store">
 	        <div class="container">
@@ -71,7 +74,7 @@
 									<tr>
 										<td>
 											<a href="productDetail.store?product_code=${cart.product_code}">
-					                       		<img alt="상품 사진" src="<%=request.getContextPath()%>/resources/store_images/${cart.product_image}">
+					                       		<img alt="상품 사진" class="store_cart_img" src="<%=request.getContextPath()%>/resources/store_images/${cart.product_image}">
 					                   		 </a>
 					                   		<span style="float: left; padding-top: 60px;">
 						                   		${cart.product_name }
@@ -93,14 +96,16 @@
 							<table width="100%" border="1">
 								<tr>
 									<td>
-										
+										<button type="button" onClick="return empty_cart()">
+											장바구니 비우기
+										</button>
 									</td>
 									<td>
 										총 주문 금액 ${totalAmount }
 									</td>
 								</tr>
 								<tr>	
-									<td>
+									<td colspan="2">
 										<button type="submit">
 											결제하기
 										</button>
@@ -116,6 +121,13 @@
 	</section>
 </div>
 
+<script type="text/javascript" src="resources/js/jquery.js"></script>
+<script type="text/javascript">
+	
+	function empty_cart() {
+	
+	}
+</script>
 
 
 <%@ include file="../main/mainFooter.jsp"%>
