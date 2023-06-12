@@ -52,6 +52,11 @@
 <a href="mypage_delete.mb?member_id=${loginInfo.member_id}">회원 탈퇴하기</a><br>
  	</td>
  </tr>
- 
+ <tr>
+ 	<td>
+<a href="mypage_main.mp?member_id=${loginInfo.member_id}">마이페이지 메인</a><br>
+ 	</td>
+ </tr>
+
 </table>    
     
