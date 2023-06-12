@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp" %>
+<%@ include file="../main/mainHeader.jsp"%>    
 
 <style type="text/css">
 	body, table{
@@ -55,3 +56,9 @@
 		</td>
 	</tr>
 </table>
+
+<%@ include file="../main/mainFooter.jsp"%>
+
+
+
+

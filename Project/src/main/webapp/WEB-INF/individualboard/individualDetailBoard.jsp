@@ -2,12 +2,13 @@
          pageEncoding="UTF-8" %>
 individualDetailBoard.jsp<br>
 <%@ include file="../common/common.jsp" %>
+<%@ include file="../main/mainHeader.jsp"%>    
 
 <style type="text/css">
     table {
         margin: auto;
-        width: 630px;
-        height: 50px;
+        width: 650px;
+        height: 40px;
         text-align: center;
     }
 
@@ -34,7 +35,7 @@ individualDetailBoard.jsp<br>
         <td>${board.question_type}</td>
         <td>작성일</td>
         <td>
-            <fmt:formatDate value="${board.write_date}" pattern="yyyy-MM-dd"/>
+           <fmt:formatDate value="${board.writeDate}" type="date" pattern="yyyy-MM-dd"/>
         </td>
     </tr>
     <tr>
@@ -44,7 +45,7 @@ individualDetailBoard.jsp<br>
     <tr>
         <td>내용</td>
         <td colspan="3">
-            <textarea rows="15" cols="65" style="resize: none;" readonly>${board.content}</textarea>
+            <textarea rows="15" cols="70" style="resize: none;" readonly>${board.content}</textarea>
         </td>
     </tr>
     <tr>
@@ -56,7 +57,7 @@ individualDetailBoard.jsp<br>
         <tr>
             <td>답글 달기</td>
             <td colspan="3">
-                <textarea name="individual_content" id="individual_content" rows="5" cols="65"
+                <textarea name="individual_content" id="individual_content" rows="5" cols="70"
                           style="resize: none;">${board.individual_content}</textarea>
             </td>
         </tr>
@@ -86,5 +87,6 @@ individualDetailBoard.jsp<br>
     </tr>
 </table>
 
+<%@ include file="../main/mainFooter.jsp"%>
 
 

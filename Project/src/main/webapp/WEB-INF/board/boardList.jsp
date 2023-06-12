@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%@include file="../common/common.jsp"%>
+<%@ include file="../main/mainHeader.jsp"%>    
 	FAQboardList.jsp<br>
 
 	<h2 align="center">자주묻는질문</h2>
@@ -68,3 +69,6 @@
 </center>
 	
 	
+<%@ include file="../main/mainFooter.jsp"%>
+
+

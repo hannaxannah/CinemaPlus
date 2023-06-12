@@ -3,6 +3,8 @@
 individualReply.jsp<br>
 
 <%@ include file="../common/common.jsp" %>
+<%@ include file="../main/mainHeader.jsp"%>    
+
   <style>
     .t_red {
         color: #f55500
@@ -126,3 +128,7 @@ individualReply.jsp<br>
         </tr>
     </table>
 </form><br><br>
+
+<%@ include file="../main/mainFooter.jsp"%>
+
+
