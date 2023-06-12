@@ -17,7 +17,7 @@
 
 	.contents{
 		overflow: hidden;
-		padding : 50px;
+		padding : 35px;
 	}
 	
 	.product_tab .clearfix{

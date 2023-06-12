@@ -23,8 +23,10 @@ import store.model.StoreProductDao;
 public class StoreCartController { //장바구니 컨트롤러
 	
 	private final String command = "/addCart.store"; //장바구니 추가
-	private final String command2 = "/cart.store"; //장바구니 리스트 불러오기
-	private final String re_command2 = "redirect:/cart.store"; //장바구니 리스트 불러오기
+	private final String list_command = "/cart.store"; //장바구니 리스트 불러오기
+	private final String reload_command = "redirect:/cart.store"; //장바구니 리스트 불러오기
+	
+	
 	private final String cartPage = "storeCart";
 	
 	@Autowired
@@ -37,21 +39,35 @@ public class StoreCartController { //장바구니 컨트롤러
 							HttpSession session
 							) {
 		
+//		String userid=(String)session.getAttribute("userid");
+//        if(userid==null) { 아이디 세션 확인
+//        }
+        
 		StoreCartList cart = (StoreCartList)session.getAttribute("cart");
 		//장바구니 cart이 존재하는지 조회
 		
 		if(cart==null) {//장바구니 조회했는데 없을때 객체를 생성
+			
 			cart = new StoreCartList();
+			
+		}else {//장바구니가 존재한다면
+			if(cart.getAllCartList().containsKey(product_code)) { //장바구니세션에 삽입할 상품코드와 같은 key값이 존재한다면
+				int before_qty = cart.getAllCartList().get(product_code); //기존에 존재하던 수량에
+				int after_qty = before_qty+cart_qty; //삽입할 수량을 더해서 after_qty로 만들고
+				cart.getAllCartList().put(product_code, after_qty); //장바구니에 담겨있는 상품코드의 수량을 삽입한다.
+				return reload_command;
+			}
 		}
 		
 		cart.addOrder(product_code, cart_qty);//장바구니에 상품코드랑 수량 입력
 		
+		
 		session.setAttribute("cart", cart);//StoreCartList 세션설정
 		
-		return re_command2;
+		return reload_command;
 	}
 	
-	@RequestMapping(command2)
+	@RequestMapping(list_command)
 	public String doAction(HttpSession session,Model model) {
 		
 		StoreCartList cart = (StoreCartList)session.getAttribute("cart");
@@ -83,8 +99,10 @@ public class StoreCartController { //장바구니 컨트롤러
 			
 		}
 		
-		model.addAttribute("cartBeanList", cartBeanList);
-		model.addAttribute("totalAmount", totalAmount);
+		model.addAttribute("cartBeanList", cartBeanList); //물품리스트
+		model.addAttribute("totalAmount", totalAmount); //물품 총액
+		
+		session.setAttribute("cartSize", cartBeanList.size()); //장바구니에 담겨있는 물품 갯수를 담은 세션
 		
 		return cartPage;
 	}
