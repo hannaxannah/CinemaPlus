@@ -14,6 +14,12 @@
 		select * from Product where product_code = #{p_code}
 	</select>
 	
+	<!-- 쿠폰 생성 -->
+	<insert id="CreateCoupon">
+		insert into coupon values
+		(Coupon_seq.nextval,#{coupon_name},#{coupon_rate},#{coupon_qty},#{coupon_qty})
+	</insert>
+	
 </mapper>
 
 

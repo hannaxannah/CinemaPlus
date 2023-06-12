@@ -14,11 +14,17 @@
 		position: relative;
 	}
 	.title_coupon{
-		margin-top : 30px;
+		margin : 30px ;
+		
+	}
+	
+	.coupon_container{
+		margin : 30px ;
 	}
 	
 	.coupon_box{
-	
+		float : left;
+		margin : 20px;
 	}
 </style>
 
@@ -27,7 +33,31 @@
 		<h2>쿠폰 발급 페이지</h2>
 	</div>
 	
-	<div class="coupon_box">
-			
+	<div class="coupon_container">
+<c:forEach begin="1" end="10">
+			<table border="1" width="450px" height="150px" class="coupon_box">
+				<tr>
+					<td width="100px">
+						쿠폰이름
+					</td>
+					<td>
+						이름
+					</td>
+					<td rowspan="2">
+						<button type="button">발급</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						할인률
+					</td>
+					<td>
+						100%
+					</td>
+				</tr>
+			</table>
+</c:forEach>
 	</div>
 </div>
+
+<%@ include file="../main/mainFooter.jsp"%>

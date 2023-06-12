@@ -1,22 +1,23 @@
 package store.model;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class StoreCouponDao {
 
-	public String createCoupon() {
-		String coupon = null;
+	private String namespace = "Store.model.store";
+
+	@Autowired
+	SqlSessionTemplate sqlSessionTemplate;	
 		
-		String myDate = new java.text.SimpleDateFormat("ddMMyyHHmmss").format(new java.util.Date());//시간날짜12자리
+	public int createCoupon(StoreCouponBean StoreCouponBean) {
+		int cnt = -1;
 		
-		StringBuffer sb = new StringBuffer();
-		for (int i = 0; i < 4; i++) {//랜덤숫자4자리 
-			int num = (int) (Math.random() * 10);
-			sb.append(num);
-		}
-		String ranNum = sb.toString();
+		cnt = sqlSessionTemplate.insert(namespace+".CreateCoupon", StoreCouponBean);
 		
-		coupon = myDate+ranNum;//16자리 쿠폰번호
-		
-		return coupon;
-	}//createCoupon()
+		return cnt;
+	}
 	
 }

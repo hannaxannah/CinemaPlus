@@ -24,9 +24,9 @@ public class StoreListController {// 전체 상품 목록 불러오는 컨트롤
 	@RequestMapping(command)
 	public String doAction(Model model) {
 		
-		List<StoreProductBean> products = storeProductDao.getAllProduct();
+		List<StoreProductBean> products = storeProductDao.getAllProduct(); //전체 상품목록리스트
 		
-		model.addAttribute("products", products);
+		model.addAttribute("products", products);//전체 상품을 담은 products
 		
 		return list;
 	}

@@ -71,26 +71,35 @@ insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','패밀리
 commit;
 ---------------------------------------------------------------------------------------------------쿠폰
 drop sequence Coupon_seq;
-drop table Coupon cascade constraints purge ;
 
-create table Coupon (
-	coupon_name varchar2(50) primary key,
-	coupon_state number DEFAULT 0 NOT NULL,
+create sequence Coupon_seq
+increment by 1
+start with 1
+minvalue 0
+maxvalue 10000
+nocache;
+
+drop table Coupon cascade constraints purge ;
+CREATE TABLE Coupon (
+	coupon_code varchar2(100) NOT NULL,
+	coupon_name varchar2(50) NOT NULL,
 	coupon_rate number NOT NULL,
 	coupon_qty number NOT NULL,
-	coupon_remain_qty number NOT NULL,
-	member_code varchar2(100) NOT NULL
+	coupon_remain_qty number NOT NULL
 );
 
-insert into Coupon values(Coupon_seq.nextval,'welcome',0,20,100,0);
+insert into coupon values(Coupon_seq.nextval,'6월 쿠폰',20,50,50);
 
-//DB에 컬럼 있는 변수
-	private String cp_code;//쿠폰코드(직접 생성해서 입력)
-	private int item_code;//상품코드(paydetail 테이블에서 가져옴)
-	private String pay_code;//결제코드(paydetail 테이블에서 가져옴)
-	private Timestamp cp_date;//발행일(디폴트 now())
-	private int cp_status;//쿠폰상태(0 : 미사용 / 1 : 사용 / 2 : 결제확인용 표시)
-	private String customer_id;//회원ID(수정삭제용으로 추가해둠)
+drop table Coupon_user cascade constraints purge ;
+CREATE TABLE Coupon_user (
+	member_code VARCHAR(255) NOT NULL,
+	coupon_code varchar2(100) NOT NULL,
+	coupon_state number NOT NULL
+);
+
+insert into coupon_user values('M01',1,0);
+
+commit;
 	
 ------------------------------------------------------------------------------
 
