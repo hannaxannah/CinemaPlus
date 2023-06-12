@@ -33,17 +33,20 @@
 		<h2>쿠폰 발급 페이지</h2>
 	</div>
 	
+	<a href="couponCreate.store">[관리] 쿠폰 생성페이지</a>
+	<a href="couponManagement.store">[관리] 쿠폰 관리페이지</a>
+	
 	<div class="coupon_container">
-<c:forEach begin="1" end="10">
+<c:forEach var="c" items="${couponList}">
 			<table border="1" width="450px" height="150px" class="coupon_box">
 				<tr>
 					<td width="100px">
 						쿠폰이름
 					</td>
 					<td>
-						이름
+						${c.coupon_name}
 					</td>
-					<td rowspan="2">
+					<td rowspan="3">
 						<button type="button">발급</button>
 					</td>
 				</tr>
@@ -52,7 +55,15 @@
 						할인률
 					</td>
 					<td>
-						100%
+						${c.coupon_rate} %
+					</td>
+				</tr>
+				<tr>
+					<td>
+						잔여수량
+					</td>
+					<td>
+						${c.coupon_remain_qty}
 					</td>
 				</tr>
 			</table>
