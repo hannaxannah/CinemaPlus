@@ -20,6 +20,8 @@ import store.model.StoreCouponBean;
 
 @Controller
 public class MypageMainController {
+	/*
+	
 	private final String command = "/mypage_main.mp";
 	private final String getPage = "mypageMain";
 	
@@ -48,4 +50,9 @@ public class MypageMainController {
 		
 		return mav;
 	}
+	
+	
+	*/
+	
+	
 }
