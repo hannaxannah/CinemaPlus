@@ -51,15 +51,6 @@
 		color: #aaa;
 		background-color: #f7f8f9;
 	}
-	
-	.delete_cart_btn{
-		float: left;
-	    width: 22px;
-	    height: 22px;
-	    font-size: 0;
-	    border: 1px solid #bebebe;
-	    background: transparent url(resources/store_menuImages/bg_closedBtn.png) center center scroll no-repeat;
-	}
 </style>
 
 
@@ -78,6 +69,7 @@
 										<th>상품 금액</th>
 										<th>수량</th>
 										<th>합계 금액</th>
+										<th>삭제</th>
 									</tr>
 									 <c:forEach items="${cartBeanList}" var="cart">
 										<tr>
@@ -91,15 +83,11 @@
 											</td>
 											<td>${cart.product_sprice }</td>
 											<td width="110px">
-													<button type="button" class="btn_minus" title="수량감소" onClick="btn_minus()">-</button>
 					                            	<input type="text" class="cart_qty" id="cart_qty" name="cart_qty" title="수량 입력" readonly="readonly" value="${cart.cart_qty }">
-					                            	<button type="button" class="btn_plus" title="수량증가" onClick="btn_plus()">+</button>
 											</td>
+											<td>${cart.cart_amount }</td>
 											<td>
-												<div style="float : left">
-													${cart.cart_amount }
-												</div>
-													<a href="" class="delete_cart_btn"></a>
+												<button type="button">삭제</button>
 											</td>
 										</tr>
 									</c:forEach>				
@@ -107,7 +95,7 @@
 								<table width="100%" border="1">
 									<tr>
 										<td>
-											<button type="button" onClick="empty_cart()">
+											<button type="button" onClick="return empty_cart()">
 												장바구니 비우기
 											</button>
 										</td>
@@ -135,9 +123,6 @@
 <script type="text/javascript" src="resources/js/jquery.js"></script>
 <script type="text/javascript">
 	
-	function empty_cart() {
-		location.href = "emptyAll.store";
-	}
 </script>
 
 

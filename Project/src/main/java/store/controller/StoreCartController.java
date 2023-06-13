@@ -25,9 +25,11 @@ public class StoreCartController { //장바구니 컨트롤러
 	private final String command = "/addCart.store"; //장바구니 추가
 	private final String list_command = "/cart.store"; //장바구니 리스트 불러오기
 	private final String reload_command = "redirect:/cart.store"; //장바구니 리스트 불러오기
+	private final String order_command = "order.store"; //결제
+	private final String empty_command = "emptyAll.store"; //장바구니 전체 비우기
 	
-	
-	private final String cartPage = "storeCart";
+	private final String cartPage = "storeCart";	//장바구니페이지
+	private final String orderPage = "orderPage"; //결제페이지
 	
 	@Autowired
 	StoreProductDao storeProductDao;
@@ -105,5 +107,54 @@ public class StoreCartController { //장바구니 컨트롤러
 		session.setAttribute("cartSize", cartBeanList.size()); //장바구니에 담겨있는 물품 갯수를 담은 세션
 		
 		return cartPage;
+	}
+	
+	@RequestMapping(order_command)
+	public String doOrder(HttpSession session,Model model) { //결제페이지
+		
+		StoreCartList cart = (StoreCartList)session.getAttribute("cart");
+		//장바구니 cart이 존재하는지 조회
+		
+		Map<Integer,Integer> product_order_qty = cart.getAllCartList();
+		//상품의 주문 갯수가 저장되있는 map
+		
+		List<StoreCartBean> cartBeanList = new ArrayList<StoreCartBean>();
+		//StoreCartBean에 저장된 변수기준으로 주문 list생성
+		
+		Set<Integer> keylist = product_order_qty.keySet();
+		//map에 저장되있는 key값 설정
+		
+		int totalAmount = 0;
+		
+		for(Integer product_code:keylist) {
+			StoreCartBean shop = new StoreCartBean();//장바구니 bean 객체 생성
+			StoreProductBean storeProductBean = storeProductDao.getProducDetailByNum(product_code);//상품코드 기준으로 정보 불러오기
+			shop.setProduct_image(storeProductBean.getProduct_image());
+			shop.setProduct_code(storeProductBean.getProduct_code());
+			shop.setProduct_name(storeProductBean.getProduct_name());
+			shop.setProduct_sprice(storeProductBean.getProduct_sprice());
+			shop.setCart_qty(product_order_qty.get(product_code));
+			shop.setCart_amount(storeProductBean.getProduct_sprice()*product_order_qty.get(product_code));
+			cartBeanList.add(shop);
+			totalAmount += storeProductBean.getProduct_sprice()*product_order_qty.get(product_code);
+			//총액에 세일금액*수량 더하기
+			
+		}
+		
+		model.addAttribute("cartBeanList", cartBeanList); //물품리스트
+		model.addAttribute("totalAmount", totalAmount); //물품 총액
+		
+		session.setAttribute("cartSize", cartBeanList.size()); //장바구니에 담겨있는 물품 갯수를 담은 세션
+		
+		return cartPage;
+	}
+	
+	@RequestMapping(empty_command)
+	public String emptyCart(HttpSession session) {
+		
+		session.removeAttribute("cart");
+		session.removeAttribute("cartBeanList");
+		
+		return cartPage; //결제페이지
 	}
 }

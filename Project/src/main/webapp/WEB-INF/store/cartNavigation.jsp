@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <style>
+
 	.cart_nav {
 	    position: fixed;
 	    bottom: 50px;
@@ -15,7 +17,7 @@
 	    display : flex;
 	    align-items: center;
 	}
-	
+
 	.cart_nav_num {
 	    position: fixed;
 	    bottom: 90px;
@@ -34,9 +36,9 @@
 	
 </style>
 
-
 <nav>
 	<p class="cart_nav_num">
+		<c:if test="${sessionScope.cartSize eq null}">0</c:if>
 		${sessionScope.cartSize}
 	</p>
 </nav>
