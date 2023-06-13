@@ -20,7 +20,15 @@
 			<a href="">사이트맵</a>
 		</div>
 		<div class="header2">
-			<a href="memberlogin.mb">로그인</a>&nbsp&nbsp<a href="register.mb">회원가입</a>
+			<c:choose>
+				<c:when test="${loginInfo eq null}">
+					<a href="memberlogin.mb">로그인</a>&nbsp&nbsp<a href="register.mb">회원가입</a>
+				</c:when>
+				<c:otherwise>
+					<a href="logout.mb">로그아웃</a>&nbsp&nbsp<a href="">빠른예매</a>
+				</c:otherwise>
+			</c:choose>
+			
 		</div>
 	</div>
 

@@ -92,6 +92,9 @@ public class StoreCartController { //장바구니 컨트롤러
 			shop.setProduct_image(storeProductBean.getProduct_image());
 			shop.setProduct_code(storeProductBean.getProduct_code());
 			shop.setProduct_name(storeProductBean.getProduct_name());
+			if(storeProductBean.getProduct_price() != 0) {
+				shop.setProduct_price(storeProductBean.getProduct_price());
+			}
 			shop.setProduct_sprice(storeProductBean.getProduct_sprice());
 			shop.setCart_qty(product_order_qty.get(product_code));
 			shop.setCart_amount(storeProductBean.getProduct_sprice()*product_order_qty.get(product_code));
@@ -132,6 +135,7 @@ public class StoreCartController { //장바구니 컨트롤러
 			shop.setProduct_image(storeProductBean.getProduct_image());
 			shop.setProduct_code(storeProductBean.getProduct_code());
 			shop.setProduct_name(storeProductBean.getProduct_name());
+			shop.setProduct_price(storeProductBean.getProduct_price());
 			shop.setProduct_sprice(storeProductBean.getProduct_sprice());
 			shop.setCart_qty(product_order_qty.get(product_code));
 			shop.setCart_amount(storeProductBean.getProduct_sprice()*product_order_qty.get(product_code));
@@ -146,7 +150,7 @@ public class StoreCartController { //장바구니 컨트롤러
 		
 		session.setAttribute("cartSize", cartBeanList.size()); //장바구니에 담겨있는 물품 갯수를 담은 세션
 		
-		return cartPage;
+		return orderPage;
 	}
 	
 	@RequestMapping(empty_command)
@@ -154,6 +158,7 @@ public class StoreCartController { //장바구니 컨트롤러
 		
 		session.removeAttribute("cart");
 		session.removeAttribute("cartBeanList");
+		session.removeAttribute("cartSize");
 		
 		return cartPage; //결제페이지
 	}
