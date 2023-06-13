@@ -19,7 +19,7 @@
 		<select name="whatColumn">
 			<option value="">전체</option>
 			<option value="subject">제목</option>
-			<option value="individual_content">답변상태</option>
+			<option value="customer_id">계정ID</option>
 		</select>
 		<input type="text" name="keyword">
 		<input type="submit" value="검색">
@@ -45,8 +45,8 @@
 			</td>
 		</tr>
 		<tr>
-			<th>번호</th>
-			<th>아이디</th>
+			<th width="60px;">번호</th>
+			<th>계정ID</th>
 			<th>유형</th>
 			<th>제목</th>
 			<th>답변상태</th>

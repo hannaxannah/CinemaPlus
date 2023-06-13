@@ -26,7 +26,7 @@
 			<td align="left">
 			<p>
 				<font style="font-size: small; border: medium;">FAQ에서 자주하는 질문을 모았습니다.<br>궁금하신 내용에 대해 검색해 보세요.</font>			
-			</p>
+			</p><br>
 				<span><b>전체 (${pageInfo.totalCount}건)</b></span>
 			</td>
 		</tr>
