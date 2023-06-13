@@ -30,7 +30,7 @@
 		<td><a href="">MY쿠폰</a><br></td>
 	</tr>
 	<tr>
-		<td><a href="membership.mp?member_id=${loginInfo.member_id}">멤버쉽 안내</a><br></td>
+		<td><a href="membership.mp?member_id=${loginInfo.member_id}">멤버십 안내</a><br></td>
 	</tr>
 	<tr>
 		<td><a href="insert.in">1:1문의</a><br></td>
