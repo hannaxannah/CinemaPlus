@@ -6,13 +6,22 @@
 	individualBoard.jsp<br>
 	
 <style>
+	.formList{
+	margin: auto;
+	text-align: center;
+	}
 	b{
 	font-size: small;
 	}	
 </style>
 	
-
-	<h2 align="center">문의내역</h2>
+	<table width="70%" class="formList">
+		<tr>
+			<td>
+				<font style="font-size: x-large;">문의내역</font>
+			</td>
+		</tr>
+	</table>
 <center>
 	<!-- 검색 설정은 내부브라우저 말고 외부브라우저에서 실행 -->
 	<form action="list.in" method="get" style="margin-left: 550px">
@@ -24,13 +33,13 @@
 		<input type="text" name="keyword">
 		<input type="submit" value="검색">
 	</form>
-	<table border="0" width="70%">
+	<table width="70%">
 		<tr>
 			<td align="left">
-				<b>
+				<font style="font-size: small;">
 				- 1:1문의를 통해 남기신 내역을 검색을 통해 확인 하실 수 있습니다.<br>
 				접수하신 글은 비밀글로 등록되어 작성자와 관리자만 확인 가능합니다.
-				</b>
+				</font>
 			</td>
 		</tr>
 	</table>

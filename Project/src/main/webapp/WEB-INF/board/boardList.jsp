@@ -5,10 +5,22 @@
 <%@ include file="../main/mainHeader.jsp"%>    
 
 	FAQboardList.jsp<br>
-
-	<h2 align="center">자주묻는질문</h2>
-<center>
 	
+<style>
+	.formList{
+	margin: auto;
+	text-align: center;
+	}
+</style>
+	
+<center>
+	<table width="70%" class="formList">
+		<tr>
+			<td>
+				<font style="font-size: x-large;">자주 묻는 질문</font>
+			</td>
+		</tr>
+	</table>
 	<!-- 검색 설정은 내부브라우저 말고 외부브라우저에서 실행 -->
 	<form action="list.bd" method="get" style="margin-left: 500px">
 		<select name="whatColumn">

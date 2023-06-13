@@ -93,7 +93,7 @@ individualInsertBoard.jsp<br>
             </td>
         </tr>
         <tr>
-            <th>휴대전화<span class="t_red">*</span></th>
+            <th>연락처<span class="t_red">*</span></th>
             <td>
                 <%--<input id="telnum" name="telnum" value="${board.telnum}" size="35%"/>--%>
                 ${phone}
