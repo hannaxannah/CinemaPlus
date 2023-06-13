@@ -14,6 +14,7 @@ public class MemberBean {
 	private String member_email_agree;
 	private String member_sms_agree;
 	private String member_start;
+	private String member_point;
 	
 	public String getMember_code() {
 		return member_code;
@@ -93,5 +94,12 @@ public class MemberBean {
 	public void setMember_start(String member_start) {
 		this.member_start = member_start;
 	}
+	public String getMember_point() {
+		return member_point;
+	}
+	public void setMember_point(String member_point) {
+		this.member_point = member_point;
+	}
+	
 	
 }

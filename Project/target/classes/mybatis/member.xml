@@ -91,7 +91,8 @@
 		update member 
 		set member_id=#{member_id}, member_pw=#{member_pw}, member_name=#{member_name}, member_birth=#{member_birth},
 		member_phone=#{member_phone}, member_email=#{member_email},pw_question=#{pw_question}, pw_answer=#{pw_answer},
-		member_marketing_agree=#{member_marketing_agree}, member_email_agree=#{member_email_agree},member_sms_agree=#{member_sms_agree},member_start=#{member_start}
+		member_marketing_agree=#{member_marketing_agree}, member_email_agree=#{member_email_agree},member_sms_agree=#{member_sms_agree},
+		member_start=#{member_start},member_point=#{member_point}
 		where member_code = #{member_code}
 	</update>
 	
