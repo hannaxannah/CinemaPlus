@@ -25,7 +25,7 @@ public class MemberUpdateController {
 	@Autowired
 	MemberDao mdao;
 
-	/* ȸ������ -> �������� ���� */
+	///mypage_update.mb -> member/mypage_memberUpdateForm
 	@RequestMapping(value=command,method = RequestMethod.GET)
 	public ModelAndView goAction(@RequestParam("member_id") String member_id) {
 
@@ -38,7 +38,7 @@ public class MemberUpdateController {
 		return mav;
 	}
 
-	// customerUpdateForm -> controller
+	// member/mypage_memberUpdateForm -> controller
 	@RequestMapping(value=command, method=RequestMethod.POST)
 	public ModelAndView doAction(
 			@ModelAttribute("mb") @Valid MemberBean mb,

@@ -67,24 +67,17 @@ public class IndividualBoardInsertController {
          return null;
       }
 
-      /* 占싱뱄옙占쏙옙 占쌩곤옙4. post占쏙옙청占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙 uploadPath占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙트 占쏙옙체 占쏙옙치占쏙옙占쏙옙占쏙옙 占쏙옙載� */
       //uploadPath:C:\\Users\\user\Downloads\spring-tool-suite-3.9.17.RELEASE\sts-bundle\pivotal-tc-server\instances\Spring3\wtpwebapps\20_Spring_MyBatis_Products\resources
       String uploadPath = servletContext.getRealPath("/resources");
       System.out.println("uploadPath:" + uploadPath);
 
-      // 占쏙옙占� 占쏙옙占� : C:\\Users~~~\resources\lemon.jpg
       System.out.println("*:" + uploadPath + File.separator + board.getUpload().getOriginalFilename());
 		
-		/* 
-		 占싱뱄옙占쏙옙 占쌩곤옙5. [占쏙옙占쏙옙 占싫울옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占� 占쏙옙占쏙옙 File占쏙옙체占쏙옙 占쏙옙占쏙옙] 
-		 */
       File destination = new File(uploadPath + File.separator + board.getUpload().getOriginalFilename());
 
-      /* 占싱뱄옙占쏙옙 占쌩곤옙8. 占쌈쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占싱뱄옙占쏙옙占쏙옙占쏙옙 占시몌옙 占쌜억옙占쏙옙 占싹댐옙 占쌘듸옙 */
       String str = "c:/tempUpload";
       File destination_local = new File(str + File.separator + board.getUpload().getOriginalFilename());
 
-      /* 占싱뱄옙占쏙옙 占쌩곤옙6. MultipartFile占쏙옙체占쏙옙 占쏙옙占쏙옙占쏙옙占쌍댐옙 productBean.getUpload占쏙옙 占쏙옙占쏙옙 multi占쏙옙占쏙옙占쏙옙 占쌨아쇽옙 占쏙옙占쏙옙 */
       MultipartFile multi = board.getUpload();
 
 
@@ -102,15 +95,11 @@ public class IndividualBoardInsertController {
       }
 
       try {
-         // DB Insert 占쏙옙占쏙옙.
+         // DB insert
          idao.InsertBoard(board);
 
-         /* 占싱뱄옙占쏙옙 占쌩곤옙7. 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占싱뱄옙占쏙옙 占시몌옙占쏙옙 占쌜억옙 - transferTo占쌨쇽옙占쏙옙(占쏙옙占쏙옙처占쏙옙占쌔억옙占쏙옙)占쏙옙 MultipartFile占쏙옙체占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 multi占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙 */
          multi.transferTo(destination);
          
-         /*
-            占싱뱄옙占쏙옙 占쌩곤옙9.
-            占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙(destination)占쏙옙 占시몌옙 占싱뱄옙占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙(destination_local)占쏙옙 占쏙옙占쏙옙占쌔쇽옙 占시몌옙 */
          //FileCopyUtils.copy(destination_local, destination);
          FileCopyUtils.copy(destination, destination_local);
 

@@ -81,7 +81,6 @@ public class IndividualBoardReplyController {
 	   ModelAndView mav = new ModelAndView();
 	   mav.addObject("pageNumber", pageNumber);
 	   
-	   	// ���䵥 �� ������ ���ϴ�,,
 	      if(resultply.hasErrors()) {
 		         mav.setViewName(getPage);
 		      }else {
@@ -104,28 +103,20 @@ public class IndividualBoardReplyController {
          return null;
       }
 
-      /* �̹��� �߰�4. post��û�� ������ �� uploadPath������ ������Ʈ ��ü ��ġ������ �� */
       //uploadPath:C:\\Users\\user\Downloads\spring-tool-suite-3.9.17.RELEASE\sts-bundle\pivotal-tc-server\instances\Spring3\wtpwebapps\20_Spring_MyBatis_Products\resources
       String uploadPath = servletContext.getRealPath("/resources");
       System.out.println("uploadPath:" + uploadPath);
 
-      // ��� ��� : C:\\Users~~~\resources\lemon.jpg
       System.out.println("*:" + uploadPath + File.separator + board.getUpload().getOriginalFilename());
 		
-		/* 
-		 �̹��� �߰�5. [���� �ȿ� ������ ���� �������� ����� ���� File��ü�� ����] 
-		 */
       File destination = new File(uploadPath + File.separator + board.getUpload().getOriginalFilename());
 
-      /* �̹��� �߰�8. �ӽ������� ���� ������ �̹������� �ø� �۾��� �ϴ� �ڵ� */
       String str = "c:/tempUpload";
       File destination_local = new File(str + File.separator + board.getUpload().getOriginalFilename());
 
-      /* �̹��� �߰�6. MultipartFile��ü�� �������ִ� productBean.getUpload�� ���� multi������ �޾Ƽ� ���� */
       MultipartFile multi = board.getUpload();
 
 
-      // �������� ����
       Map<String, String> result = new HashMap<String, String>();
       MemberBean mb = (MemberBean) session.getAttribute("loginInfo");
       board.setMember_code2(mb.getMember_code());
@@ -141,12 +132,8 @@ public class IndividualBoardReplyController {
       
       try {
     	  
-         /* �̹��� �߰�7. ������ ������ �̹��� �ø��� �۾� - transferTo�޼���(����ó���ؾ���)�� MultipartFile��ü�� ���������� multi�� ���� ���� */
          multi.transferTo(destination);
          
-         /*
-            �̹��� �߰�9.
-            ������ ����(destination)�� �ø� �̹��������� ����(destination_local)�� �����ؼ� �ø� */
          //FileCopyUtils.copy(destination_local, destination);
          FileCopyUtils.copy(destination, destination_local);
 
@@ -159,8 +146,8 @@ public class IndividualBoardReplyController {
       return new ResponseEntity<Map<String, String>>(result, HttpStatus.valueOf(200));
       
       
-   }//�޼���
+   }//
    
-}//Ŭ����
+}//클래스
 
 
