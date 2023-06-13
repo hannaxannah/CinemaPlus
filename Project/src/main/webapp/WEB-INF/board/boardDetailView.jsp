@@ -25,7 +25,7 @@
 	}
 </style>    
 
-<table border="1">
+<table border="1" style="margin-top: 80px">
 	<tr>
 		<th>번호</th>
 		<td>${board.movie_num}</td>
@@ -47,7 +47,7 @@
 	<tr>
 		<th>내용</th>
 		<td colspan="3">
-			<textarea rows="15" cols="70" style="resize: none;" readonly>${board.content}</textarea>
+			<textarea rows="15" cols="80" style="resize: none;" readonly>${board.content}</textarea>
 		</td>
 	</tr>
 	<tr>

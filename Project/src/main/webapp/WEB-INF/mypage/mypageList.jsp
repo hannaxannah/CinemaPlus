@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 	<%@include file="../common/common.jsp"%>
+	<%@include file="../main/mainHeader.jsp"%>
 
 <style>
 	.mypage{
@@ -50,3 +51,7 @@
 	</tr>
 </table>
 </div>
+
+
+<%@include file="../main/mainFooter.jsp"%>
+
