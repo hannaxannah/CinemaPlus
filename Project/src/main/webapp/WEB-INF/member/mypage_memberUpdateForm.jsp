@@ -58,6 +58,10 @@ $(document).ready(function() {
 </script>​​
 
 <%
+	String[] selectArr = {
+		"기억에 남는 추억의 장소는?","자신의 인생 좌우명은?","자신의 보물 제1호는?","가장 기억에 남는 선생님 성함은?",
+		"내가 좋아하는 캐릭터는?","인상깊게 읽은 책 이름은?","다시 태어나면 되고 싶은 것은?"
+			};
 	String[] martketingArr = {"비동의","동의"};
 	String[] emailArr = {"수신동의","수신거부"};
 	String[] smsArr = {"수신동의","수신거부"};
@@ -172,7 +176,16 @@ $(document).ready(function() {
 			<a style="color: #DE0000">*&nbsp&nbsp</a>비밀번호 확인 질문
 			</td>
 			<td>
-				<input type="text" name="pw_question" class="inputText3" value="${mb.pw_question}">
+			<select name="pw_question" class="selectBox1">
+				<option value="">선택하세요
+				<option value="q1"<c:if test="${mb.pw_question == 'q1'}">selected</c:if>>기억에 남는 추억의 장소는?
+				<option value="q2"<c:if test="${mb.pw_question == 'q2'}">selected</c:if>>자신의 인생 좌우명은?
+				<option value="q3"<c:if test="${mb.pw_question == 'q3'}">selected</c:if>>자신의 보물 제1호는?
+				<option value="q4"<c:if test="${mb.pw_question == 'q4'}">selected</c:if>>가장 기억에 남는 선생님 성함은?
+				<option value="q5"<c:if test="${mb.pw_question == 'q5'}">selected</c:if>>내가 좋아하는 캐릭터는?
+				<option value="q6"<c:if test="${mb.pw_question == 'q6'}">selected</c:if>>인상깊게 읽은 책 이름은?
+				<option value="q7"<c:if test="${mb.pw_question == 'q7'}">selected</c:if>>다시 태어나면 되고 싶은 것은?
+			</select>
 				<form:errors cssClass="err" path="pw_question"/>
 			</td>
 		</tr>
