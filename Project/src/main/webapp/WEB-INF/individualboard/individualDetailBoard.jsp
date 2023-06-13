@@ -21,9 +21,8 @@ individualDetailBoard.jsp<br>
 <script type="text/javascript" src="resources/js/jquery.js"></script>
 <script type="text/javascript" src="resources/js/board/detailBoard.js"></script>
 
-<h3 align="center">문의글 상세</h3>
 <input type="hidden" name="movie_code" id="movie_code" value="${board.movie_code}">
-<table border="1">
+<table border="1" style="margin-top: 100px;">
     <tr>
         <td>번호</td>
         <td>${board.movie_code}</td>
@@ -66,7 +65,7 @@ individualDetailBoard.jsp<br>
         <tr>
             <td>답글</td>
             <td colspan="3">
-                <textarea rows="5" cols="65" style="resize: none;" readonly>${board.individual_content}</textarea>
+                <textarea rows="5" cols="70" style="resize: none;" readonly>${board.individual_content}</textarea>
             </td>
         </tr>
     </c:if>

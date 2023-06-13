@@ -58,10 +58,6 @@ $(document).ready(function() {
 </script>​​
 
 <%
-	String[] selectArr = {
-		"기억에 남는 추억의 장소는?","자신의 인생 좌우명은?","자신의 보물 제1호는?","가장 기억에 남는 선생님 성함은?",
-		"내가 좋아하는 캐릭터는?","인상깊게 읽은 책 이름은?","다시 태어나면 되고 싶은 것은?"
-			};
 	String[] martketingArr = {"비동의","동의"};
 	String[] emailArr = {"수신동의","수신거부"};
 	String[] smsArr = {"수신동의","수신거부"};

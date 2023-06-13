@@ -36,7 +36,7 @@
 		<td><a href="insert.in">1:1문의</a><br></td>
 	</tr>
 	<tr>
-		<td><a href="list.in">문의내역</a><br></td>
+		<td><a href="list.in">문의 내역</a><br></td>
 	</tr>
 	<tr>
 		<td><a href="list.bd">자주 묻는 질문(FAQ)</a><br></td>

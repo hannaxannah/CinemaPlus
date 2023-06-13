@@ -45,9 +45,6 @@ public class IndividualBoardReplyController {
    public String doAction(HttpServletRequest request, Model model, HttpServletResponse response, HttpSession session) throws IOException {
       
 	   String pageNumber = request.getParameter("pageNumber");
-	   String ref = request.getParameter("ref");
-	   String re_step = request.getParameter("re_step");
-	   String re_level = request.getParameter("re_level");
 	   
 	   if (session.getAttribute("loginInfo") == null) {
          response.sendRedirect(request.getContextPath() + "/loginForm.cm");
@@ -56,9 +53,6 @@ public class IndividualBoardReplyController {
 
       MemberBean mb = (MemberBean) session.getAttribute("loginInfo");
       model.addAttribute("pageNumber",pageNumber);
-      model.addAttribute("ref",ref);
-      model.addAttribute("re_step",re_step);
-      model.addAttribute("re_level",re_level);
       
       model.addAttribute("email", mb.getMember_email());
       model.addAttribute("name", mb.getMember_name());
@@ -87,9 +81,6 @@ public class IndividualBoardReplyController {
 		         int cnt = idao.replyUpdateBoard(board);
 		         System.out.println("replyUpdateBoard cnt: "+cnt);
 		         if(cnt != -1) {
-		            board.setRe_step(board.getRe_step()+1);
-		            board.setRe_level(board.getRe_level()+1);
-		            
 		            idao.replyInsertBoard(board);
 		            
 		            mav.setViewName(gotoPage);
