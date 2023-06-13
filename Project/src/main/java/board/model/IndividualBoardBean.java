@@ -6,22 +6,19 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Date;
 
 public class IndividualBoardBean {
-	private int moviecode;
-	private int movie_code;
-	private String member_code2;
-	private String customer_id;
-	private String name;
-	private String tel_num;
+	private int moviecode;//영화관코드
+	private int movie_code;//영화관코드
+	private String member_code2;//회원코드
+	private String customer_id;//회원아이디
+	private String name;//작성자명
+	private String tel_num;//연락처
 
-	private String email;
+	private String email;//이메일
 
-	private String select_type;
+	private String select_type;//문의선택
 
-	private String question_type;
+	private String question_type;//문의유형
 
-	private int ref;
-	private int re_step;
-	private int re_level;
 
 	private String subject;
 
@@ -36,11 +33,10 @@ public class IndividualBoardBean {
 
 	public IndividualBoardBean() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public IndividualBoardBean(int moviecode, int movie_code, String member_code2, String customer_id, String name,
-			String tel_num, String email, String select_type, String question_type, int ref, int re_step, int re_level,
+			String tel_num, String email, String select_type, String question_type,
 			String subject, String content, Date write_date, String image, String individual_content,
 			MultipartFile upload, String upload2, String issecret) {
 		this.moviecode = moviecode;
@@ -52,9 +48,6 @@ public class IndividualBoardBean {
 		this.email = email;
 		this.select_type = select_type;
 		this.question_type = question_type;
-		this.ref = ref;
-		this.re_step = re_step;
-		this.re_level = re_level;
 		this.subject = subject;
 		this.content = content;
 		this.write_date = write_date;
@@ -135,30 +128,6 @@ public class IndividualBoardBean {
 
 	public void setQuestion_type(String question_type) {
 		this.question_type = question_type;
-	}
-
-	public int getRef() {
-		return ref;
-	}
-
-	public void setRef(int ref) {
-		this.ref = ref;
-	}
-
-	public int getRe_step() {
-		return re_step;
-	}
-
-	public void setRe_step(int re_step) {
-		this.re_step = re_step;
-	}
-
-	public int getRe_level() {
-		return re_level;
-	}
-
-	public void setRe_level(int re_level) {
-		this.re_level = re_level;
 	}
 
 	public String getSubject() {

@@ -29,6 +29,12 @@ public class IndividualBoardDetailController {
 
 		IndividualBoardBean board = idao.getBoardByCode(moviecode);
 
+		if(mb.getMember_id().equals("admin")) {
+			model.addAttribute("board", board);
+			model.addAttribute("pageNumber", pageNumber);
+			return getPage;
+		}
+		
 		if (board.getIssecret().equals("Y")) {
 			if (mb == null || !mb.getMember_id().equals(board.getCustomer_id())) {
 				return "individualDetailBoardError";
