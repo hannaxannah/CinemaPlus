@@ -44,6 +44,7 @@ public class MemberRegisterController {
 			
 			if(cnt > -1) {
 				mav.setViewName(gotoPage);
+				
 			}else {
 				mav.setViewName(getPage);
 			}

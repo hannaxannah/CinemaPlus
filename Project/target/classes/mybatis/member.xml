@@ -7,13 +7,10 @@
 
 
 	<!-- 회원가입 -->
-	<insert id="InsertMember">
+	<insert id="InsertMember" useGeneratedKeys="false">
 		insert into
-		member(member_code, member_id, member_pw,
-		member_name, member_birth, member_phone, member_email, pw_question,
-		pw_answer, member_start)
-		values(member_seq.nextval,
-		#{member_id},#{member_pw},#{member_name},#{member_birth},#{member_phone},#{member_email},#{pw_question},#{pw_answer},sysdate)
+		member(member_code, member_id, member_pw, member_name, member_birth, member_phone, member_email, pw_question, pw_answer, member_start,member_marketing_agree,member_email_agree,member_sms_agree,member_point)
+		values(member_seq.nextval, #{member_id},#{member_pw},#{member_name},#{member_birth},#{member_phone},#{member_email},#{pw_question},#{pw_answer},sysdate,#{member_marketing_agree},#{member_email_agree},#{member_sms_agree},null) 
 	</insert>
 
 	<!-- 중복체크 -->
