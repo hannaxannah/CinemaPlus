@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,7 +68,7 @@ public class MemberDao {
 		return lists;
 	}
 
-
+	/* 로그인 */
 	public MemberBean getMemberById(String input_id) {
 		MemberBean mb = sqlSessionTemplate.selectOne(namespace+".GetMemberById",input_id);
 		return mb;
@@ -94,6 +96,13 @@ public class MemberDao {
 		System.out.println("cnt:" + cnt);
 		return cnt;
 	}
-	
+
+
+
+	public MemberBean getMemberByEmail(String email) {
+		MemberBean mb = sqlSessionTemplate.selectOne(namespace+".GetMemberByEmail",email);
+		return mb;
+	}
+
 
 }

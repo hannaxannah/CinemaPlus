@@ -20,19 +20,19 @@
 				<tr>
 					<td>이름</td>
 					<td>
-						<input type="text" class="inputText1" name="member_name" placeholder="이름">
+						<input type="text" class="inputText1" name="member_name" placeholder="이름" id="member_name">
 					</td>
 				</tr>
 				<tr>
 					<td>생년월일</td>
 					<td>
-						<input type="text" class="inputText1" name="member_birth" placeholder="ex) 19990101">
+						<input type="text" class="inputText1" name="member_birth" placeholder="ex) 19990101" id="member_birth">
 					</td>
 				</tr>
 				<tr>
 					<td>휴대폰번호</td>
 					<td>
-						<input type="text" class="inputText1" name="member_phone" placeholder="ex) 01012345678">
+						<input type="text" class="inputText1" name="member_phone" placeholder="ex) 01012345678" id="member_phone">
 					</td>
 				</tr>
 			</table>

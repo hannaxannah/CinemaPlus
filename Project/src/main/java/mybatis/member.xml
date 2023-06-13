@@ -94,6 +94,25 @@
 	</update>
 	
 	
+	<!-- 아이디 찾기 -->
+	<select id="GetMemberByMyName" resultType="member.model.MemberBean">
+		select * from member
+		where member_name = #{member_name} 
+	</select>
+	<select id="GetMemberByMyBirth" resultType="member.model.MemberBean">
+		select * from member
+		where member_birth = #{member_birth} 
+	</select>
+	<select id="GetMemberByMyPhone" resultType="member.model.MemberBean">
+		select * from member
+		where member_phone = #{member_phone} 
+	</select>
+	
+	<!-- 카카오로그인 : 이메일로 검색 -->
+	<select id="GetMemberByEmail" resultType="member.model.MemberBean">
+		select * from member where member_email = #{input_email}
+	</select>
+	
 </mapper>
 
 

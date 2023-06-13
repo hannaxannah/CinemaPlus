@@ -37,7 +37,7 @@
 		<!-- 간편 연동 로그인 -->
 		<div class="link-login">
 			<a class="link-login-1" href="">네이버</a>
-			<a class="link-login-2" href="">카카오</a>
+			<a class="link-login-2" href="https://kauth.kakao.com/oauth/authorize?client_id=0f2a40dae9d02f9c0e00332f2d04684a&redirect_uri=http://localhost:8080/ex/kakao.mb&response_type=code">카카오</a>
 			<a class="link-login-3" href="">구글</a>
 		</div>
 	</div>
