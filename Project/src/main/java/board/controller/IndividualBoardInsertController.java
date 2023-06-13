@@ -81,7 +81,6 @@ public class IndividualBoardInsertController {
       MultipartFile multi = board.getUpload();
 
 
-      // 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙.
       Map<String, String> result = new HashMap<String, String>();
       MemberBean mb = (MemberBean) session.getAttribute("loginInfo");
       board.setMember_code2(mb.getMember_code());
