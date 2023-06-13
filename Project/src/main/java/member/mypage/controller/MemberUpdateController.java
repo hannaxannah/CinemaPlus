@@ -1,5 +1,8 @@
 package member.mypage.controller;
 
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 
@@ -20,7 +23,7 @@ public class MemberUpdateController {
 
 	private final String command = "/mypage_update.mb";
 	private final String getPage = "mypage_memberUpdateForm";
-	private final String gotoPage = "redirect:/memberlogin.mb";
+	private final String gotoPage = "redirect:/main.mp";
 
 	@Autowired
 	MemberDao mdao;
@@ -42,7 +45,11 @@ public class MemberUpdateController {
 	@RequestMapping(value=command, method=RequestMethod.POST)
 	public ModelAndView doAction(
 			@ModelAttribute("mb") @Valid MemberBean mb,
+			HttpServletResponse response,
 			BindingResult result) {
+		
+		PrintWriter out = null;
+		response.setContentType("text/html; charset=UTF-8");
 
 		ModelAndView mav = new ModelAndView();
 
