@@ -138,7 +138,7 @@ public class StoreCartController { //장바구니 컨트롤러
 			cartBeanList.add(shop);
 			totalAmount += storeProductBean.getProduct_sprice()*product_order_qty.get(product_code);
 			//총액에 세일금액*수량 더하기
-			
+			 
 		}
 		
 		model.addAttribute("cartBeanList", cartBeanList); //물품리스트

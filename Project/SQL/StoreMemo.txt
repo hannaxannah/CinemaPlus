@@ -86,7 +86,7 @@ CREATE TABLE Coupon (
 	coupon_rate number NOT NULL,
 	coupon_qty number NOT NULL,
 	coupon_remain_qty number NOT NULL
-);
+); 
 
 insert into coupon values(Coupon_seq.nextval,'6월 쿠폰',20,50,50);
 
