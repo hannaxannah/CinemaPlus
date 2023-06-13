@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../main/mainHeader.jsp"%>
+<%@ include file="mainHeader.jsp"%>
 
 <!-- 메인 -->
 <div class="container-main">
@@ -15,4 +15,4 @@
 		<div class=""></div>
 	</div>
 </div>
-<%@ include file="../main/mainFooter.jsp"%>
+<%@ include file="mainFooter.jsp"%>

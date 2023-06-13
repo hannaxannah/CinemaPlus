@@ -37,8 +37,8 @@
 		float:left;
 		background-color: #fff;
 		border: 1px solid #ccc;
-		width : 32px;
-		height : 32px;
+		width : 33px;
+		height : 33px;
 		cursor: pointer;
 	}
 	
@@ -59,6 +59,23 @@
 	    font-size: 0;
 	    border: 1px solid #bebebe;
 	    background: transparent url(resources/store_menuImages/bg_closedBtn.png) center center scroll no-repeat;
+	}
+	
+	.product_price_original{
+		display: block;
+	    margin-top: 2px;
+	    font-weight: 400;
+	    font-size: 16px;
+	    color: #6a6f77;
+	    text-decoration: line-through;
+	}
+	
+	.product_price_sale{
+		display: block; 
+	    margin-top: 23px; 
+	    font-weight: 500; 
+	    font-size: 17px; 
+	    color: #000;
 	}
 </style>
 
@@ -89,11 +106,21 @@
 							                   		${cart.product_name }
 						                   		</span> 
 											</td>
-											<td>${cart.product_sprice }</td>
+											<td>
+												<span class="product_price_sale">
+													<fmt:formatNumber value="${cart.product_sprice}" pattern="#,###"/>원
+												</span>
+												<c:if test="${cart.product_price ne 0}">
+													<span class="product_price_original">
+														<fmt:formatNumber value="${cart.product_price}" pattern="#,###"/>원
+													</span>
+												</c:if>
+											</td>
 											<td width="110px">
 													<button type="button" class="btn_minus" title="수량감소" onClick="btn_minus()">-</button>
 					                            	<input type="text" class="cart_qty" id="cart_qty" name="cart_qty" title="수량 입력" readonly="readonly" value="${cart.cart_qty }">
 					                            	<button type="button" class="btn_plus" title="수량증가" onClick="btn_plus()">+</button>
+					                            	<button></button>
 											</td>
 											<td>
 												<div style="float : left">

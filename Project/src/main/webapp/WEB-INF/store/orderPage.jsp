@@ -51,6 +51,23 @@
 		color: #aaa;
 		background-color: #f7f8f9;
 	}
+	.product_price_original{
+		display: block;
+	    margin-top: 2px;
+	    font-weight: 400;
+	    font-size: 16px;
+	    color: #6a6f77;
+	    text-decoration: line-through;
+	}
+	
+	.product_price_sale{
+		display: block; 
+	    margin-top: 23px; 
+	    font-weight: 500; 
+	    font-size: 17px; 
+	    color: #000;
+	}
+	
 </style>
 
 
@@ -60,7 +77,7 @@
 	        <div class="container">
 	            <div class="row">
 	            	<div class="cart">
-							<h2>장바구니</h2>
+							<h2>결제 페이지</h2>
 	            		<div class="cart_list">
 	            			<form action="order.store" method="get">
 								<table border="1" width="100%">
@@ -69,7 +86,6 @@
 										<th>상품 금액</th>
 										<th>수량</th>
 										<th>합계 금액</th>
-										<th>삭제</th>
 									</tr>
 									 <c:forEach items="${cartBeanList}" var="cart">
 										<tr>
@@ -81,26 +97,27 @@
 							                   		${cart.product_name }
 						                   		</span> 
 											</td>
-											<td>${cart.product_sprice }</td>
+											<td>
+												<span class="product_price_sale">
+												<fmt:formatNumber value="${cart.product_sprice}" pattern="#,###"/>원
+												</span>
+												<c:if test="${cart.product_price ne 0}">
+													<span class="product_price_original">
+														<fmt:formatNumber value="${cart.product_price}" pattern="#,###"/>원
+													</span>
+												</c:if>
+											</td>
 											<td width="110px">
 					                            	<input type="text" class="cart_qty" id="cart_qty" name="cart_qty" title="수량 입력" readonly="readonly" value="${cart.cart_qty }">
 											</td>
 											<td>${cart.cart_amount }</td>
-											<td>
-												<button type="button">삭제</button>
-											</td>
 										</tr>
 									</c:forEach>				
 								</table>
-								<table width="100%" border="1">
+								<table width="100%" border="1" style="margin-top : 50px">
 									<tr>
 										<td>
-											<button type="button" onClick="return empty_cart()">
-												장바구니 비우기
-											</button>
-										</td>
-										<td>
-											총 주문 금액 ${totalAmount }
+											총 결제 예정 금액 ${totalAmount }
 										</td>
 									</tr>
 									<tr>	
