@@ -54,10 +54,10 @@ public class MemberDeleteController {
 		if (member.getMember_pw().equals(member_pw)) {
 			int cnt = mdao.deleteMember(member_id);
 			System.out.println("delete cnt : " + cnt);
-		} else { /* ���� ������ */
+		} else { /* 입력한 비밀번호가 다른 경우 */
 			try {
 				out = response.getWriter();
-				out.print("<script>alert('.');history.go(-1);</script>");
+				out.print("<script>alert('비밀번호를 잘못 입력했습니다.');history.go(-1);</script>");
 				out.flush();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -67,17 +67,17 @@ public class MemberDeleteController {
 		if (member.getMember_phone().equals(member_phone)) {
 			int cnt = mdao.deleteMember(member_id);
 			System.out.println("delete cnt : " + cnt);
-		} else { /* ���� ������ */
+		} else { /* 입력한 전화번호가 다른 경우 */
 			try {
 				out = response.getWriter();
-				out.print("<script>alert('����ó�� �߸� �Է��߽��ϴ�.');history.go(-1);</script>");
+				out.print("<script>alert('연락처를 잘못 입력했습니다.');history.go(-1);</script>");
 				out.flush();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 
-		//���� �����ϸ� �α��� �������� �̵�
+		//삭제 실패로 memberlogin.mb요청으로 로그인 페이지로 이동
 		return gotoPage; 
 
 	}

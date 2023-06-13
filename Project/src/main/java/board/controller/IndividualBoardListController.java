@@ -41,24 +41,21 @@ public class IndividualBoardListController {
 		map.put("whatColumn", whatColumn);
 		map.put("keyword",  "%" + keyword + "%");
 		
-		//��ü���ڵ� �Ǵ� �˻��� ���� ���ڵ�
 		int totalCount = idao.getTotalCount(map);
 		System.out.println("totalCount:" + totalCount);
 		
 		String url = request.getContextPath()+command;
 		System.out.println("url:" + url);
 		
-		/* ���ȭ���� 7�������� ���̵��� ���� */
 		Paging pageInfo = new Paging(pageNumber,"7",idao.getTotalCount(map),url,whatColumn,keyword,null);
 		List<IndividualBoardBean> inboardLists = idao.getBoardList(map,pageInfo);
 		
 		
-		/* ��� ��+��������ȣ+�̵�����ġ */
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("inboardLists", inboardLists);
 		mav.addObject("pageInfo", pageInfo);
 		mav.setViewName(getPage);
 		
-		return mav; // �̵� �� ��ġ
+		return mav; //getPage설정한 곳으로 이동
 	}
 }
