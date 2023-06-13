@@ -79,6 +79,8 @@
 	}
 </style>
 
+<c:set var="original_price" value="0"/>
+<c:set var="sale_price" value="0"/>
 
 
 <div class="container_cart">
@@ -129,27 +131,53 @@
 													<a href="" class="delete_cart_btn"></a>
 											</td>
 										</tr>
+										<c:choose>
+											<c:when test="${cart.product_price eq 0}">
+												<c:set var="original_price" value="${original_price + cart.product_sprice}"/>
+											</c:when>
+											<c:otherwise>
+												<c:set var="original_price" value="${original_price + cart.product_price}"/>
+												<c:set var="sale_price" value="${sale_price + (cart.product_price - cart.product_sprice)*cart.cart_qty}"/>
+											</c:otherwise>
+										</c:choose>
+										
+										
 									</c:forEach>				
 								</table>
-								<table width="100%" border="1">
-									<tr>
-										<td>
 											<button type="button" onClick="empty_cart()">
 												장바구니 비우기
 											</button>
+								<table width="100%" border="1" style="margin-top : 50px">
+									<tr>
+										<th>
+											총 상품 금액
+										</th>
+										<th>
+											할인 금액
+										</th>
+										<th>
+											총 결제 예정 금액
+										</th>
+									</tr>
+									<tr>	
+										<td>
+											<c:out value="${original_price}"/>원
 										</td>
 										<td>
-											총 주문 금액 ${totalAmount }
+											<c:out value="${sale_price}"/>원
+										</td>
+										<td>
+											${totalAmount }
 										</td>
 									</tr>
 									<tr>	
-										<td colspan="2">
-											<button type="submit">
-												결제하기
-											</button>
-										</td>
 									</tr>	
 								</table>
+								<div>
+									<button type="submit">
+									결제하기
+									</button>
+								</div>
 							</form>
 	            		</div>
 					</div>

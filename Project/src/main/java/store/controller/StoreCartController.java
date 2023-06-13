@@ -70,7 +70,7 @@ public class StoreCartController { //장바구니 컨트롤러
 	}
 	
 	@RequestMapping(list_command)
-	public String doAction(HttpSession session,Model model) {
+	public String doAction(HttpSession session,Model model) {//장바구니
 		
 		StoreCartList cart = (StoreCartList)session.getAttribute("cart");
 		//장바구니 cart이 존재하는지 조회
@@ -103,6 +103,7 @@ public class StoreCartController { //장바구니 컨트롤러
 			//총액에 세일금액*수량 더하기
 			
 		}
+		
 		
 		model.addAttribute("cartBeanList", cartBeanList); //물품리스트
 		model.addAttribute("totalAmount", totalAmount); //물품 총액
