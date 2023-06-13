@@ -49,6 +49,6 @@
 			<a href="">스토어</a>
 		</div>
 		<div class="mainmenu-7">
-			<a href="main.my">MY</a>
+			<a href="main.mp?member_id=${loginInfo.member_id}"">MY</a>
 		</div>
 	</div>
