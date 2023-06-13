@@ -4,6 +4,10 @@ individualInsertBoard.jsp<br>
 <%@ include file="../main/mainHeader.jsp"%>    
 
 <style>
+	table{
+		margin-top: 200px;
+		margin: auto;
+	}
     .t_red {
         color: #f55500
     }
@@ -25,10 +29,10 @@ individualInsertBoard.jsp<br>
     String[] questionArr = {"영화정보문의", "회원 및 포인트문의", "예매/결제문의", "이벤트문의", "일반문의", "제안/건의"};
 %>
 
-<table  width="55%" style="text-align: left; margin: auto;">
+<table width="800px;">
 <tr>
 	<td>
-<h3 align="left">1:1문의</h3><br>
+<font style="font-size: x-large;">1:1문의</font><br>
 	</td>
 </tr>
 <tr>
@@ -44,10 +48,10 @@ individualInsertBoard.jsp<br>
 </tr>
 </table>
 
-<h2 align="center">문의글 작성</h2>
+<font style="margin-left: 48%; font-size: large;">문의글 작성</font><br>
 <form name="boardForm" action="insert.in" method="POST" enctype="multipart/form-data" >
-    <table width="55%" border="1" style="margin: auto;">
-        <caption style="text-align: right;"><strong><span class="t_red">*</span> 표시는 필수입력 항목입니다.</strong></caption>
+    <table width="800px" border="1">
+        <caption style="text-align: right;"><font style="font-size:small; font-weight: bold;"><span class="t_red">*</span> 표시는 필수입력 항목입니다.</font></caption>
         <colgroup>
             <col width="20%">
             <col width="*">

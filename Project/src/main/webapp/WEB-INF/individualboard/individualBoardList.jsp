@@ -45,7 +45,7 @@
 			</td>
 		</tr>
 		<tr>
-			<th width="60px;">번호</th>
+			<th width="70">번호</th>
 			<th>계정ID</th>
 			<th>유형</th>
 			<th>제목</th>
