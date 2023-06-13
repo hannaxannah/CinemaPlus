@@ -16,8 +16,8 @@
 		<if test="whatColumn == 'subject'">
 		where subject like #{keyword}
 		</if>
-		<if test="whatColumn == 'individual_content'">
-		where individual_content like #{keyword}
+		<if test="whatColumn == 'customer_id'">
+		where customer_id like #{keyword}
 		</if>
 	</select>
 	
