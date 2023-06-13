@@ -86,17 +86,14 @@ public class MemberDao {
 		member = sqlSessionTemplate.selectOne(namespace+".GetMemberByMyId",member_id); 
 		return member;
 	}
-
+	
+	
 	public int updateMember(MemberBean mb) {
 		int cnt = -1;
 		cnt = sqlSessionTemplate.update(namespace + ".UpdateMyMember", mb);
 		System.out.println("cnt:" + cnt);
 		return cnt;
 	}
-
-
-
-
 	
 
 }

@@ -22,7 +22,7 @@
 	
 	<!-- 쿠폰목록 불러오기 -->
 	<select id="GetCouponList" resultType="store.model.StoreCouponBean">
-		select * from coupon order by coupon_code 
+		select * from coupon order by to_number(coupon_code) 
 	</select>
 </mapper>
 

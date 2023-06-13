@@ -46,14 +46,13 @@
 		width:280px;
 		height:280px;
 	}
+	
+	.product_category_btn{
+		margin-bottom: 100px!important;
+	}
 </style>
 
 <div class="container_productList">
-	<div class="coupon_banner">
-		<a href="getCoupon.store">
-			쿠폰발급
-		</a>
-	</div>
 
 <section id="store">
         <div class="container">
@@ -61,20 +60,25 @@
                 <div class="contents">
                 	<div class="product_tab">
 	                    <h2>스토어</h2>
-						 <ul class="clearfix">
-	                     		<li class="product_category"><a href=""><b>전체</b></a></li>
-	                     		<li	class="product_category"><a href=""><b>기프트 카드</b></a></li>
-	                     		<li class="product_category"><a href=""><b>티켓</b></a></li>
-	                     		<li class="product_category"><a href=""><b>팝콘/음료/스낵</b></a></li>
-	                     		<li class="product_category"><a href=""><b>기타</b></a></li>
-						</ul>
+							<div class="product_category_btn">
+								 <ul class="clearfix" width="100%">
+			                     		<li class="product_category"><a href=""><b>전체</b></a></li>
+			                     		<li	class="product_category"><a href=""><b>기프트 카드</b></a></li>
+			                     		<li class="product_category"><a href=""><b>티켓</b></a></li>
+			                     		<li class="product_category"><a href=""><b>팝콘/음료/스낵</b></a></li>
+			                     		<li class="product_category"><a href=""><b>기타</b></a></li>
+								</ul>
+							</div>
+							<div class="coupon_banner">
+								<a href="getCoupon.store">
+									쿠폰발급
+								</a>
+							</div>
 					</div>
 					
-                    <div>
-                    	<h2>기프트 카드</h2>
-                    </div>
-                    
+                    <div class="category_product_list">
                     <c:forEach var="products" items="${products}">
+                    	<div>
 	                        <table style="float : left; margin: 0 0 40px 40px; border: 1px solid #e4e4e4; border-radius: 10px;">
 	                       <tr>
 	                       		<td height="200px" width="200px" style="background: #eee;">
@@ -108,10 +112,10 @@
 	                       	</tr>
 	                       	
 	                       </table>
+	                      </div>
                     </c:forEach>
-                       
-                    </div>
-                    
+                   </div>   
+                  </div>
                 </div>
                
         </div>
