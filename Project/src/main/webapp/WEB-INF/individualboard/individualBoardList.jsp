@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 	<%@include file="../common/common.jsp"%>
-	<%@ include file="../main/mainHeader.jsp"%>
-	<%@ include file="../mypage/mypageList.jsp"%> 
+<%@include file="../main/mainHeader.jsp"%>
 	    
 	individualBoard.jsp<br>
 	
@@ -69,19 +68,14 @@
 				<td align="center">${board.customer_id}</td>
 				<td align="center">${board.question_type}</td>
 				<td>
-				<c:if test="${board.re_level > 0 }">
-					<c:set var="wid" value="${board.re_level*20 }"/>
-						<img src="resources/images/level.gif" width="${wid }" height="15">
-						<img src="resources/images/re.gif">
-				</c:if>
 				<a href="detail.in?moviecode=${board.movie_code}&pageNumber=${pageInfo.pageNumber}">${board.subject}</a>
 				</td>
 				<td align="center">
 					<c:if test="${empty board.individual_content}">
-						미 답변
+						미답변
 					</c:if>
 					<c:if test="${not empty board.individual_content}">
-						답변 완료
+						답변완료
 					</c:if>
 				</td>
 				<td align="center">
@@ -97,9 +91,7 @@
 	${pageInfo.pagingHtml}
 </center>
 
-
-
-<%@ include file="../main/mainFooter.jsp"%>
+<%@include file="../main/mainFooter.jsp"%>
 
 
 

@@ -32,7 +32,6 @@ public class IndividualBoardDao {
 	public List<IndividualBoardBean> getBoardList(Map<String, String> map, Paging pageInfo) {
 		List<IndividualBoardBean> lists = new ArrayList<IndividualBoardBean>();
 
-		/* new RowBounds(占실너띰옙 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙, 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙) */
 		RowBounds rowBounds = new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
 		
 		lists = sqlSessionTemplate.selectList(namespace + ".GetInBoardList", map, rowBounds);
