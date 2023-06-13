@@ -12,7 +12,7 @@
 <script type="text/javascript">
 	function pointEvent(member_id,member_point) {
 		
-		if(member_point == null) {
+		if(member_point == null || member_point<3000) {
 			member_point = 'Welcome';
 		}else if(member_point>=3000 && member_point<5000) {
 			member_point = 'Friends';
@@ -52,7 +52,7 @@
  		</tr>
  		<tr>	
  			<td>
- 				<input type="button" name="member_point" value="나의 회원등급 확인하기" onclick="return pointEvent('${loginInfo.member_id}${loginInfo.member_point}')">
+ 				<input type="button" name="member_point" value="나의 회원등급 확인하기" onclick="return pointEvent('${loginInfo.member_id}','${loginInfo.member_point}')">
  			</td>
  		</tr>	
      </table><br><br>
