@@ -47,7 +47,7 @@
 		</tr>
 		<tr>	 			
  			<td align="left">
- 		<font style="font-size: medium; color: #A6A6A6" >* 회원혜택은 매 선정마다 달라질 수 있습니다.</font>
+ 		<font style="font-size: medium; color: #A6A6A6" >* 회원 혜택은 매 선정마다 달라질 수 있습니다.</font>
  			</td>
  		</tr>
  		<tr>	

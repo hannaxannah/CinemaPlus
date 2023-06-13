@@ -37,7 +37,7 @@ productList.jsp<br>
 		</tr>
 	</table>
 
-	
+<form name="myform" action="myProductList.mp" method="post">
 	<table border="1">
 		<!-- 로그인한 아이디가 admin일때만 추가하기가 가능하도록 설정 -->
 		<tr>
@@ -64,7 +64,7 @@ productList.jsp<br>
 		</c:forEach>
 	</table>
 	${pageInfo.pagingHtml }
-
+</form>
 
 <div class="coupon">
 <details>

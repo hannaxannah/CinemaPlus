@@ -16,7 +16,7 @@
 	}
 </style> 
     
-<form name="" action="myCouponList.mp" method="post">
+<form name="myform" action="myCouponList.mp" method="post">
 <h2>MY쿠폰</h2>
 <hr>
 <c:forEach var="coupon" items="<%-- ${ coupons } --%>">
