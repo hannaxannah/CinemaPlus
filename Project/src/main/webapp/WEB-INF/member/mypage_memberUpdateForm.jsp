@@ -254,7 +254,7 @@ $(document).ready(function() {
 	</tr>
 </table>
 <div class="register-button">
-			<input type="button" onclick="location.href='memberlogin.mb'" value="목록으로">
+			<input type="button" onclick="location.href='main.mp?member_id=${loginInfo.member_id}'" value="목록으로">
 			<input type="submit" class="submit" value="수정">
 			<input type="reset" value="취소">
 </div>
