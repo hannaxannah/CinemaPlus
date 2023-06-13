@@ -103,13 +103,3 @@ commit;
 	
 ------------------------------------------------------------------------------
 
-CREATE TABLE Cart (
-	cart_code number NOT NULL,
-	product_code varchar2(100) NOT NULL,
-	member_code varchar2(30) NOT NULL,
-	cart_qty number NOT NULL,
-	cart_status	number NOT NULL
-);
-
-
-------------------------------------------------------------  주문 테이블
