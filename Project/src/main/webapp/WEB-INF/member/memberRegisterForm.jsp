@@ -21,7 +21,7 @@
 			<a style="color: #DE0000">*&nbsp&nbsp</a>아이디
 		</td>
 		<td>
-			<input type="text" class="inputText3" name="member_id" value="${mb.member_id}">
+			<input type="text" class="inputText3" name="member_id" value="${mb.member_id}" id="member_id">
 			<input type="button" class="idcheckbutton" value="중복체크" id="id_check">
 			<span id="idcheck-message"></span><br>
 			
@@ -32,7 +32,7 @@
 			<a style="color: #DE0000">*&nbsp&nbsp</a>비밀번호
 		</td>
 		<td>
-			<input type="password" class="inputText3" name="member_pw"><br>
+			<input type="password" class="inputText3" name="member_pw" id="member_pw"><br>
 		</td>
 	</tr>
 	<tr>
@@ -87,12 +87,26 @@
 			<a class="register-infor">비밀번호 찾기 시 사용할 답변을 입력해주세요</a>
 		</td>
 	</tr>
+	 <tr>
+      <td>
+         <a style="color: #DE0000">*&nbsp&nbsp</a>생년월일
+      </td>
+      <td>
+         <input type="text" class="inputText3" name="member_birth" value="${mb.member_birth}" id="member_birth"><br>
+      </td>
+   </tr>
+   <tr>
+		<td></td>
+		<td>
+			<a class="register-infor">생년월일은 8자리 숫자로 입력해주세요</a>
+		</td>
+	</tr>
 	<tr>
 		<td>
 			<a style="color: #DE0000">*&nbsp&nbsp</a>휴대폰번호
 		</td>
 		<td>
-			<input type="text" class="inputText3" name="member_phone" value="${mb.member_phone}"><br>
+			<input type="text" class="inputText3" name="member_phone" value="${mb.member_phone}" id="member_phone"><br>
 		</td>
 	</tr>
 	<tr>
