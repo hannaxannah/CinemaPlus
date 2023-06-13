@@ -5,6 +5,10 @@
 <%@ include file="./cartNavigation.jsp" %>
 
 <style>
+	ul,li{
+		list-style-type: none;
+	}
+	
 	.container_cart {
 		width: 1080px;
 		height: inherit;
@@ -68,9 +72,14 @@
 	    color: #000;
 	}
 	
+	.order_box_design_wrap{
+		margin: 70px auto 0;
+	}
+	
 </style>
 
-
+<c:set var="original_price" value="0"/>
+<c:set var="sale_price" value="0"/>
 
 <div class="container_cart">
 	<section id="store">
@@ -112,22 +121,65 @@
 											</td>
 											<td>${cart.cart_amount }</td>
 										</tr>
+										<c:choose>
+											<c:when test="${cart.product_price eq 0}">
+												<c:set var="original_price" value="${original_price + cart.product_sprice}"/>
+											</c:when>
+											<c:otherwise>
+												<c:set var="original_price" value="${original_price + cart.product_price}"/>
+												<c:set var="sale_price" value="${sale_price + (cart.product_price - cart.product_sprice)*cart.cart_qty}"/>
+											</c:otherwise>
+										</c:choose>
 									</c:forEach>				
 								</table>
 								<table width="100%" border="1" style="margin-top : 50px">
 									<tr>
+										<th>
+											총 상품 금액
+										</th>
+										<th>
+											할인 금액
+										</th>
+										<th>
+											총 결제 예정 금액
+										</th>
+									</tr>
+									<tr>	
 										<td>
-											총 결제 예정 금액 ${totalAmount }
+											<c:out value="${original_price}"/>원
+										</td>
+										<td>
+											<c:out value="${sale_price}"/>원
+										</td>
+										<td>
+											${totalAmount }
 										</td>
 									</tr>
 									<tr>	
-										<td colspan="2">
-											<button type="submit">
-												결제하기
-											</button>
-										</td>
 									</tr>	
 								</table>
+								
+								<div class="order_box_design_wrap">
+							        <strong class="com_box_design_title">주문자 정보 확인</strong>
+							        <ul class="com_box_design">
+							            <li>
+							                <label for="user_info_name">
+							                    이름</label>
+							                <input type="text" id="user_info_name" placeholder="이름" style="width: 128px" value="${loginInfo.getMember_name()}" readonly="">
+							                <label for="user_info_phonenum">
+							                    휴대전화 번호</label>
+							                <input type="tel" id="user_info_phonenum" placeholder="휴대전화 번호" style="width: 228px" value="0${loginInfo.getMember_phone()}" readonly="">
+							            </li>
+							        </ul>
+							        <p class="order_box_design_wrap">
+							            구매하신 상품은 주문자 정보에 입력된 휴대전화 번호로 MMS로 발송됩니다.<br>
+							            입력된 휴대전화 번호가 맞는지 꼭 확인하세요.</p>
+							    </div>
+								
+								<div class="store_box_design_wrap">
+							        <strong class="com_box_design_title">결제 수단</strong>
+							        
+							    </div> 
 							</form>
 	            		</div>
 					</div>
