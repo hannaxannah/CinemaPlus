@@ -2,6 +2,10 @@ package member.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,17 +41,16 @@ public class FindIdController {
 	public String findId(Model model,
 			@RequestParam("member_name") String member_name,
 			@RequestParam("member_birth") String member_birth,
-			@RequestParam("member_phone") String member_phone, MemberBean MemberBean,
+			@RequestParam("member_phone") String member_phone,
 			HttpServletResponse response)throws Exception {
 
-		model.addAttribute("id", find_id(response, member_name,member_birth,member_phone));
-		return "/member/find_id";
+		Map<String, String> map = new HashMap<String, String>();
+		List<MemberBean> lists = mdao.findId(map); 
+		
+		
+		return gotoPage;
 			
 		}
 
-	private Object find_id(HttpServletResponse response, String member_name, String member_birth, String member_phone) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 		
 }
