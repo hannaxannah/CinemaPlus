@@ -79,10 +79,10 @@ public class IndividualBoardDao {
 
 
 	/* 나의 문의내역 */
-	public IndividualBoardBean getBoardMyList(String customer_id) {
-		IndividualBoardBean board = null;
-		board = sqlSessionTemplate.selectOne(namespace+".GetOneInMyBoard",customer_id);
-		return board;
+	public List<IndividualBoardBean> getBoardById(String member_id) {
+		List<IndividualBoardBean> mlist = new ArrayList<IndividualBoardBean>();
+		mlist = sqlSessionTemplate.selectList(namespace + ".GetOneInMyBoard", member_id);
+		return mlist;
 	}
 	
 	

@@ -26,9 +26,6 @@
 			
 	<table border="1" width="700px">
 		<tr>
-			<td align="center">
-				<span><b>전체 (${pageInfo.totalCount}건)</b></span>
-			</td>
 			<td align="right" colspan="6">
 				<input type="button" onclick="location.href='insert.in'" value="1:1문의">
 			</td>
@@ -41,13 +38,18 @@
 			<th>답변상태</th>
 			<th>등록일</th>
 		</tr>
+		<c:if test="${fn:length(lists) == 0}">
+			<tr>
+				<td colspan="6" align="center">목록이 없습니다.</td>
+			</tr>
+		</c:if>
 		
-		
+		<c:forEach var="board" items="${lists}">
 			<tr>
 				<td align="center">${board.movie_code}</td>
 				<td align="center">${board.question_type}</td>
 				<td>
-				<a href="detail.in?moviecode=${board.movie_code}&pageNumber=${pageInfo.pageNumber}">${board.subject}</a>
+				<a <%-- href="detail.in?moviecode=${board.movie_code}&pageNumber=${pageInfo.pageNumber}" --%>>${board.subject}</a>
 				</td>
 				<td align="center">
 					<c:if test="${empty board.individual_content}">
@@ -61,6 +63,7 @@
 				<fmt:formatDate value="${board.writeDate}" type="date" pattern="yyyy-MM-dd"/>
 				</td>
 			</tr>
+		</c:forEach>	
 </table>
 </center>
 
