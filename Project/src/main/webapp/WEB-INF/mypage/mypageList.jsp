@@ -52,9 +52,11 @@
 		<td><a href="mypage_delete.mb?member_id=${loginInfo.member_id}">회원
 				탈퇴하기</a><br></td>
 	</tr>
+	<tr>
+		<td><a href="mail.mp?member_id=${loginInfo.member_id}">메일인증 폼</a><br></td>
+	</tr>
 </table>
 </div>
-
 
 <%@include file="../main/mainFooter.jsp"%>
 
