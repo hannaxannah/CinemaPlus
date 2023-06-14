@@ -76,4 +76,17 @@ public class IndividualBoardDao {
 		cnt = sqlSessionTemplate.update(namespace + ".updateReplyBoard", board);
 		return cnt;
 	}
+
+
+	/* 나의 문의내역 */
+	public IndividualBoardBean getBoardMyList(String customer_id) {
+		IndividualBoardBean board = null;
+		board = sqlSessionTemplate.selectOne(namespace+".GetOneInMyBoard",customer_id);
+		return board;
+	}
+	
+	
 }
+
+
+
