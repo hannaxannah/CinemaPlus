@@ -2,10 +2,13 @@ package store.controller;
 
 
 import java.util.List;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,13 +41,23 @@ public class StoreCartController { //장바구니 컨트롤러
 	public String doAction(	
 							@RequestParam("product_code") int product_code,
 							@RequestParam("cart_qty") int cart_qty,
-							HttpSession session
-							) {
+							HttpSession session,
+							HttpServletResponse response
+							)throws IOException {
+			
+			 response.setCharacterEncoding("EUC-KR");
+		     PrintWriter writer;
+		     
+				writer = response.getWriter();
+				if(session.getAttribute("loginInfo") == null) {
+				     writer.println("<script type='text/javascript'>");
+				     writer.println("alert('로그인 후 이용가능한 서비스입니다. 로그인 페이지로 이동합니다.');");
+				     writer.println("location.href = 'memberlogin.mb' ");
+				     writer.println("</script>");
+				     writer.flush();
+				     return null;
+				}
 		
-//		String userid=(String)session.getAttribute("userid");
-//        if(userid==null) { 아이디 세션 확인
-//        }
-        
 		StoreCartList cart = (StoreCartList)session.getAttribute("cart");
 		//장바구니 cart이 존재하는지 조회
 		
@@ -70,8 +83,23 @@ public class StoreCartController { //장바구니 컨트롤러
 	}
 	
 	@RequestMapping(list_command)
-	public String doAction(HttpSession session,Model model) {//장바구니
+	public String doAction(HttpSession session,
+							Model model,
+							HttpServletResponse response
+							)throws IOException {//장바구니
 		
+		response.setCharacterEncoding("EUC-KR");
+		PrintWriter writer;
+		
+		writer = response.getWriter();
+		if(session.getAttribute("loginInfo") == null) {
+		     writer.println("<script type='text/javascript'>");
+		     writer.println("alert('로그인 후 이용가능한 서비스입니다. 로그인 페이지로 이동합니다.');");
+		     writer.println("location.href = 'memberlogin.mb' ");
+		     writer.println("</script>");
+		     writer.flush();
+		     return null;
+		}
 		StoreCartList cart = (StoreCartList)session.getAttribute("cart");
 		//장바구니 cart이 존재하는지 조회
 		
@@ -114,8 +142,21 @@ public class StoreCartController { //장바구니 컨트롤러
 	}
 	
 	@RequestMapping(order_command)
-	public String doOrder(HttpSession session,Model model) { //결제페이지
+	public String doOrder(HttpSession session,Model model,HttpServletResponse response
+			)throws IOException {//결제페이지
 		
+		response.setCharacterEncoding("EUC-KR");
+		PrintWriter writer;
+		
+		writer = response.getWriter();
+		if(session.getAttribute("loginInfo") == null) {
+		     writer.println("<script type='text/javascript'>");
+		     writer.println("alert('로그인 후 이용가능한 서비스입니다. 로그인 페이지로 이동합니다.');");
+		     writer.println("location.href = 'memberlogin.mb' ");
+		     writer.println("</script>");
+		     writer.flush();
+		     return null;
+		}
 		StoreCartList cart = (StoreCartList)session.getAttribute("cart");
 		//장바구니 cart이 존재하는지 조회
 		

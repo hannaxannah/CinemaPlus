@@ -33,8 +33,8 @@
 		float:left;
 		background-color: #fff;
 		border: 1px solid #ccc;
-		width : 32px;
-		height : 32px;
+		width : 33px;
+		height : 33px;
 		cursor: pointer;
 	}
 	

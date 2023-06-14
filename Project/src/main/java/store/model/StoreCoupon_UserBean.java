@@ -1,9 +1,9 @@
 package store.model;
 
 public class StoreCoupon_UserBean {
-	private String member_code;
-	private String coupon_code;
-	private int coupon_state;
+	private String member_code;//회원코드
+	private String coupon_code;//쿠폰코드
+	private int coupon_state;//쿠폰 상태 0:미사용 1:사용
 	
 	public StoreCoupon_UserBean() {
 		super();

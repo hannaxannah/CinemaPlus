@@ -193,6 +193,26 @@
 	function empty_cart() {
 		location.href = "emptyAll.store";
 	}
+	
+	function btn_plus() {
+		
+		$("#cart_qty").val(parseInt($("#cart_qty").val()) + 1);
+		if ($("#cart_qty").val() > 10) {//최대 수량 10
+			alert("한번에 선택가능한 수량은 10개입니다.");
+			$("#cart_qty").val(10);
+		}
+		
+	}
+	
+	function btn_minus() {
+		
+		$("#cart_qty").val(parseInt($("#cart_qty").val()) - 1);
+		if ($("#cart_qty").val() < 1) {//최소 수량 1
+			alert("최소 수량은 1개입니다.");
+			$("#cart_qty").val(1);
+		}
+		
+	}
 </script>
 
 
