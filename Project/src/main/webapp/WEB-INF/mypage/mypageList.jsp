@@ -5,14 +5,14 @@
 
 <style>
 	.mypage{
+	margin-top: 30px;
+	margin-left: 20px;
 	width: 20%;
 	height: 100%;
-	background: white;
 	}
 </style>
 
 
-로그인 아이디 : ${loginInfo.member_id}<br>
 <div class="mypage">
 <table border="1" width="220px" height="400px"
 	style="text-align: center;">
@@ -36,7 +36,10 @@
 		<td><a href="insert.in">1:1문의</a><br></td>
 	</tr>
 	<tr>
-		<td><a href="list.in">문의 내역</a><br></td>
+		<td><a href="list.in">전체 문의내역</a><br></td>
+	</tr>
+	<tr>
+		<td><a href="myList.in?customer_id=${loginInfo.member_id}">나의 문의내역</a><br></td>
 	</tr>
 	<tr>
 		<td><a href="list.bd">자주 묻는 질문(FAQ)</a><br></td>

@@ -60,6 +60,12 @@
 			individual_content = #{individual_content}
 		where movie_code = #{movie_code}
 	</update>
+	
+	<!-- 나의 문의내역 -->
+	<select id="GetOneInMyBoard" resultType="board.model.IndividualBoardBean">
+  		select * from individualboard
+  		where customer_id = #{customer_id}
+  	</select>
 </mapper>
 
 
