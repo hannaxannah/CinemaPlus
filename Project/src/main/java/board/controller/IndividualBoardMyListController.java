@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import board.model.IndividualBoardBean;
 import board.model.IndividualBoardDao;
+import member.model.MemberBean;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,31 +30,18 @@ public class IndividualBoardMyListController {
    IndividualBoardDao idao;
 	
 	@RequestMapping(value=command)
-	public ModelAndView doAction(
-			@RequestParam("customer_id") String customer_id,
-			@RequestParam(value="pageNumber",required = false) String pageNumber,
-			Model model, HttpServletRequest request) {
+	public String doAction(HttpSession session, Model model) {
 		
-		System.out.println("나의 문의내역 customer_id: "+customer_id);
-		System.out.println("pageNumber:"+pageNumber);
-		
-		String url = request.getContextPath()+command;
-		System.out.println("url:" + url);
-		
-		IndividualBoardBean board = idao.getBoardMyList(customer_id);
-		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("board", board);
-		mav.addObject("pageNumber", pageNumber);
-		
-		if(pageNumber == null) {
-			pageNumber = "1";
-			System.out.println("pageNumber2:"+pageNumber);
+		if(session.getAttribute("loginInfo") == null) { //로그인 X
+			return "redirect:/memberlogin.mb";
 		}
-		
-		mav.setViewName(getPage);
-		
-		return mav; //getPage설정한 곳으로 이동
-		
+		else { //로그인 O
+			MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
+			String member_id = loginInfo.getMember_id();
+
+			List<IndividualBoardBean> lists = idao.getBoardById(member_id);
+			model.addAttribute("lists",lists);
+			return getPage;
+		}
 	}
 }
