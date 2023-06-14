@@ -1,5 +1,26 @@
 
 ========================================================
+
+--nonmember 테이블
+
+drop sequence nonmember_seq;
+create sequence nonmember_seq 
+minvalue 1
+start with 1
+nocache;
+
+drop table nonmember cascade constraints;
+
+CREATE TABLE nonmember (
+	nonmember_code 	varchar2(30)		NOT NULL,
+	nonmember_name 	varchar2(30)		NULL,
+	nonmember_birth 	varchar2(10)		NULL,
+	nonmember_phone 	varchar2(15)		NULL,
+	nonmember_pw 	varchar2(30)		NULL
+);
+
+--member테이블 insert
+
 [신주영]
 
 insert into member values(member_seq.nextval, 'admin', 'admin1234', '관리자', '19970101', '01000000000', 'admin@naver.com', 'q2','5명',sysdate,'비동의','수신거부','수신거부', null);
