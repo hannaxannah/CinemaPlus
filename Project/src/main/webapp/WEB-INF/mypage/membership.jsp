@@ -21,6 +21,12 @@
 		}else {
 			member_point = 'MVP';
 		}
+		
+		if(member_id == null) {
+			alert('로그인 정보가 없어 등급 조회가 불가능합니다.');
+			return;
+		}
+		
 		alert(member_id+'회원님의 등급은 '+member_point+'입니다.');
 	}
 </script>
