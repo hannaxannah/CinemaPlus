@@ -47,7 +47,7 @@
 						${c.coupon_name}
 					</td>
 					<td rowspan="3">
-						<button type="button">발급</button>
+						<a href="couponIssue.store?coupon_code=${c.coupon_code}">발급</a>
 					</td>
 				</tr>
 				<tr>

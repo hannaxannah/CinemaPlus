@@ -116,7 +116,7 @@
 													</span>
 												</c:if>
 											</td>
-											<td width="110px">
+											<td width="110px" style="text-align:center;">
 					                            	<input type="text" class="cart_qty" id="cart_qty" name="cart_qty" title="수량 입력" readonly="readonly" value="${cart.cart_qty }">
 											</td>
 											<td>${cart.cart_amount }</td>
@@ -132,6 +132,13 @@
 										</c:choose>
 									</c:forEach>				
 								</table>
+								
+								할인적용<br>
+								쿠폰
+								<select>
+									<option>=====</option>
+								</select>
+								
 								<table width="100%" border="1" style="margin-top : 50px">
 									<tr>
 										<th>
@@ -176,21 +183,85 @@
 							            입력된 휴대전화 번호가 맞는지 꼭 확인하세요.</p>
 							    </div>
 								
-								<div class="store_box_design_wrap">
-							        <strong class="com_box_design_title">결제 수단</strong>
+							<div class="store_box_design_wrap">
+								        <strong class="com_box_design_title">결제 수단</strong>
 							        
 							    </div> 
 							</form>
 	            		</div>
 					</div>
-	            	
 	            </div>
 	        </div>
 	</section>
 </div>
+	            	<input type="radio" name="payment" id="payment_card" value="card"> 신용/체크 카드결제
+	      			<table border="1">
+	      				<tr>
+	      					<th>
+	      						카드사
+	      					</th>
+	      					<td>
+	      						<select>
+	      							<option>비씨카드</option>
+									<option>하나SK카드</option>
+									<option>현대카드</option>
+									<option>KB카드</option>
+									<option>씨티카드</option>
+									<option>롯데카드</option>
+									<option>농협NH카드</option>
+									<option>삼성카드</option>
+									<option>신한카드</option>
+									<option>우리카드</option>
+	      						</select>
+	      					</td>
+	      				</tr>
+	      				<tr>
+	      					<th>
+	      						카드번호
+	      					</th>
+	      					<td>
+	      						<input type="text">
+	      					</td>
+	      				</tr>
+	      				<tr>
+	      					<th>
+	      						카드 유효기간(월/년)
+	      					</th>
+	      					<td>
+	      						<input type="text"> <input type="text">
+	      					</td>
+	      				</tr>
+	      				<tr>
+	      					<th>
+	      						카드 비밀번호 앞 두자리
+	      					</th>
+	      					<td>
+	      						<input type="text">**
+	      					</td>
+	      				</tr>
+	      				<tr>
+	      					<th>
+	      						할부 개월
+	      					</th>
+	      					<td>
+	      						<select>
+	      							<option>일시불</option>
+	      							<option>3개월</option>
+	      						</select>
+	      					</td>
+	      				</tr>
+	      				<tr>
+	      					<th colspan="2">
+								<button>결제하기</button>	      						
+	      					</th>
+	      				</tr>
+	      				
+	      				
+	      			</table>
 
 <script type="text/javascript" src="resources/js/jquery.js"></script>
 <script type="text/javascript">
+
 	
 </script>
 

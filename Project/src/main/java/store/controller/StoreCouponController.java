@@ -1,7 +1,11 @@
 package store.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import store.model.StoreCouponBean;
 import store.model.StoreCouponDao;
@@ -19,6 +24,7 @@ import store.model.StoreProductBean;
 public class StoreCouponController {
 	private final String command = "/getCoupon.store";
 	private final String getCouponPage = "couponGetPage";
+	private final String re_getCouponPage = "redirect:/getCoupon.store";
 	
 	private final String create_command = "/couponCreate.store";
 	private final String getCouponCreatePage = "couponCreate";
@@ -26,6 +32,8 @@ public class StoreCouponController {
 	private final String management_command = "/couponManagement.store";
 	private final String getCouponManagementPage = "couponManagement";
 	
+	private final String issue_command = "/couponIssue.store";
+
 	@Autowired
 	StoreCouponDao storeCouponDao;
 	
@@ -72,6 +80,41 @@ public class StoreCouponController {
 		model.addAttribute("couponList", couponList);//쿠폰 list
 		
 		return getCouponManagementPage;
+	}
+	
+	@RequestMapping(issue_command)
+	public String management_Page(
+			@RequestParam("coupon_code") String coupon_code,
+			Model model,
+			HttpServletResponse response,
+			HttpSession session
+			)throws IOException {//결제페이지
+		
+		response.setCharacterEncoding("EUC-KR");
+		PrintWriter writer;
+		
+		writer = response.getWriter();
+		if(session.getAttribute("loginInfo") == null) {
+		     writer.println("<script type='text/javascript'>");
+		     writer.println("alert('로그인 후 이용가능한 서비스입니다. 로그인 페이지로 이동합니다.');");
+		     writer.println("location.href = 'memberlogin.mb' ");
+		     writer.println("</script>");
+		     writer.flush();
+		     return null;
+		}else if(session.getAttribute("loginInfo") != null) {
+			
+			
+			writer.println("<script type='text/javascript'>");
+		    writer.println("alert('쿠폰 발급되었습니다.');");
+		    writer.println("location.href = 'getCoupon.store' ");
+		    writer.println("</script>");
+		    writer.flush();
+		    return null;
+		}
+		
+		System.out.println(coupon_code);
+		
+		return re_getCouponPage;
 	}
 	
 	
