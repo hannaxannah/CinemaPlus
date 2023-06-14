@@ -105,4 +105,16 @@ public class MemberDao {
 	}
 
 
+	/* 아이디찾기 */
+	public List<MemberBean> findId(Map<String, String> map) {
+		List<MemberBean> lists = new ArrayList<MemberBean>();
+		
+		lists = sqlSessionTemplate.selectList(namespace+".FindId",map);
+		return lists;
+	}
+
+
+
+
+
 }
