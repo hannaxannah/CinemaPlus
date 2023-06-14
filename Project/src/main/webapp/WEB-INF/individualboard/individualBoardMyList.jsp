@@ -22,6 +22,17 @@
 			</td>
 		</tr>
 	</table><br>
+	
+	<table width="700px" style="margin: auto;">
+		<tr>
+			<td align="left">
+				<p>
+					<font style="font-size: small;">- 1:1문의를 통해 문의한 내역을 확인 하실 수 있습니다.</font>	
+				</p>
+			</td>
+		</tr>
+	</table><br>
+	
 <center>
 			
 	<table border="1" width="700px">
@@ -37,10 +48,11 @@
 			<th>제목</th>
 			<th>답변상태</th>
 			<th>등록일</th>
+			<th>정보확인</th>
 		</tr>
 		<c:if test="${fn:length(lists) == 0}">
 			<tr>
-				<td colspan="6" align="center">목록이 없습니다.</td>
+				<td colspan="6" align="center">문의 내역이 없습니다.</td>
 			</tr>
 		</c:if>
 		
@@ -61,6 +73,9 @@
 				</td>
 				<td align="center">
 				<fmt:formatDate value="${board.writeDate}" type="date" pattern="yyyy-MM-dd"/>
+				</td>
+				<td align="center">
+				<a href="detail.in?moviecode=${board.movie_code }&pageNumber=1">상세보기</a>
 				</td>
 			</tr>
 		</c:forEach>	
