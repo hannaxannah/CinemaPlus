@@ -17,7 +17,7 @@
 <table border="1" width="220px" height="400px"
 	style="text-align: center;">
 	<tr>
-		<td><a href="mypage_main.mp?member_id=${loginInfo.member_id}">마이페이지
+		<td><a href="mypage_main.mb?member_id=${loginInfo.member_id}">마이페이지
 				메인</a><br></td>
 	</tr>
 	<tr>
