@@ -156,7 +156,14 @@
 								</ul>
 							</div>
 							<div class="coupon_banner">
-								<a href="getCoupon.store">
+								<c:choose>
+									<c:when test="${loginInfo eq null}">
+										<a href="getCoupon.store">
+									</c:when>
+									<c:otherwise>
+										<a href="getCoupon.store?member_code=${loginInfo.getMember_id()}">
+									</c:otherwise>
+								</c:choose>
 									쿠폰발급
 								</a>
 							</div>
