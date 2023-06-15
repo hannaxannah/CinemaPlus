@@ -1,3 +1,4 @@
+<%@page import="java.util.Random"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../common/common.jsp"%>
@@ -26,11 +27,23 @@ form{
 }
 </style>
 
+<%
+Random rand = new Random();
+
+String temp = Integer.toString( rand.nextInt(8) + 1);
+
+for (int i = 0; i < 7; i++) {
+    temp+= Integer.toString(rand.nextInt(9));
+}
+	System.out.println("8자리 난수 : " + temp);
+%>
+
+
 	<table style="margin: auto; margin-top: 70px">
 		<tr>
 			<td>
 				<font style="font-size: small;">* 인증 확인 메일은 회원가입 시 입력한 메일로 자동 발송됩니다.</font><br>
-				<font style="font-size: small; color: red;">* 메일 발송은 현재 180번 가능함 남용X</font>
+				<font style="font-size: small; color: red;">* 메일 발송은 현재 175번 가능함 남용X</font>
 			</td>
 		</tr>
 	</table>
@@ -48,12 +61,13 @@ form{
   
   <div class="field">
     <label for="message">인증번호 확인</label>
-    <input type="hidden" name="message" id="message" value="TL4AP9SZ">
+    <input type="hidden" name="message" id="message" value="<%=temp%>">
     <input type="text" name="message1" id="message1">
   </div>
   <input type="submit" id="button" value="메일 전송하기">
   <input type="button" id="checkButton" onclick="return check()" value="인증 확인">
 </form>
+
 
 <script type="text/javascript"
   src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -85,10 +99,10 @@ document.getElementById('form')
   
   
 function check() {
-	if($("#message1").val() == "TL4AP9SZ") {
+	if($("#message1").val() == <%=temp%>) {
 		alert("인증이 완료되었습니다.");
 		location.href="mypage_update.mb?member_id="+"${loginInfo.member_id}";
-	}else if($("#message1").val() != "TL4AP9SZ") {
+	}else if($("#message1").val() != <%=temp%>) {
 		alert("인증번호가 맞지 않습니다.");
 		return;
 	}
