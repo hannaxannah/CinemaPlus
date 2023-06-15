@@ -78,6 +78,9 @@ function check_find_id() {
 		alert("휴대폰번호를 입력하세요");
 		return false;
 	}
+
+	
+	
 }
 
 /* 비밀번호 찾기 누락 검사 */

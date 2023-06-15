@@ -36,10 +36,10 @@
 		</div>
 		<!-- 간편 연동 로그인 -->
 		<div class="link-login">
-			<a class="link-login-1" href="${url}"> 
+			<a class="link-login-1" href="${url}">
 			<img src="<%=request.getContextPath()%>/resources/naverlogo.jpg" width="40px;"></a>
 			
-			<a class="link-login-2" href="https://kauth.kakao.com/oauth/authorize?client_id=0f2a40dae9d02f9c0e00332f2d04684a&redirect_uri=http://localhost:8080/ex/kakao.mb&response_type=code">
+			<a href="https://kauth.kakao.com/oauth/authorize?client_id=0f2a40dae9d02f9c0e00332f2d04684a&redirect_uri=http://localhost:8080/ex/kakao.mb&response_type=code">
 			<img src="<%=request.getContextPath()%>/resources/Kakaologo.svg" width="33px;"></a>
 			
 			<a class="link-login-3" href="">구글</a>
