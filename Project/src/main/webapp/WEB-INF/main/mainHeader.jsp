@@ -22,7 +22,7 @@
 		<div class="header2">
 			<c:choose>
 				<c:when test="${loginInfo eq null}">
-					<a href="memberlogin.mb">로그인</a>&nbsp&nbsp<a href="register.mb">회원가입</a>
+					<a href="memberlogin">로그인</a>&nbsp&nbsp<a href="register.mb">회원가입</a>
 				</c:when>
 				<c:otherwise>
 						${loginInfo.getMember_id()}님, 환영합니다!

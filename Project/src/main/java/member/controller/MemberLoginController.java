@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,15 +24,18 @@ public class MemberLoginController {
 	private final String gotoPage = "redirect:/main.mn";
 
 	@Autowired 
-	MemberDao mdao;
+	MemberDao mdao;	
 	
 	/* 로그인 폼으로 이동 */
 	@RequestMapping(value=command, method = RequestMethod.GET)
-	public String login() {
+	public String login(@RequestParam("url") String url, Model model) {
+		
+		//네이버 
+		model.addAttribute("url", url);
+		
 		return getPage;
 	} 
 
-	
 	@RequestMapping(value=command, method = RequestMethod.POST)
 	public ModelAndView doAction(
 			@RequestParam("member_id") String input_id,
