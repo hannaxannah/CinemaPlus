@@ -16,6 +16,26 @@ public class MemberBean {
 	private String member_start;
 	private String member_point;
 	
+	public MemberBean() {
+		super();
+	}
+	
+	public MemberBean(String member_name, String member_birth, String member_phone) {
+		super();
+		
+		this.member_name = member_name;
+		this.member_birth = member_birth;
+		this.member_phone = member_phone;
+	}
+	
+	public MemberBean(String member_id, String member_name, String member_birth, String member_phone) {
+		super();
+		this.member_id = member_id;
+		this.member_name = member_name;
+		this.member_birth = member_birth;
+		this.member_phone = member_phone;
+	}
+	
 	public String getMember_code() {
 		return member_code;
 	}

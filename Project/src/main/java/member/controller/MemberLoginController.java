@@ -88,6 +88,4 @@ public class MemberLoginController {
 		return mav;
 	}
 	
-	
-	
 }

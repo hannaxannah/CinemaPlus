@@ -22,14 +22,13 @@ public class MemberKakaoController {
 	@Autowired
 	private Member_Service ms;
 	
-	@Autowired 
-	MemberDao mdao;
+	//@Autowired 
+	//MemberDao mdao;
 	
 	// 1번 카카오톡에 사용자 코드 받기(jsp의 a태그 href에 경로 있음)
 	@RequestMapping(value = "kakao.mb", method = RequestMethod.GET)
 	public String kakaoLogin(
 					@RequestParam(value = "code", required = false) String code,
-					@RequestParam("member_email") String email,
 					HttpServletResponse response,HttpSession session)throws Throwable {
 
 		// 1번
@@ -44,9 +43,6 @@ public class MemberKakaoController {
 		HashMap<String, Object> loginInfo = ms.getUserInfo(access_Token);
 		System.out.println("###nickname#### : " + loginInfo.get("nickname"));
 		System.out.println("###email#### : " + loginInfo.get("email"));
-		
-		MemberBean mb = mdao.getMemberByEmail(email);
-		System.out.println("mb:" + mb);
 		
 		
 		session.setAttribute("nickname", loginInfo.get("nickname"));
