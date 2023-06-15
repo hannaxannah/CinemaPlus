@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../common/common.jsp"%>
+<%@ include file="../main/mainHeader.jsp"%> 
+
 <style>
+form{
+	margin-top: 80px;
+	margin-left: 40%;
+}
 .field {
   margin-bottom: 10px;
 }
@@ -22,43 +28,27 @@
 
    <form id="form" action="mail.mp" method="post">
   <div class="field">
-    <label for="to_name">받는사람</label>
-    <input type="text" name="to_name" id="to_name" value="${sessionScope.loginInfo.member_id}">
+    <label for="to_name">인증 받을 계정ID</label>
+    <input type="text" name="to_name" id="to_name" value="${sessionScope.loginInfo.member_id}" readonly="readonly">
   </div>
   <div class="field">
     <label for="from_name">보내는 사람</label>
     <input type="text" name="from_name" id="from_name" value="CINEMA PLUS" readonly="readonly">
   </div>
   
-  <c:if test="${sessionScope.loginInfo.member_id eq 'admin'}">
   <div class="field">
-    <label for="message">인증번호</label>
-    <input type="text" name="message" id="message" value="TL4AP9SZ">
+    <label for="message">인증번호 확인</label>
+    <input type="hidden" name="message" id="message" value="TL4AP9SZ">
+    <input type="text" name="message1" id="message1">
   </div>
-  </c:if>
   <input type="submit" id="button" value="메일 전송하기">
+  <input type="button" id="checkButton" onclick="return check()" value="인증 확인">
 </form>
-<!-- 
-  <div class="field">
-    <label for="message1">인증번호 확인</label>
-    	<input type="text" name="confirm_m" id="confirm_m">
-    	<input type="submit" id="numCheck" value="인증 확인" onclick="return check()">
-  </div>
-	 -->
 
 <script type="text/javascript"
   src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>
 <script type="text/javascript">
-/* 
-	function check() {
-		if(${"#numCheck"}.val == "TL4AP9SZ") {
-			location.href="mypage_update.mb?member_id="+${loginInfo.member_id};
-		}else {
-			alert("인증번호가 맞지 않습니다.");
-			return;
-		}
-	} 
-	*/
 
   emailjs.init('f8nFzr47CZNJoupb0')
   
@@ -84,9 +74,19 @@ document.getElementById('form')
 });
   
   
+function check() {
+	if($("#message1").val() == "TL4AP9SZ") {
+		alert("인증이 완료되었습니다.");
+		location.href="mypage_update.mb?member_id="+"${loginInfo.member_id}";
+	}else if($("#message1").val() != "TL4AP9SZ") {
+		alert("인증번호가 맞지 않습니다.");
+		return;
+	}
+} 
+  
 </script>
 
-
+<%@ include file="../main/mainFooter.jsp"%>
 
 
 
