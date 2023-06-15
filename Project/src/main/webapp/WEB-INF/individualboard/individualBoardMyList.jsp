@@ -3,7 +3,7 @@
 	<%@include file="../common/common.jsp"%>
 <%@include file="../main/mainHeader.jsp"%>
 	    
-	individualMyBoard.jsp<br>
+	individualMyList.jsp<br>
 	
 <style>
 	.formList{

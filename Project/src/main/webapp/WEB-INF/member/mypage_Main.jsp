@@ -52,7 +52,7 @@ mypageMain.jsp<br>
 <table border="1">
 	<tr>
 		<td height="110px" valign="top"><br>
-			&nbsp;&nbsp;구매내역
+			&nbsp;&nbsp;취소내역
 			<a style="margin-left: 75%" href="">더보기</a><br> 
 			<hr align="center" width="93%" style="margin-left: 10px;">
 		</td>

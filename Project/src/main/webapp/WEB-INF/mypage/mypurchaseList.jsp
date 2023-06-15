@@ -28,19 +28,29 @@ mypageList.jsp<br>
  -->
 
 <style>
-	.coupon{
-	width: 750px;
+	table {
+	margin: auto;
+	margin-top: 50px;
+	width: 730px;
+	}
+	.purchase{
+	width: 730px;
 	height: 25px;	
 	border: 1px solid black;
+	margin: auto;
 	}
 </style> 
 
 <form name="mypageList" action="myPurchaseList.mp" method="POST">
- <h2>예매/구매 내역</h2>
-<hr>
+ <table>
+	<tr>
+		<td>
+			<font style="font-size: x-large; margin: auto;">예매/구매내역</font>
+		</td>
+	</tr>
+</table>
 <c:forEach var="order" items="<%-- ${ orders } --%>">
-    <table class="table">
-        <thead class="thead-light">
+    <table class="table" border="1">
         <tr>
           <th>예매번호</th>
           <th>영화관</th>
@@ -50,9 +60,15 @@ mypageList.jsp<br>
           <th>합계</th>
           <th>예매취소</th>
         </tr>
-      </thead>
+      
+      	<c:if test="${fn:length(purchaseLists) == 0}">
+			<tr>
+				<td colspan="7" align="center">예매/구매 내역이 없습니다.</td>
+			</tr>
+		</c:if>
+    <%--   
       <tbody>
-        <c:forEach var="item" items="<%-- ${ order.items } --%>" varStatus="status">
+        <c:forEach var="item" items=" ${ order.items }" varStatus="status">
                 <tr>
                 <th>${ status.count }</th>
                 <td>${ item.screen }</td>
@@ -64,19 +80,20 @@ mypageList.jsp<br>
             </tr>       
         </c:forEach>
       </tbody>
-      <tfoot>
-        <tr>
-            <td colspan="5"></td>
-            <td><%-- ${ order.totalPrice } --%></td>
-        </tr>
-      </tfoot>
+       --%>
+      
     </table>
 </c:forEach><br><br>
 
-<h2>예매 취소내역</h2>
-<hr>
+<table>
+	<tr>
+		<td>
+			<font style="font-size: x-large; margin: auto;">취소내역</font>
+		</td>
+	</tr>
+</table>
 <c:forEach var="order" items="<%-- ${ orders } --%>">
-    <table class="table">
+    <table class="table" border="1">
         <thead class="thead-light">
         <tr>
           <th>예매번호</th>
@@ -91,36 +108,33 @@ mypageList.jsp<br>
       <c:if test="${fn:length(movieOrderLists) == 0}">
 		<tr>
 			<td colspan="6" align="center">
-				예매내역이 없습니다.
+				취소내역이 없습니다.
 			</td>
 		</tr>
 	</c:if>
       
+     <%--  
       <tbody>
-        <c:forEach var="item" items="<%-- ${ order.items } --%>" varStatus="status">
+        <c:forEach var="item" items="${ order.items }" varStatus="status">
                 <tr>
                 <th>${ status.count }</th>
                 <td>${ item.screen }</td>
-                <td>${ item.movietitle}</td>
+                <td> ${ item.movietitle}</td>
                 <td>${ item.movieqty }</td>
                 <td>${ item.price}</td>
                 <td>${ item.price * item.movieqty }</td>
             </tr>       
         </c:forEach>
       </tbody>
-      <tfoot>
-        <tr>
-            <td colspan="5"></td>
-            <td><%-- ${ order.totalPrice } --%></td>
-        </tr>
-      </tfoot>
+       --%>
+      
     </table>
 </c:forEach><br><br><br>
  </form>
 
- <div class="coupon">
+ <div class="purchase">
   <details>
-	  <summary style="margin-left: 8px;">이용안내</summary>
+	  <summary style="margin-left: 8px;">이용안내</summary><br>
  <div markdown="1">
  	<p>
 만 4세(48개월) 이상부터는 영화티켓을 반드시 구매하셔야 입장 가능합니다.<br>
@@ -141,6 +155,7 @@ LIVE 공연 콘텐트는 취소 기준은 아래와 같습니다.<br>
  </div>
  </details>
 </div>
+<div style="height: 500px"></div>
 
 
 <%@ include file="../main/mainFooter.jsp"%>
