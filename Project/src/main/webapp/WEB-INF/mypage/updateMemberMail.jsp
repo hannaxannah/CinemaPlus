@@ -5,7 +5,7 @@
 
 <style>
 form{
-	margin-top: 80px;
+	margin-top: 30px;
 	margin-left: 40%;
 }
 .field {
@@ -26,7 +26,17 @@ form{
 }
 </style>
 
+	<table style="margin: auto; margin-top: 70px">
+		<tr>
+			<td>
+				<font style="font-size: small;">* 인증 확인 메일은 회원가입 시 입력한 메일로 자동 발송됩니다.</font><br>
+				<font style="font-size: small; color: red;">* 메일 발송은 현재 180번 가능함 남용X</font>
+			</td>
+		</tr>
+	</table>
+
    <form id="form" action="mail.mp" method="post">
+    <input type="hidden" name="to_email" id="to_email" value="${loginInfo.member_email}">
   <div class="field">
     <label for="to_name">인증 받을 계정ID</label>
     <input type="text" name="to_name" id="to_name" value="${sessionScope.loginInfo.member_id}" readonly="readonly">
