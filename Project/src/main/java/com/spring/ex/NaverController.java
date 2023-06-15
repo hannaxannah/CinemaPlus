@@ -32,7 +32,24 @@ public class NaverController {
 	}
  
 	//로그인 첫 화면 요청 메소드
-	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/memberlogin", method = RequestMethod.GET)
+	public String memberNaverLogin(Model model, HttpSession session) {
+		
+		/* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */
+		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
+		
+		//https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=sE***************&
+		//redirect_uri=http%3A%2F%2F211.63.89.90%3A8090%2Flogin_project%2Fcallback&state=e68c269c-5ba9-4c31-85da-54c16c658125
+		System.out.println("네이버:" + naverAuthUrl);
+		
+		//네이버 
+		model.addAttribute("url", naverAuthUrl);
+		
+		return "redirect:/memberlogin.mb";
+	}
+	
+	//로그인 첫 화면 요청 메소드
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(Model model, HttpSession session) {
 		
 		/* 네이버아이디로 인증 URL을 생성하기 위하여 naverLoginBO클래스의 getAuthorizationUrl메소드 호출 */
@@ -87,7 +104,7 @@ public class NaverController {
 		
 		model.addAttribute("result", apiResult);
 	     
-		return "login";
+		return "redirect:/main.mn";
 	}
 	
 	//로그아웃
@@ -95,9 +112,9 @@ public class NaverController {
 	public String logout(HttpSession session)throws IOException {
 			System.out.println("여기는 logout");
 			session.invalidate();
- 
+			//session.setAttribute("loginInfo", null);
 	        
-			return "redirect:index.jsp";
+			return "redirect:/main.mn";
 		}
 	
 }
