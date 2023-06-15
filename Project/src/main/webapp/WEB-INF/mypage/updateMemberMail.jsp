@@ -35,7 +35,7 @@ String temp = Integer.toString( rand.nextInt(8) + 1);
 for (int i = 0; i < 7; i++) {
     temp+= Integer.toString(rand.nextInt(9));
 }
-	System.out.println("8자리 난수 : " + temp);
+	System.out.println("8자리 인증번호 : " + temp);
 %>
 
 
