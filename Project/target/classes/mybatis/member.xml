@@ -117,7 +117,12 @@
 	<select id="FindId" resultType="member.model.MemberBean">
 		select member_id from member
 		where member_name=#{member_name} and member_birth=#{member_birth} and member_phone=#{member_phone}
-		order by member_code desc
+	</select>
+	
+	<!-- 비밀번호찾기 -->
+	<select id="FindPw" resultType="member.model.MemberBean">
+		select member_pw from member
+		where member_id=#{member_id} and member_name=#{member_name} and member_birth=#{member_birth} and member_phone=#{member_phone}
 	</select>
 	
 	

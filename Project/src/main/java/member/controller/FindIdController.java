@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -23,7 +24,7 @@ public class FindIdController {
 
 	private final String command = "findid.mb";
 	private final String getPage = "findIdForm";
-	private final String gotoPage = "redirect:/main.mn";
+	private final String gotoPage = "memberLoginForm";
 	
 	@Autowired
 	MemberDao mdao;
@@ -34,44 +35,48 @@ public class FindIdController {
 		session.getAttribute("loginInfo");
 		
 		 return getPage;
-		 
 	 }
 	
 	
 	@RequestMapping(value=command, method= RequestMethod.POST)
-	public ModelAndView doAction(
+	public String doAction(
 			@RequestParam("member_name")String name,
 			@RequestParam("member_birth")String birth,
 			@RequestParam("member_phone")String phone,
 			HttpServletResponse response) {
-		
+
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = null;
 		
-		List<MemberBean> lists = mdao.getAllMember(); 
+		MemberBean mbid = new MemberBean(name,birth,phone);
+		MemberBean m_id = mdao.findId(mbid);
+
 		
-		ModelAndView mav = new ModelAndView(); 
-		mav.addObject("lists", lists);
 		
-		if(lists == null) {
+		if(m_id == null) {
 			System.out.println("가입정보가 없는 회원");
-		
-		try {
-			out = response.getWriter();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		out.println("<script>alert('가입정보가 없습니다.');history.go(-1);</script>");
-		out.flush();
-		
+
+			try {
+				out = response.getWriter();
+				out.println("<script>alert('가입정보가 없습니다.');history.go(-1);</script>");
+				out.flush();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return getPage;
 		}
 		else {
 			System.out.println("가입된 회원");
-			out.println("<script>alert('회원님의 아이디는'+ ${member_id} +'입니다.');history.go(-1);</script>");
-			out.flush();
-			mav.setViewName(getPage);
+
+			try {
+				out = response.getWriter();
+				out.println("<script>alert('회원님의 아이디는 "+ m_id.getMember_id() +" 입니다.');</script>");
+				out.flush();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-		return mav;
+		return gotoPage;
 	}
-	
+
 }
