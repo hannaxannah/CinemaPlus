@@ -10,19 +10,27 @@ productList.jsp<br>
     -->
     
  <style>
+ 	#mytable{
+ 	margin-top: 50px;
+ 	}
  	table{
  	text-align:left;
  	margin: auto;
- 	width: 60%;
+ 	width: 730px;
  	}
-	.coupon{
-	width: 750px;
+	.product{
+	width: 730px;
 	height: 25px;	
 	border: 1px solid black;
+	margin: auto;
+	}
+	
+	form{
+	margin-bottom: 100px;
 	}
 </style> 
     
-	<table>
+	<table id="mytable">
 	<tr>
 		<td>
 	<font style="font-size: x-large;">스토어교환권</font><br><br>
@@ -32,30 +40,36 @@ productList.jsp<br>
 	<table>
 		<tr>
 			<td align="left" style="font-size: small;">
-				<b>- 보유하신 영화관람권/예매권 내역입니다.<br>- 소지하신 지류(종이)관람권은 등록 후 이용하실 수 있습니다.</b>
+				<font>- 보유하신 영화관람권/예매권 내역입니다.<br>- 소지하신 지류(종이)관람권은 등록 후 이용하실 수 있습니다.</font>
 			</td>
 		</tr>
 	</table>
 
 <form name="myform" action="myProductList.mp" method="post">
-	<table border="1">
+	<table border="1" id="mytable">
 		<!-- 로그인한 아이디가 admin일때만 추가하기가 가능하도록 설정 -->
-		<tr>
+		<tr align="center">
 			<td>상품번호</td>
 			<td>카테고리</td>
 			<td>상품명</td>
-			<td>설명</td>
 			<td>가격</td>
 			<td>적립포인트</td>
 			<td>삭제</td>
 			<td>수정</td>
 		</tr>
-		<c:forEach items="${productLists }" var="product">
+		
+		
+		<c:if test="${fn:length(productLists) == 0}">
+			<tr>
+				<td colspan="7" align="center">스토어 내역이 없습니다.</td>
+			</tr>
+		</c:if>
+		
+		<c:forEach var="product" items="${productLists }" >
 			<tr>
 				<td>${product.productcode }</td>
 				<td><a href="detail.pd?product_code=${product.product_code }&pageNumber=${pageInfo.pageNumber } ">${product.category_name }</a></td>
 				<td>${product.product_name }</td>
-				<td>${product.product_detail }</td>
 				<td>${product.product_price }</td>
 				<td>${product.product_point }</td>
 				<td><a href="delete.pd?product_code=${product.product_code }&pageNumber=${pageInfo.pageNumber } ">삭제</a></td>
@@ -66,9 +80,9 @@ productList.jsp<br>
 	${pageInfo.pagingHtml }
 </form>
 
-<div class="coupon">
+<div class="product">
 <details>
-	 <summary style="margin-left: 8px;">이용안내</summary>
+	 <summary style="margin-left: 8px;">이용안내</summary><br>
  <div markdown="1">
  	<p>
 스토어 교환권에 따라 사용방법이 다르니, 상세 쿠폰정보를 확인 후 이용바랍니다.<br>
@@ -84,6 +98,9 @@ productList.jsp<br>
  </div>
  </details>
  </div>
+ 
+ <div style="height: 280px;"></div>
+ 
   <%@ include file="../main/mainFooter.jsp"%>
  
  

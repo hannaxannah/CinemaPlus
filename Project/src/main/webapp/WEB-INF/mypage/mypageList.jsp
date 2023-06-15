@@ -21,13 +21,13 @@
 				메인</a><br></td>
 	</tr>
 	<tr>
-		<td><a href="">예매/구매내역</a><br></td>
+		<td><a href="myPurchaseList.mp?member_id=${loginInfo.member_id}">예매/구매내역</a><br></td>
 	</tr>
 	<tr>
-		<td><a href="">관람권/교환권</a><br></td>
+		<td><a href="myProductList.mp?member_id=${loginInfo.member_id}">관람권/교환권</a><br></td>
 	</tr>
 	<tr>
-		<td><a href="">MY쿠폰</a><br></td>
+		<td><a href="myCouponList.mp?member_id=${loginInfo.member_id}">MY쿠폰</a><br></td>
 	</tr>
 	<tr>
 		<td><a href="membership.mp?member_id=${loginInfo.member_id}">멤버십 안내</a><br></td>
