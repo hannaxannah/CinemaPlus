@@ -77,6 +77,19 @@
 	    font-size: 17px; 
 	    color: #000;
 	}
+	
+	.btn_change{
+		float: right;
+	    width: 36px;
+	    height: 29px;
+	    font-weight: 400;
+	    font-size: 13px;
+	    text-align: center;
+	    color: #4b4f56;
+	    line-height: 29px;
+	    border: 1px solid #bdc1c8;
+	    text-decoration: none;
+	}
 </style>
 
 <c:set var="original_price" value="0"/>
@@ -98,51 +111,67 @@
 										<th>수량</th>
 										<th>합계 금액</th>
 									</tr>
-									 <c:forEach items="${cartBeanList}" var="cart">
-										<tr>
-											<td>
-												<a href="productDetail.store?product_code=${cart.product_code}">
-						                       		<img alt="상품 사진" class="store_cart_img" src="<%=request.getContextPath()%>/resources/store_images/${cart.product_image}">
-						                   		 </a>
-						                   		<span style="float: left; padding-top: 60px;">
-							                   		${cart.product_name }
-						                   		</span> 
-											</td>
-											<td>
-												<span class="product_price_sale">
-													<fmt:formatNumber value="${cart.product_sprice}" pattern="#,###"/>원
-												</span>
-												<c:if test="${cart.product_price ne 0}">
-													<span class="product_price_original">
-														<fmt:formatNumber value="${cart.product_price}" pattern="#,###"/>원
+									<c:choose>
+										<c:when test="${cartBeanList eq null}">
+											<tr>
+												<td colspan="4">
+													장바구니가 비어있습니다.
+													<c:set value="empty" var="cart_empty"/>
+												</td>
+											</tr>
+										</c:when>
+										<c:otherwise>
+										 <c:forEach items="${cartBeanList}" var="cart" varStatus="status">
+											<tr>
+												<td>
+													<a href="productDetail.store?product_code=${cart.product_code}">
+							                       		<img alt="상품 사진" class="store_cart_img" src="<%=request.getContextPath()%>/resources/store_images/${cart.product_image}">
+							                   		 </a>
+							                   		<span style="float: left; padding-top: 60px;">
+								                   		${cart.product_name }
+							                   		</span> 
+												</td>
+												<td>
+													<span class="product_price_sale">
+														<fmt:formatNumber value="${cart.product_sprice}" pattern="#,###"/>원
 													</span>
-												</c:if>
-											</td>
-											<td width="110px">
-													<button type="button" class="btn_minus" title="수량감소" onClick="btn_minus()">-</button>
-					                            	<input type="text" class="cart_qty" id="cart_qty" name="cart_qty" title="수량 입력" readonly="readonly" value="${cart.cart_qty }">
-					                            	<button type="button" class="btn_plus" title="수량증가" onClick="btn_plus()">+</button>
-					                            	<button></button>
-											</td>
-											<td>
-												<div style="float : left">
-													${cart.cart_amount }
-												</div>
-													<a href="" class="delete_cart_btn"></a>
-											</td>
-										</tr>
-										<c:choose>
-											<c:when test="${cart.product_price eq 0}">
-												<c:set var="original_price" value="${original_price + cart.product_sprice}"/>
-											</c:when>
-											<c:otherwise>
-												<c:set var="original_price" value="${original_price + cart.product_price}"/>
-												<c:set var="sale_price" value="${sale_price + (cart.product_price - cart.product_sprice)*cart.cart_qty}"/>
-											</c:otherwise>
-										</c:choose>
+													<c:if test="${cart.product_price ne 0}">
+														<span class="product_price_original">
+															<fmt:formatNumber value="${cart.product_price}" pattern="#,###"/>원
+														</span>
+													</c:if>
+												</td>
+												<td width="110px">
+													<form action="modifyCart.store" method="post">
+														<input type="hidden" name="product_code" value="${cart.product_code}">
+														<button type="button" class="btn_minus" title="수량감소" name="${status.count}" onClick="btn_minus('${status.count}')">-</button>
+						                            	<input type="text" class="cart_qty" name="${status.count}" title="수량 입력" readonly="readonly" value="${cart.cart_qty }">
+						                            	<button type="button" class="btn_plus" title="수량증가" name="${status.count}" onClick="btn_plus('${status.count}')">+</button>
+														<br>
+														<button type="submit">변경</button>
+													</form>
+												</td>
+												<td>
+													<div style="float : left">
+														${cart.cart_amount }
+													</div>
+														<a href="" class="delete_cart_btn"></a>
+												</td>
+											</tr>
+											<c:choose>
+												<c:when test="${cart.product_price eq 0}">
+													<c:set var="original_price" value="${original_price + cart.product_sprice}"/>
+												</c:when>
+												<c:otherwise>
+													<c:set var="original_price" value="${original_price + cart.product_price}"/>
+													<c:set var="sale_price" value="${sale_price + (cart.product_price - cart.product_sprice)*cart.cart_qty}"/>
+												</c:otherwise>
+											</c:choose>
 										
 										
-									</c:forEach>				
+										</c:forEach>			
+									</c:otherwise>
+									</c:choose>	
 								</table>
 											<button type="button" onClick="empty_cart()">
 												장바구니 비우기
@@ -174,9 +203,9 @@
 									</tr>	
 								</table>
 								<div>
-									<button type="submit">
-									결제하기
-									</button>
+									<a href="#" onClick="check_beforePay('order.store')">
+										결제하기
+									</a>
 								</div>
 							</form>
 	            		</div>
@@ -190,29 +219,44 @@
 <script type="text/javascript" src="resources/js/jquery.js"></script>
 <script type="text/javascript">
 	
+	//장바구니 비우기
 	function empty_cart() {
 		location.href = "emptyAll.store";
 	}
 	
-	function btn_plus() {
-		
-		$("#cart_qty").val(parseInt($("#cart_qty").val()) + 1);
-		if ($("#cart_qty").val() > 10) {//최대 수량 10
-			alert("한번에 선택가능한 수량은 10개입니다.");
-			$("#cart_qty").val(10);
+	//결제누르기전 장바구니 비었나 확인
+	function check_beforePay(url){
+		if('${cart_empty}' != ''){
+			alert("장바구니가 비었습니다. 상품을 선택해주세요");
+			url = "list.store";
 		}
+		location.href = url;
+	}
+	
+	//선택 상품 수량증가
+	function btn_plus(i) {
+		$("")		
+		$("input[type='text'][name="+i+"]").val(parseInt($("input[type='text'][name="+i+"]").val())+1); 
+		if ($("input[type='text'][name="+i+"]").val() > 10) {//최대 수량 10
+			alert("한번에 선택가능한 수량은 10개입니다.");
+			$("input[type='text'][name="+i+"]").val(10);
+		} 
 		
 	}
 	
-	function btn_minus() {
+	//선택 상품 수량감소
+	function btn_minus(i) {
 		
-		$("#cart_qty").val(parseInt($("#cart_qty").val()) - 1);
-		if ($("#cart_qty").val() < 1) {//최소 수량 1
-			alert("최소 수량은 1개입니다.");
-			$("#cart_qty").val(1);
-		}
+		$("input[type='text'][name="+i+"]").val(parseInt($("input[type='text'][name="+i+"]").val())-1); 
+		
+		if ($("input[type='text'][name="+i+"]").val() < 1) {//최대 수량 10
+			alert("최소 선택가능한 수량은 1개입니다.");
+			$("input[type='text'][name="+i+"]").val(1);
+		} 
 		
 	}
+	
+	
 </script>
 
 

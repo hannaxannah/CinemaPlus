@@ -17,8 +17,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import member.model.MemberBean;
 import store.model.StoreCartBean;
 import store.model.StoreCartList;
+import store.model.StoreCouponDao;
 import store.model.StoreProductBean;
 import store.model.StoreProductDao;
 
@@ -30,6 +32,7 @@ public class StoreCartController { //장바구니 컨트롤러
 	private final String reload_command = "redirect:/cart.store"; //장바구니 리스트 불러오기
 	private final String order_command = "order.store"; //결제
 	private final String empty_command = "emptyAll.store"; //장바구니 전체 비우기
+	private final String modify_command = "modifyCart.store"; //장바구니 수량 업데이트
 	
 	private final String cartPage = "storeCart";	//장바구니페이지
 	private final String orderPage = "orderPage"; //결제페이지
@@ -37,6 +40,10 @@ public class StoreCartController { //장바구니 컨트롤러
 	@Autowired
 	StoreProductDao storeProductDao;
 	
+	@Autowired
+	StoreCouponDao storeCouponDao;
+	
+//장바구니에 상품추가
 	@RequestMapping(command)
 	public String doAction(	
 							@RequestParam("product_code") int product_code,
@@ -82,11 +89,12 @@ public class StoreCartController { //장바구니 컨트롤러
 		return reload_command;
 	}
 	
+//	장바구니
 	@RequestMapping(list_command)
 	public String doAction(HttpSession session,
 							Model model,
 							HttpServletResponse response
-							)throws IOException {//장바구니
+							)throws IOException {
 		
 		response.setCharacterEncoding("EUC-KR");
 		PrintWriter writer;
@@ -102,8 +110,12 @@ public class StoreCartController { //장바구니 컨트롤러
 		}
 		StoreCartList cart = (StoreCartList)session.getAttribute("cart");
 		//장바구니 cart이 존재하는지 조회
-		
-		Map<Integer,Integer> product_order_qty = cart.getAllCartList();
+		Map<Integer,Integer> product_order_qty = null;
+		if(cart.getAllCartList() == null) {
+			return null;	
+		}else {
+			product_order_qty = cart.getAllCartList();
+		}
 		//상품의 주문 갯수가 저장되있는 map
 		
 		List<StoreCartBean> cartBeanList = new ArrayList<StoreCartBean>();
@@ -140,10 +152,11 @@ public class StoreCartController { //장바구니 컨트롤러
 		
 		return cartPage;
 	}
-	
+
+//결제페이지	
 	@RequestMapping(order_command)
 	public String doOrder(HttpSession session,Model model,HttpServletResponse response
-			)throws IOException {//결제페이지
+			)throws IOException {
 		
 		response.setCharacterEncoding("EUC-KR");
 		PrintWriter writer;
@@ -157,6 +170,12 @@ public class StoreCartController { //장바구니 컨트롤러
 		     writer.flush();
 		     return null;
 		}
+		
+//		MemberBean member = (MemberBean) session.getAttribute("loginInfo");
+//		String loginid = member.getMember_id();
+//		
+//		storeCouponDao.checkUserAvailableCoupon(loginid);
+		
 		StoreCartList cart = (StoreCartList)session.getAttribute("cart");
 		//장바구니 cart이 존재하는지 조회
 		
@@ -168,7 +187,7 @@ public class StoreCartController { //장바구니 컨트롤러
 		
 		Set<Integer> keylist = product_order_qty.keySet();
 		//map에 저장되있는 key값 설정
-		
+		 
 		int totalAmount = 0;
 		
 		for(Integer product_code:keylist) {
@@ -190,16 +209,36 @@ public class StoreCartController { //장바구니 컨트롤러
 		model.addAttribute("cartBeanList", cartBeanList); //물품리스트
 		model.addAttribute("totalAmount", totalAmount); //물품 총액
 		
-		session.setAttribute("cartSize", cartBeanList.size()); //장바구니에 담겨있는 물품 갯수를 담은 세션
-		
 		return orderPage;
 	}
 	
+	/*
+	 * //카트 상품 수량 수정
+	 * 
+	 * @RequestMapping(modify_command) public String modifyCart(
+	 * 
+	 * @RequestParam() int ) {
+	 * 
+	 * 
+	 * response.setCharacterEncoding("EUC-KR"); PrintWriter writer;
+	 * 
+	 * writer = response.getWriter(); if(session.getAttribute("loginInfo") == null)
+	 * { writer.println("<script type='text/javascript'>");
+	 * writer.println("alert('수량이 변경되었습니다.');");
+	 * writer.println("location.href = 'redirect:/cart.store' ");
+	 * writer.println("</script>"); writer.flush(); return null; }
+	 * 
+	 * 
+	 * return cartPage; //결제페이지 }
+	 */
+	
+//카트에 등록되있는 상품 제거	
 	@RequestMapping(empty_command)
 	public String emptyCart(HttpSession session) {
 		
+		StoreCartList storeCartList = new StoreCartList();
+		storeCartList.removeCartList();
 		session.removeAttribute("cart");
-		session.removeAttribute("cartBeanList");
 		session.removeAttribute("cartSize");
 		
 		return cartPage; //결제페이지

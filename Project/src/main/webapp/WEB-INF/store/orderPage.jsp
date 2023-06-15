@@ -194,6 +194,8 @@
 	        </div>
 	</section>
 </div>
+<form>
+
 	            	<input type="radio" name="payment" id="payment_card" value="card"> 신용/체크 카드결제
 	      			<table border="1">
 	      				<tr>
@@ -245,8 +247,10 @@
 	      					</th>
 	      					<td>
 	      						<select>
-	      							<option>일시불</option>
-	      							<option>3개월</option>
+	      							<option value="0" selected="selected">일시불</option>
+	      							<c:forEach begin="1" end="12" var="i">
+					              		<option value="${i}">${i}개월</option>
+	      							</c:forEach>
 	      						</select>
 	      					</td>
 	      				</tr>
@@ -258,6 +262,7 @@
 	      				
 	      				
 	      			</table>
+	      			</form>
 
 <script type="text/javascript" src="resources/js/jquery.js"></script>
 <script type="text/javascript">

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import store.model.StoreCouponBean;
 import store.model.StoreCouponDao;
+import store.model.StoreCoupon_UserBean;
 import store.model.StoreProductBean;
 
 @Controller
@@ -38,11 +39,17 @@ public class StoreCouponController {
 	StoreCouponDao storeCouponDao;
 	
 	@RequestMapping(command)
-	public String doAction(Model model) {
+	public String getCoupon(
+			@RequestParam(value="member_code",required = false) String member_code,
+			Model model
+			) {
 		
 		List<StoreCouponBean> couponList = storeCouponDao.getAllCoupon(); //전체 쿠폰 리스트
+//		MultiValueMap<StoreCoupon_UserBean> checkCoupon = storeCouponDao.checkCoupon(member_code);
+
 		
 		model.addAttribute("couponList", couponList);//쿠폰 list
+//		model.addAttribute("checkCouponArr", checkCouponArr);//쿠폰 list
 		
 		return getCouponPage; //쿠폰발급페이지로 넘어가기
 	}
@@ -85,10 +92,11 @@ public class StoreCouponController {
 	@RequestMapping(issue_command)
 	public String management_Page(
 			@RequestParam("coupon_code") String coupon_code,
+			@RequestParam("member_code") String member_code,
 			Model model,
 			HttpServletResponse response,
 			HttpSession session
-			)throws IOException {//결제페이지
+			)throws IOException {//로그인한 세션 회원에게 쿠폰발급
 		
 		response.setCharacterEncoding("EUC-KR");
 		PrintWriter writer;
@@ -101,18 +109,31 @@ public class StoreCouponController {
 		     writer.println("</script>");
 		     writer.flush();
 		     return null;
-		}else if(session.getAttribute("loginInfo") != null) {
-			
-			
-			writer.println("<script type='text/javascript'>");
-		    writer.println("alert('쿠폰 발급되었습니다.');");
-		    writer.println("location.href = 'getCoupon.store' ");
-		    writer.println("</script>");
-		    writer.flush();
-		    return null;
 		}
-		
-		System.out.println(coupon_code);
+		else if(session.getAttribute("loginInfo") != null) {
+			StoreCoupon_UserBean storeCoupon_UserBean = new StoreCoupon_UserBean(); 
+			storeCoupon_UserBean.setMember_code(member_code);
+			storeCoupon_UserBean.setCoupon_code(coupon_code);
+			
+			int confirm = storeCouponDao.issueCoupon(storeCoupon_UserBean);
+			
+			if(confirm == 1) {
+				writer.println("<script type='text/javascript'>");
+				writer.println("alert('쿠폰 발급되었습니다.');");
+				writer.println("location.href = 'getCoupon.store' ");
+				writer.println("</script>");
+				writer.flush();
+				return null;
+			}else {
+				writer.println("<script type='text/javascript'>");
+				writer.println("alert('쿠폰 발급에 실패했습니다.');");
+				writer.println("location.href = 'getCoupon.store' ");
+				writer.println("</script>");
+				writer.flush();
+				return null;
+			}
+			
+		}
 		
 		return re_getCouponPage;
 	}

@@ -97,8 +97,6 @@ CREATE TABLE Coupon_user (
 	coupon_state number NOT NULL
 );
 
-insert into coupon_user values('M01',1,0);
-
 commit;
 	
 ------------------------------------------------------------------------------회원

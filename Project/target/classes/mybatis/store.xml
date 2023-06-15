@@ -24,6 +24,19 @@
 	<select id="GetCouponList" resultType="store.model.StoreCouponBean">
 		select * from coupon order by to_number(coupon_code) 
 	</select>
+	
+	<!-- 사용자에게 쿠폰발급 -->
+	<insert id="IssueCoupon" useGeneratedKeys="false">
+		insert into Coupon_user values
+		(#{member_code},#{coupon_code},0)
+	</insert>
+	<update id="IssueCoupon_">
+	
+	</update>
+	<!-- 사용자에게 사용할수있는 쿠폰이 있는지 확인 -->
+	<select id="CheckAvailableCoupon" resultType="store.model.StoreCoupon_UserBean">
+		select * from Coupon_user where member_code = #{member_code} and coupon_state = 0
+	</select>
 </mapper>
 
 
