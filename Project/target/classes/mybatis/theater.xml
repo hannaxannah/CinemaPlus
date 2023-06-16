@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="theater.model.TheaterBean">
+
+	<select id="GetAllTheaterLocation" resultType="theater.model.LocationBean">
+		select * from location
+	</select>
+
+	<select id="GetAllTheaterArea" resultType="String">
+		select distinct area from location
+	</select>
+
+	<select id="GetTheaterBranchByArea" resultType="String">
+		select branch from location where area = #{area}
+	</select>
+
+</mapper>

@@ -116,6 +116,22 @@
         <servlet-name>mypage</servlet-name>
         <url-pattern>*.mp</url-pattern>
     </servlet-mapping>
+		
+	<!-- theater-servlet -->
+	<servlet>
+		<servlet-name>theater</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/theater-servlet.xml
+			</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>theater</servlet-name>
+		<url-pattern>*.th</url-pattern>
+	</servlet-mapping>
 	
 	 <filter>
 	    <filter-name>encodingFilter</filter-name>

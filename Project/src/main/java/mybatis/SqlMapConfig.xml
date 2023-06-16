@@ -18,6 +18,8 @@
 		<mapper resource="mybatis/board.xml"/>
 		<mapper resource="mybatis/individualboard.xml"/>
 		<mapper resource="mybatis/mypage.xml"/>
+		<mapper resource="mybatis/theater.xml"/>
+		<mapper resource="mybatis/theaterCrawling.xml"/>
 	</mappers>
 </configuration>
 
