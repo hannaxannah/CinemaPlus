@@ -23,8 +23,8 @@ select * from member
 order by member_code asc;
 
 insert into member
-values('a','kim1234','kim56789','김지원',19940718,01076829123,'kim1234@naver.com','q1','분식집',sysdate,'동의','수신거부','수신동의',null);
+values('M1','kim1234','kim56789','김지원',19940718,01076829123,'kim1234@naver.com','q1','분식집',sysdate,'동의','수신거부','수신동의',null);
 insert into member
-values('b','a','a','홍길동',19990101,01011111111,'honh@naver.com','q1','분식집',sysdate,'동의','수신거부','수신동의',null);
+values('M2','a','a','홍길동',19990101,01011111111,'honh@naver.com','q1','분식집',sysdate,'동의','수신거부','수신동의',null);
 commit;
 =============================================================

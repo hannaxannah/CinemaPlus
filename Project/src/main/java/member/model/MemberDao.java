@@ -106,14 +106,22 @@ public class MemberDao {
 
 
 	/* 아이디찾기 */
-	public List<MemberBean> findId(Map<String, String> map) {
-		List<MemberBean> lists = new ArrayList<MemberBean>();
-		
-		lists = sqlSessionTemplate.selectList(namespace+".FindId",map);
-		return lists;
+	public MemberBean findId(MemberBean mbid) {
+		MemberBean m_id = sqlSessionTemplate.selectOne(namespace+".FindId",mbid);
+		return m_id;
+	}
+	
+	/*비밀번호찾기*/
+	public MemberBean findPw(MemberBean mbpw) {
+		MemberBean m_pw = sqlSessionTemplate.selectOne(namespace+".FindPw",mbpw);
+		return m_pw;
 	}
 
 
+	public int getMemberTotal() {
+		int total = sqlSessionTemplate.selectOne(namespace+".GetMemberTotal");
+		return total;
+	}
 
 
 

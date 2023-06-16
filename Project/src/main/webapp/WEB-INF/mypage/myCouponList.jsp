@@ -45,7 +45,6 @@
 		</c:if>
       
       
-      <tbody>
         <c:forEach var="item" items="<%-- ${ order.items } --%>" varStatus="status">
                 <tr>
                 <th><%-- ${ item.couponnumber} --%></th>
@@ -54,7 +53,6 @@
                 <td><%-- ${ item.couponstate } --%></td>
             </tr>       
         </c:forEach>
-      </tbody>
       
     </table>
 </c:forEach><br><br>
