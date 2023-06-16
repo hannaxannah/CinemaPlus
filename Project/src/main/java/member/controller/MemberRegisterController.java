@@ -36,6 +36,11 @@ public class MemberRegisterController {
 
 		ModelAndView mav = new ModelAndView();
 		
+		int total = mdao.getMemberTotal();//1
+		mb.setMember_code("M"+String.valueOf(total+1));//M2
+		System.out.println("total:"+total+"/setCode:"+mb.getMember_code());
+		
+		
 		if(result.hasErrors()) {
 			mav.setViewName(getPage);
 			

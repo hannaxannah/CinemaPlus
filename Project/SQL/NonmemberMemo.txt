@@ -1,0 +1,15 @@
+=============================================================
+비회원 테이블-----------------------------------------------------
+
+drop table nonmember cascade constraints;
+
+create table nonmember (
+	nonmember_code varchar2(30) NOT NULL,
+	nonmember_name varchar2(30) NULL,
+	nonmember_birth varchar2(15) NULL,
+	nonmember_phone varchar2(15) NULL,
+	nonmember_pw varchar2(30) NULL,
+	nenmember_agree varchar2(15)
+);
+
+=============================================================

@@ -118,5 +118,11 @@ public class MemberDao {
 	}
 
 
+	public int getMemberTotal() {
+		int total = sqlSessionTemplate.selectOne(namespace+".GetMemberTotal");
+		return total;
+	}
+
+
 
 }
