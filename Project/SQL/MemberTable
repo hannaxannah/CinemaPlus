@@ -1,12 +1,6 @@
 =============================================================
 회원 테이블-----------------------------------------------------
 
-drop sequence member_seq;
-create sequence member_seq 
-minvalue 1
-start with 1
-nocache;
-
 drop table member cascade constraints;
 create table member(
 	member_code varchar2(30) primary key,
