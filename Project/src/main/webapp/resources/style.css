@@ -31,15 +31,16 @@
 	padding: 0;
 	font-family: 'Noto Sans KR', sans-serif;
 }
-
 BODY {
-	/*
-	background-color: #2e2e2e;
-	opacity: 0.8;
-	*/
-	background-color: #fcfcfc;
+	
+	/*background-color: #fcfcfc;*/
 }
-
+.container-header {
+	width: 1080px;
+	height: 140px;
+	margin: 0 auto;
+	background-color: #2e2e2e;
+}
 .header {
 	width: 1080px;
 	height: 20px;
@@ -56,19 +57,29 @@ BODY {
 .header1 {
 	grid-column: 1;
 	text-align: start;
+	margin-left: 10px;
 }
-
 .header2 {
 	grid-column: 2;
 	text-align: end;
+	margin-right: 10px;
 }
-
+.header1 a, .header2 a {
+	color: #F0EDFD;
+}
+.container-footer {
+	width: 1080px;
+	height: 170px;
+	margin: 0 auto;
+	vertical-align: middle;
+	background-color: #2e2e2e;
+}
 .footer {
 	width: 1080px;
-	height: 60px;
+	height: 70px;
 	margin: 0 auto;
-	margin-top: 50px;
-	margin-bottom: 50px;
+	padding-top: 50px;
+	padding-bottom: 50px;
 	vertical-align: middle;
 	font-size: 0.75em;
 	text-decoration: none;
@@ -80,9 +91,9 @@ BODY {
 	height: 50px;
 	margin: 0 auto;
 	margin-top: 30px;
-	margin-bottom: 20px;
 	display: grid;
-	grid-template-columns: auto auto auto 200px auto auto auto;
+	grid-template-columns: auto auto auto 220px auto auto auto;
+	/*grid-template-columns: repeat(7, 1fr);*/
 	place-items: center;
 	place-content: space-around;
 	/* border: 1px solid white; */
@@ -90,10 +101,10 @@ BODY {
 }
 
 .container-mainmenu a {
-	font-size: 1.2em;
-	font-weight: 500;
+	font-size: 1.1em;
+	font-weight: 400;
 	text-decoration: none;
-	color: black;
+	color: #6a51ef;
 }
 
 .mainmenu-1 {
@@ -387,11 +398,11 @@ BODY {
 	vertical-align: middle;
 }
 .registerForm-1 tr:nth-child(3) td, .registerForm-1 tr:nth-child(6) td,
-.registerForm-1 tr:nth-child(8) td, .registerForm-1 tr:nth-child(10) td {
+.registerForm-1 tr:nth-child(8) td, .registerForm-1 tr:nth-child(11) td {
 	padding-bottom: 0px;
 }
 .registerForm-1 tr:nth-child(4) td, .registerForm-1 tr:nth-child(7) td,
-.registerForm-1 tr:nth-child(9) td, .registerForm-1 tr:nth-child(11) td {
+.registerForm-1 tr:nth-child(9) td, .registerForm-1 tr:nth-child(12) td {
 	padding-top: 2px;
 	padding-left: 12px;
 }
@@ -405,7 +416,6 @@ BODY {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	border-collapse: collapse;
-	
 }
 .registerForm-2 tr:nth-child(1) td:nth-child(1) {
 	padding-top: 10px;
@@ -464,21 +474,17 @@ BODY {
 	place-items: center;
 	border: 1px solid;
 }
-
 .container-findidpw a {
 	font-size: 1em;
 	text-decoration: none;
 	color: black;
 }
-
 .findmenu-id {
 	grid-column: 1;
 }
-
 .findmenu-pw {
 	grid-column: 2;
 }
-
 .container-findForm {
 	width: 800px;
 	height: 400px;
@@ -487,6 +493,7 @@ BODY {
 	display: flex;
 	flex-direction: column;
 }
+
 
 /* 아이디 찾기 */
 .findIdForm {
@@ -508,6 +515,7 @@ BODY {
 	text-align: center;
 }
 
+
 /* 비밀번호 찾기 */
 .findPwForm {
 	height: 200px;
@@ -521,6 +529,7 @@ BODY {
 .findPwForm td:nth-child(2) {
 	width: 250px;
 }
+
 
 /* 비회원 예매확인 */
 .container-nonmemberReservationCheck {
@@ -570,6 +579,7 @@ BODY {
 	text-align: center;
 }
 
+
 /* 비회원 예매확인 -> 팝업창(비회원 예매확인) */
 .popup-nonmember-reservation {
 	position: absolute;
@@ -599,10 +609,26 @@ BODY {
 }
 
 
+/* 영화 */
+.container-movie {
+	width: 1080px;
+	height: 2000px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid;
+}
+.movie {
+	margin-top: 50px;
+	font-size: 2em;
+	font-weight: 500;
+}
+
+
 /* 영화관 */
 .container-theater {
 	width: 1080px;
-	height: 1000px;
+	height: 2000px;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -613,66 +639,270 @@ BODY {
 	font-size: 2em;
 	font-weight: 500;
 }
-.theaterMain {
+
+/* 영화관 지역/지점 메뉴 */
+.container-theaterMenu {
+	width: 100%;	
+	position: relative;
+}
+.theaterMenu {
 	width: 100%;
 	margin: 0 auto;
-	margin-top: 30px;
-	border-collapse: collapse;
 }
-.theaterMain td {
-	width: 10%;
-	text-align: center;
+.theaterAreaMenu {
+  	width: 100%;
+  	height: 50px;
+	display: table-cell;
+	margin-top: 0;
+  	list-style-type: none;
+  	text-align: center;
+}
+.theaterArea {
+	width: 120px;
+	float: left;
 	vertical-align: middle;
-	border: 1px solid;
-	padding: 5px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+}
+.theaterArea:hover .container-theaterSubMenu {
+	display: block;
+}
+.theaterArea:hover .theaterBranchMenu {
+	display: block;
 }
 .area {
 	text-decoration: none;
-	text-size: 1.1em;
 	color: black;
 }
-.theaterMain tr:last-child td {
-	height: 150px;
-	padding: 10px;
+.container-theaterSubMenu {
+	width: 100%;	
+	display: none;
+	position: absolute;
+	top: 50px;
+	left: 20px;
+}
+.theaterSubMenu {
+	width: 100%;
+	margin: 0 auto;
+}
+.theaterBranchMenu {
+  	width: 100%;
+	display: none;
+  	list-style-type: none;
+}
+.theaterBranch {
+	display: flex;
+	flex-flow: column;
+	float: left;
+	padding-right: 20px;
+	vertical-align: middle;
+}
+.branch {
+	text-decoration: none;
+	color: black;
 }
 
-/* MY(마이페이지) 메인 */
+/* 영화관 정보 */
+.theaterName {
+	width: 1080px;
+	height: 200px;
+	margin: 0 auto;
+	margin-top:50px;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid;	
+}
+.theaterInfo {
+	width: 1040px;
+	height: 500px;
+	margin: 0 auto;
+	padding: 20px;
+	vertical-align: middle;
+	border: 1px solid;	
+}
+.container-showtime {
+	width: 1080px;
+	height: 500px;
+	margin: 0 auto;
+	border: 1px solid;	
+}
+
+
+/* MY(마이페이지) 메인&메뉴 */
 .container-mypage {
 	width: 1080px;
-	height: 1000px;
+	height: 1200px;
 	margin: 0 auto;
 	display: grid;
 	grid-template-columns: 270px 810px;
 	border: 1px solid;
-	
 }
 .container-mypageMenuBar {
 	grid-column: 1;
-	width: 100%;
-	height: 900px;
-	margin-top: 100px;
-	border: 1px solid black;
+	width: 245px;
+	height: 800px;
+	margin-top: 50px;
+	margin-left: 25px;
+	border: 1px solid;
 }
 .container-mypageContent {
 	grid-column: 2;
-	width: 100%;
-	height: 900px;
-	margin-top: 100px;
-	border: 1px solid black;
+	width: 810px;
+	height: 1200px;
+	margin-top: 50px;
+}
+.mypageMain {
+	width: 245px;
+	height: 70px;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 4px;
+	border: 1px solid;
+	/*background-color: #EFE9FD;*/
+}
+.mypageMain a {
+	text-decoration: none;
+	font-size: 1.2em;
+	font-weight: 500;
+	color: #6a51ef;
+}
+.mypageMenuBar {
+	width: 245px;
+	margin-top: 5px;
+	border-radius: 4px;
+	border: 1px solid;
 }
 .mypageMenuBar td{
 	text-decoration: none;
 	color: black;
 	padding-left: 15px;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	vertical-align: middle;
 }
 .mypageMenuBar td a{
 	text-decoration: none;
 	color: black;
 	/* font-weight: 300; */
+}
+.myMenuName {
+	font-size: 1.5em;
+	font-weight: 600;
+	margin: 10px;
+	margin-left: 30px;
+	margin-top: 15px;
+}
+
+
+/* MY 메인 - 회원 현황 안내 */
+.mypageInfoTable {
+	width: 760px;
+	margin-left: 25px;
+	border-collapse: collapse;
+}
+.mypageInfoTable td {
+	padding: 10px;
+	border: 1px solid;
+}
+.mypageInfoTable tr:nth-child(1) td {
+	height: 100px;
+	font-size: 2em;
+	font-weight: 500;
+	padding-left: 40px;
+	vertical-align: bottom;
+	border-bottom: 0px;
+}
+.mypageInfoTable tr:nth-child(2) td {
+	height: 80px;
+	font-size: 0.9em;
+	padding-left: 50px;
+	vertical-align: top;
+	border-top: 0px;
+}
+.mypageInfoTable tr:nth-child(3) td {
+	width: 33%;
+	font-size: 1.1em;
+	font-weight: 500;
+	text-align: center;
+	vertical-align: middle;
+	border-bottom: 0px;
+}
+.mypageInfoTable tr:nth-child(4) td {
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 0px;
+	border-top: 0px;
+}
+.mypageInfoTable tr:nth-child(4) td strong {
+	font-size: 4em;
+	font-weight: 300;
+	padding-left: 20px;
+}
+
+
+/* MY 메인 - 예매내역/구매내역 */
+.myReservationPurchase {
+	width: 760px;
+	margin-left: 25px;
+	margin-top: 25px;
+	border-collapse: collapse;
+	border: 1px solid;
+}
+.myReservationPurchase td {
+	padding: 10px;
+}
+.myReservationPurchase tr:nth-child(1) td:nth-child(1) {
+	width: 90%;
+	padding-left: 20px;
+	font-size: 1.1em;
+	font-weight: 500;
+	vertical-align: middle;
+}
+.myReservationPurchase tr:nth-child(1) td:nth-child(2) {
+	font-size: 0.9em;
+	text-align: right;
+	padding-right: 20px;
+}
+.myReservationPurchase tr:nth-child(1) td:nth-child(2) a {
+	text-decoration: none;
+	color: #000000;
+}
+.myReservationPurchase tr:nth-child(2) td {
+	padding-top: 0px;
+}
+.myReservationPurchase tr:nth-child(3) {
+	height: 120px;
+}
+
+
+/* MY 회원 정보 */
+.myMemberInfo {
+	width: 760px;
+	margin-left: 25px;
+	border-collapse: collapse;
+}
+.myMemberInfo td {
+	padding: 7px;
+	font-size: 0.9em;
+}
+.my-member-info-title {
+	margin-top: 10px;
+	font-size: 1.2em;
+	font-weight: 500;
+}
+.myMemberInfo-tr1 td {
+	padding-left: 15px;
+	padding-right: 15px;
+	border: 1px solid;
+}
+.myMemberInfo-tr1 td:nth-child(1) {
+	width: 100px;
+}
+.myMemberInfo-tr2 td {
+	border: 1px solid;
+	text-align: center;
+}
+.myMemberInfo-tr2 td:nth-child() {
+	width: 560px;
 }
 
 
