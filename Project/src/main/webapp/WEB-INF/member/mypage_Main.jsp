@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-mypageMain.jsp<br>
+member/mypageMain.jsp<br>
 <%@ include file="../common/common.jsp"%>
 <%@ include file="../main/mainHeader.jsp"%>    
 <style>
@@ -34,7 +34,7 @@ mypageMain.jsp<br>
 			<font style="font-size: large;">${mybean.member_point } P</font>
 		</td>
 		<td align="center">
-			<font style="font-size: small;"><a href="location.href='insert.in?member_id=${loginInfo.member_id}'">1:1문의</a></font>
+			<font style="font-size: small;"><a href="insert.in?member_id=${loginInfo.member_id}">1:1문의</a></font>
 		</td>
 	</tr>
 </table><br><br>
@@ -43,7 +43,7 @@ mypageMain.jsp<br>
 	<tr>
 		<td height="110px" valign="top"><br>
 			&nbsp;&nbsp;예매내역
-			<a style="margin-left: 75%" href="">더보기</a><br> 
+			<a style="margin-left: 75%" href="myPurchaseList.mp?member_id=${loginInfo.member_id}">더보기</a><br> 
 			<hr align="center" width="93%" style="margin-left: 10px;">
 		</td>
 	</tr>
@@ -53,7 +53,7 @@ mypageMain.jsp<br>
 	<tr>
 		<td height="110px" valign="top"><br>
 			&nbsp;&nbsp;취소내역
-			<a style="margin-left: 75%" href="">더보기</a><br> 
+			<a style="margin-left: 75%" href="myPurchaseList.mp?member_id=${loginInfo.member_id}">더보기</a><br> 
 			<hr align="center" width="93%" style="margin-left: 10px;">
 		</td>
 	</tr>

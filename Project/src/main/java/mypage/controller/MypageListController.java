@@ -49,3 +49,9 @@ public class MypageListController {
 		return gotopage;
 	}
 }
+
+
+
+
+
+
