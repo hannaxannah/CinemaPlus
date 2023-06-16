@@ -47,6 +47,7 @@ public class MemberLoginController {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = null;
 		
+		
 		MemberBean mb = mdao.getMemberById(input_id);
 		System.out.println("mb:" + mb);
 		
@@ -69,7 +70,6 @@ public class MemberLoginController {
 				// 로그인
 				session.setAttribute("loginInfo", mb);//세션설정
 				
-				//mav.setViewName((String) session.getAttribute("destination")); //productInsertController에서 작성했음(redirect:/insert.prd)
 				mav.setViewName(gotoPage);
 			}else { // 가입은 했는데 비번이 일치하지 않는다.
 				
