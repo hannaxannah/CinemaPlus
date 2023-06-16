@@ -28,12 +28,21 @@ mypageList.jsp<br>
  -->
 
 <style>
-	table {
+#modal{
+	margin: auto;
+	text-align: center;
+	width: 90%;
+	}
+.button{
+	margin: auto;
+	width: 730px;
+	}
+.mytable {
 	margin: auto;
 	margin-top: 50px;
 	width: 730px;
 	}
-	.purchase{
+.purchase{
 	width: 730px;
 	height: 25px;	
 	border: 1px solid black;
@@ -41,16 +50,91 @@ mypageList.jsp<br>
 	}
 </style> 
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      resizeable : false,
+      width: 450,
+      height: 250,
+      position: { my: "center", at: "center", of: window },
+    });
+ 
+    $( "#opener" ).on( "click", function() {
+      $( "#dialog" ).dialog( "open" );
+    });
+  } );
+  </script>
+
+
+<!-- 추후 jstl로 가져옴 -->
+<div id="dialog" title="예매/구매 상세내역">
+  	<table id="modal" border="1">
+  		<tr style="height: 35px">
+  			 <td>
+  			 	<font>예매번호</font>
+  			 </td>
+  			 <td>
+  			 	<font>202305311420V01M01</font>
+  			 </td>
+  		</tr>
+  		<tr style="height: 35px">
+  			 <td>
+  			 	<font>영화관</font>
+  			 </td>
+  			 <td>
+  			 	<font>가산디지털점</font>
+  			 </td>
+  		</tr>
+  		<tr style="height: 35px">
+  			 <td>
+  			 	<font>영화</font>
+  			 </td>
+  			 <td>
+  			 	<font>범죄도시3</font> 
+  			 </td>
+  		</tr>
+  		<tr style="height: 35px">
+  			 <td>
+  			 	<font>상영일시</font>
+  			 </td>
+  			 <td>
+  			 	<font>2023년 05월 31일</font>
+  			 </td>
+  		</tr>
+  		<tr style="height: 35px">
+  			 <td>
+  			 	<font>결제금액</font>
+  			 </td>
+  			 <td>
+  			 	<font>30,000원</font>
+  			 </td>
+  		</tr>
+  	</table>
+</div>
+
 <form name="mypageList" action="myPurchaseList.mp" method="POST">
- <table>
+ <table class="mytable">
 	<tr>
 		<td>
 			<font style="font-size: x-large; margin: auto;">예매/구매내역</font>
 		</td>
 	</tr>
 </table>
+<table class="button">
+	<tr>
+		<td>
+			<input type="button" id="opener" value="내역 상세보기">
+		</td>
+	</tr>
+</table>
+
 <c:forEach var="order" items="<%-- ${ orders } --%>">
-    <table class="table" border="1">
+    <table class="mytable" border="1">
         <tr>
           <th>예매번호</th>
           <th>영화관</th>
@@ -85,7 +169,7 @@ mypageList.jsp<br>
     </table>
 </c:forEach><br><br>
 
-<table>
+<table class="mytable">
 	<tr>
 		<td>
 			<font style="font-size: x-large; margin: auto;">취소내역</font>
@@ -93,7 +177,7 @@ mypageList.jsp<br>
 	</tr>
 </table>
 <c:forEach var="order" items="<%-- ${ orders } --%>">
-    <table class="table" border="1">
+    <table class="mytable" border="1">
         <thead class="thead-light">
         <tr>
           <th>예매번호</th>
