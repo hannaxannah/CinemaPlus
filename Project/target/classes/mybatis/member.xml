@@ -117,7 +117,7 @@
 	</select>
 	
 	<!-- member 테이블 총 레코드 수 -->
-	<select id="GetMemberTotal" resultType="int">
+	<select id="GetMemberTotal" resultType="int"> 
 		select count(*) from member
 	</select>
 	

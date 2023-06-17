@@ -126,7 +126,7 @@ public class NaverController {
 	     model.addAttribute("name",name);
 	     model.addAttribute("email",email);
 	     model.addAttribute("birth",birth);
-	     model.addAttribute("birthyear",birthyear);
+	     model.addAttribute("birthyear",birthyear);  
 	     model.addAttribute("id",id);
 	     model.addAttribute("mobile",mobile);
 
