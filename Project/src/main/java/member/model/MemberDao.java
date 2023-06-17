@@ -60,7 +60,7 @@ public class MemberDao {
 	}
 
 
-	public List<MemberBean> getAllMember(Paging pageInfo, Map<String, String> map) {
+	public List<MemberBean> getMemberList(Paging pageInfo, Map<String, String> map) {
 		List<MemberBean> lists = new ArrayList<MemberBean>();
 		RowBounds rowBounds = new RowBounds(pageInfo.getOffset(),pageInfo.getLimit());
 		
@@ -124,5 +124,16 @@ public class MemberDao {
 	}
 
 
+	public List<MemberBean> getAllMember() {
+		List<MemberBean> lists = new ArrayList<MemberBean>();
+		lists = sqlSessionTemplate.selectList(namespace+".GetAllMember");
+		return lists;
+	}
+
+	/* 회원가입 */
+	public String findId(String id) {
+		String m_id = sqlSessionTemplate.selectOne(namespace+".FindIdById",id);
+		return m_id;
+	}
 
 }

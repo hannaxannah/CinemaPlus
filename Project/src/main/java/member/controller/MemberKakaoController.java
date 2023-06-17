@@ -2,15 +2,19 @@ package member.controller;
 
 
 import java.util.HashMap;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 
 import member.model.MemberBean;
 import member.model.MemberDao;
@@ -22,14 +26,14 @@ public class MemberKakaoController {
 	@Autowired
 	private Member_Service ms;
 	
-	//@Autowired 
-	//MemberDao mdao;
+	@Autowired 
+	MemberDao mdao;
 	
 	// 1번 카카오톡에 사용자 코드 받기(jsp의 a태그 href에 경로 있음)
 	@RequestMapping(value = "kakao.mb", method = RequestMethod.GET)
 	public String kakaoLogin(
 					@RequestParam(value = "code", required = false) String code,
-					HttpServletResponse response,HttpSession session)throws Throwable {
+					HttpServletResponse response,HttpSession session, Model model, HttpServletRequest request)throws Throwable {
 
 		// 1번
 		System.out.println("code:" + code);
@@ -43,6 +47,12 @@ public class MemberKakaoController {
 		HashMap<String, Object> loginInfo = ms.getUserInfo(access_Token);
 		System.out.println("###nickname#### : " + loginInfo.get("nickname"));
 		System.out.println("###email#### : " + loginInfo.get("email"));
+		
+		List<MemberBean> lists = mdao.getAllMember();
+		model.addAttribute("lists",lists);
+		request.setAttribute("lists", lists);
+		
+		
 		
 		
 		session.setAttribute("nickname", loginInfo.get("nickname"));
