@@ -132,7 +132,8 @@ public class NaverController {
 
 	     member.model.MemberBean mb = sqlSessionTemplate.selectOne(namespace+".GetMemberById",id);
 		 session.setAttribute("loginInfo", mb);//세션설정
-		
+		 
+			
 		if (mb == null)
 		{
 			sqlSessionTemplate.insert(namespace+".NaverInsertMember",model);
