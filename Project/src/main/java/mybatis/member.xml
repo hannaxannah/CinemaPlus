@@ -17,8 +17,17 @@
 	<insert id="NaverInsertMember" useGeneratedKeys="false">
 		insert into
 		member(member_code, member_id, member_pw, member_name, member_birth, member_phone, member_email, pw_question, pw_answer, member_start,member_marketing_agree,member_email_agree,member_sms_agree,member_point)
-		values(#{member_code}, #{id},null,#{name},#{birth},#{phone},#{email},null,null,sysdate,null,null,null,null) 
+		values(1, #{id},null,#{name},#{birth},#{phone},#{email},null,null,sysdate,null,null,null,null) 
 	</insert>
+	
+	<!-- 카카오 Api 회원가입 -->
+	<insert id="KakaoInsertMember" useGeneratedKeys="false">
+		insert into
+		member(member_code, member_id, member_pw, member_name, member_birth, member_phone, member_email, pw_question, pw_answer, member_start,member_marketing_agree,member_email_agree,member_sms_agree,member_point)
+		values(2, #{email},null,#{nickname},null,null,#{email},null,null,sysdate,null,null,null,null) 
+	</insert>
+	
+	
 	<!-- 중복체크 -->
 	<select id="CheckId" resultType="int">
 		select count(*) from member
