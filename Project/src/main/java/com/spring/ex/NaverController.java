@@ -1,12 +1,16 @@
 package com.spring.ex;
 
+import javax.swing.JOptionPane;
 import java.io.IOException;
+import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
  
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,13 +19,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
  
 import com.github.scribejava.core.model.OAuth2AccessToken;
+
+import member.model.MemberBean;
+import member.model.MemberDao;
  
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class NaverController {
- 
+
+	HttpServletResponse response;
+	@Autowired
+	SqlSessionTemplate sqlSessionTemplate;
+	private String namespace = "member.model.MemberBean";
+	
 	/* NaverLoginBO */
 	private NaverLoginBO naverLoginBO;
 	private String apiResult = null;
@@ -68,7 +80,7 @@ public class NaverController {
 	//네이버 로그인 성공시 callback호출 메소드
 	@RequestMapping(value = "/callback", method = { RequestMethod.GET, RequestMethod.POST })
 	public String callback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session) throws IOException, ParseException {
-		
+
 		System.out.println("여기는 callback");
 		OAuth2AccessToken oauthToken;
         oauthToken = naverLoginBO.getAccessToken(session, code, state);
@@ -94,16 +106,40 @@ public class NaverController {
 		//response의 nickname값 파싱
 		String name = (String) response_obj.get("name");
 		String email = (String) response_obj.get("email");
+		String birth = (String) response_obj.get("birth");
+		String birthyear = (String) response_obj.get("birthyear");
+		String id = (String) response_obj.get("id");
+		String mobile = (String) response_obj.get("mobile");
  
 		System.out.println("signIn:"+apiResult);
 		System.out.println("name:"+name);
 		System.out.println("email:"+email);
+		System.out.println("birth:"+birth);
+		System.out.println("birthyear:"+birthyear);
+		System.out.println("id:"+id);
+		System.out.println("mobile:"+mobile);
 		
 		//4.파싱 닉네임 세션으로 저장
 		session.setAttribute("sessionId",name); //세션 생성
 		
-		model.addAttribute("result", apiResult);
-	     
+		 model.addAttribute("result", apiResult);
+	     model.addAttribute("name",name);
+	     model.addAttribute("email",email);
+	     model.addAttribute("birth",birth);
+	     model.addAttribute("birthyear",birthyear);
+	     model.addAttribute("id",id);
+	     model.addAttribute("mobile",mobile);
+
+	     member.model.MemberBean mb = sqlSessionTemplate.selectOne(namespace+".GetMemberById",id);
+		 session.setAttribute("loginInfo", mb);//세션설정
+		
+		if (mb == null)
+		{
+			sqlSessionTemplate.insert(namespace+".NaverInsertMember",model);
+			
+		    mb = sqlSessionTemplate.selectOne(namespace+".GetMemberById",id);
+			session.setAttribute("loginInfo", mb);//세션설정
+		}
 		return "redirect:/main.mn";
 	}
 	
@@ -112,7 +148,7 @@ public class NaverController {
 	public String logout(HttpSession session)throws IOException {
 			System.out.println("여기는 logout");
 			session.invalidate();
-			//session.setAttribute("loginInfo", null);
+			session.setAttribute("loginInfo", null);
 	        
 			return "redirect:/main.mn";
 		}
