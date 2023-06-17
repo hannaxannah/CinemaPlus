@@ -25,7 +25,7 @@
 					<a href="memberlogin">로그인</a>&nbsp&nbsp<a href="register.mb">회원가입</a>
 				</c:when>
 				<c:otherwise>
-						${loginInfo.getMember_id()}님, 환영합니다!
+						${loginInfo.getMember_name()}님, 환영합니다!
 					
 					<a href="logout.mb">로그아웃</a>&nbsp&nbsp<a href="">빠른예매</a>
 				</c:otherwise>
