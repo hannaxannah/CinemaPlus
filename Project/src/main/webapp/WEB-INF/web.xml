@@ -14,19 +14,6 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
-	<servlet>
-		<servlet-name>store</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/appServlet/store-servlet.xml</param-value>
-		</init-param>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>store</servlet-name>
-		<url-pattern>*.store</url-pattern>
-	</servlet-mapping>
-	
 	<!-- Processes application requests -->
 	<servlet>
 		<servlet-name>appServlet</servlet-name>
@@ -42,7 +29,35 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-		
+	
+	<!-- store-servlet -->
+	<servlet>
+		<servlet-name>store</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/store-servlet.xml</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>store</servlet-name>
+		<url-pattern>*.store</url-pattern>
+	</servlet-mapping>	
+	
+	<!-- admin-servlet -->
+	<servlet>
+		<servlet-name>admin</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/admin-servlet.xml</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>admin</servlet-name>
+		<url-pattern>*.admin</url-pattern>
+	</servlet-mapping>
+	
 	<!-- member-servlet -->
 	<servlet>
 		<servlet-name>member</servlet-name>
