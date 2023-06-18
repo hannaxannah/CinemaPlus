@@ -26,7 +26,7 @@
 				</c:when>
 				<c:otherwise>
 						${loginInfo.getMember_id()}님, 환영합니다!
-					
+					<a href="admin.admin">관리자페이지</a>	
 					<a href="logout.mb">로그아웃</a>&nbsp&nbsp<a href="">빠른예매</a>
 				</c:otherwise>
 			</c:choose>
