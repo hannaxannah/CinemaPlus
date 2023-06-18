@@ -2,15 +2,20 @@ package member.controller;
 
 
 import java.util.HashMap;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 
 import member.model.MemberBean;
 import member.model.MemberDao;
@@ -22,14 +27,19 @@ public class MemberKakaoController {
 	@Autowired
 	private Member_Service ms;
 	
-	//@Autowired 
-	//MemberDao mdao;
+	@Autowired 
+	MemberDao mdao;
+	
+	HttpServletResponse response;
+	@Autowired
+	SqlSessionTemplate sqlSessionTemplate;
+	private String namespace = "member.model.MemberBean";
 	
 	// 1번 카카오톡에 사용자 코드 받기(jsp의 a태그 href에 경로 있음)
 	@RequestMapping(value = "kakao.mb", method = RequestMethod.GET)
 	public String kakaoLogin(
 					@RequestParam(value = "code", required = false) String code,
-					HttpServletResponse response,HttpSession session)throws Throwable {
+					HttpServletResponse response,HttpSession session, Model model, HttpServletRequest request)throws Throwable {
 
 		// 1번
 		System.out.println("code:" + code);
@@ -41,14 +51,42 @@ public class MemberKakaoController {
 		//System.out.println("가입한이메일:"+join_email);
 		
 		HashMap<String, Object> loginInfo = ms.getUserInfo(access_Token);
+		
 		System.out.println("###nickname#### : " + loginInfo.get("nickname"));
 		System.out.println("###email#### : " + loginInfo.get("email"));
 		
+		String email = (String) loginInfo.get("email");
+		String nickname = (String) loginInfo.get("nickname");
 		
-		session.setAttribute("nickname", loginInfo.get("nickname"));
+		System.out.println("email:"+email);
+		System.out.println("nickname:"+nickname);
+		/*
+		List<MemberBean> lists = mdao.getAllMember();
+		model.addAttribute("lists",lists);
+		request.setAttribute("lists", lists);
+		*/
 		
+		//session.setAttribute("nickname", loginInfo.get("nickname"));
+		
+		model.addAttribute("email",email);
+		model.addAttribute("nickname", nickname);
+		
+		
+		member.model.MemberBean mb = sqlSessionTemplate.selectOne(namespace+".GetMemberById",email);
+		session.setAttribute("loginInfo", mb);//세션설정
+		 
+			
+		if (mb == null)
+		{
+			sqlSessionTemplate.insert(namespace+".KakaoInsertMember",model);
+			
+		    mb = sqlSessionTemplate.selectOne(namespace+".GetMemberById",email);
+			session.setAttribute("loginInfo", mb);//세션설정
+		}
 		return "redirect:/main.mn";
 	}
+		
+	
 
 	@RequestMapping(value="/kakaologout.mb")
 	public String logout(HttpSession session) {

@@ -4,7 +4,7 @@
 drop table member cascade constraints;
 create table member(
 	member_code varchar2(30) primary key,
-	member_id varchar2(30),
+	member_id varchar2(50),
 	member_pw varchar2(30),
 	member_name varchar2(30),
 	member_birth varchar2(10),

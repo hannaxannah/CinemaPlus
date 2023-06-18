@@ -42,7 +42,7 @@
 			<a href="https://kauth.kakao.com/oauth/authorize?client_id=0f2a40dae9d02f9c0e00332f2d04684a&redirect_uri=http://localhost:8080/ex/kakao.mb&response_type=code">
 			<img src="<%=request.getContextPath()%>/resources/Kakaologo.svg" width="33px;"></a>
 			
-			<a class="link-login-3" href="">구글</a>
+			<a class="link-login-3" href=""></a>
 		</div>
 	</div>
 </div>
