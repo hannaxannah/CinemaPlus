@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import store.model.StoreCouponBean;
 import store.model.StoreCouponDao;
 import store.model.StoreCoupon_UserBean;
-import store.model.StoreProductBean;
 
 @Controller
 public class StoreCouponController {
@@ -31,7 +30,7 @@ public class StoreCouponController {
 	private final String getCouponCreatePage = "couponCreate";
 	
 	private final String management_command = "/couponManagement.store";
-	private final String getCouponManagementPage = "couponManagement";
+	private final String getCouponManagementPage = "href_adminCouponList";
 	
 	private final String issue_command = "/couponIssue.store";
 
@@ -86,7 +85,7 @@ public class StoreCouponController {
 		
 		model.addAttribute("couponList", couponList);//쿠폰 list
 		
-		return getCouponManagementPage;
+		return getCouponManagementPage;//property설정 해줘야되서 store폴더의 send로 admin href 실행
 	}
 	
 	@RequestMapping(issue_command)
