@@ -85,6 +85,7 @@
                   
                     <li><a><i class="fa fa-edit"></i> 게시판 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
+                      <li><a href="faqInsert.admin">FAQ 추가</a></li>
                       <li><a href="faq.admin">FAQ 리스트</a></li>
                       <li><a href="board.admin">문의게시판 리스트</a></li>
                     </ul>
