@@ -59,7 +59,7 @@ public class StoreCartController { //장바구니 컨트롤러
 				if(session.getAttribute("loginInfo") == null) {
 				     writer.println("<script type='text/javascript'>");
 				     writer.println("alert('로그인 후 이용가능한 서비스입니다. 로그인 페이지로 이동합니다.');");
-				     writer.println("location.href = 'memberlogin.mb' ");
+				     writer.println("location.href = 'memberlogin' ");
 				     writer.println("</script>");
 				     writer.flush();
 				     return null;
@@ -103,7 +103,7 @@ public class StoreCartController { //장바구니 컨트롤러
 		if(session.getAttribute("loginInfo") == null) {
 		     writer.println("<script type='text/javascript'>");
 		     writer.println("alert('로그인 후 이용가능한 서비스입니다. 로그인 페이지로 이동합니다.');");
-		     writer.println("location.href = 'memberlogin.mb' ");
+		     writer.println("location.href = 'memberlogin' ");
 		     writer.println("</script>");
 		     writer.flush();
 		     return null;
@@ -124,8 +124,6 @@ public class StoreCartController { //장바구니 컨트롤러
 		Set<Integer> keylist = product_order_qty.keySet();
 		//map에 저장되있는 key값 설정
 		
-		int totalAmount = 0;
-		
 		for(Integer product_code:keylist) {
 			StoreCartBean shop = new StoreCartBean();//장바구니 bean 객체 생성
 			StoreProductBean storeProductBean = storeProductDao.getProducDetailByNum(product_code);//상품코드 기준으로 정보 불러오기
@@ -137,16 +135,11 @@ public class StoreCartController { //장바구니 컨트롤러
 			}
 			shop.setProduct_sprice(storeProductBean.getProduct_sprice());
 			shop.setCart_qty(product_order_qty.get(product_code));
-			shop.setCart_amount(storeProductBean.getProduct_sprice()*product_order_qty.get(product_code));
 			cartBeanList.add(shop);
-			totalAmount += storeProductBean.getProduct_sprice()*product_order_qty.get(product_code);
-			//총액에 세일금액*수량 더하기
-			
 		}
 		
 		
 		model.addAttribute("cartBeanList", cartBeanList); //물품리스트
-		model.addAttribute("totalAmount", totalAmount); //물품 총액
 		
 		session.setAttribute("cartSize", cartBeanList.size()); //장바구니에 담겨있는 물품 갯수를 담은 세션
 		
@@ -165,7 +158,7 @@ public class StoreCartController { //장바구니 컨트롤러
 		if(session.getAttribute("loginInfo") == null) {
 		     writer.println("<script type='text/javascript'>");
 		     writer.println("alert('로그인 후 이용가능한 서비스입니다. 로그인 페이지로 이동합니다.');");
-		     writer.println("location.href = 'memberlogin.mb' ");
+		     writer.println("location.href = 'memberlogin' ");
 		     writer.println("</script>");
 		     writer.flush();
 		     return null;
@@ -188,7 +181,6 @@ public class StoreCartController { //장바구니 컨트롤러
 		Set<Integer> keylist = product_order_qty.keySet();
 		//map에 저장되있는 key값 설정
 		 
-		int totalAmount = 0;
 		
 		for(Integer product_code:keylist) {
 			StoreCartBean shop = new StoreCartBean();//장바구니 bean 객체 생성
@@ -199,15 +191,11 @@ public class StoreCartController { //장바구니 컨트롤러
 			shop.setProduct_price(storeProductBean.getProduct_price());
 			shop.setProduct_sprice(storeProductBean.getProduct_sprice());
 			shop.setCart_qty(product_order_qty.get(product_code));
-			shop.setCart_amount(storeProductBean.getProduct_sprice()*product_order_qty.get(product_code));
 			cartBeanList.add(shop);
-			totalAmount += storeProductBean.getProduct_sprice()*product_order_qty.get(product_code);
-			//총액에 세일금액*수량 더하기
 			 
 		}
 		
 		model.addAttribute("cartBeanList", cartBeanList); //물품리스트
-		model.addAttribute("totalAmount", totalAmount); //물품 총액
 		
 		return orderPage;
 	}
