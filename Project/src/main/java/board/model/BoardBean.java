@@ -1,6 +1,7 @@
 package board.model;
 
 import java.security.Timestamp;
+import lombok.Data;
 import java.sql.Date;
 
 public class BoardBean {
