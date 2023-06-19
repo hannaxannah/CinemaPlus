@@ -71,7 +71,7 @@ mypageList.jsp<br>
   </script>
 
 
-<!-- 추후 jstl로 가져옴 -->
+<!-- 추후 jstl로 가져옴 - 모달창 -->
 <div id="dialog" title="예매/구매 상세내역">
   	<table id="modal" border="1">
   		<tr style="height: 35px">
@@ -151,7 +151,6 @@ mypageList.jsp<br>
 			</tr>
 		</c:if>
     <%--   
-      <tbody>
         <c:forEach var="item" items=" ${ order.items }" varStatus="status">
                 <tr>
                 <th>${ status.count }</th>
@@ -163,7 +162,6 @@ mypageList.jsp<br>
                 <td><a href="location.href=''">예매취소</a></td>
             </tr>       
         </c:forEach>
-      </tbody>
        --%>
       
     </table>

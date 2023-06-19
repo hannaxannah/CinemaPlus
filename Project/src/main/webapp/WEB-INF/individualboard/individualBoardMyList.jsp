@@ -72,7 +72,7 @@
 					</c:if>
 				</td>
 				<td align="center">
-				<fmt:formatDate value="${board.writeDate}" type="date" pattern="yyyy-MM-dd"/>
+				<fmt:formatDate value="${board.writeDate}" type="date" pattern="yyyy-MM-dd HH:ss"/>
 				</td>
 				<td align="center">
 				<a href="detail.in?moviecode=${board.movie_code }&pageNumber=1">상세보기</a>

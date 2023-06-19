@@ -17,9 +17,21 @@ member/mypageMain.jsp<br>
 	<tr>
 		<td colspan="3"><br>
 			<a style="font-size: large; margin-left: 20px;">${loginInfo.member_name} 님, 안녕하세요!</a><br><br>
-			
-			<font style="font-size: small; margin-left: 20px;">회원 등급 : </font><br>
-			<font style="font-size: small; margin-left: 20px;"></font><br>
+			<c:set var = "grade" scope = "session" value = "${mybean.member_point}"/>
+	<c:choose>
+        <c:when test = "${grade eq null || grade <3000}">
+          <font style="font-size: middle; margin-left: 20px;">회원 등급 : Welcome</font><br><br>
+        </c:when>
+        <c:when test = "${grade >=3000 && grade <5000}">
+          <font style="font-size: middle; margin-left: 20px;">회원 등급 : Friends</font><br><br>
+        </c:when>
+        <c:when test = "${grade >=5000 && grade <10000}">
+           <font style="font-size: middle; margin-left: 20px;">회원 등급 : VIP</font><br><br>
+        </c:when>
+        <c:otherwise>
+        <font style="font-size: middle; margin-left: 20px;">회원 등급 : MVP</font><br><br>
+        </c:otherwise>
+     </c:choose>
 		</td>
 		
 	</tr>
@@ -27,10 +39,10 @@ member/mypageMain.jsp<br>
 	<tr>
 		<td align="center">
 			<font style="font-size: small;">쿠폰/관람권/교환권</font>	<br>
-			<font style="font-size: x-large;"><%-- ${mybean.totalcount} --%> 장</font>
+			<font style="font-size: large;"><%-- ${mybean.totalcount} --%>0 장</font>
 		</td>
 		<td align="center">
-			<font style="font-size: small;">포인트</font><br>
+			<font style="font-size: small;">현재 포인트</font><br>
 			<font style="font-size: large;">${mybean.member_point } P</font>
 		</td>
 		<td align="center">
