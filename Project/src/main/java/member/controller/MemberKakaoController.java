@@ -86,7 +86,7 @@ public class MemberKakaoController {
 		return "redirect:/main.mn";
 	}
 		
-	
+	 
 
 	@RequestMapping(value="/kakaologout.mb")
 	public String logout(HttpSession session) {
