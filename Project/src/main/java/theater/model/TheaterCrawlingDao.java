@@ -6,7 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component("myCrawlingDao")
+@Component
 public class TheaterCrawlingDao {
 
 	private String namespace = "theater.model.TheaterCrawlingBean";
@@ -36,10 +36,18 @@ public class TheaterCrawlingDao {
 		System.out.println("insertBranchList");
 		int cnt = 0;
 		
+		//for(TheaterCrawlingBean tcb : branch) {
+			/*
+			 * System.out.println("test"+tcb.getCode());
+			 * System.out.println("test"+tcb.getArea());
+			 * System.out.println("test"+tcb.getBranch());
+			 * System.out.println("test"+tcb.getAddress());
+			 * System.out.println("test"+tcb.getHowtoget1());
+			 * System.out.println("test"+tcb.getHowtoget2());
+			 */
 		//sqlSessionTemplate.selectOne(namespace+".SetDefineOff");
-		for(TheaterCrawlingBean tcb : branch) {
-			cnt = cnt + sqlSessionTemplate.insert(namespace+".InsertBranchList", tcb);
-		}
+		//}
+		sqlSessionTemplate.insert(namespace+".InsertBranchList", branch);
 		return cnt;
 	}
 	

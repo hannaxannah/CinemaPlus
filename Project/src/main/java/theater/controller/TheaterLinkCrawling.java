@@ -152,8 +152,9 @@ public class TheaterLinkCrawling {
 				String address_getText = link_address_elm.getText();
 				int length = address_getText.length();
 				
-				tcb.setAddress(address_getText.substring(0, (length-10)));
+				//tcb.setAddress(address_getText.substring(0, (length-10)));
 				//System.out.println(address_getText.substring(0, (length-10)));
+				tcb.setAddress(address_getText.split("\\n")[0]);
 
 				//영화관 위치안내 링크 selector
 				WebElement link_howtoget_elm = driver.findElement(By.cssSelector(link_howtoget));
