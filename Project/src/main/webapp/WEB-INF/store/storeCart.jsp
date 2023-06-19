@@ -92,6 +92,52 @@
 	}
 </style>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function() {
+		alert(1);
+	});//ready
+	
+		 //장바구니 비우기
+		function empty_cart() {
+			location.href = "emptyAll.store";
+		}
+		
+		//결제누르기전 장바구니 비었나 확인
+		function check_beforePay(url){
+			if('${cart_empty}' != ''){
+				alert("장바구니가 비었습니다. 상품을 선택해주세요");
+				url = "list.store";
+			}
+			location.href = url;
+		}
+		
+		//선택 상품 수량증가
+		function btn_plus(i) {
+			$("input[type='text'][name="+i+"]").val(parseInt($("input[type='text'][name="+i+"]").val())+1); 
+			if ($("input[type='text'][name="+i+"]").val() > 10) {//최대 수량 10
+				alert("한번에 선택가능한 수량은 10개입니다.");
+				$("input[type='text'][name="+i+"]").val(10);
+			} 
+			
+		}
+		
+		//선택 상품 수량감소
+		function btn_minus(i) {
+			
+			$("input[type='text'][name="+i+"]").val(parseInt($("input[type='text'][name="+i+"]").val())-1); 
+			
+			if ($("input[type='text'][name="+i+"]").val() < 1) {//최대 수량 10
+				alert("최소 선택가능한 수량은 1개입니다.");
+				$("input[type='text'][name="+i+"]").val(1);
+			} 
+			
+		}
+		
+		
+
+</script>
 <c:set var="original_price" value="0"/>
 <c:set var="sale_price" value="0"/>
 
@@ -215,49 +261,5 @@
 	        </div>
 	</section>
 </div>
-
-<script type="text/javascript" src="resources/js/jquery.js"></script>
-<script type="text/javascript">
-	
-	//장바구니 비우기
-	function empty_cart() {
-		location.href = "emptyAll.store";
-	}
-	
-	//결제누르기전 장바구니 비었나 확인
-	function check_beforePay(url){
-		if('${cart_empty}' != ''){
-			alert("장바구니가 비었습니다. 상품을 선택해주세요");
-			url = "list.store";
-		}
-		location.href = url;
-	}
-	
-	//선택 상품 수량증가
-	function btn_plus(i) {
-		$("")		
-		$("input[type='text'][name="+i+"]").val(parseInt($("input[type='text'][name="+i+"]").val())+1); 
-		if ($("input[type='text'][name="+i+"]").val() > 10) {//최대 수량 10
-			alert("한번에 선택가능한 수량은 10개입니다.");
-			$("input[type='text'][name="+i+"]").val(10);
-		} 
-		
-	}
-	
-	//선택 상품 수량감소
-	function btn_minus(i) {
-		
-		$("input[type='text'][name="+i+"]").val(parseInt($("input[type='text'][name="+i+"]").val())-1); 
-		
-		if ($("input[type='text'][name="+i+"]").val() < 1) {//최대 수량 10
-			alert("최소 선택가능한 수량은 1개입니다.");
-			$("input[type='text'][name="+i+"]").val(1);
-		} 
-		
-	}
-	
-	
-</script>
-
 
 <%@ include file="../main/mainFooter.jsp"%>
