@@ -202,3 +202,23 @@ insert into location values('L09022','광주/전라/제주','제주');
 insert into location values('L09023','광주/전라/제주','제주노형');
 
 commit;
+
+--branch
+drop table branch cascade constraints;
+create table branch (
+code varchar2(10) Primary key,
+area varchar2(30) not null,
+branch varchar2(30) not null,
+address varchar2(500),
+howtoget1 varchar2(100) not null,
+howtoget2 varchar2(100) not null
+);
+
+commit;
+
+set define off;
+-- &과 같은 문자열을 변수로 인식하지 않게 함
+
+insert into branch values('L0401','강원','강릉','강원특별자치도 강릉시 옥천동 189 씨네몰 6~8층 CGV강릉
+강원특별자치도 강릉시 경강로 2120, 6층~8층(옥천동) CGV강릉','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0139#menu');
+
