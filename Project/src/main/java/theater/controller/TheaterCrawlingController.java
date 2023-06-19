@@ -88,7 +88,7 @@ public class TheaterCrawlingController {
 		//추출한 데이터를 LocationBean 객체로 묶고 List로 저장
 		List<LocationBean> branch = new ArrayList<LocationBean>();
 		
-		TheaterCrawlingBean tcb;		
+		//TheaterCrawlingBean tcb;		
 		LocationBean lb;
 		
 		//영화관 지점 총 개수
@@ -138,9 +138,9 @@ public class TheaterCrawlingController {
 				lb.setBranch(link_branch_elm.getAttribute("title").substring(3));
 				System.out.println(link_branch_elm.getAttribute("title").substring(3));
 				
-				
+				/*
 				//영화관 링크 추출
-				System.out.println(link_branch_elm.getAttribute("href"));
+				//System.out.println(link_branch_elm.getAttribute("href"));
 				
 				//영화관 링크로 이동
 				driver.get(link_branch_elm.getAttribute("href"));
@@ -153,13 +153,13 @@ public class TheaterCrawlingController {
 				int length = address_getText.length();
 				
 				//tcb.setAddress(address_getText.substring(0, (length-10)).split("\\n")[0]);
-				System.out.println(address_getText.substring(0, (length-10)));
+				//System.out.println(address_getText.substring(0, (length-10)));
 
 				//영화관 위치안내 링크 selector
 				WebElement link_howtoget_elm = driver.findElement(By.cssSelector(link_howtoget));
 
 				//영화관 위치안내 링크 추출
-				System.out.println(link_howtoget_elm.getAttribute("href"));
+				//System.out.println(link_howtoget_elm.getAttribute("href"));
 				
 				//영화관 위치안내 링크로 이동
 				driver.get(link_howtoget_elm.getAttribute("href"));
@@ -170,7 +170,7 @@ public class TheaterCrawlingController {
 				//영화관 위치안내 추출
 				tcb.setHowtoget(howtoget_elm.getText());
 				//System.out.println(howtoget_elm.getText());
-				
+				*/
 				branch.add(lb); //194
 			}
 		}
