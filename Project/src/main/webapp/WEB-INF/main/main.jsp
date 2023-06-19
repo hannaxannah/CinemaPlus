@@ -1,18 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="mainHeader.jsp"%>
+<main id="main">
 
-<!-- 메인 -->
-<div class="container-main">
-	<!-- 메인-박스오피스 -->
-	<div class="container-main-boxoffice">
-		<!-- 반복문으로 1줄에 4개씩 출력 -->
-		<!-- 영화포스터 -->
-		<div class="">
-			<img src="">
+	<section id="portfolio" class="portfolio">
+
+		<div style="width: 1000px">
 		</div>
-		<!-- 예매율, 예매하기버튼 -->
-		<div class=""></div>
-	</div>
-</div>
+
+	</section>
+</main>
+<!-- End #main -->
 <%@ include file="mainFooter.jsp"%>
