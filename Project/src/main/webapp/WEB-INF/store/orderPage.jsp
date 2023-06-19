@@ -17,6 +17,7 @@
 		flex-direction: column;
 		border: 1px solid;
 		position: relative;
+		background-color: #FFF;
 	}
 	.cart{
 		margin-top: 50px;
@@ -115,7 +116,7 @@ $(document).ready(function() {
 });//ready
 
 </script>
-
+<% request.setCharacterEncoding("EUC-KR"); %>
 <div class="container_cart">
 	<section id="store">
 	        <div class="container">
@@ -224,7 +225,7 @@ $(document).ready(function() {
 </div>
 
 <div id="payDiv">
-<form action="pay.store" method="post" class="cardForm" id="cardForm">
+<form action="pay.store" method="post" class="cardForm" id="cardForm" accept-charset="UTF-8">
 	<input type="hidden" name="pay_price" value="${total_price}">	
    	<input type="radio" class="payment" name="payment_card" id="payment_card" value="card"> 신용/체크 카드결제
    	<div id="cardDiv">
@@ -308,7 +309,7 @@ $(document).ready(function() {
 function payment() {//결제 버튼 클릭
 	var birth_regEXP = /([0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1]))/;//주민번호6자리
 	var busi_regEXP = /^[0-9]{6,10}$/;// 숫자6~10자리 정규식
-	var mmyy_regEXP = /0[1-9]^[0-9]{2,2}$|1[012]^[0-9]{2,2}$/;//월-년도 4자리 정규식
+	var mmyy_regEXP = /(^0[1-9][0-9][0-9]$)|(^1[012][0-9][0-9]$)/;//월-년도 4자리 정규식
 	var card_regEXP = /^(?:(94[0-9]{14})|(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$/;
 	
 	//유효성 체크
@@ -324,19 +325,21 @@ function payment() {//결제 버튼 클릭
 		alert("유효기간은 필수입력사항입니다.");
 		$(".card_mmyy").focus();
 		return false;
-	}else if (!mmyy_regEXP.test($(".card_mmyy").val())) {
+	}
+	/* else if (mmyy_regEXP.test($(".card_mmyy").val()) == false) {
 		alert("년 월 형식이 올바르지 않습니다.");
 		$(".card_mmyy").focus();
 		return false;
-	} else if ($("#card_num").val() == "") {
+	}  */
+	else if ($("#card_num").val() == "") {
 		alert("카드번호는 필수입력사항입니다.");
 		$("#card_num").focus();
 		return false;
-	} else if (!card_regEXP.test($("#card_num").val())) {
+	} /* else if (!card_regEXP.test($("#card_num").val())) {
 		alert("카드번호 형식이 올바르지 않습니다.");
 		$("#card_num").focus();
 		return false;
-	} else if ($("#card_pwd").val() == "") {
+	} */ else if ($("#card_pwd").val() == "") {
 		alert("비밀번호는 필수입력사항입니다.");
 		$("#card_pwd").focus();
 		return false;

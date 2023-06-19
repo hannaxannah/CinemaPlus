@@ -14,5 +14,82 @@ public class StorePayDetailBean {
 	private int card_pw;//카드비밀번호
 	private int card_installment;//할부
 	
+	public StorePayDetailBean() {
+		super();
+	}
+
+	public int getPayde_code() {
+		return payde_code;
+	}
+
+	public void setPayde_code(int payde_code) {
+		this.payde_code = payde_code;
+	}
+
+	public String getPay_code() {
+		return pay_code;
+	}
+
+	public void setPay_code(String pay_code) {
+		this.pay_code = pay_code;
+	}
+
+	public int getItem_code() {
+		return item_code;
+	}
+
+	public void setItem_code(int item_code) {
+		this.item_code = item_code;
+	}
+
+	public int getCart_qty() {
+		return cart_qty;
+	}
+
+	public void setCart_qty(int cart_qty) {
+		this.cart_qty = cart_qty;
+	}
+
+	public String getCard_number() {
+		return card_number;
+	}
+
+	public void setCard_number(String card_number) {
+		this.card_number = card_number;
+	}
+
+	public String getCard_company() {
+		return card_company;
+	}
+
+	public void setCard_company(String card_company) {
+		this.card_company = card_company;
+	}
+
+	public int getCard_mmyy() {
+		return card_mmyy;
+	}
+
+	public void setCard_mmyy(int card_mmyy) {
+		this.card_mmyy = card_mmyy;
+	}
+
+	public int getCard_pw() {
+		return card_pw;
+	}
+
+	public void setCard_pw(int card_pw) {
+		this.card_pw = card_pw;
+	}
+
+	public int getCard_installment() {
+		return card_installment;
+	}
+
+	public void setCard_installment(int card_installment) {
+		this.card_installment = card_installment;
+	}
+	
+	
 	
 }
