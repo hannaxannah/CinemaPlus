@@ -82,6 +82,13 @@
                       <li><a href="coupon.admin">쿠폰 리스트</a></li>
                     </ul>
                   </li>
+                  
+                    <li><a><i class="fa fa-edit"></i> 게시판 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="faq.admin">FAQ 리스트</a></li>
+                      <li><a href="board.admin">문의게시판 리스트</a></li>
+                    </ul>
+                  </li>
                  
                   
                   

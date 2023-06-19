@@ -28,7 +28,7 @@ individualDetailBoard.jsp<br>
     <tr>
         <td class="first">번호</td>
         <td>${board.movie_code}</td>
-        <td class="first">계정 아이디</td>
+        <td class="first">계정ID</td>
         <td>${board.customer_id}</td>
     </tr>
     <tr>
@@ -75,7 +75,7 @@ individualDetailBoard.jsp<br>
     <tr>
         <td colspan="4" align="center">
             <input type="button" value="글목록" onClick="location.href='list.in?pageNumber=${param.pageNumber}'">
-  			<c:if test="${sessionScope.loginInfo.member_id eq board.customer_id || sessionScope.loginInfo.member_id eq 'admin'}">         
+  			<c:if test="${sessionScope.loginInfo.member_id eq board.customer_id}">         
             <input type="button" value="문의글 삭제" onClick="location.href='delete.in?movie_code=${board.movie_code}&pageNumber=${param.pageNumber}'">
             </c:if>
             <c:if test="${sessionScope.loginInfo.member_id eq 'admin'}">
