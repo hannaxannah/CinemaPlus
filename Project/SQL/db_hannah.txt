@@ -1,15 +1,3 @@
---theater
-drop table theater cascade constraints;
-create table theater (
-theater_code varchar2(5) Primary key,
-location_code varchar2(20) Not Null,
-screen_code varchar2(20) Not Null,
-address varchar2(50) Not Null,
-bus varchar2(100) Not Null,
-subway varchar2(100) Not Null
-);
-
-
 --location
 drop table location cascade constraints;
 create table location (
@@ -213,3 +201,4 @@ insert into location values('L09021','광주/전라/제주','정읍');
 insert into location values('L09022','광주/전라/제주','제주');
 insert into location values('L09023','광주/전라/제주','제주노형');
 
+commit;

@@ -51,10 +51,18 @@ public class MemberDeleteController {
 
 		System.out.println("member_phone: " + member_phone);
 
-		if (member.getMember_pw().equals(member_pw)) {
-			int cnt = mdao.deleteMember(member_id);
-			System.out.println("delete cnt : " + cnt);
-		} else { /* 입력한 비밀번호가 다른 경우 */
+		if (member.getMember_pw().equals(member_pw) && member.getMember_phone().equals(member_phone)) {
+			try {
+				int cnt = mdao.deleteMember(member_id);
+				System.out.println("회원삭제 cnt : " + cnt);
+				
+				out = response.getWriter();
+				out.print("<script>alert('회원 정보가 삭제되었습니다.');location.href='main.mn';</script>");
+				out.flush();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else if(!(member.getMember_pw().equals(member_pw)) ) { /* 입력한 비밀번호가 다른 경우 */
 			try {
 				out = response.getWriter();
 				out.print("<script>alert('비밀번호를 잘못 입력했습니다.');history.go(-1);</script>");
@@ -62,12 +70,7 @@ public class MemberDeleteController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
-		
-		if (member.getMember_phone().equals(member_phone)) {
-			int cnt = mdao.deleteMember(member_id);
-			System.out.println("delete cnt : " + cnt);
-		} else { /* 입력한 전화번호가 다른 경우 */
+		}else if(!(member.getMember_phone().equals(member_phone))) { /* 입력한 연락처가 다른 경우 */ 
 			try {
 				out = response.getWriter();
 				out.print("<script>alert('연락처를 잘못 입력했습니다.');history.go(-1);</script>");
@@ -76,8 +79,8 @@ public class MemberDeleteController {
 				e.printStackTrace();
 			}
 		}
-
-		//삭제 실패로 memberlogin.mb요청으로 로그인 페이지로 이동
+		
+		//삭제 실패하면 머무르고, 삭제하면 main.mn호출해서 메인페이지로 이동
 		return gotoPage; 
 
 	}

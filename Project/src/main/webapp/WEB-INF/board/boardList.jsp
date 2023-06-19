@@ -41,6 +41,11 @@
 			</p><br>
 				<span><b>전체 (${pageInfo.totalCount}건)</b></span>
 			</td>
+			<td align="right">
+				<a href="number.bd">번호 순</a>&nbsp;&nbsp;&nbsp;
+				<a href="date.bd">작성일 순</a>&nbsp;&nbsp;&nbsp;
+				<a href="hits.bd">조회수 순</a>&nbsp;&nbsp;&nbsp;
+			</td>
 		</tr>
 	</table>
 	

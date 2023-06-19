@@ -23,6 +23,60 @@
 		</if>
 	</select>
 	
+	<!-- 목록보기 - 번호순 정렬 -->
+	<select id="getBoardNumList" resultType="board.model.BoardBean">
+		select movie_num, classification, question, qdate, content, hits
+		from (select rownum as rank, movie_num, classification, question, qdate, content, hits
+		from (select movie_num, classification, question, qdate, content, hits
+		from FAQ
+		order by movie_num asc))
+		<if test="whatColumn == 'classification'">
+		where classification like #{keyword}
+		</if>
+		<if test="whatColumn == 'question'">
+		where question like #{keyword}
+		</if>
+		<if test="whatColumn == 'content'">
+		where content like #{keyword}
+		</if>
+	</select>
+	
+	<!-- 목록보기 - 조회수 순 정렬 -->
+	<select id="getBoardHitsList" resultType="board.model.BoardBean">
+		select movie_num, classification, question, qdate, content, hits
+		from (select rownum as rank, movie_num, classification, question, qdate, content, hits
+		from (select movie_num, classification, question, qdate, content, hits
+		from FAQ
+		order by hits desc))
+		<if test="whatColumn == 'classification'">
+		where classification like #{keyword}
+		</if>
+		<if test="whatColumn == 'question'">
+		where question like #{keyword}
+		</if>
+		<if test="whatColumn == 'content'">
+		where content like #{keyword}
+		</if>
+	</select>
+	
+	<!-- 목록보기 - 작성일 순 정렬 -->
+	<select id="getBoardDateList" resultType="board.model.BoardBean">
+		select movie_num, classification, question, qdate, content, hits
+		from (select rownum as rank, movie_num, classification, question, qdate, content, hits
+		from (select movie_num, classification, question, qdate, content, hits
+		from FAQ
+		order by qdate asc))
+		<if test="whatColumn == 'classification'">
+		where classification like #{keyword}
+		</if>
+		<if test="whatColumn == 'question'">
+		where question like #{keyword}
+		</if>
+		<if test="whatColumn == 'content'">
+		where content like #{keyword}
+		</if>
+	</select>
+	
 	
 	<!-- 검색기능(카테고리,제목,내용) -->
 	<select id="GetTotalCount" resultType="Integer">

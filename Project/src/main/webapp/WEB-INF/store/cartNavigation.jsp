@@ -43,7 +43,7 @@
 	
 	function nonmemberCart(){
 		alert("로그인 후 이용가능한 서비스입니다. 로그인 페이지로 이동합니다.");
-		location.href = 'memberlogin.mb';
+		location.href = 'memberlogin';
 	}
 </script>
 <nav>

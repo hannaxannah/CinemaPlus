@@ -59,8 +59,7 @@ individualInsertBoard.jsp<br>
         <tr>
             <th>문의선택<span class="t_red">*</span></th>
             <td>
-                <input id="select_type" name="select_type" size="60" value="${board.select_type}">
-                <form:errors cssClass="err" path="select_type"/>
+                <input id="select_type" name="select_type" size="98%" value="고객센터 문의" readonly="readonly">
             </td>
         </tr>
 
