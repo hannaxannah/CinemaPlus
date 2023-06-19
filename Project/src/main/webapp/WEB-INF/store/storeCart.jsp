@@ -96,7 +96,7 @@
 <script type="text/javascript">
 
 	$(document).ready(function() {
-		alert(1);
+		
 	});//ready
 	
 		 //장바구니 비우기
@@ -199,22 +199,13 @@
 												</td>
 												<td>
 													<div style="float : left">
-														${cart.cart_amount }
+														${cart.product_sprice * cart.cart_qty }원
 													</div>
 														<a href="" class="delete_cart_btn"></a>
 												</td>
 											</tr>
-											<c:choose>
-												<c:when test="${cart.product_price eq 0}">
-													<c:set var="original_price" value="${original_price + cart.product_sprice}"/>
-												</c:when>
-												<c:otherwise>
-													<c:set var="original_price" value="${original_price + cart.product_price}"/>
-													<c:set var="sale_price" value="${sale_price + (cart.product_price - cart.product_sprice)*cart.cart_qty}"/>
-												</c:otherwise>
-											</c:choose>
-										
-										
+													<c:set var="original_price" value="${original_price + cart.product_sprice*cart.cart_qty}"/>
+													<c:set var="total_price" value="${toatl_price + original_price}"/>
 										</c:forEach>			
 									</c:otherwise>
 									</c:choose>	
@@ -239,10 +230,10 @@
 											<c:out value="${original_price}"/>원
 										</td>
 										<td>
-											<c:out value="${sale_price}"/>원
+											0 원
 										</td>
 										<td>
-											${totalAmount }
+											<c:out value="${total_price}"/>원
 										</td>
 									</tr>
 									<tr>	

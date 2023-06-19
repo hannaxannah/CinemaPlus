@@ -56,4 +56,37 @@ public class BoardDao {
 		return board;
 	}
 
+	/* 번호 순 */
+	public List<BoardBean> getBoardNumList(Map<String, String> map, Paging pageInfo) {
+		List<BoardBean> lists = new ArrayList<BoardBean>();
+
+		RowBounds rowBounds = new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
+
+		lists = sqlSessionTemplate.selectList(namespace + ".getBoardNumList", map, rowBounds);
+		System.out.println("lists.size():" + lists.size());
+		return lists;
+	}
+
+	/* 조회수 순 */
+	public List<BoardBean> getBoardHitsList(Map<String, String> map, Paging pageInfo) {
+		List<BoardBean> lists = new ArrayList<BoardBean>();
+
+		RowBounds rowBounds = new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
+
+		lists = sqlSessionTemplate.selectList(namespace + ".getBoardHitsList", map, rowBounds);
+		System.out.println("lists.size():" + lists.size());
+		return lists;
+	}
+
+	/* 작성일 순 */
+	public List<BoardBean> getBoardDateList(Map<String, String> map, Paging pageInfo) {
+		List<BoardBean> lists = new ArrayList<BoardBean>();
+
+		RowBounds rowBounds = new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
+
+		lists = sqlSessionTemplate.selectList(namespace + ".getBoardDateList", map, rowBounds);
+		System.out.println("lists.size():" + lists.size());
+		return lists;
+	}
+
 }

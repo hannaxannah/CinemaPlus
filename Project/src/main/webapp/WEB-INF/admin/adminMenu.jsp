@@ -26,7 +26,16 @@
     <link href="resources/admin/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="resources/admin/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="resources/admin/css/scroller.bootstrap.min.css" rel="stylesheet">
-
+	<!-- bootstrap-wysiwyg -->
+    <link href="resources/admin/css/prettify.min.css" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="resources/admin/css/select2.min.css" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="resources/admin/css/switchery.min.css" rel="stylesheet">
+    <!-- starrr -->
+    <link href="resources/admin/css/starrr.css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="resources/admin/css/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="resources/admin/css/custom.min.css" rel="stylesheet">
   </head>
@@ -37,7 +46,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Cinema + 관리자 페이지</span></a>
+              <a href=" " class="site_title"><span>관리자 페이지</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -61,15 +70,23 @@
                 
                   <li><a><i class="fa fa-home"></i> 예시 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="admin.admin">테이블</a></li>
+                      <li><a href="adminTest1.admin">테이블</a></li>
+                      <li><a href="adminTest2.admin">생성</a></li>
                     </ul>
                   </li>
                   
                   
                   <li><a><i class="fa fa-edit"></i> 쿠폰 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">쿠폰 발급</a></li>
+                      <li><a href="couponCreate.admin">쿠폰 발급</a></li>
                       <li><a href="coupon.admin">쿠폰 리스트</a></li>
+                    </ul>
+                  </li>
+                  
+                    <li><a><i class="fa fa-edit"></i> 게시판 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="faq.admin">FAQ 리스트</a></li>
+                      <li><a href="board.admin">문의게시판 리스트</a></li>
                     </ul>
                   </li>
                  
