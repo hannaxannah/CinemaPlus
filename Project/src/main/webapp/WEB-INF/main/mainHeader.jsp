@@ -85,6 +85,8 @@
           <li style="margin-right: 235px"></li>
           <c:choose>
 				<c:when test="${loginInfo eq null}">
+					<%session.removeAttribute("loginInfo");%> 
+					<%session.removeAttribute("cartSize");%> 
 		        	<li><a class="nav-link scrollto" href="memberlogin">로그인</a></li>
 		        	<li><a class="nav-link scrollto" href="#">회원가입</a></li>
 		        </c:when>

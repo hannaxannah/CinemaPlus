@@ -12,6 +12,7 @@
 		flex-direction: column;
 		border: 1px solid;
 		position: relative;
+		background-color: #FFF;
 	}
 	.title_coupon{
 		margin : 30px ;

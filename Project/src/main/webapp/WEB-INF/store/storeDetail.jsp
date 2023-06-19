@@ -15,6 +15,7 @@
 		flex-direction: column;
 		border: 1px solid;
 		position: relative;
+		background-color: #FFF;
 	}
 	.store_detail{
 		margin-top: 10px;

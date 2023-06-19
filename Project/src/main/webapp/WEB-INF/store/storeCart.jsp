@@ -13,6 +13,7 @@
 		flex-direction: column;
 		border: 1px solid;
 		position: relative;
+		background-color: #FFF;
 	}
 	.cart{
 		margin-top: 50px;
@@ -209,7 +210,7 @@
 										</c:forEach>			
 									</c:otherwise>
 									</c:choose>	
-								</table>
+								</table> 
 											<button type="button" onClick="empty_cart()">
 												장바구니 비우기
 											</button>
