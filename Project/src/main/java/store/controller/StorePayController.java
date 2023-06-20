@@ -47,14 +47,6 @@ public class StorePayController {
 //		String customer_id = (String)session.getAttribute("id");
 //		int pay_price = Integer.parseInt(request.getParameter("pay_price"));//총결제금액
 //		String pay_type = request.getParameter("pay_type");
-//		int card_birth = Integer.parseInt(request.getParameter("card_birth"));
-//		int card_month = Integer.parseInt(request.getParameter("card_month"));
-//		int card_year = Integer.parseInt(request.getParameter("card_year"));
-//		String card_num = request.getParameter("card_num");
-//		int card_pw = Integer.parseInt(request.getParameter("card_pw"));
-//		int pay_ins = Integer.parseInt(request.getParameter("pay_ins"));
-//		Timestamp pay_date = new Timestamp(System.currentTimeMillis());//결제일
-//		Timestamp cancel_date = new Timestamp(System.currentTimeMillis());//취소일
 //		
 //		//랜덤 생성되는 값
 //	//	String pay_code = storeService.createPayCode();//결제코드15자리 (멤버변수로 빼놓음!!!)
