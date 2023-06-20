@@ -110,6 +110,22 @@
 		where movie_num = #{movie_num}
 	</update>
 	
+	<!-- 관리자 - 수정폼 -->
+	<select id="GetBoardByMyNum" resultType="board.model.BoardBean">
+  		select * from FAQ
+  		where movie_num=#{movie_num}
+  	</select>
+
+	
+	<!-- 관리자 - 수정하기 -->
+	<update id="UpdateFaqBoard">
+		update FAQ 
+		set classification=#{classification}, question=#{question}, 
+		qdate=#{qdate}, content=#{content}, hits=#{hits}
+		where movie_num = #{movie_num}
+	</update>
+
+	
 </mapper>
 
 

@@ -86,11 +86,12 @@
                     </ul>
                   </li>
                   
-                    <li><a><i class="fa fa-edit"></i> 게시판 <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-edit"></i> 고객센터 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="faqInsert.admin">FAQ 추가</a></li>
-                      <li><a href="faq.admin">FAQ 리스트</a></li>
-                      <li><a href="board.admin">문의게시판 리스트</a></li>
+                      <li><a href="faqInsert.admin">FAQ 등록</a></li>
+                      <li><a href="faqUpdate.admin">FAQ 수정</a></li>
+                      <li><a href="faq.admin">FAQ 조회</a></li>
+                      <li><a href="board.admin">1:1문의 조회</a></li>
                     </ul>
                   </li>
                  
