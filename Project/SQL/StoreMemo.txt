@@ -99,21 +99,41 @@ CREATE TABLE Coupon_user (
 
 commit;
 	
-------------------------------------------------------------------------------회원
-drop table member cascade constraints;
-create table member(
-	member_code varchar2(30) primary key,
-	member_id varchar2(30),
-	member_pw varchar2(30),
-	member_name varchar2(30),
-	member_birth varchar2(10),
-	member_phone varchar2(15),
-	member_email varchar2(50),
-	pw_question varchar2(100),
-	pw_answer varchar2(100),
-	member_marketing_agree varchar2(10),
-	member_email_agree varchar2(10),
-	member_sms_agree varchar2(10),
-	member_start varchar2(10)
-);
+-----------------------------------------------------------------------카드
+drop table card cascade constraints purge ;
 
+CREATE TABLE card (
+	card_number varchar2(100) not null,
+	payment_code varchar2(100) primary key,
+	card_company varchar2(100) not null,
+	card_mmyy number not null,
+	card_pw varchar2(10) not null,
+	card_installment number not null
+);
+commit;
+
+---------------------------------------------------------------------------결제 (미완성)
+drop sequence payment_seq;
+
+create sequence payment_seq;
+increment by 1
+start with 1
+minvalue 0
+maxvalue 10000
+nocache;
+
+drop table Payment cascade constraints purge ;
+
+CREATE TABLE Payment (
+	payment_seq number primary key,
+	payment_code varchar2(100) NULL,
+	member_code varchar2(100) NOT NULL,
+	card_number varchar2(100) NOT NULL,
+	product_code varchar2(100) NULL,
+	product_order_qty number NULL,
+	payment_sale_pay number NULL,
+	payment_date TIMESTAMP NOT NULL
+);
+commit;
+
+insert into Payment values(payment_seq.nextval,1,2,3,4,5,6,7,sysdate);

@@ -13,14 +13,14 @@
 	    border-radius: 100%;
 	    color: #fff;
 	    z-index: 998;
-	    background-color: #333030;
+	    background-color: #2e3339;
 	    display : flex;
 	    align-items: center;
 	}
 
 	.cart_nav_num {
 	    position: fixed;
-	    bottom: 90px;
+	    bottom: 75px;
 	    right: 100px;
 	    justify-content: center;
 	    width: 25px;

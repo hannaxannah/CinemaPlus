@@ -24,7 +24,7 @@
 		<td><a href="myPurchaseList.mp?member_id=${loginInfo.member_id}">예매/구매내역</a><br></td>
 	</tr>
 	<tr>
-		<td><a href="myProductList.mp?member_id=${loginInfo.member_id}">관람권/교환권</a><br></td>
+		<td><a href="myProductList.mp?member_id=${loginInfo.member_id}">스토어 구매내역</a><br></td>
 	</tr>
 	<tr>
 		<td><a href="myCouponList.mp?member_id=${loginInfo.member_id}">MY쿠폰</a><br></td>
