@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import theater.model.TheaterCrawlingBean;
 import theater.model.TheaterCrawlingDao;
-
+ 
 public class TheaterLinkCrawling {
 
 	String url;

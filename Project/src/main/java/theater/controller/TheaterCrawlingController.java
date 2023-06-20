@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import theater.model.LocationBean;
 import theater.model.TheaterCrawlingDao;
 
-
+ 
 @Controller
 public class TheaterCrawlingController {
 	
