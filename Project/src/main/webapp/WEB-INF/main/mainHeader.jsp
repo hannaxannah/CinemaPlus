@@ -32,7 +32,7 @@
   <link href="resources/assets/css/style.css" rel="stylesheet">
   
   <!-- Additional CSS File By Me -->
-  <link href="resources/style.css" rel="stylesheet">
+  <link href="resources/styleByMe.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Hidayah
