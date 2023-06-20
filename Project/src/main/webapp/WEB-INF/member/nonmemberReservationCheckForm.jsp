@@ -12,10 +12,6 @@
 					<!-- 회원 로그인 -->
 					<div class="login-clean">
 						<form action="nonmember-reservation.mb" method="POST">
-							<ol>
-				           		<li><a href="findid.mb" style="color:#6B39EA;">아이디 찾기</a></li>
-				            	<li><a href="findpw.mb">비밀번호 찾기</a></li>
-				            </ol>
 							<h2 class="sr-only" style="margin-bottom: 20px;">비회원 예매확인</h2>
 							<div class="form-group">
 								<input class="form-control" type="text" name="nonmember_name" placeholder="이름">
