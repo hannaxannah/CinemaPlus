@@ -134,6 +134,7 @@ public class StoreCartController { //장바구니 컨트롤러
 				shop.setProduct_price(storeProductBean.getProduct_price());
 			}
 			shop.setProduct_sprice(storeProductBean.getProduct_sprice());
+			shop.setProduct_point(storeProductBean.getProduct_point());
 			shop.setCart_qty(product_order_qty.get(product_code));
 			cartBeanList.add(shop);
 		}
@@ -192,6 +193,7 @@ public class StoreCartController { //장바구니 컨트롤러
 				shop.setProduct_price(storeProductBean.getProduct_price()); //할인되기 전 가격 설정
 			}
 			shop.setProduct_sprice(storeProductBean.getProduct_sprice());
+			shop.setProduct_point(storeProductBean.getProduct_point());
 			shop.setCart_qty(product_order_qty.get(product_code));
 			cartBeanList.add(shop);
 		}

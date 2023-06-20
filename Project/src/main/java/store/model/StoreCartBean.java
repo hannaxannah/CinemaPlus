@@ -9,9 +9,13 @@ public class StoreCartBean {
 	private String product_image;//상품사진
 	private int product_sprice;//상품단가
 	private int product_price;//상품원가
+	private int product_point;//상품원가
 	
+	public StoreCartBean() {
+		super();
+	}
 	public StoreCartBean(String product_code, int cart_qty, String product_name, String product_image,
-			int product_sprice, int product_price) {
+			int product_sprice, int product_price, int product_point) {
 		super();
 		this.product_code = product_code;
 		this.cart_qty = cart_qty;
@@ -19,9 +23,7 @@ public class StoreCartBean {
 		this.product_image = product_image;
 		this.product_sprice = product_sprice;
 		this.product_price = product_price;
-	}
-	public StoreCartBean() {
-		super();
+		this.product_point = product_point;
 	}
 	public String getProduct_code() {
 		return product_code;
@@ -59,5 +61,13 @@ public class StoreCartBean {
 	public void setProduct_price(int product_price) {
 		this.product_price = product_price;
 	}
+	public int getProduct_point() {
+		return product_point;
+	}
+	public void setProduct_point(int product_point) {
+		this.product_point = product_point;
+	}
+	
+	
 	
 }
