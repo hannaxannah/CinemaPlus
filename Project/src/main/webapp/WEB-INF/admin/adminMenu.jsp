@@ -46,7 +46,10 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href=" " class="site_title"><span>관리자 페이지</span></a>
+              <a href=" " class="site_title">
+              	<img width="210px" height="40px" src="resources/images/main-logo-dark.png"> 
+              	<span>관리자 페이지</span>
+              </a>
             </div>
 
             <div class="clearfix"></div>
