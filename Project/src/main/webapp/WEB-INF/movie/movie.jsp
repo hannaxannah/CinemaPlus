@@ -29,6 +29,7 @@
 											<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
 										</div>
 									</div>
+								</div>
 									<div class="tit-area">
 										<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
 										<p title="스파이더맨: 어크로스 더 유니버스" class="tit">스파이더맨: 어크로스 더 유니버스</p>
@@ -37,7 +38,6 @@
 										<span class="rate">예매율 22.5%</span>
 										<span class="date">개봉일 2023.06.21</span>
 									</div>
-								</div>
 							</div>
 							<!-- End portfolio item -->
 							</c:forEach>
