@@ -62,7 +62,7 @@
           <li><a style="color: #FCFBFF;" class="nav-link scrollto" href="theater.th">영화관</a></li>
           <li><a style="color: #FCFBFF;" class="nav-link scrollto" href="#">우리집 영화관</a></li>
           <li><a style="color: #FCFBFF;" class="nav-link scrollto" href="list.store">스토어</a></li>
-          <li><a style="color: #FCFBFF;" class="nav-link scrollto" href="#">MY</a></li>
+          <li><a style="color: #FCFBFF;" class="nav-link scrollto" href="main.mp">MY</a></li>
           <!-- 
           <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>

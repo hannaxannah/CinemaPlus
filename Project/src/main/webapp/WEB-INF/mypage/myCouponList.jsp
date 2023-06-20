@@ -35,6 +35,7 @@
           <th>쿠폰번호</th>
           <th>회원계정</th>
           <th>쿠폰명</th>
+          <th>할인률</th>
           <th>쿠폰상태</th>
         </tr>
       
@@ -50,6 +51,7 @@
                 <th><%-- ${ item.couponnumber} --%></th>
                 <td><%-- ${ item.membercode} --%></td>
                 <td><%-- ${ item.couponname} --%></td>
+                <td><%-- ${ item.coupon_rate} coupon이랑 join해서 가져옴 --%></td>
                 <td><%-- ${ item.couponstate } --%></td>
             </tr>       
         </c:forEach>
