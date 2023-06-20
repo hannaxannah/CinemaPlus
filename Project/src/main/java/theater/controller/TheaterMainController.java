@@ -9,19 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import theater.model.LocationBean;
+import theater.model.TheaterCrawlingDao;
 import theater.model.TheaterDao;
 
 @Controller
 public class TheaterMainController {
 
 	private final String command = "theater.th";
-	private final String getPage = "theaterMain";
+	private final String getPage = "theater";
 	
 	@Autowired
 	TheaterDao tdao;
 	
+	@Autowired
+	TheaterCrawlingDao tcd;
+	
 	@RequestMapping(value=command, method=RequestMethod.GET)
 	public String doActionByGet(Model model) {
+		
 		List<LocationBean> lists = tdao.getAllTheaterLocation();
 		System.out.println("lists.size:"+lists.size());
 		
@@ -39,8 +44,20 @@ public class TheaterMainController {
 		List<String> busan = tdao.getAllTheaterBranch("부산/울산");
 		List<String> gyeongsang = tdao.getAllTheaterBranch("경상");
 		List<String> gwangju = tdao.getAllTheaterBranch("광주/전라/제주");
-		
+				
 		model.addAttribute("area", area);
+		model.addAttribute("seoul", seoul);
+		model.addAttribute("gyeonggi", gyeonggi);
+		model.addAttribute("incheon", incheon);
+		model.addAttribute("kangwon", kangwon);
+		model.addAttribute("daejeon", daejeon);
+		model.addAttribute("daegu", daejeon);
+		model.addAttribute("busan", daejeon);
+		model.addAttribute("gyeongsang", gyeongsang);
+		model.addAttribute("gwangju", gwangju);
+		
+		
+		//tcd.getLocationList();
 		
 		return getPage;
 	}
