@@ -9,6 +9,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import member.model.MemberBean;
 import utility.Paging;
 
 @Component("myBoardDao")
@@ -87,6 +88,21 @@ public class BoardDao {
 		lists = sqlSessionTemplate.selectList(namespace + ".getBoardDateList", map, rowBounds);
 		System.out.println("lists.size():" + lists.size());
 		return lists;
+	}
+
+	/* 수정폼 */
+	public BoardBean GetBoardByNum(String movie_num) {
+		BoardBean board = new BoardBean();
+		board = sqlSessionTemplate.selectOne(namespace+".GetBoardByMyNum",movie_num); 
+		return board;
+	}
+
+	/* 수정하기 */
+	public int updateFaqBoard(BoardBean board) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.update(namespace + ".UpdateFaqBoard", board);
+		System.out.println("cnt:" + cnt);
+		return cnt;
 	}
 
 }
