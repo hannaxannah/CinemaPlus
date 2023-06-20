@@ -1,0 +1,445 @@
+.tit-area {
+	display: flex;
+    position: relative;
+    width: 100%;
+    margin: 15px 0 -15px 0;
+    line-height: 25px;
+}
+
+.tit-area .tit {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    margin-left: 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #F7F7F7;
+}
+
+.rate-date {
+    overflow: hidden;
+    color: #F7F7F7;
+}
+
+.rate-date span.rate {
+    margin: 0 7px 0 0;
+    padding: 0 8px 0 0;
+}
+
+.rate-date span {
+    display: block;
+    position: relative;
+    float: left;
+}
+
+.login-clean {
+  background:#FCFCFC;
+  padding:80px 0;
+}
+
+.login-clean form {
+  max-width:360px;
+  width:100%;
+  margin:0 auto;
+  background-color:#ffffff;
+  padding:40px;
+  border-radius:4px;
+  color:#2E2E2E;
+  box-shadow:1px 1px 5px rgba(0,0,0,0.1);
+}
+
+.login-clean form ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0 0 10px 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.login-clean form ol li a {
+  color:#2E2E2E;
+  text-decoration: none;
+}
+
+.login-clean form ol li a:hover, 
+.form-group a:hover {
+  color:#6B39EA;
+}
+
+.login-clean form ol li+li {
+  padding-left: 5px;
+}
+
+.login-clean form ol li+li::before {
+  display: inline-block;
+  padding-right: 5px;
+  color: #000;
+  content: "/";
+}
+
+.login-clean form .form-group {
+	padding-bottom: 12px;
+}
+
+.form-control {
+    background: #fff; 
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.05);
+    outline: none;
+    color: inherit;
+    padding-left: 12px;
+    height: 42px;
+}
+
+.login-clean form .btn-primary {
+  background:#6B39EA;
+  border:none;
+  border-radius:4px;
+  padding:9px;
+  box-shadow:none;
+  margin-top:15px;
+  text-shadow:none;
+  outline:none !important;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.login-clean form .btn-primary:hover, .login-clean form .btn-primary:active {
+  background:#6969f4;
+}
+
+.login-clean form .btn-primary:active {
+  transform:translateY(1px);
+}
+
+.login-clean form .forgot {
+  display:block;
+  text-align:center;
+  font-size:12px;
+  color:#6f7a85;
+  opacity:0.9;
+  text-decoration:none;
+}
+
+.login-clean form .forgot:hover, .login-clean form .forgot:active {
+  opacity:1;
+  text-decoration:none;
+}
+
+.idpwfind {
+	display: flex;
+	justify-content: space-evenly;
+	margin-top: 10px;
+	font-size: 12px;
+}
+
+.idpwfind a {
+	color: #7F7F7F;
+}
+
+.nonmemberAgree {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 5px;
+	background-color: rgba(242, 242, 242, 0.5);
+}
+
+.link-login {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	margin-top: 10px;
+}
+
+
+/* 영화관 header */
+/*--------------------------------------------------------------
+# Header #FCFBFF
+--------------------------------------------------------------*/
+#theaterHeader {
+  transition: all 0.5s;
+  z-index: 997;
+  /* padding: 15px 0; *//* header 높이 줄이기 */
+  padding: 5px 0; 
+  margin-top: 50px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#theaterHeader.header-scrolled,
+#theaterHeader.header-inner-pages {
+   background: #2e3339;
+   opacity: 0.95;
+}
+
+#theaterHeader .logo {
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: 'Pretendard-Regular';
+}
+
+#theaterHeader .logo a {
+  color: #fff;
+}
+
+#theaterHeader .logo img {
+  max-width: 50%;
+  max-height: 40px;
+}
+
+@media (max-width: 992px) {
+  #theaterHeader {
+    border: 0;
+  }
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/**
+* Desktop Navigation 
+*/
+#navbarTheater .navbar {
+  padding: 0;
+  margin: 0 auto;
+}
+
+#navbarTheater .navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+#navbarTheater .navbar li {
+  position: relative;
+}
+
+#navbarTheater .navbar a,
+#navbarTheater .navbar a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0 10px 30px;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  font-weight: 500;
+  color: #6B39EA;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+#navbarTheater .navbar a i,
+#navbarTheater .navbar a:focus i {
+  font-size: 0.85em;
+  line-height: 0;
+  margin-left: 5px;
+}
+
+#navbarTheater .navbar a:hover,
+#navbarTheater .navbar .active,
+#navbarTheater .navbar .active:focus,
+#navbarTheater .navbar li:hover>a {
+  color: #6882f9;
+}
+
+#navbarTheater .navbar .dropdown ul {
+  display: block;
+  position: absolute;
+  left: 14px;
+  top: calc(100% + 30px);
+  margin: 0;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: 0.3s;
+  
+}
+
+#navbarTheater .navbar .dropdown ul li {
+  min-width: 200px;
+}
+
+#navbarTheater .navbar .dropdown ul a {
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: none;
+  color: #193c5a;
+}
+
+#navbarTheater .navbar .dropdown ul a i {
+  font-size: 12px;
+}
+
+#navbarTheater .navbar .dropdown ul a:hover,
+#navbarTheater .navbar .dropdown ul .active:hover,
+#navbarTheater .navbar .dropdown ul li:hover>a {
+  color: #428bca;
+}
+
+#navbarTheater .navbar .dropdown:hover>ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+}
+
+/**
+* Mobile Navigation 
+*/
+.mobile-nav-toggle {
+  color: #6B39EA;
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+  line-height: 0;
+  transition: 0.5s;
+}
+
+.mobile-nav-toggle.bi-x {
+  color: #6B39EA;
+}
+
+@media (max-width: 991px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .navbar ul {
+    display: none;
+  }
+}
+
+.navbar-mobile {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(34, 39, 43, 0.9);
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.navbar-mobile .mobile-nav-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.navbar-mobile ul {
+  display: block;
+  position: absolute;
+  top: 55px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  padding: 10px 0;
+  border-radius: 10px;
+  background-color: #fff;
+  overflow-y: auto;
+  transition: 0.3s;
+}
+
+.navbar-mobile a,
+.navbar-mobile a:focus {
+  padding: 10px 20px;
+  font-size: 15px;
+  color: #6B39EA;
+}
+
+.navbar-mobile a:hover,
+.navbar-mobile .active,
+.navbar-mobile li:hover>a {
+  color: #6882f9;
+}
+
+.navbar-mobile .getstarted,
+.navbar-mobile .getstarted:focus {
+  margin: 15px;
+}
+
+.navbar-mobile .dropdown ul {
+  position: static;
+  display: none;
+  margin: 10px 20px;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 1;
+  visibility: visible;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+
+.navbar-mobile .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar-mobile .dropdown ul a {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.navbar-mobile .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar-mobile .dropdown ul a:hover,
+.navbar-mobile .dropdown ul .active:hover,
+.navbar-mobile .dropdown ul li:hover>a {
+  color: #6882f9;
+}
+
+.navbar-mobile .dropdown>.dropdown-active {
+  display: block;
+}
+
+
+/* 회원가입 */
+.form-group .first .form-control {
+	background: #fff; 
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.05);
+    outline: none;
+    color: inherit;
+    padding-left: 12px;
+    height: 32px;
+}
+
+/* 영화 상세정보 - 감상평 */
+.MovieDetailReview {
+	width: 100%;
+}
+
+.MovieDetailReview td {
+	border-top: 1px solid #F7F7F7;
+	border-bottom: 1px solid #F7F7F7;
+	padding: 20px;
+	color: #F7F7F7;
+	font-size: 0.9rem;
+	background-color: rgba(127, 127, 127, 0.2);
+}
+
+.MovieDetailReview td:first-child {
+	text-align: center;
+	border-right: 1px solid rgba(247,247,247, 0.2);
+}
+
+
+
