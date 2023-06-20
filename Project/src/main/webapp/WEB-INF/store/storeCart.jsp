@@ -181,12 +181,15 @@
 												<td>
 													<span class="product_price_sale">
 														<fmt:formatNumber value="${cart.product_sprice}" pattern="#,###"/>원
-													</span>
+													</span> 
 													<c:if test="${cart.product_price ne 0}">
 														<span class="product_price_original">
 															<fmt:formatNumber value="${cart.product_price}" pattern="#,###"/>원
 														</span>
 													</c:if>
+														<span class="product_point">
+															${cart.product_point} point
+														</span>
 												</td>
 												<td width="110px">
 													<form action="modifyCart.store" method="post">

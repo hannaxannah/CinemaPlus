@@ -71,6 +71,7 @@ public class StorePayController {
 			shop.setProduct_name(storeProductBean.getProduct_name());
 			shop.setProduct_price(storeProductBean.getProduct_price());
 			shop.setProduct_sprice(storeProductBean.getProduct_sprice());
+			shop.setProduct_point(storeProductBean.getProduct_point());
 			shop.setCart_qty(product_order_qty.get(product_code));
 			cartBeanList.add(shop); //cartBeanList는 StoreCartBean을 주입받는다
 		}

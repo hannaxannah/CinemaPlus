@@ -151,6 +151,9 @@ $(document).ready(function() {
 														<fmt:formatNumber value="${cart.product_price}" pattern="#,###"/>원
 													</span>
 												</c:if>
+													<span class="product_point">
+														${cart.product_point} point
+													</span>	
 											</td>
 											<td width="110px" style="text-align:center;">
 					                            	<input type="text" class="cart_qty" id="cart_qty" name="cart_qty" title="수량 입력" readonly="readonly" value="${cart.cart_qty }">
