@@ -1,53 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../main/mainHeader.jsp"%>
+<main id="main" style="background-color: #FCFBFF"><!-- style="background-color: #FCFBFF" -->
 
-<!-- 아이디찾기/비밀번호찾기 -->
-<div class="container-find">
-	<div class="find">아이디/비밀번호 찾기</div>
-	<div class="container-findidpw">
-		<div class="findmenu-id">
-			<a href="findid.mb">아이디 찾기</a>
-		</div>
-		<div class="findmenu-pw">
-			<a href="findpw.mb"><b>비밀번호 찾기</b></a>
-		</div>
-	</div>
-	<div class="container-findForm">
-		<!-- 비밀번호 찾기 폼 -->
-		<form action="findpw.mb" method="POST">
-			<table class="findPwForm">
-				<tr>
-					<td>아이디</td>
-					<td>
-						<input type="text" class="inputText1" name="member_id" placeholder="아이디">
-					</td>
-				</tr>
-				<tr>
-					<td>이름</td>
-					<td>
-						<input type="text" class="inputText1" name="member_name" placeholder="이름">
-					</td>
-				</tr>
-				<tr>
-					<td>생년월일</td>
-					<td>
-						<input type="text" class="inputText1" name="member_birth" placeholder="ex) 19990101">
-					</td>
-				</tr>
-				<tr>
-					<td>휴대폰번호</td>
-					<td>
-						<input type="text" class="inputText1" name="member_phone" placeholder="ex) 01012345678">
-					</td>
-				</tr>
-			</table>
-			<div class="find-idpw-button">
-				<input type="submit" class="findButton" value="비밀번호 찾기" onClick="return check_find_pw()">
+	<!-- ======= Breadcrumbs ======= -->
+	<section id="breadcrumbs" class="breadcrumbs">
+		<div class="container-fluid">
+
+			<div class="row justify-content-center">
+				<div class="col-xl-10">
+					<!-- 회원 로그인 -->
+					<div class="login-clean">
+						<form action="findid.mb" method="POST">
+							<ol>
+				           		<li><a href="findid.mb">아이디 찾기</a></li>
+				            	<li><a href="findpw.mb" style="color:#6B39EA;">비밀번호 찾기</a></li>
+				            </ol>
+							<h2 class="sr-only" style="margin-bottom: 20px;">비밀번호 찾기</h2>
+							<div class="form-group">
+								<input class="form-control" type="text" name="member_id" placeholder="아이디">
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="text" name="member_name" placeholder="이름">
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="text" name="member_birth" placeholder="생년월일">
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="text" name="member_phone" placeholder="휴대폰번호">
+							</div>
+							<div class="form-group">
+								<button class="btn btn-primary btn-block" type="submit" onClick="return check_find_pw()">비밀번호 찾기</button>
+							</div>
+						</form>
+					</div>
+
+
+				</div>
 			</div>
-		</form>
-	</div>
-</div>
 
+		</div>
+	</section>
+	<!-- End Breadcrumbs -->
 
+</main>
+<!-- End #main -->
 <%@ include file="../main/mainFooter.jsp"%>
