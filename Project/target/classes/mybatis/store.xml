@@ -47,6 +47,16 @@
 		insert into payment values
 		(payment_seq.nextval,#{payment_code},#{member_code},#{card_number},${product_code},#{product_order_qty},#{payment_sale_pay},sysdate)
 	</insert>
+	
+	<select id="ChkPayment_codeByMember_code" resultType="store.model.StorePaymentBean">
+		select distinct payment_code from payment 
+		where member_code = #{member_code}
+	</select>
+	
+	<select id="ChkOrderListByPayment_code" resultType="store.model.StorePaymentBean">
+		select * from payment 
+		where payment_code = #{payment_code}
+	</select>
 </mapper>
 
 

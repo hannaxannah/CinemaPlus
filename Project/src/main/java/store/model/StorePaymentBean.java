@@ -12,6 +12,11 @@ public class StorePaymentBean {
 	private int payment_sale_pay;//결제 할인 금액
 	private Timestamp payment_date;//결제일
 	
+	public StorePaymentBean(String payment_code) {
+		super();
+		this.payment_code = payment_code;
+	}
+	
 	public StorePaymentBean(String payment_code, String member_code, String card_number, String product_code,
 			int product_order_qty, int payment_sale_pay, Timestamp payment_date) {
 		super();

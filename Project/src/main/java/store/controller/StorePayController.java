@@ -86,9 +86,9 @@ public class StorePayController {
 //		System.out.println("패스워드2자리 : "+storeCardBean.getCard_pw());
 //		System.out.println("할부개월 : "+storeCardBean.getCard_installment());
 		storeCardBean.setPayment_code(payment_code);
-		storePaymentBean.setPayment_code(payment_code);
-		storePaymentBean.setCard_number(storeCardBean.getCard_number());
-		storePaymentBean.setMember_code(id.getMember_code());
+		storePaymentBean.setPayment_code(payment_code); //결제코드 수동으로 주입
+		storePaymentBean.setCard_number(storeCardBean.getCard_number());//카드번호 주입
+		storePaymentBean.setMember_code(id.getMember_code());//멤버코드 주입
 		int check1 = -1;
 		int check2 = -1;
 		
