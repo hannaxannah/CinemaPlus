@@ -14,6 +14,15 @@
 		select * from location
 	</select>
 
+	<insert id="InsertLocationList2">
+		insert into branch
+		values(#{code}, #{area_code}, #{area}, #{branch_code}, #{branch}, #{address}, #{howtoget1}, #{howtoget2})
+	</insert>
+
+	<select id="GetLocationList2" resultType="theater.model.TheaterCrawlingBean">
+		select * from branch
+	</select>
+<!-- 
 	<insert id="InsertBranchList" parameterType="java.util.List">
 		insert into branch
 		values
@@ -21,4 +30,11 @@
 		("${item.code}", "${item.area}", "${item.branch}", "${item.address}", "${item.howtoget1}", "${item.howtoget2}")
 		</foreach>
 	</insert>
+	 -->
+	
+	<insert id="InsertBranchList">
+		insert into branch
+		values (#{code}, #{area}, #{branch}, #{address}, #{howtoget1}, #{howtoget2})
+	</insert>
+	
 </mapper>

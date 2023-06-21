@@ -21,6 +21,15 @@ public class TheaterCrawlingDao {
 		}
 		return cnt;
 	}
+
+	public int insertLocationList2(List<TheaterCrawlingBean> branch) {
+		int cnt = 0;
+		for(TheaterCrawlingBean tcb : branch) {
+			cnt = cnt + sqlSessionTemplate.insert(namespace+".InsertLocationList2", tcb);
+			System.out.println(cnt);
+		}
+		return cnt;
+	}
 	
 	public void getLocationList() {
 		
@@ -31,12 +40,22 @@ public class TheaterCrawlingDao {
 			System.out.println("insert into location values('" + lb.getLocation_code() + "','" + lb.getArea() + "','" + lb.getBranch() + "');");
 		}
 	}
+
+	public void getLocationList2() {
+		
+		List<TheaterCrawlingBean> branch = sqlSessionTemplate.selectList(namespace+".GetLocationList2");
+		System.out.println("branch_list size:"+branch.size());
+		for(TheaterCrawlingBean tcb : branch) {
+			
+			System.out.println("insert into branch values('" + tcb.getCode() + "','" + tcb.getArea_code() + "','" + tcb.getArea() + "','" + tcb.getBranch_code() + "','" + tcb.getBranch() + "','" + tcb.getAddress() + "','" + tcb.getHowtoget1() + "','" + tcb.getHowtoget2() + "');");
+		}
+	}
 	
 	public int insertBranchList(List<TheaterCrawlingBean> branch) {
 		System.out.println("insertBranchList");
 		int cnt = 0;
 		
-		//for(TheaterCrawlingBean tcb : branch) {
+		for(TheaterCrawlingBean tcb : branch) {
 			/*
 			 * System.out.println("test"+tcb.getCode());
 			 * System.out.println("test"+tcb.getArea());
@@ -45,9 +64,9 @@ public class TheaterCrawlingDao {
 			 * System.out.println("test"+tcb.getHowtoget1());
 			 * System.out.println("test"+tcb.getHowtoget2());
 			 */
-		//sqlSessionTemplate.selectOne(namespace+".SetDefineOff");
-		//}
-		sqlSessionTemplate.insert(namespace+".InsertBranchList", branch);
+			sqlSessionTemplate.insert(namespace+".InsertBranchList", tcb);
+		}
+		//sqlSessionTemplate.insert(namespace+".InsertBranchList", branch);
 		return cnt;
 	}
 	
