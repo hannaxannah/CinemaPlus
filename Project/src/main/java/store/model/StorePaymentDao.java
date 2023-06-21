@@ -55,28 +55,15 @@ public class StorePaymentDao {
 		myPaylist = sqlSessionTemplate.selectList(namespace+".ChkPayment_codeByMember_code",member_code); 
 		String Payment_code;
 		List<StorePaymentBean> myOrderInfolist = new ArrayList<StorePaymentBean>();
-		for(int i=0;i<myPaylist.size();i++) {
-			Payment_code = myPaylist.get(i).getPayment_code();
-			myOrderInfolist = sqlSessionTemplate.selectList(namespace+".ChkOrderListByPayment_code",Payment_code);
-			System.out.println("list에 들어가있는 payment_code : "+myOrderInfolist.get(i).getPayment_code());
+		for(StorePaymentBean e:myPaylist) {
+			Payment_code = e.getPayment_code();
+			List<StorePaymentBean> spb = sqlSessionTemplate.selectList(namespace+".ChkOrderListByPayment_code",Payment_code);
+			 myOrderInfolist.addAll(spb);
 		}
 		
 		return myOrderInfolist;
 	}
 	
-//	public List<StorePaymentBean> myOrderInfo(List<StorePaymentBean> myPaylist) {
-//		List<StorePaymentBean> myOrderInfolist = new ArrayList<StorePaymentBean>();
-//		String Payment_code;
-//		
-//		for(int i=0;i<myPaylist.size();i++) {
-//			Payment_code = myPaylist.get(i).getPayment_code();
-//			
-//			myOrderInfolist = sqlSessionTemplate.selectList(namespace+".ChkOrderListByPayment_code",Payment_code);
-//			System.out.println("list에 들어가있는 payment_code : "+myOrderInfolist.get(i).getPayment_code());
-//		}
-//		
-//		return myOrderInfolist;
-//	}
-
+	
 
 }

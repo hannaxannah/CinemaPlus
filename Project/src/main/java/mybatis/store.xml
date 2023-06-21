@@ -55,7 +55,7 @@
 	
 	<select id="ChkOrderListByPayment_code" resultType="store.model.StorePaymentBean">
 		select * from payment 
-		where payment_code = #{payment_code}
+		where payment_code = #{payment_code} and rownum = 1
 	</select>
 </mapper>
 
