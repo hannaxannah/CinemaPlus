@@ -4,12 +4,15 @@ productList.jsp<br>
     <%@include file="../common/common.jsp"%>
      <%@ include file="../main/mainHeader.jsp"%> 
      
-   <!--
-    [스토어 교환권 구성] 이름은 스토어 결제내역
-    상품코드 - 구분 - 상품명 - 구매수량 - 결제상태
-    -->
+ 
     
  <style>
+ 	.orderList{
+ 		 cursor: pointer;
+ 	}
+ 	.orderList:hover{
+ 		transform: scale(1.1);
+ 	}
  	#mytable{
  	margin-top: 50px;
  	}
@@ -40,36 +43,33 @@ productList.jsp<br>
 	<table>
 		<tr>
 			<td align="left" style="font-size: small;">
-				<font>- 스토어 결제 내역 입니다.</font>
+				<font>-${loginInfo.member_name}님의 스토어 결제 내역 입니다.</font>
 			</td>
 		</tr>
+		<tr>
+			<td>총 ${fn:length(order)}개의 주문내역</td>
+		</tr>
 	</table>
-
-		${fn:length(order)} 결제 갯수
 <form name="myform" action="myProductList.mp" method="post">
 	<table border="1" id="mytable">
-		<!-- 로그인한 아이디가 admin일때만 추가하기가 가능하도록 설정 -->
-		구매일/결제번호/구매 품목수/결제금액(card_number로 어디회사 카드인지 표시)/상세보기
 		<tr align="center">
 			<td>결제번호</td>
 			<td>결제자 이름</td>
 			<td>결제 품목</td>
-			<td>결제금액</td>
 			<td>구매일</td>
 		</tr>
 		
 		
 		<c:if test="${fn:length(order) == 0}">
 			<tr>
-				<td colspan="7" align="center">결제 내역이 없습니다.</td>
+				<td colspan="5" align="center">결제 내역이 없습니다.</td>
 			</tr>
 		</c:if>
 		<c:forEach var="order" items="${order}" >
-			<tr>
+			<tr class="orderList" onclick="location.href='myOrderDetail.mp?payment_code=${order.payment_code}'">
 				<td>${order.payment_code }</td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>${loginInfo.member_name}</td>
+				<td>${order.product_code }</td>
 				<td>${order.payment_date }</td>
 			</tr>
 		</c:forEach>

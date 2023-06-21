@@ -65,20 +65,11 @@ public class MypageProductController {
 		List<StorePaymentBean> myPaylist = storePaymentDao.myPayment_code(member_code);	
 		//System.out.println("결제 내역 코드"+myPaylist);
 		
-		if(myPaylist.size() == 0) {
-			System.out.println("결제내역 없음");
-			model.addAttribute("order",myPaylist);
-			return gotopage;
-		}else {
-			//Payment 테이블에서 member_code기준으로 구매일/결제번호/구매 품목수/결제금액(card_number로 어디회사 카드인지 표시)/상세보기
-//				List<StorePaymentBean> order = storePaymentDao.myOrderInfo(myPaylist);//나의 주문내역에서 결제코드를 순서대로 넣어서 정보 받아오기
-//			
-				System.out.print("오더1 : "+myPaylist.get(0).getPayment_code());
-				System.out.print("오더2 : "+myPaylist.get(1).getPayment_code());
-				System.out.print("오더3 : "+myPaylist.get(2).getPayment_code());
-				
-				model.addAttribute("order", myPaylist);
-		}
+		
+		//Payment 테이블에서 member_code기준으로 구매일/결제번호/구매 품목수/결제금액(card_number로 어디회사 카드인지 표시)/상세보기
+			
+		model.addAttribute("order", myPaylist);
+	
 		
 		return gotopage;
 	}
