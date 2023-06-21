@@ -39,7 +39,7 @@ public class MypageListController {
 			if(session.getAttribute("loginInfo") == null) {
 			     writer.println("<script type='text/javascript'>");
 			     writer.println("alert('로그인된 정보가 없습니다.');");
-			     writer.println("history.back();");
+			     writer.println("location.href = 'memberlogin'");
 			     writer.println("</script>");
 			     writer.flush();
 			     return null;
