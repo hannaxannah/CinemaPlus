@@ -189,7 +189,7 @@ public class TheaterLinkCrawling {
 				branch.add(tcb); //194
 			}
 		}
-		System.out.println(branch.size());
+		System.out.println("branch 갯수:"+branch.size());
 		
 		try {
 			//드라이버가 null이 아니라면

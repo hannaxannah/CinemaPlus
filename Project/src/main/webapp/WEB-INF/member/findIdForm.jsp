@@ -8,10 +8,10 @@
 		<div class="container-fluid">
 
 			<div class="row justify-content-center">
-				<div class="col-xl-10">
-					<!-- 회원 로그인 -->
+				<div class="col-xl-10">  
+					<!-- 회원 로그인 -->   
 					<div class="login-clean">
-						<form action="memberlogin.mb" method="POST">
+						<form action="findid.mb" method="POST">
 							<ol>
 				           		<li><a href="findid.mb" style="color:#6B39EA;">아이디 찾기</a></li>
 				            	<li><a href="findpw.mb">비밀번호 찾기</a></li>
@@ -24,7 +24,7 @@
 								<input class="form-control" type="text" name="member_birth" placeholder="생년월일">
 							</div>
 							<div class="form-group">
-								<input class="form-control" type="text" name="member_phone" placeholder="비밀번호">
+								<input class="form-control" type="text" name="member_phone" placeholder="핸드폰번호">
 							</div>
 							<div class="form-group">
 								<button class="btn btn-primary btn-block" type="submit" onClick="return check_find_id()">아이디 찾기</button>
