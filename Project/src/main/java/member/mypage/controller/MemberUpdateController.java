@@ -25,7 +25,8 @@ public class MemberUpdateController {
 	private final String command = "/mypage_update.mb";
 	private final String getPage = "mypage_memberUpdateForm";
 	private final String gotoPage = "redirect:/main.mp";
-
+	private final String backPage = "redirect:/mypage_update.mb";;
+	
 	@Autowired
 	MemberDao mdao;
 
@@ -77,13 +78,14 @@ public class MemberUpdateController {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-			}else if(cnt != -1 || mb.getMember_pw() == "") {
+			}else{
 				try {
 					System.out.println("mb.getMember_pw(): "+mb.getMember_pw() );
 					out = response.getWriter();
-					out.print("<script>alert('회원정보 및 비밀번호를 변경해주세요.');</script>");
+					out.print("<script>alert('회원정보 및 비밀번호를 변경해주세요.');");
+					out.print("location.href='mypage_update.mb?member_id="+mb.getMember_id()+"' ");
+					out.print("</script>");
 					out.flush();
-					mav.setViewName(getPage);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

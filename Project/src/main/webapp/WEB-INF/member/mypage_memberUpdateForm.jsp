@@ -46,6 +46,14 @@ $(function(){
     });
 });
 
+	var member = ${loginInfo.member_id};
+
+$(document).ready(function() {
+    $(".submit").click(function() {
+       location.href='mypage_update.mb?member_id='+member;
+    });
+});
+
 </script>​​
 
 <%
@@ -77,7 +85,7 @@ $(function(){
 			<a style="color: #DE0000">*&nbsp&nbsp</a>비밀번호
 			</td>
 			<td>
-				<input type="password" id="pwbutton" name="mpw1" class="inputText3" value="${mb.member_pw}">
+				<input type="password" id="pwbutton" name="mpw1" class="inputText3" value="${loginInfo.member_pw}">
 			</td>
 		</tr>
 	</table>
@@ -89,7 +97,7 @@ $(function(){
 				<a style="color: #DE0000">*&nbsp&nbsp</a>현재 비밀번호
 			</td>
 			<td>
-			<input type="password" name="mpw_og" class="inputText3" value="${mb.member_pw}" disabled="disabled">
+			<input type="password" name="mpw_og" class="inputText3" value="${loginInfo.member_pw}" disabled="disabled">
 			</td>
 		</tr>
 		<tr>
