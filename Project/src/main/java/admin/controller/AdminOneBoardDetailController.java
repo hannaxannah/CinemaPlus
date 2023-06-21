@@ -29,7 +29,7 @@ public class AdminOneBoardDetailController {
 		MemberBean mb = (MemberBean) session.getAttribute("loginInfo");
 
 		IndividualBoardBean board = idao.getBoardByCode(moviecode);
-
+		/*
 		if(mb.getMember_id().equals("admin")) {
 			model.addAttribute("board", board);
 			model.addAttribute("pageNumber", pageNumber);
@@ -41,7 +41,9 @@ public class AdminOneBoardDetailController {
 				return "individualDetailBoardError";
 			}
 		}
-
+		 */
+		
+		model.addAttribute("mb", mb);
 		model.addAttribute("board", board);
 		model.addAttribute("pageNumber", pageNumber);
 		return getPage;

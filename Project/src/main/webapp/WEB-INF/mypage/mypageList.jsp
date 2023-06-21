@@ -45,12 +45,10 @@
 	<tr>
 		<td><a href="list.bd">자주 묻는 질문(FAQ)</a><br></td>
 	</tr>
-	<%-- 
 	<tr>
 		<td><a href="mypage_update.mb?member_id=${loginInfo.member_id}">회원정보
 				수정하기</a><br></td>
 	</tr>
-	 --%>
 	<tr>
 		<td><a href="mail.mp?member_id=${loginInfo.member_id}">My정보수정 메일인증</a><br></td>
 	</tr>
