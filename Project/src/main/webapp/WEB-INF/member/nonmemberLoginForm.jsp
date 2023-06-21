@@ -13,7 +13,7 @@
 					<div class="login-clean">
 						<form action="nonmemberlogin.mb" method="POST">
 							<ol>
-				           		<li><a href="memberlogin.mb">회원</a></li>
+				           		<li><a href="memberlogin">회원</a></li>
 				            	<li><a href="nonmemberlogin.mb" style="color:#6B39EA;">비회원</a></li>
 				            </ol>
 							<h2 class="sr-only" style="margin-bottom: 20px;">로그인</h2>
