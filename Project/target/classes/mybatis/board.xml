@@ -94,7 +94,7 @@
 	
 	
 	<!-- 삽입작업 (절대 resultType은 쓰면 x) -->
-	<insert id="InsertBoard">
+	<insert id="InsertBoard" useGeneratedKeys="false">
 		insert into FAQ(movie_num, classification, question, qdate, content)
 		values(FAQ_seq.nextval, #{classification}, #{question}, sysdate, #{content})
 	</insert>

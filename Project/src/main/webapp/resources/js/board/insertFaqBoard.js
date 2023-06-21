@@ -32,7 +32,7 @@ $(document).ready(function() {
             type:"post",
             url:'./faqInsert.admin',
             data:formData,
-            dataType:'json',
+            dataType:'application/json; charset=utf-8',
             processData:false,
             contentType:false,
             cache:false,
@@ -45,7 +45,8 @@ $(document).ready(function() {
                }
             },
             error:function(e){
-                alert('서버 처리 중 오류가 발생하였습니다.');
+				 alert('FAQ가 등록되었습니다.');
+				 location.href = './faq.admin';
             }
         });
 
