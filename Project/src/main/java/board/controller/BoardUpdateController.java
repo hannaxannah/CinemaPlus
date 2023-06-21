@@ -46,13 +46,16 @@ public class BoardUpdateController {
 		public ModelAndView doAction(
 				@ModelAttribute("board") @Valid BoardBean board,
 				HttpServletResponse response,
-				BindingResult result) {
+				BindingResult result,
+				@RequestParam("movie_num") String movie_num
+				) {
 			
 			PrintWriter out = null;
 			response.setContentType("text/html; charset=UTF-8");
 
 			ModelAndView mav = new ModelAndView();
-
+			BoardBean Board = boardDao.GetBoardByNum(movie_num);
+			
 			if(result.hasErrors()) {
 				mav.setViewName(getPage);
 			}else {

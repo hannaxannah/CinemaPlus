@@ -50,7 +50,7 @@
                   <div class="x_content">
                     <br>
                     <form id="demo-form2" name="faq_Updateform" action="faqUpdate.bd" method="post" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
-
+					<input type="hidden" name="movie_num" value="${ board.movie_num}">
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" >분류 <span class="required">*</span>
                         </label>

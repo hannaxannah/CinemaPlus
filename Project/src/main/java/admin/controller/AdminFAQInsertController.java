@@ -19,7 +19,7 @@ public class AdminFAQInsertController {
 
 	private final String command = "/faqInsert.admin";
 	private final String getPage = "adminFaqInsertBoard";
-	private final String gotoPage = "redirect:/faq.admin";
+	private final String gotoPage = "faq.admin";
 	
 	@Autowired
    BoardDao boardDao;
@@ -33,6 +33,7 @@ public class AdminFAQInsertController {
 	@RequestMapping(value=command, method = RequestMethod.POST)
 	public ModelAndView doAction(@ModelAttribute("board") @Valid BoardBean board, BindingResult result,
                                 HttpServletRequest request) {
+		
 		ModelAndView mav = new ModelAndView();
 		if(result.hasErrors()) {
 			mav.setViewName(getPage);

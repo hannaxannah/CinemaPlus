@@ -44,9 +44,9 @@ commit;
 DROP TABLE FAQ CASCADE CONSTRAINTS;
 
 CREATE TABLE FAQ (
-	movie_num  number  NOT NULL,
-	classification  VARCHAR2(30)  NOT NULL,
-	question VARCHAR2(300) NOT NULL,
+	movie_num  number  not null,
+	classification  VARCHAR2(30)  not null,
+	question VARCHAR2(300) not null,
 	qdate date not null,
 	content VARCHAR2(1000) not null,
 	hits int default 0
@@ -61,20 +61,20 @@ create sequence FAQ_seq
   nocache;
 
 
-insert into FAQ(movie_num,classification,question,qdate,content,hits)
-values(FAQ_seq.nextval,'영화예매','인터넷 예매 취소는 어떻게 하나요?','2021-08-18','FAQ 내용테스트1',0);
+insert into FAQ(movie_num,classification,question,qdate,content)
+values(FAQ_seq.nextval,'영화예매','인터넷 예매 취소는 어떻게 하나요?','2021-08-18','FAQ 내용테스트1');
 
-insert into FAQ(movie_num,classification,question,qdate,content,hits)
-values(FAQ_seq.nextval,'결제수단/관람권','멤버십에 등록한 영화관람권 삭제는 어떻게 하나요?','2023-01-05','FAQ 내용테스트2',0);
+insert into FAQ(movie_num,classification,question,qdate,content)
+values(FAQ_seq.nextval,'결제수단/관람권','멤버십에 등록한 영화관람권 삭제는 어떻게 하나요?','2023-01-05','FAQ 내용테스트2');
 
-insert into FAQ(movie_num,classification,question,qdate,content,hits)
-values(FAQ_seq.nextval,'멤버십','멤버쉽 카드를 분실했어요. 재발급은 어떻게 하면 되나요?','2019-11-16','FAQ 내용테스트3',0);
+insert into FAQ(movie_num,classification,question,qdate,content)
+values(FAQ_seq.nextval,'멤버십','멤버쉽 카드를 분실했어요. 재발급은 어떻게 하면 되나요?','2019-11-16','FAQ 내용테스트3');
 
-insert into FAQ(movie_num,classification,question,qdate,content,hits)
-values(FAQ_seq.nextval,'스토어','스토어에서 구매한 관람권이 등록이 안됩니다.','2022-10-28','FAQ 내용테스트4',0);
+insert into FAQ(movie_num,classification,question,qdate,content)
+values(FAQ_seq.nextval,'스토어','스토어에서 구매한 관람권이 등록이 안됩니다.','2022-10-28','FAQ 내용테스트4');
 
-insert into FAQ(movie_num,classification,question,qdate,content,hits)
-values(FAQ_seq.nextval,'홈페이지/모바일','아이디와 비밀번호를 잃어버렸습니다.','2023-05-05','FAQ 내용테스트5',0);
+insert into FAQ(movie_num,classification,question,qdate,content)
+values(FAQ_seq.nextval,'홈페이지/모바일','아이디와 비밀번호를 잃어버렸습니다.','2023-05-05','FAQ 내용테스트5');
 
 commit;
 
