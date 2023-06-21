@@ -18,7 +18,7 @@
 		insert into branch
 		values
 		<foreach collection="list" item="item" separator=" , ">
-		("${item.code}", "${item.area}", "${item.branch}", "${item.address}", "${item.howtoget1}", "${item.howtoget2}")
+		(#{item.code}, #{item.area}, #{item.branch}, #{item.address}, #{item.howtoget1}, #{item.howtoget2})
 		</foreach>
 	</insert>
 </mapper>
