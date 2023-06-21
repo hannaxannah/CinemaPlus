@@ -5,7 +5,9 @@ public class TheaterCrawlingBean {
 	//영화관+지역 DB
 	
 	private String code;
+	private String area_code;
 	private String area;
+	private String branch_code;
 	private String branch; //지역=>지점, 영화관=>영화관명
 	private String address;
 	private String howtoget1;
@@ -17,11 +19,23 @@ public class TheaterCrawlingBean {
 	public void setCode(String code) {
 		this.code = code;
 	}
+	public String getArea_code() {
+		return area_code;
+	}
+	public void setArea_code(String area_code) {
+		this.area_code = area_code;
+	}
 	public String getArea() {
 		return area;
 	}
 	public void setArea(String area) {
 		this.area = area;
+	}
+	public String getBranch_code() {
+		return branch_code;
+	}
+	public void setBranch_code(String branch_code) {
+		this.branch_code = branch_code;
 	}
 	public String getBranch() {
 		return branch;
@@ -48,7 +62,7 @@ public class TheaterCrawlingBean {
 		this.howtoget2 = howtoget2;
 	}
 	
-	
+
 
 	
 }
