@@ -43,6 +43,7 @@ public class BoardDao {
 	public int InsertBoard(BoardBean board) {
 		int cnt = -1;
 		cnt = sqlSessionTemplate.insert(namespace + ".InsertBoard", board);
+		System.out.println("InsertBoard cnt : " + cnt);
 		return cnt;
 	}
 

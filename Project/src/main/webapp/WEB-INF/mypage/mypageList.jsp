@@ -5,8 +5,9 @@
 
 <style>
 	.mypage{
-	margin-top: 30px;
+	margin-top: 100px;
 	margin-left: 20px;
+	margin-bottom: 100px;
 	width: 20%;
 	height: 100%;
 	}

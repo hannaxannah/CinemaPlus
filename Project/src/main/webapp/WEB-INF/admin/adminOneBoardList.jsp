@@ -3,8 +3,7 @@
 <%@ include file="./adminMenu.jsp" %>    
 <%@ include file="../common/common.jsp" %>   
 <!-- 	adminOneBoardList.jsp<br> -->
-	
-	
+		
 	  <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
@@ -54,7 +53,7 @@
 				<td align="center">${board.customer_id}</td>
 				<td align="center">${board.question_type}</td>
 				<td>
-				<a href="detail.in?moviecode=${board.movie_code}&pageNumber=${pageInfo.pageNumber}">${board.subject}</a>
+				<a href="inBoarddetail.admin?moviecode=${board.movie_code}&pageNumber=${pageInfo.pageNumber}">${board.subject}</a>
 				</td>
 				<td align="center">
 					<c:if test="${empty board.individual_content}">
@@ -80,7 +79,7 @@
         </div>
         <!-- /page content -->
 	
-	
+	<%-- 
 <center>
 	<!-- 검색 설정은 내부브라우저 말고 외부브라우저에서 실행 -->
 	<form action="board.admin" method="get" style="margin-left: 550px">
@@ -154,7 +153,7 @@
 	</c:if>
 </table>
 </center>
-
+ --%>
 
 <%@ include file="./adminBottom.jsp" %>            
 

@@ -89,7 +89,6 @@
                     <li><a><i class="fa fa-edit"></i> 고객센터 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="faqInsert.admin">FAQ 등록</a></li>
-                      <li><a href="faqUpdate.admin">FAQ 수정</a></li>
                       <li><a href="faq.admin">FAQ 조회</a></li>
                       <li><a href="board.admin">1:1문의 조회</a></li>
                     </ul>
