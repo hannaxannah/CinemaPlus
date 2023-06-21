@@ -151,6 +151,9 @@ $(document).ready(function() {
 														<fmt:formatNumber value="${cart.product_price}" pattern="#,###"/>원
 													</span>
 												</c:if>
+													<span class="product_point">
+														${cart.product_point} point
+													</span>	
 											</td>
 											<td width="110px" style="text-align:center;">
 					                            	<input type="text" class="cart_qty" id="cart_qty" name="cart_qty" title="수량 입력" readonly="readonly" value="${cart.cart_qty }">
@@ -185,6 +188,13 @@ $(document).ready(function() {
 											${original_price}원
 										</td>
 										<td>
+											<c:set var="sale_price" value=""/>
+											<c:choose>
+												<c:when test="${empty sale_price}">
+													<c:set var="sale_price" value="0"/>
+												</c:when>
+											</c:choose>
+											<c:out value="${sale_price}"/>
 											원
 										</td>
 										<td>
@@ -226,7 +236,8 @@ $(document).ready(function() {
 
 <div id="payDiv">
 <form action="pay.store" method="post" class="cardForm" id="cardForm" accept-charset="UTF-8">
-	<input type="hidden" name="pay_price" value="${total_price}">	
+	<input type="hidden" name="total_price" value="${total_price}">	
+	<input type="hidden" name="sale_pay" value="${sale_price}">	
    	<input type="radio" class="payment" name="payment_card" id="payment_card" value="card"> 신용/체크 카드결제
    	<div id="cardDiv">
 	<table border="1" width="50%">
@@ -236,10 +247,9 @@ $(document).ready(function() {
 			</th>
 			<td>
 				<select name="card_company">
-			   		<option value="" selected="selected">=========</option>
+			   		<option value="신한카드" selected="selected">신한카드</option>
 			   		<option value="BC카드">BC카드</option>
 			   		<option value="삼성카드">삼성카드</option>
-			   		<option value="신한카드">신한카드</option>
 			   		<option value="우리카드">우리카드</option>
 			   		<option value="하나카드">하나카드</option>
 			   		<option value="롯데카드">롯데카드</option>

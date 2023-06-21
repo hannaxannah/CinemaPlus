@@ -1,5 +1,6 @@
 package member.mypage.controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletResponse;
@@ -57,10 +58,35 @@ public class MemberUpdateController {
 			mav.setViewName(getPage);
 		}else {
 			int cnt = mdao.updateMember(mb);
-			if(cnt != -1) {
-				mav.setViewName(gotoPage);
-			}else {
-				mav.setViewName(getPage);
+			if(cnt == 1 && mb.getMember_pw() != "") {
+				try {
+					out = response.getWriter();
+					System.out.println("mb.getMember_pw(): "+mb.getMember_pw() );
+					out.print("<script>alert('회원 정보가 수정되었습니다.');location.href='main.mn';</script>");
+					out.flush();
+					mav.setViewName(gotoPage);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}else if(cnt == -1){
+				try {
+					out = response.getWriter();
+					out.print("<script>alert('회원 정보 수정이 실패했습니다.');location.href='history.go(-1)';</script>");
+					out.flush();
+					mav.setViewName(getPage);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}else if(cnt != -1 || mb.getMember_pw() == "") {
+				try {
+					System.out.println("mb.getMember_pw(): "+mb.getMember_pw() );
+					out = response.getWriter();
+					out.print("<script>alert('회원정보 및 비밀번호를 변경해주세요.');</script>");
+					out.flush();
+					mav.setViewName(getPage);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		return mav;

@@ -5,8 +5,9 @@
 
 <style>
 	.mypage{
-	margin-top: 30px;
+	margin-top: 100px;
 	margin-left: 20px;
+	margin-bottom: 100px;
 	width: 20%;
 	height: 100%;
 	}
@@ -24,7 +25,7 @@
 		<td><a href="myPurchaseList.mp?member_id=${loginInfo.member_id}">예매/구매내역</a><br></td>
 	</tr>
 	<tr>
-		<td><a href="myProductList.mp?member_id=${loginInfo.member_id}">관람권/교환권</a><br></td>
+		<td><a href="myProductList.mp?member_id=${loginInfo.member_id}">스토어 구매내역</a><br></td>
 	</tr>
 	<tr>
 		<td><a href="myCouponList.mp?member_id=${loginInfo.member_id}">MY쿠폰</a><br></td>
@@ -44,12 +45,10 @@
 	<tr>
 		<td><a href="list.bd">자주 묻는 질문(FAQ)</a><br></td>
 	</tr>
-	<%-- 
 	<tr>
 		<td><a href="mypage_update.mb?member_id=${loginInfo.member_id}">회원정보
 				수정하기</a><br></td>
 	</tr>
-	 --%>
 	<tr>
 		<td><a href="mail.mp?member_id=${loginInfo.member_id}">My정보수정 메일인증</a><br></td>
 	</tr>

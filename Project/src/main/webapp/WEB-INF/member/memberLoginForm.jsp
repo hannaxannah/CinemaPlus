@@ -7,7 +7,7 @@
 	<section id="breadcrumbs" class="breadcrumbs">
 		<div class="container-fluid">
 
-			<div class="row justify-content-center">
+			<div class="row justify-content-center">    
 				<div class="col-xl-10">
 					<!-- 회원 로그인 -->
 					<div class="login-clean">
@@ -38,7 +38,7 @@
 								<a href="https://kauth.kakao.com/oauth/authorize?client_id=0f2a40dae9d02f9c0e00332f2d04684a&redirect_uri=http://localhost:8080/ex/kakao.mb&response_type=code">
 								<img src="resources/Kakaologo.svg" width="28px;"></a>
 								
-								<a class="link-login-3" href="">
+								<a class="link-login-3" href="${google_url}">
 								<img src="https://developers.google.com/static/identity/images/g-logo.png?hl=ko" width="26px"></a>
 							</div>
 						</form>

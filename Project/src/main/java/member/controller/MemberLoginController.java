@@ -22,16 +22,22 @@ public class MemberLoginController {
 	private final String command = "memberlogin.mb";
 	private final String getPage = "memberLoginForm";
 	private final String gotoPage = "redirect:/main.mn";
+	private final String adminPage = "redirect:/adminTest1.admin";
 
 	@Autowired 
 	MemberDao mdao;	
 	
 	/* 로그인 폼으로 이동 */
 	@RequestMapping(value=command, method = RequestMethod.GET)
-	public String login(@RequestParam("url") String url, Model model) {
+	public String login(@RequestParam("url") String url,
+						@RequestParam("google_url") String google_url,
+						Model model) {
 		
 		//네이버 
 		model.addAttribute("url", url);
+		
+		//구글
+		model.addAttribute("google_url", google_url);
 		
 		return getPage;
 	} 
@@ -66,7 +72,11 @@ public class MemberLoginController {
 		}else {
 			System.out.println("가입한 회원");
 			
-			if(mb.getMember_pw().equals(input_pw)) {
+			if(mb.getMember_id().equals("admin")){//관리자 아이디
+				mav.setViewName(adminPage);
+				
+			}
+			else if(mb.getMember_pw().equals(input_pw)) {
 				// 로그인
 				session.setAttribute("loginInfo", mb);//세션설정
 				

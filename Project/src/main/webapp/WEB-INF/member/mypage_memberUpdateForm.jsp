@@ -46,15 +46,6 @@ $(function(){
     });
 });
 
-$(document).ready(function() {
-    $(".submit").click(function() {
-       
-    	if($('#member_pw').val() == "") {
-    		alert("비밀번호 변경 후에 클릭해주세요.");
-    	}
-    });
-});
-
 </script>​​
 
 <%

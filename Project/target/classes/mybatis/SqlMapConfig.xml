@@ -20,6 +20,6 @@
 		<mapper resource="mybatis/mypage.xml"/>
 		<mapper resource="mybatis/theater.xml"/>
 		<mapper resource="mybatis/theaterCrawling.xml"/>
+		<mapper resource="mybatis/movie.xml"/>
 	</mappers>
 </configuration>
-

@@ -95,8 +95,8 @@
 	
 	<!-- 삽입작업 (절대 resultType은 쓰면 x) -->
 	<insert id="InsertBoard">
-		insert into FAQ(movie_num, classification, question, qdate, content, hits)
-		values(FAQ_seq.nextval, #{classification}, #{question}, sysdate, #{content},0)
+		insert into FAQ(movie_num, classification, question, qdate, content)
+		values(FAQ_seq.nextval, #{classification}, #{question}, sysdate, #{content})
 	</insert>
 	
 	<!-- 상세보기 -->
@@ -120,8 +120,7 @@
 	<!-- 관리자 - 수정하기 -->
 	<update id="UpdateFaqBoard">
 		update FAQ 
-		set classification=#{classification}, question=#{question}, 
-		qdate=#{qdate}, content=#{content}, hits=#{hits}
+		set classification=#{classification}, question=#{question}, qdate=#{qdate}, content=#{content}
 		where movie_num = #{movie_num}
 	</update>
 

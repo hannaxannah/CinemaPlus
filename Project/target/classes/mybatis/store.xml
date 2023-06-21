@@ -30,12 +30,32 @@
 		insert into Coupon_user values
 		(#{member_code},#{coupon_code},0)
 	</insert>
-	<update id="IssueCoupon_">
 	
-	</update>
 	<!-- 사용자에게 사용할수있는 쿠폰이 있는지 확인 -->
 	<select id="CheckAvailableCoupon" resultType="store.model.StoreCoupon_UserBean">
 		select * from Coupon_user where member_code = #{member_code} and coupon_state = 0
+	</select>
+	
+	<!-- 결제 정보 넣기 *카드 -->
+	<insert id="InsertCard" useGeneratedKeys="false">
+		insert into card values
+		(#{card_number},#{payment_code},#{card_company},#{card_mmyy},#{card_pw},#{card_installment})
+	</insert>
+	
+	<!-- 결제 정보 넣기 *상품리스트 -->
+	<insert id="InsertPayment" useGeneratedKeys="false">
+		insert into payment values
+		(payment_seq.nextval,#{payment_code},#{member_code},#{card_number},${product_code},#{product_order_qty},#{payment_sale_pay},sysdate)
+	</insert>
+	
+	<select id="ChkPayment_codeByMember_code" resultType="store.model.StorePaymentBean">
+		select distinct payment_code from payment 
+		where member_code = #{member_code}
+	</select>
+	
+	<select id="ChkOrderListByPayment_code" resultType="store.model.StorePaymentBean">
+		select * from payment 
+		where payment_code = #{payment_code} and rownum = 1
 	</select>
 </mapper>
 

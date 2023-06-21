@@ -4,12 +4,15 @@ productList.jsp<br>
     <%@include file="../common/common.jsp"%>
      <%@ include file="../main/mainHeader.jsp"%> 
      
-   <!--
-    [스토어 교환권 구성] 이름은 스토어 결제내역
-    상품코드 - 구분 - 상품명 - 구매수량 - 결제상태
-    -->
+ 
     
  <style>
+ 	.orderList{
+ 		 cursor: pointer;
+ 	}
+ 	.orderList:hover{
+ 		transform: scale(1.1);
+ 	}
  	#mytable{
  	margin-top: 50px;
  	}
@@ -33,47 +36,41 @@ productList.jsp<br>
 	<table id="mytable">
 	<tr>
 		<td>
-	<font style="font-size: x-large;">스토어교환권</font><br><br>
+	<font style="font-size: x-large;">스토어 결제 내역</font><br><br>
 		</td>
 	</tr>
 	</table>
 	<table>
 		<tr>
 			<td align="left" style="font-size: small;">
-				<font>- 보유하신 영화관람권/예매권 내역입니다.<br>- 소지하신 지류(종이)관람권은 등록 후 이용하실 수 있습니다.</font>
+				<font>-${loginInfo.member_name}님의 스토어 결제 내역 입니다.</font>
 			</td>
 		</tr>
+		<tr>
+			<td>총 ${fn:length(order)}개의 주문내역</td>
+		</tr>
 	</table>
-
 <form name="myform" action="myProductList.mp" method="post">
 	<table border="1" id="mytable">
-		<!-- 로그인한 아이디가 admin일때만 추가하기가 가능하도록 설정 -->
 		<tr align="center">
-			<td>상품번호</td>
-			<td>카테고리</td>
-			<td>상품명</td>
-			<td>가격</td>
-			<td>적립포인트</td>
-			<td>삭제</td>
-			<td>수정</td>
+			<td>결제번호</td>
+			<td>결제자 이름</td>
+			<td>결제 품목</td>
+			<td>구매일</td>
 		</tr>
 		
 		
-		<c:if test="${fn:length(productLists) == 0}">
+		<c:if test="${fn:length(order) == 0}">
 			<tr>
-				<td colspan="7" align="center">스토어 내역이 없습니다.</td>
+				<td colspan="5" align="center">결제 내역이 없습니다.</td>
 			</tr>
 		</c:if>
-		
-		<c:forEach var="product" items="${productLists }" >
-			<tr>
-				<td>${product.productcode }</td>
-				<td><a href="detail.pd?product_code=${product.product_code }&pageNumber=${pageInfo.pageNumber } ">${product.category_name }</a></td>
-				<td>${product.product_name }</td>
-				<td>${product.product_price }</td>
-				<td>${product.product_point }</td>
-				<td><a href="delete.pd?product_code=${product.product_code }&pageNumber=${pageInfo.pageNumber } ">삭제</a></td>
-				<td><a href="update.pd?product_code=${product.product_code }&pageNumber=${pageInfo.pageNumber } ">수정</a></td>
+		<c:forEach var="order" items="${order}" >
+			<tr class="orderList" onclick="location.href='myOrderDetail.mp?payment_code=${order.payment_code}'">
+				<td>${order.payment_code }</td>
+				<td>${loginInfo.member_name}</td>
+				<td>${order.product_code }</td>
+				<td>${order.payment_date }</td>
 			</tr>
 		</c:forEach>
 	</table>

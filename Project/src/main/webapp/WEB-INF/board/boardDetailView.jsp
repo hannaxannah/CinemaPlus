@@ -52,7 +52,10 @@
 	</tr>
 	<tr>
 		<td colspan="4" align="center">
+			
+			<c:if test="${loginInfo.member_id eq 'admin'}">			
 			<input type="button" value="수정하기" onClick="location.href='faqUpdate.bd?movienum=${board.movie_num}'">
+			</c:if>
 			<input type="button" value="글목록" onClick="location.href='list.bd?pageNumber=${param.pageNumber}'">
 		</td>
 	</tr>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="movie.model.Movie">
+	<select id="GetMovieList" resultType="movie.model.MovieBean">
+		select * from movie
+		<if test="whatColumn == 'title'">
+			where movie_title like #{keyword}
+		</if>
+		order by movie_num desc
+
+	</select>
+	
+	<select id="GetOneMovie" resultType="int">
+		select count(*) from movie
+		where movie_code = #{movie_code}
+	</select>
+	
+	<select id="GetMovieByCode" resultType="movie.model.MovieBean">
+		select * from movie
+		where movie_code = #{movie_code}
+	</select>
+	<!-- map이 포함된 레코드 갯수 -->
+	<select id="GetTotalCount" resultType="int">
+		select count(*) from movie
+		<if test="whatColumn=='title'">
+			where movie_title like #{keyword}
+		</if>
+	</select>
+	
+	<!-- 	movie 추가하기 -->
+	<insert id="InsertMovie">
+		insert into movie(movie_code, movie_num, movie_title,
+		movie_story, open_date, open_year, poster, director,
+		nation, genre, actors, rating)
+		values( #{movie_code}, seqmv.nextval,
+		#{movie_title}, #{movie_story},
+		#{open_date}, #{open_year}, #{poster}, #{director},
+		#{nation}, #{genre}, #{actors},#{rating})
+	</insert>
+	
+	<!-- vod 추가하기 -->
+	<insert id="InsertVod">
+		insert into vod
+		values( #{movie_code}, 10000,
+		#{vod_title})
+	</insert>
+	
+	<!-- vod 추가시 movie테이블 vod 생성 확인 -->
+	<update id="VodOn">
+		update movie
+		set vod = 1
+		where movie_code = #{movie_code}
+	</update>
+	
+	<delete id="DeleteVod">
+		delete from vod
+		where movie_code = #{movie_code}
+	</delete>
+	
+	<!-- vod 삭제시 movie테이블 vod 삭제 확인 -->
+	<update id="VodOff">
+		update movie
+		set vod = 0
+		where movie_code = #{movie_code}
+	</update>
+	
+	<insert id="InsertScreen">
+		insert into screen	
+		values(#{movie_title}, #{seat_count}, #{screen_time}, #{time}, #{screen_name}, 
+		#{runtime}, #{ticket_price}, #{discount}, #{rating})
+	</insert>
+	
+	<select id="GetScreenList" resultType="movie.model.ScreenBean">
+		select * from Screen
+	</select>
+	
+	<select id="GetScreenByMovieTitle" resultType="movie.model.ScreenBean">
+		select * from Screen
+		where movie_title = #{movie_title}
+		order by time
+	</select>
+	
+	<select id="GetScreenByTime" resultType="movie.model.ScreenBean">
+		select * from Screen
+		where screen_time = #{screen_time}
+	</select>
+	
+	<insert id="InsertReservation">
+		insert into ticket_reservation	
+		values(seqres.nextval, #{movie_title}, sysdate, #{seat_number},#{seat_number2}, #{ticket_price}, 
+		#{screen_name}, #{screen_time}, #{member_id})
+	</insert>
+	
+	<select id="GetReservationByTime" resultType="movie.model.ReservationBean">
+		select * from ticket_reservation
+		where screen_time = #{screen_time}
+		order by seat_number2
+	</select>
+</mapper>
+

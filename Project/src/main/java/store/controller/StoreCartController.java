@@ -32,9 +32,10 @@ public class StoreCartController { //장바구니 컨트롤러
 	private final String reload_command = "redirect:/cart.store"; //장바구니 리스트 불러오기
 	private final String order_command = "order.store"; //결제
 	private final String empty_command = "emptyAll.store"; //장바구니 전체 비우기
+	
 	private final String modify_command = "modifyCart.store"; //장바구니 수량 업데이트
 	
-	private final String cartPage = "storeCart";	//장바구니페이지
+	private final String cartPage = "storeCart";//장바구니페이지
 	private final String orderPage = "orderPage"; //결제페이지
 	
 	@Autowired
@@ -64,7 +65,7 @@ public class StoreCartController { //장바구니 컨트롤러
 				     writer.flush();
 				     return null;
 				}
-		
+				
 		StoreCartList cart = (StoreCartList)session.getAttribute("cart");
 		//장바구니 cart이 존재하는지 조회
 		
@@ -82,7 +83,6 @@ public class StoreCartController { //장바구니 컨트롤러
 		}
 		
 		cart.addOrder(product_code, cart_qty);//장바구니에 상품코드랑 수량 입력
-		
 		
 		session.setAttribute("cart", cart);//StoreCartList 세션설정
 		
@@ -134,6 +134,7 @@ public class StoreCartController { //장바구니 컨트롤러
 				shop.setProduct_price(storeProductBean.getProduct_price());
 			}
 			shop.setProduct_sprice(storeProductBean.getProduct_sprice());
+			shop.setProduct_point(storeProductBean.getProduct_point());
 			shop.setCart_qty(product_order_qty.get(product_code));
 			cartBeanList.add(shop);
 		}
@@ -188,11 +189,13 @@ public class StoreCartController { //장바구니 컨트롤러
 			shop.setProduct_image(storeProductBean.getProduct_image());
 			shop.setProduct_code(storeProductBean.getProduct_code());
 			shop.setProduct_name(storeProductBean.getProduct_name());
-			shop.setProduct_price(storeProductBean.getProduct_price());
+			if(storeProductBean.getProduct_price() != 0) { //할인되기 전 가격이 있다면
+				shop.setProduct_price(storeProductBean.getProduct_price()); //할인되기 전 가격 설정
+			}
 			shop.setProduct_sprice(storeProductBean.getProduct_sprice());
+			shop.setProduct_point(storeProductBean.getProduct_point());
 			shop.setCart_qty(product_order_qty.get(product_code));
 			cartBeanList.add(shop);
-			 
 		}
 		
 		model.addAttribute("cartBeanList", cartBeanList); //물품리스트

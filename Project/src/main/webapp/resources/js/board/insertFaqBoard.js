@@ -30,7 +30,6 @@ $(document).ready(function() {
 
         $.ajax({
             type:"post",
-            enctype:'multipart/form-data',
             url:'./faqInsert.admin',
             data:formData,
             dataType:'json',
