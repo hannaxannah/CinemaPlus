@@ -218,9 +218,396 @@ howtoget2 varchar2(100) not null
 
 commit;
 
-set define off;
--- &과 같은 문자열을 변수로 인식하지 않게 함
-
-insert into branch values('L0401','강원','강릉','강원특별자치도 강릉시 옥천동 189 씨네몰 6~8층 CGV강릉
+insert into branch values('L05020','A5','대전/충청','B20','청주지웰시티','충청북도 청주시 흥덕구 복대동 288-14
+충청북도 청주시 흥덕구 대농로 47-1','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0142#menu');
+insert into branch values('L05023','A5','대전/충청','B23','충주교현','충주시 교현동 539-1 한스 타워 5,6,7,8층
+충주시 국원대로 107 한스 타워 5,6,7,8층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0328#menu');
+insert into branch values('L0803','A8','경상','B3','고성','경상남도 고성군 고성읍 서외리 77-1
+경상남도 고성군 고성읍 송학로58','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0323#menu');
+insert into branch values('L0108','A1','서울','B8','명동','서울특별시 중구 명동2가 83-5번지 눈스퀘어 8층
+서울특별시 중구 명동길 14 (명동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0009#menu');
+insert into branch values('L01029','A1','서울','B29','홍대','서울특별시 마포구 동교동 159-8
+서울특별시 마포구 양화로 153 (동교동) 4층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0191#menu');
+insert into branch values('L0204','A2','경기','B4','광교','경기도 수원시 영통구 하동 1017-2 갤러리아백화점 10층
+경기도 수원시 영통구 광교중앙로 124 갤러리아백화점 광교점 10층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0257#menu');
+insert into branch values('L0209','A2','경기','B9','김포','경기도 김포시 풍무동 202-1 김포풍무웰라움퍼펙트시티 5층
+경기도 김포시 풍무로 128 김포풍무웰라움퍼펙트시티 5층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0278#menu');
+insert into branch values('L02011','A2','경기','B11','김포한강','경기도 김포시 걸포동 1574-3 케이탑리츠 김포빌딩 7층
+경기도 김포시 걸포로 6 케이탑리츠 김포빌딩 7층 (걸포동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0298#menu');
+insert into branch values('L02020','A2','경기','B20','배곧','경기 시흥시 정왕동 1771-1 베니스스퀘어 7층
+경기도 시흥시 서울대학로 278번길 61 베니스스퀘어 7층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0226#menu');
+insert into branch values('L02026','A2','경기','B26','산본','군포시 산본동 1142-2번지 대우디오플러스 4층
+경기도 군포시 번영로 505','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0242#menu');
+insert into branch values('L02030','A2','경기','B30','스타필드시티위례','경기도 하남시 학암동 660번지 스타필드시티위례점 5층
+경기도 하남시 위례대로200 스타필드시티위례점 5층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0274#menu');
+insert into branch values('L02048','A2','경기','B48','파주야당','경기도 파주시 야당동 1066, 6층
+경기도 파주시 경의로 1074, 6층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0310#menu');
+insert into branch values('L02056','A2','경기','B56','화성봉담','경기도 화성시 봉담읍 동화리 564 2층 221호
+경기도 화성시 봉담읍 동화길 51, 2층 221호','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0301#menu');
+insert into branch values('L0303','A3','인천','B3','부평','인천 광역시 부평구 청천동 386번지 아이즈빌아울렛 2층
+인천광역시 부평구 마장로 489(청천동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0021#menu');
+insert into branch values('L0304','A3','인천','B4','송도타임스페이스','인천광역시 연수구 송도동 8-21 A동 지하1층
+인천광역시 연수구 하모니로 158 A동 지하1층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0325#menu');
+insert into branch values('L0306','A3','인천','B6','인천','인천광역시 남동구 구월동 1130번지 SEE&SEE빌딩 4층
+인천광역시 남동구 예술로 198, 4층(구월동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0002#menu');
+insert into branch values('L0307','A3','인천','B7','인천가정(루원시티)','인천광역시 서구 가정동 577-2 상가동 B1~B2
+인천광역시 서구 가정로 406(루원지웰시티푸르지오) 상가동 B1~B2','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0296#menu');
+insert into branch values('L0308','A3','인천','B8','인천논현','인천시 남동구 논현동 646-2, 4층 CGV인천논현
+인천시 남동구 논현로 26번길 34, 4층 CGV인천논현','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0346#menu');
+insert into branch values('L0509','A5','대전/충청','B9','세종','세종특별자치시 종촌동 673 몰리브 7층 CGV
+세종특별자치시 도움1로 108 몰리브 7층 CGV','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0219#menu');
+insert into branch values('L0806','A8','경상','B6','김해','김해시 내동 1131-4번지 휴앤락 4층
+경상남도 김해시 내외중앙로 137, 4층(내동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0028#menu');
+insert into branch values('L08017','A8','경상','B17','통영','경상남도 통영시 북신동 698-1 월드 GV-ZONE 5층
+경상남도 통영시 원문로 27, 5층(북신동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0156#menu');
+insert into branch values('L0903','A9','광주/전라/제주','B3','광주금남로','광주광역시 동구 불로동 1-21 부로타워 2층
+광주광역시 동구 중앙로 160번길 16-7 부로타워 2층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0295#menu');
+insert into branch values('L0904','A9','광주/전라/제주','B4','광주상무','광주광역시 서구 치평동 1218-1 프리미엄아울렛 6층
+광주광역시 서구 시청로 67(치평동, 6층)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0193#menu');
+insert into branch values('L0908','A9','광주/전라/제주','B8','광주터미널','광주광역시 서구 광천동 49-1 유스퀘어 2~6층
+광주광역시 서구 무진대로 904, 2층~6층(광천동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0090#menu');
+insert into branch values('L09015','A9','광주/전라/제주','B15','순천신대','전라남도 순천시 해룡면 신대리 2139
+전라남도 순천시 해룡면 해광로 199','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0268#menu');
+insert into branch values('L09020','A9','광주/전라/제주','B20','전주효자','전라북도 전주시 완산구 용머리로 45(Mall of Hyoja 2층)
+전라북도 전주시 완산구 효자동 1가 434 Mall of Hyoja 2층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0179#menu');
+insert into branch values('L05021','A5','대전/충청','B21','청주터미널','충청북도 청주시 흥덕구 가경동 가경동 1416-3 8층
+충청북도 청주시 흥덕구 2순환로 1233 8층 (가경동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0319#menu');
+insert into branch values('L0701','A7','부산/울산','B1','대연','부산광역시 남구 대연동 73-15번지 스파크 5층
+부산광역시 남구 수영로 305, 5층(대연동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0061#menu');
+insert into branch values('L0702','A7','부산/울산','B2','동래','부산광역시 동래구 온천동 SK허브스카이 6층
+부산광역시 동래구 중앙대로 1523, 6층(온천동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0042#menu');
+insert into branch values('L0703','A7','부산/울산','B3','부산명지','부산광역시 강서구 명지동 3586-4 명지플러스시네마 9층
+부산광역시 강서구 명지국제8로 10번길 38, 명지플러스시네마 9층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0337#menu');
+insert into branch values('L0708','A7','부산/울산','B8','아시아드','부산광역시 연제구 거제2동 1208번지 홈플러스
+부산광역시 연제구 종합운동장로 7(거제동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0160#menu');
+insert into branch values('L0709','A7','부산/울산','B9','울산동구','울산광역시 동구 방어동58-2,3
+울산광역시 동구 등대로50','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0335#menu');
+insert into branch values('L07011','A7','부산/울산','B11','울산신천','울산광역시 북구 신천동 51 LEEPLEX 6층
+울산광역시 북구 매산1로 17 LEEPLEX 6층 (신천동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0264#menu');
+insert into branch values('L07012','A7','부산/울산','B12','울산진장','울산광역시 북구 진장동 120-9
+울산광역시 북구 진장유통로 51-10(진장동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0246#menu');
+insert into branch values('L0104','A1','서울','B4','구로','서울특별시 구로구 구로5동 573번지 NC신구로점 6층
+서울특별시 구로구 구로중앙로 152 (구로동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0010#menu');
+insert into branch values('L01010','A1','서울','B10','미아','서울특별시 강북구 미아동 35-4 트레지오 쇼핑몰 9층
+서울특별시 강북구 도봉로 34, 9층(미아동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0057#menu');
+insert into branch values('L01018','A1','서울','B18','압구정','서울특별시 강남구 신사동 602, 603-2
+서울특별시 강남구 압구정로30길 45 (신사동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0040#menu');
+insert into branch values('L01019','A1','서울','B19','여의도','서울특별시 영등포구 여의도동 국제금융로 10번지 국제금융센터 지하3층
+서울특별시 영등포구 국제금융로 10, 지하3층(여의도동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0112#menu');
+insert into branch values('L01028','A1','서울','B28','하계','서울특별시 노원구 중계동 506-1 건영백화점 지하1층
+서울특별시 노원구 섬밭로 258, 지하1층(중계동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0164#menu');
+insert into branch values('L02010','A2','경기','B10','김포운양','김포시 운양동 1296-9번지 에이스프라자 7층
+경기도 김포시 김포한강11로 288-31 에이스프라자 7층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0188#menu');
+insert into branch values('L02012','A2','경기','B12','남양주 화도','경기도 남양주시 화도읍 녹촌리 산 19 해동 CGV 본타워 2,3층
+경기도 남양주시 경춘로 1876번길 40 해동 CGV 본타워 2,3층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0329#menu');
+insert into branch values('L02018','A2','경기','B18','동탄역','경기도 화성시 오산동 967-2416
+경기도 화성시 동탄대로 537 라스플로레스 A동 5층~8층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0265#menu');
+insert into branch values('L02033','A2','경기','B33','안성','경기도 안성시 석정동 139-1
+경기도 안성시 아양2로 109 (석정동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0279#menu');
+insert into branch values('L02035','A2','경기','B35','양주옥정','경기도 양주시 옥정동 963-12 씨네마엠디프라자
+경기도 양주시 옥정로 200 씨네마엠디프라자 7층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0262#menu');
+insert into branch values('L02038','A2','경기','B38','오산','경기도 오산시 원동 763-21 오산시네마타운
+경기도 오산시 원동로37번길 46 오산시네마타운(원동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0305#menu');
+insert into branch values('L02041','A2','경기','B41','의정부','경기도 의정부시 의정부동 168-54 의정부역사 신세계백화점10층
+경기도 의정부시 평화로 525, 10층(의정부동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0113#menu');
+insert into branch values('L02044','A2','경기','B44','일산','경기도 고양시 일산동구 장항동 867번지 웨스턴돔 3층
+경기도 고양시 일산동구 정발산로 24 (장항동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0054#menu');
+insert into branch values('L02054','A2','경기','B54','포천','경기도 포천시 소흘읍 송우리 110-3
+경기도 포천시 소흘읍 호국로 689','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0309#menu');
+insert into branch values('L0402','A4','강원','B2','기린','강원특별자치도 인제군 기린면 서리 -31 기린체육문화센터 2층 CGV기린
+강원특별자치도 인제군 기린면 대내로 34-14 기린체육문화센터 2층 CGV기린','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0355#menu');
+insert into branch values('L08011','A8','경상','B11','안동','경상북도 안동시 용상동 1426-1 CGV안동 3층
+경상북도 안동시 경동로 841 CGV안동 3층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0272#menu');
+insert into branch values('L0809','A8','경상','B9','마산','경남 창원시 마산 회원구 합성동 126-4 보보스존 8층
+경상남도 창원시 마산회원구 3-15대로 736, 8층(합성동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0033#menu');
+insert into branch values('L08014','A8','경상','B14','창원','경상남도 창원시 팔용동 30-1 뉴코아 아울렛 8층~11층
+경상남도 창원시 의창구 창원대로397번길 6, 8층~11층(팔용동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0023#menu');
+insert into branch values('L08015','A8','경상','B15','창원더시티','경남 창원시 성산구 대원동121 더시티세븐 3F
+경남 창원시 성산구 원이대로 320 더시티세븐 3F','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0079#menu');
+insert into branch values('L09017','A9','광주/전라/제주','B17','익산','전라북도 익산시 영등동 149-1 아오아 본건물 3~5층
+전라북도 익산시 무왕로 1052, 3층~5층(영등동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0020#menu');
+insert into branch values('L0602','A6','대구','B2','대구수성','대구광역시 수성구 범물동 1273번지 동아백화점 8층
+대구광역시 수성구 지범로 191, 8층(범물동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0157#menu');
+insert into branch values('L0707','A7','부산/울산','B7','센텀시티','부산광역시 해운대구 우동 1495번지 신세계센텀시티 7층
+부산광역시 해운대구 센텀남대로 35, 7층(우동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0089#menu');
+insert into branch values('L07016','A7','부산/울산','B16','화명','부산광역시 북구 화명동 2275-1 센츄리빌딩
+부산광역시 북구 화명대로 16(화명동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0159#menu');
+insert into branch values('L0102','A1','서울','B2','강변','서울특별시 광진구 구의동 546-4 테크노마트 10층
+서울특별시 광진구 광나루로56길 85 (구의동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0001#menu');
+insert into branch values('L0105','A1','서울','B5','대학로','서울특별시 종로구 명륜2가 41-9
+서울 종로구 대명길 (명륜동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0063#menu');
+insert into branch values('L01013','A1','서울','B13','상봉','서울시 중랑구 상봉동 79-9 상봉듀오트리스 B2F
+서울시 중랑구 상봉로 131 (상봉동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0046#menu');
+insert into branch values('L0202','A2','경기','B2','고양백석','경기도 고양시 일산동구 백석동 1242 고양종합터미널 5~7F
+경기도 고양시 일산동구 중앙로 1036 고양종합터미널 5~7F','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0270#menu');
+insert into branch values('L0208','A2','경기','B8','기흥','경기도 용인시 기흥구 구갈동 298-2, 기흥ICT밸리 SK V1 B동 지하2층
+경기도 용인시 기흥구 기흥로 58-1, 기흥ICT밸리 SK V1 B동 지하2층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0344#menu');
+insert into branch values('L02027','A2','경기','B27','서현','경기도 성남시 분당구 서현동 256번지 비전월드빌딩 1F
+경기도 분당구 서현로 180번길 19 비전월드B/D 1층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0196#menu');
+insert into branch values('L02028','A2','경기','B28','성남모란','경기도 성남시 중원구 성남동3499 뉴코아아울렛 9~10층
+경기도 성남시 중원구 성남대로1136 뉴코아아울렛 9~10층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0304#menu');
+insert into branch values('L02029','A2','경기','B29','소풍','경기도 부천시 상동 539-1 뉴코아 7층
+경기도 부천시 송내대로 239, 7층(상동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0143#menu');
+insert into branch values('L02031','A2','경기','B31','시흥','경기도 시흥시 대야동 568-1
+경기도 시흥시 복지로 90 (대야동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0073#menu');
+insert into branch values('L02040','A2','경기','B40','용인','경기도 용인시 처인구 김량장동 301-3, 5층
+경기도 용인시 처인구 금령로 86, 5층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0271#menu');
+insert into branch values('L02047','A2','경기','B47','파주문산','경기도 파주시 문산읍 방촌로 1719-10(3층)
+경기도 파주시 문산읍 당동리 892번지(3층)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0148#menu');
+insert into branch values('L02049','A2','경기','B49','판교','경기도 성남시 분당구 백현동 541 현대백화점 5층
+경기도 성남시 판교역로 146번길 20(백현동)현대백화점 5층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0181#menu');
+insert into branch values('L03012','A3','인천','B12','인천학익','인천광역시 미추홀구 학익동 401-21
+인천광역시 미추홀구 매소홀로 255 (5층~8층)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0269#menu');
+insert into branch values('L0404','A4','강원','B4','원통','강원특별자치도 인제군 북면 원통리 459-4 2층 CGV원통
+강원특별자치도 인제군 북면 금강로 11번길 19, 2층 CGV원통','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0354#menu');
+insert into branch values('L0504','A5','대전/충청','B4','대전가수원','대전광역시 서구 가수원동 1042번지 KD U PLAZA 5층~6층
+대전광역시 서구 도안동로 11번길 45 KD U PLAZA 5층~6층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0286#menu');
+insert into branch values('L0507','A5','대전/충청','B7','대전터미널','대전 동구 용전동 대전복합터미널 동관 3층
+대전광역시 동구 동서대로 1689, 3층(용전동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0127#menu');
+insert into branch values('L05019','A5','대전/충청','B19','청주율량','충청북도 청주시 청원구 율량동 500-3, 3관 2층
+충청북도 청주시 청원구 충청대로 114 (라마다프라자 청주), 3관 2층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0282#menu');
+insert into branch values('L0804','A8','경상','B4','구미','경상북도 구미시 원평동 68-1번지
+경상북도 구미시 구미중앙로 44, 4층(원평동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0053#menu');
+insert into branch values('L0808','A8','경상','B8','김해장유','경상남도 김해시 대청동 302-5 골드프라자
+경상남도 김해시 삼문로 12','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0239#menu');
+insert into branch values('L08012','A8','경상','B12','양산삼호','경남 양산시 삼호동 1010-3번지 더 퍼스트 6층
+경남 양산시 삼호 1길 42 더 퍼스트 6층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0234#menu');
+insert into branch values('L0905','A9','광주/전라/제주','B5','광주용봉','광주광역시 북구 용봉동 17-1 하미스포렉스
+광주광역시 북구 문화소통로 170 (용봉동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0210#menu');
+insert into branch values('L09018','A9','광주/전라/제주','B18','전주고사','전라북도 전주시 완산구 고사동 355-1번지
+전라북도 전주시 완산구 전주객사3길 72(고사동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0213#menu');
+insert into branch values('L0603','A6','대구','B3','대구스타디움','대구시 수성구 대흥동 504번지 일대
+대구광역시 수성구 유니버시아드로 140 (대흥동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0108#menu');
+insert into branch values('L0106','A1','서울','B6','동대문','서울시 중구 을지로6가 17-2 현대시티아울렛 10층
+서울시 중구 장충단로 13길 20 현대시티아울렛 10층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0252#menu');
+insert into branch values('L01022','A1','서울','B22','왕십리','서울특별시 성동구 행당동 168-1 왕십리 민자역사 5층
+서울특별시 성동구 왕십리광장로 17, 5층(행당동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0074#menu');
+insert into branch values('L01025','A1','서울','B25','천호','서울시 강동구 천호동42 홈플러스 4층
+서울시 강동구 양재대로 1571 홈플러스 4층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0199#menu');
+insert into branch values('L02013','A2','경기','B13','다산','경기도 남양주시 다산순환로 20 현대프리미어캠퍼스 지하2층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0351#menu');
+insert into branch values('L02046','A2','경기','B46','죽전(리뉴얼중)','경기도 용인시 수지구 죽전동 1285번지 신세계 백화점 8층
+경기도 용인시 수지구 포은대로 536, 8층(죽전동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0055#menu');
+insert into branch values('L02053','A2','경기','B53','평택소사','경기도 평택시 비전동 1090-2 로이드빌딩 5~7층
+경기도 평택시 평남로 862 (비전동)5~7층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0214#menu');
+insert into branch values('L03010','A3','인천','B10','인천시민공원','인천광역시 미추홀구 주안동 466-23, 지하2층 CGV
+인천광역시 미추홀구 경인로 372, 지하2층 CGV','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0352#menu');
+insert into branch values('L03013','A3','인천','B13','주안역','인천광역시 미추홀구 주안동 30-1 카라아울렛 6~10층
+인천광역시 미추홀구 염창로 58, 6층(주안동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0308#menu');
+insert into branch values('L0501','A5','대전/충청','B1','논산','충남 논산시 내동 452 시네마타워 3층
+충남 논산시 시민로 181 시네마타워 3층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0261#menu');
+insert into branch values('L05016','A5','대전/충청','B16','천안펜타포트','충청남도 천안시 서북구 불당동 1289 펜타포트 5층
+충청남도 천안시 서북구 공원로 196, 5층(불당동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0110#menu');
+insert into branch values('L05017','A5','대전/충청','B17','청주(서문)','충청북도 청주시 상당구 서문동 29-2
+충청북도 청주시 상당구 상당로81번길 63 (서문동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0228#menu');
+insert into branch values('L0809','A8','경상','B9','마산','경남 창원시 마산 회원구 합성동 126-4 보보스존 8층
+경상남도 창원시 마산회원구 3·15대로 736, 8층(합성동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0033#menu');
+insert into branch values('L08014','A8','경상','B14','창원','경상남도 창원시 팔용동 30-1 뉴코아 아울렛 8층~11층
+경상남도 창원시 의창구 창원대로397번길 6, 8층~11층(팔용동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0023#menu');
+insert into branch values('L0901','A9','광주/전라/제주','B1','광양','전라남도 광양시 금호동 624-12 2층 몰오브광양
+전라남도 광양시 금호로 26 몰오브광양 2~3F','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0220#menu');
+insert into branch values('L0906','A9','광주/전라/제주','B6','광주첨단','광주광역시 광산구 쌍암동 첨단지구 내 롯데마트 옆
+광주광역시 광산구 임방울대로826번길, 2층(쌍암동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0218#menu');
+insert into branch values('L0909','A9','광주/전라/제주','B9','광주하남','광주광역시 광산구 하남동 832번지 테라스 56 피크닉몰 2층
+광주광역시 광산구 용아로400번길 30 테라스 56 피크닉몰 2층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0215#menu');
+insert into branch values('L09012','A9','광주/전라/제주','B12','목포평화광장','전라남도 목포시 상동 1129-6 5층
+전라남도 목포시 원형동로 53 5층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0280#menu');
+insert into branch values('L09019','A9','광주/전라/제주','B19','전주에코시티','전북 전주시 덕진구 송천동2가 1329-1, 로마네시티 4층
+전북 전주시 덕진구 세병2길 10, 로마네시티 4층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0336#menu');
+insert into branch values('L05024','A5','대전/충청','B24','홍성','충청남도 홍성군 홍성읍 고암리 1042번지
+충청남도 홍성군 홍성읍 조양로247번길 9, 5층(고암리)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0217#menu');
+insert into branch values('L0605','A6','대구','B5','대구연경','대구광역시 북구 연경동 1078-2번지
+대구광역시 북구 동화천로290','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0343#menu');
+insert into branch values('L0606','A6','대구','B6','대구월성','대구광역시 달서구 월성동 1846번지 이래타워 4F
+대구광역시 달서구 조암로 29 (월성동) 이래타워 4F','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0216#menu');
+insert into branch values('L0607','A6','대구','B7','대구한일','대구광역시 중구 동성로 2가 88-22 씨네시티한일 7층
+대구광역시 중구 동성로 39, 7층(성내1동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0147#menu');
+insert into branch values('L07013','A7','부산/울산','B13','정관','부산시 기장군 정관읍 매학리 717-6
+부산시 기장군 정관읍 정관중앙로45 10,11층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0306#menu');
+insert into branch values('L0107','A1','서울','B7','등촌','서울특별시 강서구 등촌동 639-23 3층~7층
+서울특별시 강서구 공항대로45길 63 3층~7층 (등촌동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0230#menu');
+insert into branch values('L01014','A1','서울','B14','성신여대입구','서울특별시 성북구 동선동 1가 1-2, 10-12층
+서울특별시 성북구 동소문로 106, 10-12층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0300#menu');
+insert into branch values('L01015','A1','서울','B15','송파','서울특별시 송파구 장지동 201-27 가든파이브 라이프 영관 10층
+서울특별시 송파구 충민로 66, 10층(문정동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0088#menu');
+insert into branch values('L01017','A1','서울','B17','신촌아트레온','서울특별시 서대문구 창천동 20-25 아트레온 2층
+서울특별시 서대문구 신촌로 129 , 2층(창천동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0150#menu');
+insert into branch values('L01027','A1','서울','B27','피카디리1958','서울특별시 종로구 돈의동 137 지하2층
+서울특별시 종로구 돈화문로5가길 1 지하2층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0223#menu');
+insert into branch values('L02023','A2','경기','B23','부천역','경기도 부천시 심곡동 383-1 시네마존 6층
+경기도 부천시 부일로 460(심곡동, 시네마존 6층~11층)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0194#menu');
+insert into branch values('L02036','A2','경기','B36','역곡','경기도 부천시 괴안동 113-1 역곡 하이뷰 6층
+경기도 부천시 경인로 505, 6층(괴안동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0338#menu');
+insert into branch values('L02042','A2','경기','B42','의정부태흥','경기도 의정부시 의정부동 494 센트럴타워 15층
+경기도 의정부시 시민로 80, 15층(의정부동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0187#menu');
+insert into branch values('L02050','A2','경기','B50','평촌','경기도 안양시 동안구 관양동 1606번지 8층
+경기도 안양시 동안구 관평로170번길 33, 8층(관양동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0195#menu');
+insert into branch values('L02057','A2','경기','B57','화정','경기도 고양시 덕양구 화정동 966-1 씨네마플러스 3층
+경기도 고양시 덕양구 화중로104번길 28, 3층(화정동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0145#menu');
+insert into branch values('L0305','A3','인천','B5','연수역','인천광역시 연수구 청학동 496-4 8층
+인천광역시 연수구 벚꽃로 106 8층 (청학동, 연수광장프라자)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0247#menu');
+insert into branch values('L0503','A5','대전/충청','B3','대전','대전광역시 중구 문화동 1-16 세이2 6층
+대전광역시 중구 계백로 1700, 6층(문화동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0007#menu');
+insert into branch values('L0506','A5','대전/충청','B6','대전탄방','대전광역시 서구 탄방동 745 세이탄방점 7층
+대전광역시 서구 문정로 85 세이탄방점 7층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0202#menu');
+insert into branch values('L05011','A5','대전/충청','B11','유성노은','대전광역시 유성구 노은로 144 노은타운7층 CGV유성노은
+대전광역시 유성구 지족동 905-4번지 7층 CGV유성노은','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0206#menu');
+insert into branch values('L05014','A5','대전/충청','B14','천안시청','충청남도 천안시 서북구 불당동 1485 센트에비뉴 2,3,4층
+충청남도 천안시 서북구 번영로 201 센트에비뉴 2,3,4층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0332#menu');
+insert into branch values('L0907','A9','광주/전라/제주','B7','광주충장로','광주 광역시 동구 충장로 4가 29-2 NC웨이브 11층
+광주 광역시 동구 중앙로 163 NC웨이브 11층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0244#menu');
+insert into branch values('L09023','A9','광주/전라/제주','B23','제주노형','제주특별자치도 제주시 노형동 1288-5,노형타워 5층
+제주특별자치도 제주시 노형로 407, 노형타워5층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0259#menu');
+insert into branch values('L0601','A6','대구','B1','대구','대구광역시 북구 칠성동2가 20-1 스펙트럼시티 4층
+대구광역시 북구 침산로 93 스펙트럼시티 4층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0345#menu');
+insert into branch values('L0704','A7','부산/울산','B4','서면','부산광역시 진구 전포3동 892-20 지오플레이스6층
+부산광역시 부산진구 동천로 4, 6층(전포동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0005#menu');
+insert into branch values('L07014','A7','부산/울산','B14','하단아트몰링','부산시 사하구 하단동 526-6
+부산시 사하구 낙동남로 1413 아트몰링 문화관 7F','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0245#menu');
+insert into branch values('L0101','A1','서울','B1','강남','서울특별시 강남구 역삼동 814-6 스타플렉스
+서울특별시 강남구 강남대로 438 (역삼동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0056#menu');
+insert into branch values('L0103','A1','서울','B3','건대입구','서울시 광진구 자양동 9-4 몰오브케이 3층
+서울시 광진구 아차산로 30길 26 몰오브케이 3층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0229#menu');
+insert into branch values('L0109','A1','서울','B9','명동역 씨네라이브러리','서울특별시 중구 충무로2가 65-9 하이해리엇 10,11층
+서울특별시 중구 퇴계로 123 (명동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0105#menu');
+insert into branch values('L01011','A1','서울','B11','방학','서울특별시 도봉구 방학동 707-6, 4F~8F
+서울특별시 도봉구 도봉로 684, 4F~8F','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0288#menu');
+insert into branch values('L01016','A1','서울','B16','수유','서울시 강북구 수유동 168-12
+서울시 강북구 도봉로 399','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0276#menu');
+insert into branch values('L01023','A1','서울','B23','용산아이파크몰','서울특별시 용산구 한강로 3가 40-999 HDC아이파크몰 6층
+서울특별시 용산구 한강대로23길 55, 6층(한강로동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0013#menu');
+insert into branch values('L01026','A1','서울','B26','청담씨네시티','서울특별시 강남구 신사동 651-21
+서울특별시 강남구 도산대로 323 (신사동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0107#menu');
+insert into branch values('L0201','A2','경기','B1','경기광주','경기도 광주시 역동16-1 2층
+경기도 광주시 중앙로89 2층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0260#menu');
+insert into branch values('L02017','A2','경기','B17','동탄그랑파사쥬','경기도 화성시 송동 725-13
+경기도 화성시 동탄대로 5길9 (송동, 그랑파사쥬) 5층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0359#menu');
+insert into branch values('L02019','A2','경기','B19','동탄호수공원','경기도 화성시 송동 681-535, 레이크꼬모 B2층
+경기도 화성시 동탄대로 181, 레이크꼬모 B2층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0233#menu');
+insert into branch values('L02022','A2','경기','B22','부천','부천시 중동 1164번지 현대백화점 중동점 U-PLEX 5층
+경기도 부천시 길주로 180, 5층(중동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0015#menu');
+insert into branch values('L02025','A2','경기','B25','북수원','경기도 수원시 장안구 조원동 893번지 북수원 패션 아울렛 4층
+경기도 수원시 장안구 경수대로 950, 4층(조원동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0049#menu');
+insert into branch values('L02032','A2','경기','B32','안산','경기도 안산시 단원구 고잔동 725-1 NC백화점 A관 6층
+경기도 안산시 단원구 광덕대로 194 (고잔동, NC백화점 A관 6층)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0211#menu');
+insert into branch values('L02043','A2','경기','B43','이천','경기도 이천시 중리동 201-1 랜드마크ICC 4층
+경기도 이천시 중리천로 58 (중리동) 랜드마크ICC 4층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0205#menu');
+insert into branch values('L02051','A2','경기','B51','평택','경기도 평택시 평택동 185-579 평택민자역사 8층
+경기도 평택시 평택로 51, 8층(평택동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0052#menu');
+insert into branch values('L02055','A2','경기','B55','하남미사','경기도 하남시 망월동 1100 그랑파샤쥬3층
+경기도 하남시 미사강변동로95 그랑파샤쥬3층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0326#menu');
+insert into branch values('L05010','A5','대전/충청','B10','아산','충남 아산시 온천동 79-1
+충남 아산시 온천대로 1538, 아산시네파크 5층, 6층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0356#menu');
+insert into branch values('L05013','A5','대전/충청','B13','천안','충청남도 천안시 대흥동 102-10번지 5층
+충청남도 천안시 동남구 명동길 47, 5층(대흥동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0044#menu');
+insert into branch values('L05015','A5','대전/충청','B15','천안터미널','천안시 동남구 신부동 354-1 신세계 천안아산점 B관 4F
+천안시 동남구 만남로 43 신세계 천안아산점 B관 4F','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0293#menu');
+insert into branch values('L08013','A8','경상','B13','진주혁신','경남 진주시 충무공동 255-1번지
+경남 진주시 에나로127번길30 드림어반스퀘어 4층,5층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0324#menu');
+insert into branch values('L08016','A8','경상','B16','창원상남','경남 창원시 성산구 상남동 77-4, 6층
+경남 창원시 성산구 중앙대로100번길 13, 6층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0283#menu');
+insert into branch values('L09013','A9','광주/전라/제주','B13','서전주','전주시 완산구 효자동3가 1531-2 엠스퀘어 6층
+전주시 완산구 홍산로 260 엠스퀘어 6층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0225#menu');
+insert into branch values('L09021','A9','광주/전라/제주','B21','정읍','전라북도 정읍시 수성동 525-1
+전라북도 정읍시 중앙1길 1','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0186#menu');
+insert into branch values('L0604','A6','대구','B4','대구아카데미','대구광역시 중구 남일동 65-1
+대구광역시 중구 중앙대로 412 (남일동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0185#menu');
+insert into branch values('L0705','A7','부산/울산','B5','서면삼정타워','부산광역시 부산진구 부전동 227-2 삼정타워 11층
+부산광역시 부산진구 중앙대로 672 삼정타워 11층(부전동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0285#menu');
+insert into branch values('L0801','A8','경상','B1','거제','경상남도 거제시 고현동 958-15 디큐브 백화점 6층
+경상남도 거제시 장평로 12, 6층 (장평동, 디큐브백화점)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0263#menu');
+insert into branch values('L0802','A8','경상','B2','경산','경북 경산시 중방동 897
+경북 경산시 대학로 28길 6-5 아이작레비뉴 2~4층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0330#menu');
+insert into branch values('L01012','A1','서울','B12','불광','서울특별시 은평구 대조동 14-24 팜스퀘어 11층
+서울특별시 은평구 불광로 20, 11층(대조동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0030#menu');
+insert into branch values('L01021','A1','서울','B21','영등포','서울특별시 영등포구 영등포동 4가 441-10번지 경방 타임스퀘어 4~7층
+서울시 영등포구 영중로 15, 4층 (영등포동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0059#menu');
+insert into branch values('L0203','A2','경기','B3','고양행신','경기도 고양시 덕양구 행신동 762-2,3 로터스플레이스 5F
+경기도 고양시 덕양구 충장로 8 로터스플레이스 5F','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0255#menu');
+insert into branch values('L02014','A2','경기','B14','동백','경기도 용인시 기흥구 중동 833번지 쥬네브썬월드빌딩
+경기도 용인시 기흥구 동백죽전대로 444 (중동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0124#menu');
+insert into branch values('L02024','A2','경기','B24','부천옥길','경기도 부천시 옥길동 745-5 문영퀸즈파크옥길 C동 8층
+경기도 부천시 옥길로 124 문영퀸즈파크옥길 C동 8층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0287#menu');
+insert into branch values('L02037','A2','경기','B37','오리','경기도 성남시 구미동 159번지 CGV SQUARE 건물 4층
+경기도 성남시 분당구 탄천상로 151번길 20 (구미동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0004#menu');
+insert into branch values('L02045','A2','경기','B45','정왕','경기 시흥시 정왕동1734-1 이마트 시화점 10층
+경기 시흥시 정왕대로210 이마트 시화점 10층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0320#menu');
+insert into branch values('L02052','A2','경기','B52','평택고덕','경기도 평택시 장당동 154-2, 평택고덕아이파크 101동 3층
+경기도 평택시 경기대로 945,평택고덕아이파크 101동 3층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0334#menu');
+insert into branch values('L0302','A3','인천','B2','남주안','인천광역시 미추홀구 주안동 141-8
+인천광역시 미추홀구 미추홀대로 736(주안동 9층 18호)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0198#menu');
+insert into branch values('L03011','A3','인천','B11','인천연수','인천광역시 연수구 동춘동 926번지 스퀘어원 4층
+인천광역시 연수구 청능대로 210, 4층(동춘동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0258#menu');
+insert into branch values('L03014','A3','인천','B14','청라','인천광역시 서구 청라동 155-7 스퀘어세븐 3층~4층
+인천광역시 서구 청라루비로 76 스퀘어세븐 3층~4층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0235#menu');
+insert into branch values('L0406','A4','강원','B6','춘천','강원특별자치도 춘천시 퇴계동 1017 투탑시티 3층 CGV춘천
+강원특별자치도 춘천시 지석로 80 (퇴계동, 투탑시티 3층) CGV춘천','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0070#menu');
+insert into branch values('L0502','A5','대전/충청','B2','당진','충남 당진시 우두1로 88 (읍내동)
+충남 당진시 읍내동 1532번지','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0207#menu');
+insert into branch values('L0505','A5','대전/충청','B5','대전가오','대전광역시 동구 가오동 557 패션아일랜드 4층
+대전광역시 동구 은어송로 72, 4층(가오동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0154#menu');
+insert into branch values('L0508','A5','대전/충청','B8','서산','충남 서산시 동문동 1029-1번지 서산 디퍼 아울렛 內
+충남 서산시 안견로 242 (동문동, 서산상설패션타운)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0091#menu');
+insert into branch values('L0805','A8','경상','B5','김천율곡','경상북도 김천시 율곡동 1123번지 더스퀘어 3층
+경상북도 김천시 혁신2로 15','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0240#menu');
+insert into branch values('L0807','A8','경상','B7','김해율하','경남 김해시 율하동 1347-2 시네마플레이스 3F
+경남 김해시 율하2로 111, 시네마플레이스 3F','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0311#menu');
+insert into branch values('L0902','A9','광주/전라/제주','B2','광양 엘에프스퀘어','전라남도 광양시 광양읍 덕례리 707 LF스퀘어 3층 가든동 CGV광양 엘에프스퀘어
+전라남도 광양시 광양읍 순광로 466 LF스퀘어 3층 가든동 CGV광양 엘에프스퀘어','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0221#menu');
+insert into branch values('L09010','A9','광주/전라/제주','B10','나주','전라남도 나주시 빛가람동 203-3 T.C.C타워 4층
+전라남도 나주시 상야4길 16-16(빛가람동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0237#menu');
+insert into branch values('L09016','A9','광주/전라/제주','B16','여수웅천','전라남도 여수시 웅천동 1720-3번지 2층~8층
+전라남도 여수시 웅천로 19-35 (웅천동) 2층~8층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0315#menu');
+insert into branch values('L05022','A5','대전/충청','B22','충북혁신','충청북도 음성군 맹동면 동성리 500번지
+충청북도 음성군 맹동면 대하1길 10','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0284#menu');
+insert into branch values('L0608','A6','대구','B8','대구현대','대구광역시 중구 계산동2가 200번지 지하 2층
+대구광역시 중구 달구벌대로 2077, 지하2층(계산동2가)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0109#menu');
+insert into branch values('L0706','A7','부산/울산','B6','서면상상마당','부산광역시 부산진구 서면로 39, KT&G상상마당 부산 8층
+부산광역시 부산진구 부전동 521-1 KT&G상상마당 부산 8층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0303#menu');
+insert into branch values('L07010','A7','부산/울산','B10','울산삼산','울산광역시 남구 삼산동 1569-1번지 업스퀘어 5~8층
+울산광역시 남구 화합로 185, 5층(삼산동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0128#menu');
+insert into branch values('L07015','A7','부산/울산','B15','해운대','부산광역시 해운대구 우동 539-10 라뮤에뜨 2층 CGV
+부산광역시 해운대구 해운대로 620 라뮤에뜨 2층 CGV','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0318#menu');
+insert into branch values('L01020','A1','서울','B20','연남','서울 마포구 동교동 167-13
+서울시 마포구 양화로 186 (동교동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0292#menu');
+insert into branch values('L01024','A1','서울','B24','중계','서울특별시 노원구 중계동 509-2 홈플러스 중계점 8층
+서울특별시 노원구 동일로204가길 12, 8층(중계동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0131#menu');
+insert into branch values('L0205','A2','경기','B5','광교상현','경기도 용인시 수지구 상현동 1116-4 W스퀘어 2층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0266#menu');
+insert into branch values('L0206','A2','경기','B6','광명역','경기도 광명시 일직동 514 GIDC B동 지하2층
+경기도 광명시 일직로 43 GIDC B동 지하2층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0348#menu');
+insert into branch values('L0207','A2','경기','B7','구리','경기도 구리시 인창동 676-2번지 2층
+경기도 구리시 경춘로 243 2층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0232#menu');
+insert into branch values('L02015','A2','경기','B15','동수원','경기도 수원시 팔달구 인계동 1113-11,12 씨네파크 7층
+경기도 수원시 팔달구 권광로 181, 7층 (인계동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0041#menu');
+insert into branch values('L02016','A2','경기','B16','동탄','경기도 화성시 반송동 96 메타폴리스 A블럭 3층
+경기도 화성시 동탄중앙로 220, 3층(반송동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0106#menu');
+insert into branch values('L02021','A2','경기','B21','범계','경기도 안양시 동안구 호계동 1039-3 뉴코아 아울렛 11층
+경기도 안양시 동안구 동안로 119, 11층(호계동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0155#menu');
+insert into branch values('L02034','A2','경기','B34','야탑','경기도 성남시 분당구 야탑동 341번지 테마폴리스빌딩 지하2층
+경기도 성남시 분당구 성남대로925번길 16, 지하 2층(야탑동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0003#menu');
+insert into branch values('L02039','A2','경기','B39','오산중앙','경기도 오산시 원동 335-10 르마레시티 3층
+경기도 오산시 원동로22 르마레시티 3층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0307#menu');
+insert into branch values('L0301','A3','인천','B1','계양','인천광역시 계양구 작전동 899-1 메트로몰 8층
+인천광역시 계양구 장제로 738, 8층(작전동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0043#menu');
+insert into branch values('L0309','A3','인천','B9','인천도화','인천광역시 미추홀구 도화동 1011
+인천광역시 미추홀구 숙골로88번길 12, 지하1층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0340#menu');
+insert into branch values('L0401','A4','강원','B1','강릉','강원특별자치도 강릉시 옥천동 189 씨네몰 6~8층 CGV강릉
 강원특별자치도 강릉시 경강로 2120, 6층~8층(옥천동) CGV강릉','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0139#menu');
+insert into branch values('L0403','A4','강원','B3','원주','강원특별자치도 원주시 단계동 877-1 W-city(원주 시외버스 터미널) 7층 CGV원주
+강원특별자치도 원주시 서원대로 171, 7층(단계동) CGV원주','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0144#menu');
+insert into branch values('L0405','A4','강원','B5','인제','강원특별자치도 인제군 인제읍 남북리 388 하늘내린센터 1층 CGV인제
+강원특별자치도 인제군 인제읍 비봉로 44번길 100 1층 CGV인제','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0281#menu');
+insert into branch values('L05012','A5','대전/충청','B12','제천','충청북도 제천시 강제동 304-21 더캐슬CGV제천 2,3,4층
+충청북도 제천시 장평천로 27-13 더캐슬CGV제천 2,3,4층','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0331#menu');
+insert into branch values('L05018','A5','대전/충청','B18','청주성안길','충청북도 청주시 상당구 북문로 1가 170-1
+충청북도 청주시 상당구 상당로81번길 33(북문로 1가)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0297#menu');
+insert into branch values('L08010','A8','경상','B10','북포항','경상북도 포항시 북구 덕산동 235
+경상북도 포항시 북구 서동로 93 (덕산동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0097#menu');
+insert into branch values('L09011','A9','광주/전라/제주','B11','목포','전라남도 목포시 상동 892번지
+전라남도 목포시 교육로 63 (상동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0289#menu');
+insert into branch values('L09014','A9','광주/전라/제주','B14','순천','전라남도 순천시 장천동 54-1번지 2층~6층(순천시청바로옆)
+전라남도 순천시 장명로 22, 2층~6층(장천동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0114#menu');
+insert into branch values('L09022','A9','광주/전라/제주','B22','제주','제주특별자치도 제주시 이도2동 메카플러스 3~7층
+제주특별자치도 제주시 서광로 288, 3층~7층(이도2동)','http://www.cgv.co.kr/theaters/?page=location&','theaterCode=0302#menu');
+
+commit;
 

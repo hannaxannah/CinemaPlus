@@ -21,9 +21,10 @@
 
 	<select id="GetLocationList2" resultType="theater.model.TheaterCrawlingBean">
 		select distinct
-		code, branch
-		from branch;
+		code, area_code, area, branch_code,branch, address, howtoget1, howtoget2
+		from branch
 	</select>
+	
 <!-- 
 	<insert id="InsertBranchList" parameterType="java.util.List">
 		insert into branch

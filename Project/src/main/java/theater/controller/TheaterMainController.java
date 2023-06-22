@@ -56,6 +56,9 @@ public class TheaterMainController {
 		model.addAttribute("gyeongsang", gyeongsang);
 		model.addAttribute("gwangju", gwangju);
 		
+
+		tcd.getLocationList2();
+
 		
 		//tcd.getLocationList();
 		
