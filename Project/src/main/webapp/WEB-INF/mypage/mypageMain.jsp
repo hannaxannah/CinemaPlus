@@ -6,17 +6,30 @@
 						<!-- 회원 상세 정보 요약 -->
 							<div class="card info-card customers-card">
 								<div class="card-body align-items-center justify-content-center">
+									<form:form commandName="mybean" id="myform" action="mypage_main.mb" method="post">
 									<table class="mypageInfoTable">
 										<tr>
 											<td colspan="3">
-												OOO님, 안녕하세요!
+												${loginInfo.member_name} 님, 안녕하세요!
 											</td>
 										</tr>
 										<tr>
 											<td colspan="3">
-												등급 WELCOME
-												<br>
-												포인트 1,020P				
+													<c:set var = "grade" scope = "session" value = "${mybean.member_point}"/>
+				<c:choose>
+       			 <c:when test = "${grade eq null || grade <3000}">
+       			   <font style="font-size: middle; margin-left: 20px;">회원 등급 : WELCOME</font><br><br>
+       			 </c:when>
+       			 <c:when test = "${grade >=3000 && grade <5000}">
+          			<font style="font-size: middle; margin-left: 20px;">회원 등급 : FRIENDS</font><br><br>
+        		</c:when>
+        		<c:when test = "${grade >=5000 && grade <10000}">
+           			<font style="font-size: middle; margin-left: 20px;">회원 등급 : VIP</font><br><br>
+        		</c:when>
+        		<c:otherwise>
+        			<font style="font-size: middle; margin-left: 20px;">회원 등급 : MVP</font><br><br>
+        	</c:otherwise>
+     	</c:choose>				
 											</td>
 										</tr>
 										<tr>
@@ -24,7 +37,7 @@
 												쿠폰/관람권/교환권
 											</td>
 											<td>
-												영화기록
+												적립 포인트
 											</td>
 											<td>
 												1:1 문의
@@ -34,38 +47,40 @@
 											<td>
 												<div style="display:flex; justify-content: center;">
 													<div class="card-icon rounded-circle align-items-center justify-content-center" style="display:flex; justify-content: center;">
-								                    	<strong>0</strong>
+								                    	<strong><%-- ${couponList} --%>0</strong>장
 								                    </div>
 												</div>
 											</td>
 											<td>
 												<div style="display:flex; justify-content: center;">
 													<div class="card-icon rounded-circle align-items-center justify-content-center" style="display:flex; justify-content: center;">
-								                    	<img src="resources/images/mypage-icon-review.svg" width="50px">
+								                    	<strong>${mybean.member_point } P</strong>
 								                    </div>
 												</div>
 											</td>
 											<td>
 												<div style="display:flex; justify-content: center;">
 													<div class="card-icon rounded-circle align-items-center justify-content-center" style="display:flex; justify-content: center;">
-								                    	<img src="resources/images/mypage-icon-1to1.svg" width="50px">
+								                    	<img src="resources/images/mypage-icon-1to1.svg" 
+								                    	width="50px" onclick="location.href='insert.in?member_id=${loginInfo.member_id}'">
 								                    </div>
 												</div>
 											</td>
 										</tr>
 									</table>
-								</div>
+								</form:form>
 							</div>
+						</div>
 							<!-- 예매내역 -->
 							<div class="card info-card customers-card">
 								<div class="card-body align-items-center justify-content-center">
 											<table class="myReservationPurchase">
 												<tr>
 													<td>
-														예매내역
+														예매/구매내역
 													</td>
 													<td>
-														<a href="">더보기</a>
+														<a href="myPurchaseList.mp?member_id=${loginInfo.member_id}">더보기</a>
 													</td>
 												</tr>
 												<tr>
@@ -86,10 +101,10 @@
 											<table class="myReservationPurchase">
 												<tr>
 													<td>
-														구매내역
+														취소내역
 													</td>
 													<td>
-														<a href="">더보기</a>
+														<a href="myPurchaseList.mp?member_id=${loginInfo.member_id}">더보기</a>
 													</td>
 												</tr>
 												<tr>
