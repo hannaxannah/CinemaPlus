@@ -19,5 +19,6 @@
 	<!-- 스캔 할 패키지(@Controller의 위치)를 적음 -->
 	<context:component-scan base-package="mypage"/>
 	<context:component-scan base-package="store"/>
+	<context:component-scan base-package="member"/>
 	
 </beans>
