@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import member.model.MemberBean;
+import member.model.MemberDao;
 import store.model.StoreCardBean;
 import store.model.StoreCartBean;
 import store.model.StoreCartList;
@@ -39,12 +40,16 @@ public class StorePayController {
 	@Autowired
 	StoreProductDao storeProductDao;
 	
+	@Autowired
+	MemberDao memberDao;
+	
 	@RequestMapping(command)
 	public String getCoupon(
 			@ModelAttribute("storeCardBean") StoreCardBean storeCardBean,
 			@ModelAttribute("StorePaymentBean") StoreCardBean StorePaymentBean,
 			@RequestParam("total_price") int total_price,
 			@RequestParam("sale_pay") int sale_pay,
+			@RequestParam("total_point") String total_point,
 			HttpSession session,HttpServletResponse response
 			) throws IOException {
 		response.setCharacterEncoding("EUC-KR");
@@ -102,7 +107,15 @@ public class StorePayController {
 				check2 = storePaymentDao.paymentOrder_payment(storePaymentBean);
 			}
 			if(check2 != 0 | check2 != -1) {//결제정보 insert 성공시
+				System.out.println("주문 포인트 : "+total_point);
+				
+				MemberBean memberBean = new MemberBean();
+				memberBean.setMember_code(id.getMember_code());
+				memberBean.setMember_point(total_point);
+				int cnt = memberDao.updateUserPoint(memberBean);
+				
 				writer.println("<script type='text/javascript'>");
+				writer.println("alert('"+id.getMember_name()+"님 "+total_point+"point 적립');");
 				writer.println("alert('결제 완료');");
 				writer.println("location.href = 'list.store' ");
 				writer.println("</script>");
