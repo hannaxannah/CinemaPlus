@@ -69,7 +69,7 @@
       	<ul>
           <c:choose>
 				<c:when test="${loginInfo eq null}">
-		        	<li><a class="login" href="memberlogin.mb">로그인</a></li>
+		        	<li><a class="login" href="memberlogin">로그인</a></li>
 		        	<li><a class="register" href="register.mb">회원가입</a></li>
 		        </c:when>
 				<c:otherwise>
