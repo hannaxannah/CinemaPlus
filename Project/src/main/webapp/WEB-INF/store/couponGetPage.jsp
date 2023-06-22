@@ -59,7 +59,7 @@
 								<span>발급완료</span>
 							</c:when>
 							<c:otherwise>
-								<a href="couponIssue.store?coupon_code=${c.coupon_code}&member_code=${loginInfo.getMember_id()}">발급</a>
+								<a href="couponIssue.store?coupon_code=${c.coupon_code}&member_code=${loginInfo.getMember_code()}">발급</a>
 							</c:otherwise>
 						</c:choose>  
 					</td>

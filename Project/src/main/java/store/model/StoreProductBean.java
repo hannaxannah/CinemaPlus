@@ -13,6 +13,10 @@ public class StoreProductBean {
 	private int product_state; //상품 상태  0:품절 1:상품대기 2:판매중 3:new상품 4:best상품 5:추천상품 6:대표상품
 	private int product_point; //상품 포인트
 	
+	//테이블에 없음 넘겨받기위한 값
+	private int product_order_qty; //주문한 수량
+	
+	
 	public StoreProductBean() {
 		super();
 	}
@@ -31,6 +35,14 @@ public class StoreProductBean {
 		this.product_sprice = product_sprice;
 		this.product_state = product_state;
 		this.product_point = product_point;
+	}
+	
+	public int getProduct_order_qty() {
+		return product_order_qty;
+	}
+
+	public void setProduct_order_qty(int product_order_qty) {
+		this.product_order_qty = product_order_qty;
 	}
 
 	public String getProduct_code() {

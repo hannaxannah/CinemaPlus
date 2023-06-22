@@ -157,6 +157,10 @@
 		where member_code = #{member_code}
 	</update>	
 		
+	<select id="MyUsableCouponCount" resultType="Integer">
+		select count(*) from coupon_user where 
+		member_code = #{member_code} and coupon_state = 0
+	</select>	
 </mapper>
 
 
