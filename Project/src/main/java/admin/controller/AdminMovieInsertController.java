@@ -1,4 +1,4 @@
-package movie.controller;
+package admin.controller;
 
 
 
@@ -17,8 +17,8 @@ import movie.model.MovieBean;
 import movie.model.MovieDao;
 
 @Controller
-public class MovieInsertController {
-	private final String command = "/insert.mv";
+public class AdminMovieInsertController {
+	private final String command = "/movieInsert.admin";
 
 	@Autowired
 	MovieDao movieDao;
@@ -58,7 +58,7 @@ public class MovieInsertController {
 										);
 			System.out.println("영화제목: " + movieBean.getMovie_title());
 			cnt += movieDao.insertMovie(movieBean);
-			//System.out.println("성공여부: " + cnt);
+			System.out.println("성공여부: " + cnt);
 			
 		}
 		System.out.println("성공개수: " + cnt);

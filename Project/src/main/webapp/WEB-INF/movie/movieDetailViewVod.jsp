@@ -34,10 +34,6 @@
 										onclick="reservation()">
 									</div>
 								</c:if>
-								<c:if test="#{admin_on && !screen_on} ">
-									<input type="button" class="btn btn-primary btn-block" style="background-color: #6B49EA; border: 0px" value="오픈하기"
-										onclick="screenOpen()">
-								</c:if>
 								<c:if test="${vod_on}">
 									<div class="col-lg-2" style="display: inline-flex;align-items: flex-start; padding-left: 40px; margin-right: 0">
 										<input type="button" class="btn btn-primary btn-block" style="background-color: #6B49EA; border: 0px" value="VOD구매하기"
@@ -93,11 +89,6 @@
 		alert(1);
 	}
 	
-	function screenOpen() {
-		location.href="screenInsert.mv?movie_title=" + '${movie.movie_title}' 
-				+"&movie_runtime=" + '${runtimes}'
-				+"&rating=" + '${movie.rating}';
-	}
 	
 </script>
 <!-- End #main -->

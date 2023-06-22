@@ -71,7 +71,7 @@ public class MemberGoogleController {
 				model.addAttribute("id", id);
 				
 				
-				member.model.MemberBean mb = sqlSessionTemplate.selectOne(namespace+".GetMemberByEmail",email);
+				member.model.MemberBean mb = sqlSessionTemplate.selectOne(namespace+".GetMemberById",id);
 				session.setAttribute("loginInfo", mb);//세션설정
 				 
 					
@@ -79,7 +79,7 @@ public class MemberGoogleController {
 				{
 					sqlSessionTemplate.insert(namespace+".googleInsertMember",model);
 					
-				    mb = sqlSessionTemplate.selectOne(namespace+".GetMemberByEmail",email);
+				    mb = sqlSessionTemplate.selectOne(namespace+".GetMemberById",id);
 					session.setAttribute("loginInfo", mb);//세션설정
 				}
 				return "redirect:/main.mn";

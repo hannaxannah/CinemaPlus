@@ -40,15 +40,9 @@ public class MovieDetailController {
 	@RequestMapping(value = command)
 	public String doAction(HttpServletRequest request, Model model,HttpSession session) {
 		
-		boolean admin_on = false;
 		
 		MemberBean mb = (MemberBean) session.getAttribute("loginInfo");
 		
-		if(mb.getMember_id().equals("admin")) {
-			admin_on = true;
-		}else {
-			admin_on = false;
-		}
 		
 		
 		
@@ -225,7 +219,6 @@ public class MovieDetailController {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		} 
-		model.addAttribute("admin_on", admin_on);
 		return getPage;
 	}
 	

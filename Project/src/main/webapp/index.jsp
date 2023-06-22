@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="login">로그인 하러 가기 </a>
+<a href="main.mn">Main Page </a>
 </body>
 </html>

@@ -11,7 +11,7 @@ import movie.model.VodBean;
 @Controller
 public class VodInsertController {
 	private final String command = "/insertVod.mv";
-	private final String getPage = "redirect:/detail.mv";
+	private final String getPage = "redirect:/movieList.admin";
 
 	@Autowired
 	MovieDao movieDao;

@@ -121,6 +121,7 @@ public class MypageProductController {
 //			System.out.println(spb.getCategory_name());
 //			System.out.println(spb.getProduct_point());
 			System.out.println("주문 개수 : "+orderProducts.get(i).getProduct_order_qty());
+			spb.setProduct_order_qty(orderProducts.get(i).getProduct_order_qty());
 			productList.add(spb);
 		}
 		
