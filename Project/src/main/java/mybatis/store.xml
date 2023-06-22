@@ -66,15 +66,23 @@
 		where payment_code = #{payment_code}
 	</select>
 	
+	<!-- 결제품목 수 -->
 	<select id="OrderProductsCount" resultType="Integer">
 		select count(*) from payment where
 		payment_code = #{payment_code} and member_code = #{member_code}
 	</select>
 	
+	<!-- 주문되있는 상품의 코드와 수량을 가져오는 코드 -->
 	<select id="OrderProductsList" resultType="store.model.StorePaymentBean">
 		select product_code,product_order_qty from payment
 		where payment_code = #{payment_code} and member_code = #{member_code}
 	</select>
+	
+	<select id="salePercent" resultType="Integer">
+		select count(*) from payment where
+		payment_code = #{payment_code} and member_code = #{member_code}
+	</select>
+	
 </mapper>
 
 
