@@ -271,3 +271,12 @@ $(document).ready(function(){
 	})//join
 	
 })//ready
+
+
+/* 예매 - 지역 Dropdown */
+function dp_menu(){
+	let click = document.getElementById("drop-content");
+	if(click.style.display === "none"){
+		click.style.display = "block";
+	}
+}
