@@ -49,7 +49,10 @@ public class ScreenReservationInsertController {
 					reservationBean.setSeat_number(sNum);
 					reservationBean.setSeat_number2(seat);
 					//System.out.println(sNum);
-					screenDao.insertReservation(reservationBean);
+					int cnt = screenDao.insertReservation(reservationBean);
+					if(cnt == 1) {
+						screenDao.removeSeat(screenBean.getScreen_time());
+					}
 					break;
 				}else {
 					j++;

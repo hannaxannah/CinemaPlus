@@ -46,6 +46,7 @@ screen table(영화상영)
 create table screen(
 	movie_title varchar2(100),
 	seat_count number,
+	left_seats number,
 	screen_time varchar2(10),
 	time number,
 	screen_name varchar2(10),

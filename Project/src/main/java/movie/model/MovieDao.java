@@ -20,7 +20,7 @@ public class MovieDao {
 	SqlSessionTemplate sqlSessionTemplate;
 
 	public List<MovieBean> getAllMovie(Paging pageInfo, Map<String, String> map) {
-			
+
 		List<MovieBean> list = new ArrayList<MovieBean>();
 		RowBounds rowBounds = new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
 		list = sqlSessionTemplate.selectList(namespace + ".GetMovieList", map, rowBounds);
@@ -36,7 +36,7 @@ public class MovieDao {
 		cnt = sqlSessionTemplate.insert(namespace+".InsertMovie", movieBean);
 		System.out.println("성공여부: " + cnt);
 		return cnt;
-		
+
 	}
 
 	public int getOneMovie(MovieBean movieBean) {
@@ -54,10 +54,10 @@ public class MovieDao {
 		cnt = sqlSessionTemplate.insert(namespace+".InsertVod", vodBean);
 		System.out.println("성공여부: " + cnt);
 		return cnt;
-		
+
 	}
 	public void vodOn(String movie_code) {
-		
+
 		sqlSessionTemplate.update(namespace + ".VodOn", movie_code);
 	}
 	public int deleteVod(String movie_code) {
@@ -65,9 +65,15 @@ public class MovieDao {
 		cnt = sqlSessionTemplate.delete(namespace + ".DeleteVod" , movie_code);
 		return cnt;
 	}
-	
-public void vodOff(String movieCode) {
-		
+
+	public void vodOff(String movieCode) {
+
 		sqlSessionTemplate.update(namespace + ".VodOff", movieCode);
+	}
+	public VodBean getVodByCode(String movie_code) {
+		VodBean vod = null;
+		vod = sqlSessionTemplate.selectOne(namespace+".GetVodByCode", movie_code);
+		return vod;
+
 	}
 }

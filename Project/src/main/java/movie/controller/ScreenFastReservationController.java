@@ -25,7 +25,7 @@ public class ScreenFastReservationController {
 	public String doAction(
 							@RequestParam(value="movie_title") String movie_title,
 							Model model){
-		
+		System.out.println(movie_title);
 		List<ScreenBean>fastReservationList = screenDao.getScreenByMovieTitle(movie_title);
 		model.addAttribute("fastReservationList", fastReservationList);
 		return getPage;

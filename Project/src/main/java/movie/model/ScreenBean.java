@@ -3,6 +3,7 @@ package movie.model;
 public class ScreenBean {
 	private String movie_title;
 	private int seat_count;
+	private int left_seats;
 	private String screen_time;
 	private String time;
 	private String screen_name;
@@ -14,18 +15,22 @@ public class ScreenBean {
 		super();
 	}
 	
-	public ScreenBean(String movie_title, int seat_count, String screen_time, String screen_name, int runtime,
-			int ticket_price, String discount, String rating) {
+	
+	public ScreenBean(String movie_title, int seat_count, int left_seats, String screen_time, String time,
+			String screen_name, int runtime, int ticket_price, String discount, String rating) {
 		super();
 		this.movie_title = movie_title;
 		this.seat_count = seat_count;
+		this.left_seats = left_seats;
 		this.screen_time = screen_time;
+		this.time = time;
 		this.screen_name = screen_name;
 		this.runtime = runtime;
 		this.ticket_price = ticket_price;
 		this.discount = discount;
 		this.rating = rating;
 	}
+
 
 	public String getMovie_title() {
 		return movie_title;
@@ -82,6 +87,14 @@ public class ScreenBean {
 
 	public void setTime(String time) {
 		this.time = time;
+	}
+
+	public int getLeft_seats() {
+		return left_seats;
+	}
+
+	public void setLeft_seats(int left_seats) {
+		this.left_seats = left_seats;
 	}
 	
 	

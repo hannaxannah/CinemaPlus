@@ -60,6 +60,11 @@ public class ScreenDao {
 		list = sqlSessionTemplate.selectList(namespace + ".GetReservationByTime", screen_time);
 		return list;
 	}
+
+
+	public void removeSeat(String Screen_time) {
+		sqlSessionTemplate.update(namespace + ".removeSeat", Screen_time);
+	}
 	
 	
 }

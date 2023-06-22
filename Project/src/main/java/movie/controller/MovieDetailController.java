@@ -1,5 +1,6 @@
 package movie.controller;
 
+import java.awt.List;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,16 +12,21 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import member.model.MemberBean;
 import movie.model.MovieBean;
+import movie.model.ScreenBean;
+import movie.model.ScreenDao;
 
 @Controller
 public class MovieDetailController {
@@ -28,8 +34,26 @@ public class MovieDetailController {
 	private final String command = "movieDetail.mv";
 	private final String getPage = "movieDetailViewVod";
 	
+	@Autowired
+	ScreenDao screenDao;
+	
 	@RequestMapping(value = command)
-	public String doAction(HttpServletRequest request, Model model) {
+	public String doAction(HttpServletRequest request, Model model,HttpSession session) {
+		
+		boolean admin_on = false;
+		
+		MemberBean mb = (MemberBean) session.getAttribute("loginInfo");
+		
+		if(mb.getMember_id().equals("admin")) {
+			admin_on = true;
+		}else {
+			admin_on = false;
+		}
+		
+		
+		
+		
+		
 		try {
 			request.setCharacterEncoding("utf-8");
 		} catch (UnsupportedEncodingException e) {
@@ -65,6 +89,7 @@ public class MovieDetailController {
 			String[] stories = new String[movieList.size()];
 			String[] movieActors = new String[movieList.size()];
 			String[] ratings = new String[movieList.size()];
+			String[] runtimes = new String[movieList.size()];
 
 
 
@@ -135,6 +160,8 @@ public class MovieDetailController {
 
 						JSONObject plotText = (JSONObject) plot.get(0);
 						stories[i] = (String)plotText.get("plotText");
+						
+						runtimes[i] = (String)result3.get("runtime");
 					}
 
 					JSONObject actors = (JSONObject) result3.get("actors");
@@ -161,8 +188,14 @@ public class MovieDetailController {
 					movieActors[i] = actorNm;
 				}
 			}
-			//System.out.print(posters.length);
-			//System.out.print(posters[0]);
+			java.util.List<ScreenBean> screeList = screenDao.getScreenByMovieTitle(title);
+			Boolean screen_on = false;
+			if(screeList.size() != 0) {
+				screen_on = true;
+				
+			}else {
+				screen_on = false;
+			}
 			MovieBean movie = new MovieBean();
 			movie.setActors(movieActors[0]);
 			movie.setDirector(movieDirectors[0]);
@@ -170,7 +203,13 @@ public class MovieDetailController {
 			movie.setRating(ratings[0]);
 			movie.setMovie_title(title);
 			movie.setOpen_date(date);
+			
 			model.addAttribute("movie", movie);
+			model.addAttribute("screen_on", screen_on);
+			model.addAttribute("runtimes", runtimes);
+			
+			
+			
 			
 			/*
 			 * for(int i=0; i<posters.length; i++){ out.println("posters: " + posters[i]); }
@@ -186,7 +225,7 @@ public class MovieDetailController {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		} 
-
+		model.addAttribute("admin_on", admin_on);
 		return getPage;
 	}
 	

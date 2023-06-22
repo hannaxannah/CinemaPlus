@@ -28,9 +28,22 @@
 								<div class="col-lg-10">
 									<h2>${movie.movie_title}</h2>
 								</div>
-								<div class="col-lg-2" style="display: inline-flex;align-items: flex-start; padding-left: 40px; margin-right: 0">
-									<input type="button" class="btn btn-primary btn-block" style="background-color: #6B49EA; border: 0px" value="예매하기">
-								</div>
+								<c:if test="${screen_on}">
+									<div class="col-lg-2" style="display: inline-flex;align-items: flex-start; padding-left: 40px; margin-right: 0">
+										<input type="button" class="btn btn-primary btn-block" style="background-color: #6B49EA; border: 0px" value="예매하기"
+										onclick="reservation()">
+									</div>
+								</c:if>
+								<c:if test="#{admin_on && !screen_on} ">
+									<input type="button" class="btn btn-primary btn-block" style="background-color: #6B49EA; border: 0px" value="오픈하기"
+										onclick="screenOpen()">
+								</c:if>
+								<c:if test="${vod_on}">
+									<div class="col-lg-2" style="display: inline-flex;align-items: flex-start; padding-left: 40px; margin-right: 0">
+										<input type="button" class="btn btn-primary btn-block" style="background-color: #6B49EA; border: 0px" value="VOD구매하기"
+										onclick="vodBuy()">
+									</div>
+								</c:if>
 								<div class="col-lg-12">
 									<h4>
 										감독 : ${movie.director} | 장르 : 애니메이션/140 분 | 등급 : ${movie.rating} | 개봉일 : ${movie.open_date}<br>
@@ -72,5 +85,20 @@
 		<!-- "container-fluid" -->
 	</section>
 </main>
+<script type="text/javascript">
+	function reservation() {
+		location.href="fastReservation.mv?movie_title=" + '${movie.movie_title}';
+	}
+	function vodBuy() {
+		alert(1);
+	}
+	
+	function screenOpen() {
+		location.href="screenInsert.mv?movie_title=" + '${movie.movie_title}' 
+				+"&movie_runtime=" + '${runtimes}'
+				+"&rating=" + '${movie.rating}';
+	}
+	
+</script>
 <!-- End #main -->
 <%@ include file="../main/mainFooter.jsp"%>

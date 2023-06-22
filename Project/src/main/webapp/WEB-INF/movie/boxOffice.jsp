@@ -54,7 +54,7 @@
 										<span class="date">개봉일 ${weekly.get("openDt")}</span>
 									</div>
 							</div>
-							<!-- End portfolio item -->a
+							<!-- End portfolio item -->
 							</c:forEach>
 						</div>
 					</div>
