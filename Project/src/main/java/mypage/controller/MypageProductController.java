@@ -2,6 +2,7 @@ package mypage.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -16,9 +17,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import member.model.MemberBean;
 import mypage.model.MypageDao;
+import store.model.StoreCardBean;
+import store.model.StoreCartBean;
 import store.model.StoreCouponDao;
 import store.model.StorePaymentBean;
 import store.model.StorePaymentDao;
+import store.model.StoreProductBean;
 import store.model.StoreProductDao;
 
 @Controller
@@ -41,7 +45,6 @@ public class MypageProductController {
 
 	@Autowired
 	StoreCouponDao storeCouponDao;
-	
 	
 	@RequestMapping(command)
 	public String doAction(HttpServletResponse response,HttpSession session, Model model)throws IOException {
@@ -81,10 +84,51 @@ public class MypageProductController {
 			HttpServletResponse response,
 			HttpSession session, 
 			Model model
-			) {
+			) throws IOException {
 		
+		response.setCharacterEncoding("EUC-KR");
+		PrintWriter writer;
 		
+		writer = response.getWriter();
+		if(session.getAttribute("loginInfo") == null) {
+		     writer.println("<script type='text/javascript'>");
+		     writer.println("alert('로그인 후 이용가능한 서비스입니다. 로그인 페이지로 이동합니다.');");
+		     writer.println("location.href = 'memberlogin' ");
+		     writer.println("</script>");
+		     writer.flush();
+		     return null;
+		}
+		
+		StoreCardBean storeCardBean = null;
+		StorePaymentBean storePaymentBean = new StorePaymentBean();
+		StoreProductBean spb = null;
+		MemberBean id = (MemberBean) session.getAttribute("loginInfo");
+		storePaymentBean.setPayment_code(payment_code); //결제코드 수동으로 주입
+		storePaymentBean.setMember_code(id.getMember_code());//멤버코드 주입
+		
+		storeCardBean = storePaymentDao.card_Info(payment_code); //결제코드에 대한 카드정보
+		int productsCount = storePaymentDao.orderProductsCount(storePaymentBean);//해당 결제코드 상품 갯수
+		
+		List<StorePaymentBean> orderProducts = storePaymentDao.orderProductsCode(storePaymentBean);
+		List<StoreProductBean> productList = new ArrayList<StoreProductBean>();
+		for(int i=0;i<productsCount;i++) {
+			System.out.println("상품 코드 : "+orderProducts.get(i).getProduct_code());
+			spb = storeProductDao.getProducDetailByNum(Integer.parseInt(orderProducts.get(i).getProduct_code()));
+//			System.out.println(spb.getProduct_name());
+//			System.out.println(spb.getProduct_image());
+//			System.out.println(spb.getProduct_price());
+//			System.out.println(spb.getProduct_sprice());
+//			System.out.println(spb.getCategory_name());
+//			System.out.println(spb.getProduct_point());
+			System.out.println("주문 개수 : "+orderProducts.get(i).getProduct_order_qty());
+			productList.add(spb);
+		}
+		
+		//System.out.println("결제정보 : "+payment_code+"에 담긴 상품 갯수 : "+productsCount);
 		model.addAttribute("payment_code", payment_code);
+		model.addAttribute("productsCount", productsCount);
+		model.addAttribute("storeCardBean", storeCardBean);
+		model.addAttribute("productList",productList);
 		
 		return detail_page;
 	}

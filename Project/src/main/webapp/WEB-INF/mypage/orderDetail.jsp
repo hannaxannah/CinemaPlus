@@ -4,6 +4,9 @@
 orderDetail.jsp<br>
     <%@include file="../common/common.jsp"%>
      <%@ include file="../main/mainHeader.jsp"%> 
+ <%
+    request.setCharacterEncoding("UTF-8");
+%>
  <style>
  	.orderList{
  		 cursor: pointer;
@@ -30,39 +33,88 @@ orderDetail.jsp<br>
 	form{
 	margin-bottom: 100px;
 	}
+	
+	.card td {
+		align : left;
+		font-size: small;
+	}
+	
+	.p_img{
+		width:50px;
+		height:50px;
+	}
 </style> 
     
 	<table id="mytable">
 	<tr>
 		<td>
-	<font style="font-size: x-large;">주문 상세 페이지</font><br><br>
+	<font style="font-size: x-large;">주문 상세 페이지 (주문 상품 : ${productsCount}건)</font><br><br>
 		</td>
 	</tr>
 	</table>
-	<table>
+	<table class="card">
 		<tr>
-			<td align="left" style="font-size: small;">
-				<font>-결제코드 : ${payment_code}</font>
+			<td>
+				<font>-결제 번호 <br> ${payment_code}</font>
+			</td>
+			<td>
+				<font>-카드사 <br> ${storeCardBean.card_company}</font>
+			</td>
+			<td>
+				<font>-카드 번호<br> ${storeCardBean.card_number}</font>
+			</td>
+			<td>
+				<font>-카드 유효기간 <br>
+					${fn:substring(storeCardBean.card_mmyy,0,2)}/
+					${fn:substring(storeCardBean.card_mmyy,2,4)}
+				</font>
+			</td>
+			<td>
+				<font>-카드 비밀번호 <br> ${storeCardBean.card_pw}**</font>
+			</td>
+			<td>
+				<c:choose>
+					<c:when test="${storeCardBean.card_installment eq 0}">
+						<font>할부 개월 : 일시불</font>
+					</c:when>
+					<c:otherwise>
+						<font>할부 개월 : <br> ${storeCardBean.card_installment} 개월</font>
+					</c:otherwise>
+				</c:choose>
 			</td>
 		</tr>
 	</table>
 	<table border="1" id="mytable">
 		<tr align="center">
+			<td>카테고리</td>
 			<td>주문상품</td>
-			<td>주문금액</td>
-			<td>결제 품목</td>
-			<td>구매일</td>
+			<td>구매자</td>
+			<td>상품 할인가</td>
+			<td>상품 최종금액</td>
 		</tr>
 		
 		
-		<c:if test="${fn:length(order) == 0}">
+		<c:if test="${fn:length(productList) == 0}">
 			<tr>
 				<td colspan="5" align="center">결제 내역이 없습니다.</td>
 			</tr>
 		</c:if>
-		<c:forEach var="order" items="${order}" >
-			<tr class="orderList" onclick="location.href='myOrderDetail.mp?payment_code=${order.payment_code}'">
-				<td>${order.payment_code }</td>
+		<c:forEach var="p" items="${productList}" >
+			<tr>
+				<td>
+					${p.category_name}
+				</td>
+				
+				   <a href="productDetail.store?product_code=${p.product_code}">
+					<td>
+					    	<img class="p_img" alt="상품 사진" src="<%=request.getContextPath()%>/resources/store_images/${p.product_image}">
+						${p.product_name}
+						${p.product_price}
+						${p.product_sprice}
+						${p.product_point}
+					</td>
+				   </a>
+				
 				<td>${loginInfo.member_name}</td>
 				<td>${order.product_code }</td>
 				<td><fmt:formatDate value="${order.payment_date}" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/></td>

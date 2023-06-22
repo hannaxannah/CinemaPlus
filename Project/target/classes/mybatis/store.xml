@@ -48,14 +48,32 @@
 		(payment_seq.nextval,#{payment_code},#{member_code},#{card_number},${product_code},#{product_order_qty},#{payment_sale_pay},sysdate)
 	</insert>
 	
+	<!-- 회원코드 기반으로 결제내역가져오기 -->
 	<select id="ChkPayment_codeByMember_code" resultType="store.model.StorePaymentBean">
-		select distinct payment_code from payment 
-		where member_code = #{member_code}
+		select distinct payment_code,payment_date from payment 
+		where member_code = #{member_code} order by payment_date desc
 	</select>
 	
+	<!-- 결제코드 기반으로 주문목록 가져오기 -->
 	<select id="ChkOrderListByPayment_code" resultType="store.model.StorePaymentBean">
 		select * from payment 
 		where payment_code = #{payment_code} and rownum = 1
+	</select>
+	
+	<!-- 결제코드 기반으로 카드정보 불러오기 -->
+	<select id="CardInformationByPayment_code" resultType="store.model.StoreCardBean">
+		select * from card
+		where payment_code = #{payment_code}
+	</select>
+	
+	<select id="OrderProductsCount" resultType="Integer">
+		select count(*) from payment where
+		payment_code = #{payment_code} and member_code = #{member_code}
+	</select>
+	
+	<select id="OrderProductsList" resultType="store.model.StorePaymentBean">
+		select product_code,product_order_qty from payment
+		where payment_code = #{payment_code} and member_code = #{member_code}
 	</select>
 </mapper>
 
