@@ -13,16 +13,17 @@ import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import utility.Paging;
 
-@Component("myMemberDao")
+@Component
+@Repository
 public class MemberDao {
 	private String namespace = "member.model.MemberBean";
 
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
-
 
 	public int insertMember(MemberBean mb) {
 		System.out.println("mb.getMember_id():"+mb.getMember_id());
@@ -137,11 +138,10 @@ public class MemberDao {
 		return m_id;
 	}
 	
+	/* 스토어 상품 결제시 회원아이디와 point를 받아서 보유 포인트에 더함 */
 	public int updateUserPoint(MemberBean memberBean) {
 		int cnt = -1;
 		
-		System.out.println("sql문에 : "+memberBean.getMember_code());
-		System.out.println("sql문에 : "+memberBean.getMember_point());
 		cnt = sqlSessionTemplate.update(namespace + ".UpdateUserPoint",memberBean);
 		
 		return cnt;

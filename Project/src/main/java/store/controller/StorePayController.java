@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -40,11 +42,11 @@ public class StorePayController {
 	@Autowired
 	StoreProductDao storeProductDao;
 	
-	@Autowired
+	//@Autowired 오류뜸 잠시 제거
 	MemberDao memberDao;
 	
 	@RequestMapping(command)
-	public String getCoupon(
+	public String order(
 			@ModelAttribute("storeCardBean") StoreCardBean storeCardBean,
 			@ModelAttribute("StorePaymentBean") StoreCardBean StorePaymentBean,
 			@RequestParam("total_price") int total_price,
@@ -96,7 +98,7 @@ public class StorePayController {
 		storePaymentBean.setMember_code(id.getMember_code());//멤버코드 주입
 		int check1 = -1;
 		int check2 = -1;
-		
+		int cnt = -1;
 		check1 = storePaymentDao.paymentOrder_card(storeCardBean);//결제 
 		System.out.println("장바구니 물품 수 : "+keylist.size());
 		if(check1 == 1) {//카드 입력 성공시
@@ -112,15 +114,25 @@ public class StorePayController {
 				MemberBean memberBean = new MemberBean();
 				memberBean.setMember_code(id.getMember_code());
 				memberBean.setMember_point(total_point);
-				int cnt = memberDao.updateUserPoint(memberBean);
-				
-				writer.println("<script type='text/javascript'>");
-				writer.println("alert('"+id.getMember_name()+"님 "+total_point+"point 적립');");
-				writer.println("alert('결제 완료');");
-				writer.println("location.href = 'list.store' ");
-				writer.println("</script>");
-				writer.flush();
-				return null; 
+				cnt = memberDao.updateUserPoint(memberBean); //포인트 적립
+				if(cnt != -1) {
+					writer.println("<script type='text/javascript'>");
+					writer.println("alert('"+id.getMember_name()+"님 "+total_point+"point 적립');");
+					writer.println("alert('결제 완료');");
+					session.removeAttribute("cart"); //결제 완료시 장바구니 비우기
+					session.removeAttribute("cartSize");//결제 완료시 장바구니갯수 카운트 비우기
+					writer.println("location.href = 'list.store' ");
+					writer.println("</script>");
+					writer.flush();
+					return null; 
+				}else {
+					writer.println("<script type='text/javascript'>");
+					writer.println("alert('결제 실패');");
+					writer.println("location.href = 'list.store' ");
+					writer.println("</script>");
+					writer.flush();
+					return null; 
+				}
 			}
 		}
 //		System.out.println("결제코드 : "+payment_code);
