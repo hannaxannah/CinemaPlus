@@ -42,7 +42,7 @@ public class StorePayController {
 	@Autowired
 	StoreProductDao storeProductDao;
 	
-	//@Autowired 오류뜸 잠시 제거
+	@Autowired
 	MemberDao memberDao;
 	
 	@RequestMapping(command)
