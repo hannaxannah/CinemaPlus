@@ -54,9 +54,8 @@ productList.jsp<br>
 	</table>
 	<table border="1" id="metable">
 		<tr align="center">
-			<td>결제번호</td>
+			<td>결제 번호</td>
 			<td>결제자 이름</td>
-			<td>결제 품목</td>
 			<td>구매일</td>
 		</tr>
 		
@@ -70,7 +69,6 @@ productList.jsp<br>
 			<tr class="orderList" onclick="location.href='myOrderDetail.mp?payment_code=${order.payment_code}'">
 				<td>${order.payment_code }</td>
 				<td>${loginInfo.member_name}</td>
-				<td>${order.product_code }</td>
 				<td><fmt:formatDate value="${order.payment_date}" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/></td>
 			</tr>
 		</c:forEach>
