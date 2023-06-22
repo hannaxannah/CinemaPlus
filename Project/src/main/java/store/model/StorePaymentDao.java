@@ -33,6 +33,7 @@ public class StorePaymentDao {
 		return code;
 	}
 	
+	/* 카드정보저장 */
 	public int paymentOrder_card(StoreCardBean storeCardBean) {
 		int check = -1;
 		
@@ -40,6 +41,8 @@ public class StorePaymentDao {
 			
 		return check;	
 	}
+	
+	/* 결제정보저장 */
 	public int paymentOrder_payment(StorePaymentBean storePaymentBean) {
 		
 		int check = -1;
@@ -49,6 +52,7 @@ public class StorePaymentDao {
 		return check;
 	}
 	
+	/* 회원코드기준으로 주문목록 조회 */
 	public List<StorePaymentBean> myPayment_code(String member_code) {
 		List<StorePaymentBean> myPaylist = new ArrayList<StorePaymentBean>();
 		
@@ -62,6 +66,32 @@ public class StorePaymentDao {
 		}
 		
 		return myOrderInfolist;
+	}
+	
+	/* 무슨 카드로 결제했는지 결제코드로 불러오기 */
+	public StoreCardBean card_Info(String payment_code){
+		StoreCardBean storeCardBean = null;
+		
+		storeCardBean =  sqlSessionTemplate.selectOne(namespace+".CardInformationByPayment_code",payment_code); 
+		
+		return storeCardBean;
+	}
+	
+	/* 결제목록에 담긴 상품 갯수 불러오기 */
+	public int orderProductsCount(StorePaymentBean storePaymentBean) {
+		int cnt = 0;
+		
+		cnt = sqlSessionTemplate.selectOne(namespace+".OrderProductsCount",storePaymentBean);
+		
+		return cnt;
+	}
+	
+	public List<StorePaymentBean> orderProductsCode(StorePaymentBean storePaymentBean) {
+		List<StorePaymentBean> myProductslist = new ArrayList<StorePaymentBean>();
+		
+		myProductslist = sqlSessionTemplate.selectList(namespace+".OrderProductsList",storePaymentBean);
+		
+		return myProductslist;
 	}
 	
 	
