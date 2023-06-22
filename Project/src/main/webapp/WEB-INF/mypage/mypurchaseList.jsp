@@ -39,7 +39,7 @@ mypageList.jsp<br>
 	}
 .mytable {
 	margin: auto;
-	margin-top: 50px;
+	margin-top: 80px;
 	width: 730px;
 	}
 .purchase{

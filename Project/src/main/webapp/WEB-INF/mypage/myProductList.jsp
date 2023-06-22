@@ -12,8 +12,11 @@ productList.jsp<br>
  	.orderList:hover{
  		transform: scale(1.1);
  	}
- 	#mytable{
+ 	#metable{
  	margin-top: 50px;
+ 	}
+ 	#mytable{
+ 	margin-top: 80px;
  	}
  	table{
  	text-align:left;
@@ -49,7 +52,7 @@ productList.jsp<br>
 			<td>총 ${fn:length(order)}개의 주문내역</td>
 		</tr>
 	</table>
-	<table border="1" id="mytable">
+	<table border="1" id="metable">
 		<tr align="center">
 			<td>결제번호</td>
 			<td>결제자 이름</td>
@@ -74,7 +77,7 @@ productList.jsp<br>
 	</table>
 	${pageInfo.pagingHtml }
 
-<div class="product">
+<div class="product" style="margin-bottom: 50px; margin-top: 30px;">
 <details>
 	 <summary style="margin-left: 8px;">이용안내</summary><br>
  <div markdown="1">

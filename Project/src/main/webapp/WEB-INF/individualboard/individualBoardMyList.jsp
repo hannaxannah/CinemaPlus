@@ -6,16 +6,15 @@
 	individualMyList.jsp<br>
 	
 <style>
-	.formList{
-	margin: auto;
-	text-align: center;
-	}
 	b{
 	font-size: small;
 	}	
+	table{
+	margin: auto;
+	}
 </style>
 	
-	<table width="700px" class="formList">
+	<table width="750px" style="text-align: center; margin-top: 80px;">
 		<tr>
 			<td>
 				<font style="font-size: x-large;">나의 문의내역</font>
@@ -23,7 +22,7 @@
 		</tr>
 	</table><br>
 	
-	<table width="700px" style="margin: auto;">
+	<table width="750px" style="margin: auto;">
 		<tr>
 			<td align="left">
 				<p>
@@ -35,14 +34,14 @@
 	
 <center>
 			
-	<table border="1" width="700px">
+	<table border="1" width="750px">
 		<tr>
 			<td align="right" colspan="6">
 				<input type="button" onclick="location.href='insert.in'" value="1:1문의">
 			</td>
 		</tr>
 		
-		<tr>
+		<tr align="center">
 			<th width="70">번호</th>
 			<th>유형</th>
 			<th>제목</th>
@@ -82,7 +81,7 @@
 </table>
 </center>
 
-<center>
+<center style="margin-bottom: 250px;">
 	${pageInfo.pagingHtml}
 </center>
 
