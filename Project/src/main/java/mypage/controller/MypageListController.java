@@ -21,7 +21,7 @@ import store.model.StoreProductDao;
 @Controller
 public class MypageListController {
 	
-	private final String command = "/main.mp";
+	private final String command = "/mymain.mp";
 	private final String gotopage = "mypageList";
 	
 	@Autowired

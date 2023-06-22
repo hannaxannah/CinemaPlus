@@ -6,7 +6,7 @@
 						<!-- 회원 상세 정보 요약 -->
 							<div class="card info-card customers-card">
 								<div class="card-body align-items-center justify-content-center">
-									<form:form commandName="mybean" id="myform" action="mypage_main.mb" method="post">
+									<form:form commandName="mybean" id="myform" action="main.mp" method="post">
 									<table class="mypageInfoTable">
 										<tr>
 											<td colspan="3">
@@ -47,14 +47,14 @@
 											<td>
 												<div style="display:flex; justify-content: center;">
 													<div class="card-icon rounded-circle align-items-center justify-content-center" style="display:flex; justify-content: center;">
-								                    	<strong><%-- ${couponList} --%>0</strong>장
+								                    	<strong>${couponSize}</strong>장
 								                    </div>
 												</div>
 											</td>
 											<td>
 												<div style="display:flex; justify-content: center;">
 													<div class="card-icon rounded-circle align-items-center justify-content-center" style="display:flex; justify-content: center;">
-								                    	<strong>${mybean.member_point } P</strong>
+								                    	<strong>${mybean.member_point } </strong>P
 								                    </div>
 												</div>
 											</td>
