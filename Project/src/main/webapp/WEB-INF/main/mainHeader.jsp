@@ -62,7 +62,7 @@
           <li><a class="nav-link scrollto" href="theater.th">영화관</a></li>
           <li><a class="nav-link scrollto" href="#">우리집 영화관</a></li>
           <li><a class="nav-link scrollto" href="list.store">스토어</a></li>
-          <li><a class="nav-link scrollto" href="main.mp">MY</a></li>
+          <li><a class="nav-link scrollto" href="main.mp?member_id=${loginInfo.member_id}">MY</a></li>
         </ul>
       </nav><!-- .navbar -->
       <nav id="navbar2" class="navbar2">
