@@ -25,14 +25,14 @@
 							</div>
 							<div class="testimonial-item" style="padding: 40px 0; display: flex; flex-wrap: wrap;">
 								<div class="col-lg-10">
-									<h2>스파이더맨: 어크로스 더 유니버스</h2>
+									<h2>${title}</h2>
 								</div>
 								<div class="col-lg-2" style="display: inline-flex;align-items: flex-start; padding-left: 40px; margin-right: 0">
 									<input type="button" class="btn btn-primary btn-block" style="background-color: #6B49EA; border: 0px" value="예매하기">
 								</div>
 								<div class="col-lg-12">
 									<h4>
-										감독 : 저스틴 톰슨, 조아킴 도스 샌토스, 켐프 파워 | 장르 : 애니메이션/140 분 | 등급 : 전체관람가 | 개봉일 : 2023.06.21<br>
+										감독 : ${director} | 장르 : 애니메이션/140 분 | 등급 : 전체관람가 | 개봉일 : 2023.06.21<br>
 										출연진 : 샤메익 무어, 헤일리 스테인펠드, 브라이언 타이리 헨리, 로렌 벨레스, 제이크 존슨, 제이슨 슈왈츠먼, 잇사 레이, 카란 소니, 대니얼 컬루야, 오스카 아이삭
 									</h4>
 									<h4 style="color: #F7F7F7; margin-top: 20px;">
