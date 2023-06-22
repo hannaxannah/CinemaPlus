@@ -611,3 +611,6 @@ insert into branch values('L09022','A9','광주/전라/제주','B22','제주','�
 
 commit;
 
+--area 불러오기
+select area_code, area from (select count(*), area_code, area from branch group by area_code, area order by area_code);
+
