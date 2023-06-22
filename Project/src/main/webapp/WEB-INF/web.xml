@@ -164,6 +164,22 @@
 		<url-pattern>*.mv</url-pattern>
 	</servlet-mapping>
 	
+		<!-- reservation-servlet -->
+	<servlet>
+		<servlet-name>reservation</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/reservation-servlet.xml
+			</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>reservation</servlet-name>
+		<url-pattern>*.rv</url-pattern>
+	</servlet-mapping>
+	
 	 <filter>
 	    <filter-name>encodingFilter</filter-name>
 	    <filter-class>
