@@ -40,6 +40,7 @@ member/mypageMain.jsp<br>
 		<td align="center">
 			<font style="font-size: small;">쿠폰/관람권/교환권</font>	<br>
 			<font style="font-size: large;">${couponSize}장</font>
+
 		</td>
 		<td align="center">
 			<font style="font-size: small;">현재 포인트</font><br>
