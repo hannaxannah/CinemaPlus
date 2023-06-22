@@ -1,7 +1,7 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-productList.jsp<br>
+orderDetail.jsp<br>
     <%@include file="../common/common.jsp"%>
      <%@ include file="../main/mainHeader.jsp"%> 
  <style>
@@ -35,24 +35,21 @@ productList.jsp<br>
 	<table id="mytable">
 	<tr>
 		<td>
-	<font style="font-size: x-large;">스토어 결제 내역</font><br><br>
+	<font style="font-size: x-large;">주문 상세 페이지</font><br><br>
 		</td>
 	</tr>
 	</table>
 	<table>
 		<tr>
 			<td align="left" style="font-size: small;">
-				<font>-${loginInfo.member_name}님의 스토어 결제 내역 입니다.</font>
+				<font>-결제코드 : ${payment_code}</font>
 			</td>
-		</tr>
-		<tr>
-			<td>총 ${fn:length(order)}개의 주문내역</td>
 		</tr>
 	</table>
 	<table border="1" id="mytable">
 		<tr align="center">
-			<td>결제번호</td>
-			<td>결제자 이름</td>
+			<td>주문상품</td>
+			<td>주문금액</td>
 			<td>결제 품목</td>
 			<td>구매일</td>
 		</tr>

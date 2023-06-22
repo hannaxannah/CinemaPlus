@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -135,5 +136,15 @@ public class MemberDao {
 		String m_id = sqlSessionTemplate.selectOne(namespace+".FindIdById",id);
 		return m_id;
 	}
-
+	
+	public int updateUserPoint(MemberBean memberBean) {
+		int cnt = -1;
+		
+		System.out.println("sql문에 : "+memberBean.getMember_code());
+		System.out.println("sql문에 : "+memberBean.getMember_point());
+		cnt = sqlSessionTemplate.update(namespace + ".UpdateUserPoint",memberBean);
+		
+		return cnt;
+	}
+	
 }

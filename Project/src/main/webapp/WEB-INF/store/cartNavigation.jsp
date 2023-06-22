@@ -17,7 +17,11 @@
 	    display : flex;
 	    align-items: center;
 	}
-
+	
+	.cart_nav:hover{
+		transform: scale(1.1);
+	}
+	
 	.cart_nav_num {
 	    position: fixed;
 	    bottom: 75px;

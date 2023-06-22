@@ -10,21 +10,21 @@
 	<insert id="InsertMember" useGeneratedKeys="false">
 		insert into
 		member(member_code, member_id, member_pw, member_name, member_birth, member_phone, member_email, pw_question, pw_answer, member_start,member_marketing_agree,member_email_agree,member_sms_agree,member_point)
-		values(#{member_code}, #{member_id},#{member_pw},#{member_name},#{member_birth},#{member_phone},#{member_email},#{pw_question},#{pw_answer},sysdate,#{member_marketing_agree},#{member_email_agree},#{member_sms_agree},null) 
+		values(#{member_code}, #{member_id},#{member_pw},#{member_name},#{member_birth},#{member_phone},#{member_email},#{pw_question},#{pw_answer},sysdate,#{member_marketing_agree},#{member_email_agree},#{member_sms_agree},0) 
 	</insert>
 
 	<!-- 네이버 Api 회원가입 -->
 	<insert id="NaverInsertMember" useGeneratedKeys="false">
 		insert into
 		member(member_code, member_id, member_pw, member_name, member_birth, member_phone, member_email, pw_question, pw_answer, member_start,member_marketing_agree,member_email_agree,member_sms_agree,member_point)
-		values(1, #{id},null,#{name},#{birth},#{phone},#{email},null,null,sysdate,null,null,null,null) 
+		values(1, #{id},null,#{name},#{birth},#{phone},#{email},null,null,sysdate,null,null,null,0) 
 	</insert>
 	
 	<!-- 카카오 Api 회원가입 -->
 	<insert id="KakaoInsertMember" useGeneratedKeys="false">
 		insert into
 		member(member_code, member_id, member_pw, member_name, member_birth, member_phone, member_email, pw_question, pw_answer, member_start,member_marketing_agree,member_email_agree,member_sms_agree,member_point)
-		values(2, #{email},null,#{nickname},null,null,#{email},null,null,sysdate,null,null,null,null) 
+		values(2, #{email},null,#{nickname},null,null,#{email},null,null,sysdate,null,null,null,0) 
 	</insert>
 	
 	
@@ -144,6 +144,13 @@
 		where member_id like #{id}
 	
 	</select>	
+		
+	<!-- 결제시 로그인한 회원의 포인트 추가 -->
+	<update id="UpdateUserPoint">
+		update member 
+		set member_point = member_point + #{member_point}
+		where member_code = #{member_code}
+	</update>	
 		
 </mapper>
 

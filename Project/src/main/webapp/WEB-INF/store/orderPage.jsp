@@ -162,6 +162,7 @@ $(document).ready(function() {
 										</tr>
 												<c:set var="original_price" value="${original_price + cart.product_sprice*cart.cart_qty}"/>
 												<c:set var="total_price" value="${toatl_price + original_price}"/>
+												<c:set var="sum_point" value="${sum_point + cart.product_point*cart.cart_qty}"/>
 									</c:forEach>				
 								</table>
 								
@@ -238,6 +239,7 @@ $(document).ready(function() {
 <form action="pay.store" method="post" class="cardForm" id="cardForm" accept-charset="UTF-8">
 	<input type="hidden" name="total_price" value="${total_price}">	
 	<input type="hidden" name="sale_pay" value="${sale_price}">	
+	<input type="hidden" name="total_point" value="${sum_point}">	
    	<input type="radio" class="payment" name="payment_card" id="payment_card" value="card"> 신용/체크 카드결제
    	<div id="cardDiv">
 	<table border="1" width="50%">

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import member.model.MemberBean;
@@ -26,8 +27,8 @@ public class MypageProductController {
 	private final String command = "/myProductList.mp";
 	private final String gotopage = "myProductList";
 	
-	private final String detail_command = "/order_detail.mp";//주문 상세페이지
-	private final String detail_page = "orderdetail"; //주문 상세페이지 이동
+	private final String detail_command = "/myOrderDetail.mp";//주문 상세페이지
+	private final String detail_page = "orderDetail"; //주문 상세페이지 이동
 	
 	@Autowired
 	MypageDao pdao;
@@ -72,6 +73,20 @@ public class MypageProductController {
 	
 		
 		return gotopage;
+	}
+	
+	@RequestMapping(detail_command)
+	public String detail(
+			@RequestParam("payment_code") String payment_code,
+			HttpServletResponse response,
+			HttpSession session, 
+			Model model
+			) {
+		
+		
+		model.addAttribute("payment_code", payment_code);
+		
+		return detail_page;
 	}
 	
 	//주문상세보기는 payment_code 기준으로 card의 정보(카드번호/카드회사/유효기간/비밀번호/할부개월)과
