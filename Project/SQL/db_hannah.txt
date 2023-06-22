@@ -206,11 +206,11 @@ commit;
 --branch
 drop table branch cascade constraints;
 create table branch (
-code varchar2(10) Primary key,
-area_code varchar2(30) not null,
-area varchar2(30) not null,
-branch_code varchar2(30) not null,
-branch varchar2(30) not null,
+code varchar2(10),
+area_code varchar2(50) not null,
+area varchar2(50) not null,
+branch_code varchar2(50) not null,
+branch varchar2(50) not null,
 address varchar2(500),
 howtoget1 varchar2(100) not null,
 howtoget2 varchar2(100) not null

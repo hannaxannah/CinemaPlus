@@ -14,13 +14,15 @@
 		select * from location
 	</select>
 
-	<insert id="InsertLocationList2">
+	<insert id="InsertLocationList2" useGeneratedKeys="false">
 		insert into branch
 		values(#{code}, #{area_code}, #{area}, #{branch_code}, #{branch}, #{address}, #{howtoget1}, #{howtoget2})
 	</insert>
 
 	<select id="GetLocationList2" resultType="theater.model.TheaterCrawlingBean">
-		select * from branch
+		select distinct
+		code, branch
+		from branch;
 	</select>
 <!-- 
 	<insert id="InsertBranchList" parameterType="java.util.List">
