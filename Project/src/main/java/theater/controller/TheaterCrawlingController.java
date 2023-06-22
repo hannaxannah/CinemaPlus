@@ -98,7 +98,17 @@ public class TheaterCrawlingController {
 		List<WebElement> items = driver.findElements(By.cssSelector(link_branch));
 		//System.out.println(items.size()); //199 //**list에 저장할 영화관 수 = 194**
 		List<WebElement> titles = driver.findElements(By.className("title"));
-
+		
+		/*
+		 * try { //드라이버가 null이 아니라면 if(driver != null) { //드라이버 연결 종료 driver.close();
+		 * //드라이버 연결 해제
+		 * 
+		 * //프로세스 종료 driver.quit(); } } catch (Exception e) { throw new
+		 * RuntimeException(e.getMessage()); }
+		 * 
+		 * WebDriver driver2 = new ChromeDriver(options);
+		 */
+		
 		for(int i=0; i<1; i++) { 
 			for(int j=0; j<branch_size[i]; j++) {
 				tcb = new TheaterCrawlingBean();
@@ -189,8 +199,6 @@ public class TheaterCrawlingController {
 				//tcb.setHowtoget(howtoget_elm.getText());
 				//System.out.println(howtoget_elm.getText());
 				
-				branch.add(tcb); //194
-				
 				System.out.println(tcb.getCode());
 				System.out.println(tcb.getArea_code());
 				System.out.println(tcb.getArea());
@@ -199,9 +207,41 @@ public class TheaterCrawlingController {
 				System.out.println(tcb.getAddress());
 				System.out.println(tcb.getHowtoget1());
 				System.out.println(tcb.getHowtoget2());
+
+				int k = 0;
+				while(true) {
+					if(branch.size() == 0) {
+						branch.add(tcb);
+					}
+									
+					//search.getCode() == tcb.getCode() => 저장 X => break
+					//search.getCode() =/= tcb.getCode() => 저장 O
+					
+					TheaterCrawlingBean search = branch.get(k);
+					
+				}
+				
+				/*
+				///////////////////////////////////////////////////////
+				에러 발생
+				///////////////////////////////////////////////////////
+				if(branch.size()>0) {
+					for(TheaterCrawlingBean search : branch) {
+						if(search.getCode().equals(tcb.getCode())) {
+							break;
+						}
+						else {
+							branch.add(tcb); //194
+						}
+					}
+				} else {
+					branch.add(tcb); //branch.size => 1
+				}
+				System.out.println("branch.size(): "+branch.size());
+				*/
 			}
 		}
-		System.out.println("branch.size(): "+branch.size());
+		System.out.println("최종 branch.size(): "+branch.size());
 		
 		try {
 			//드라이버가 null이 아니라면
@@ -215,13 +255,14 @@ public class TheaterCrawlingController {
 		} catch (Exception e) {
 			throw new RuntimeException(e.getMessage());
 		}
+
+		 //location 테이블에 저장 int cnt = tcd.insertLocationList2(branch);
 		
-		//location 테이블에 저장
 		int cnt = tcd.insertLocationList2(branch);
 		System.out.println("insert cnt:"+cnt);
 		
 		tcd.getLocationList2();
-		
+		 
 	}
 	
 	
