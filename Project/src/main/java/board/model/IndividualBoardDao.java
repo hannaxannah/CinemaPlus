@@ -84,6 +84,13 @@ public class IndividualBoardDao {
 		mlist = sqlSessionTemplate.selectList(namespace + ".GetOneInMyBoard", member_id);
 		return mlist;
 	}
+
+	public int getContentCount() {
+		int content_cnt = -1;
+		content_cnt = sqlSessionTemplate.selectOne(namespace + ".GetContentCount");
+		System.out.println("content_cnt: " + content_cnt);
+		return content_cnt;
+	}
 	
 	
 }

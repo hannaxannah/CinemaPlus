@@ -77,6 +77,9 @@
 				<td align="center">${board.customer_id}</td>
 				<td align="center">${board.question_type}</td>
 				<td>
+				<c:if test="${board.issecret == 'Y'}">
+				<img width="15px;" height="15px;" alt="비밀글 이미지" src="<%=request.getContextPath()%>/resources/board_image/자물쇠아이콘.jpg">
+				</c:if>
 				<a href="detail.in?moviecode=${board.movie_code}&pageNumber=${pageInfo.pageNumber}">${board.subject}</a>
 				</td>
 				<td align="center">

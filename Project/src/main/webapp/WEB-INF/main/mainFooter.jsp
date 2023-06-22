@@ -33,9 +33,26 @@
   <script src="resources/assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="resources/assets/vendor/php-email-form/validate.js"></script>
   
-  <!-- Additional JS Files By Me -->
+  
+  <%
+  //이동할url
+  String targetURL = "http://localhost:8080/ex/WEB-INF/mypage/mypurchaseList.jsp";
+  
+  //현재url
+  String currentURL = request.getRequestURL().toString();
+  System.out.println("currentURL: "+currentURL);
+  
+  if (!targetURL.equals(currentURL)) {
+%>
+	 <!-- Additional JS Files By Me -->
   <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.js"></script>
   <script type="text/javascript" src="<%=request.getContextPath()%>/resources/member.js"></script>
+
+<%
+  }
+%>
+  
+
 
   <!-- Template Main JS File -->
   <script src="resources/assets/js/main.js"></script>

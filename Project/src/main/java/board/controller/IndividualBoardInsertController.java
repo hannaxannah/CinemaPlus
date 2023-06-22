@@ -118,7 +118,8 @@ public class IndividualBoardInsertController {
                                                         HttpSession session,
                                                         HttpServletRequest request,
                                                         HttpServletResponse response) throws Exception {
-      Map<String, Object> result = new HashMap<String, Object>();
+      
+	   Map<String, Object> result = new HashMap<String, Object>();
 
       try {
          MemberBean mb = (MemberBean) session.getAttribute("loginInfo");

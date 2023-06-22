@@ -12,7 +12,7 @@
 <script type="text/javascript">
 	function pointEvent(member_id,member_point) {
 		
-		if(member_point == null || member_point<3000) {
+		if(member_point == 0 || member_point<3000) {
 			member_point = 'Welcome';
 		}else if(member_point>=3000 && member_point<5000) {
 			member_point = 'Friends';

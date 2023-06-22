@@ -5,11 +5,11 @@
 
 [신주영]
 
-관리자 계정 로그인
-insert into member values('M1', 'admin', 'admin1234', '관리자', '19970101', '01000000000', 'admin@naver.com', 'q2','5명',sysdate,'비동의','수신거부','수신거부', null);
+--관리자 계정 로그인
+insert into member values('M1', 'admin', 'admin1234', '관리자', '19970101', '01000000000', 'admin@naver.com', 'q2','5명',sysdate,'비동의','수신거부','수신거부', 0);
 
-일반 회원 로그인 
-insert into member values('M5', 'lee', 'lee1234', '리', '20200101', '01033335555', 'lee@naver.com', 'q3','여름',sysdate,'동의','수신동의','수신거부', null);
+--일반 회원 로그인 
+insert into member values('M5', 'lee', 'lee1234', '리', '20200101', '01033335555', 'lee@naver.com', 'q3','여름',sysdate,'동의','수신동의','수신거부', 0);
 insert into member values('M7', 'shin', 'shin1234', '주영', '19971110', '01031711401', 'shin@naver.com', 'q7','q7답변',sysdate,'비동의','수신거부','수신거부', '3500');
 insert into member values('M9', 'test', 'test1234', '테스트', '20230615', '01022227777', 'shinjugle@gmail.com', 'q5','답변테스트',sysdate,'동의','수신거부','수신동의', '7000');
 
@@ -17,7 +17,7 @@ insert into member values('M9', 'test', 'test1234', '테스트', '20230615', '01
 DROP TABLE individualboard CASCADE CONSTRAINTS;
 
 CREATE TABLE individualboard(
-  movie_code number NOT NULL,
+  movie_code number not null,
   member_code2 varchar2(30) not null,
   customer_id VARCHAR2(15) not null,
   name VARCHAR2(30) not null,
@@ -29,8 +29,8 @@ CREATE TABLE individualboard(
   content VARCHAR2(1000) not null,
   writedate date not null,
   image   varchar2(50),
-  individual_content VARCHAR2(1000)NULL,
-  ISSECRET VARCHAR2(20)NULL
+  individual_content VARCHAR2(1000) null,
+  ISSECRET VARCHAR2(20) null
  );
 
 insert into individualboard(movie_code,member_code2,customer_id,name,tel_num,email,select_type,question_type,subject,content,writedate,image,individual_content, 
