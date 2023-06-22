@@ -25,5 +25,7 @@ private String namespace = "member.model.MemberBean";
 		MemberBean mb = sqlSessionTemplate.selectOne(namespace+".GetMypageById",member_id);
 		return mb;
 	}
+	
+	
 
 }//MypageDao클래스

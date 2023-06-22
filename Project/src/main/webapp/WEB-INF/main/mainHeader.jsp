@@ -61,7 +61,7 @@
           <li><a class="nav-link scrollto" href="reservation.rv">예매</a></li>
           <li><a class="nav-link scrollto" href="theater.th">영화관</a></li>
           <li><a class="nav-link scrollto" href="#">우리집 영화관</a></li>
-          <li><a class="nav-link scrollto" href="#">스토어</a></li>
+          <li><a class="nav-link scrollto" href="list.store">스토어</a></li>
           <li><a class="nav-link scrollto" href="main.mp">MY</a></li>
         </ul>
       </nav><!-- .navbar -->

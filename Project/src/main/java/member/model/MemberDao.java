@@ -147,4 +147,15 @@ public class MemberDao {
 		return cnt;
 	}
 	
+	/* 내가 가진 쿠폰중에 state가 0인(사용할수있는) 갯수 */
+	public int MyUsableCouponCount(String member_code) {
+		int cnt = 0;
+		
+		cnt = sqlSessionTemplate.selectOne(namespace+".MyUsableCouponCount",member_code);
+		System.out.println("쿠폰 갯수 : "+cnt);
+		
+		return cnt;
+		
+	}
+	
 }

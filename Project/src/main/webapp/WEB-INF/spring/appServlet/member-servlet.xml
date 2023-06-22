@@ -14,6 +14,8 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	
+	<context:component-scan base-package="mypage"/>
+	<context:component-scan base-package="store"/>
 	<context:component-scan base-package="member"/>
 	
 </beans>

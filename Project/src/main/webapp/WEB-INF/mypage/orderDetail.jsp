@@ -43,6 +43,15 @@ orderDetail.jsp<br>
 		width:50px;
 		height:50px;
 	}
+	
+	.product_price_original{
+		display: block;
+	    margin-top: 2px;
+	    font-weight: 400;
+	    font-size: 16px;
+	    color: #6a6f77;
+	    text-decoration: line-through;
+	}
 </style> 
     
 	<table id="mytable">
@@ -89,6 +98,7 @@ orderDetail.jsp<br>
 			<td>카테고리</td>
 			<td>주문상품</td>
 			<td>구매자</td>
+			<td>주문수량</td>
 			<td>상품 할인가</td>
 			<td>상품 최종금액</td>
 		</tr>
@@ -105,19 +115,29 @@ orderDetail.jsp<br>
 					${p.category_name}
 				</td>
 				
-				   <a href="productDetail.store?product_code=${p.product_code}">
 					<td>
+				   <a href="productDetail.store?product_code=${p.product_code}">
 					    	<img class="p_img" alt="상품 사진" src="<%=request.getContextPath()%>/resources/store_images/${p.product_image}">
 						${p.product_name}
-						${p.product_price}
-						${p.product_sprice}
+				   </a>
+						<c:if test="${p.product_price ne 0}">
+							<span class="product_price_original">
+								<fmt:formatNumber value="${p.product_price}" pattern="#,###"/>원
+							</span>
+						</c:if>
+						<span class="product_price_sale">
+							<fmt:formatNumber value="${p.product_sprice}" pattern="#,###"/>원
+						</span> 
+							<span class="product_point">
+								${cart.product_point} point
+							</span>
 						${p.product_point}
 					</td>
-				   </a>
 				
 				<td>${loginInfo.member_name}</td>
-				<td>${order.product_code }</td>
-				<td><fmt:formatDate value="${order.payment_date}" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/></td>
+				<td>${p.product_order_qty}</td>
+				<td>${p.product_sprice * (1-0.01*20)}</td>
+				<td>${p.product_sprice * p.product_order_qty}</td>
 			</tr>
 		</c:forEach>
 	</table>
