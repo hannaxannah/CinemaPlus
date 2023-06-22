@@ -49,7 +49,7 @@
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="main.mn" class="logo"><img src="resources/images/main-logo-2E3339.png" alt="" class="img-fluid"></a></h1>
+      <a href="main.mn"><img src="resources/images/main-logo-2E3339.png" height="20px"></a>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
       	   <a href="index.html">CINEMA+</a>
@@ -57,47 +57,29 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a style="color: #FCFBFF;" class="nav-link scrollto" href="movie.mv">영화</a></li>
-          <li><a style="color: #FCFBFF;" class="nav-link scrollto" href="#">예매</a></li>
-          <li><a style="color: #FCFBFF;" class="nav-link scrollto" href="theater.th">영화관</a></li>
-          <li><a style="color: #FCFBFF;" class="nav-link scrollto" href="#">우리집 영화관</a></li>
-          <li><a style="color: #FCFBFF;" class="nav-link scrollto" href="list.store">스토어</a></li>
-          <li><a style="color: #FCFBFF;" class="nav-link scrollto" href="main.mp">MY</a></li>
-          <!-- 
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-           -->
-          <li style="margin-right: 235px"></li>
+          <li><a class="nav-link scrollto" href="movie.mv">영화</a></li>
+          <li><a class="nav-link scrollto" href="reservation.rv">예매</a></li>
+          <li><a class="nav-link scrollto" href="theater.th">영화관</a></li>
+          <li><a class="nav-link scrollto" href="#">우리집 영화관</a></li>
+          <li><a class="nav-link scrollto" href="#">스토어</a></li>
+          <li><a class="nav-link scrollto" href="main.my">MY</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+      <nav id="navbar2" class="navbar2">
+      	<ul>
           <c:choose>
 				<c:when test="${loginInfo eq null}">
-					<%session.removeAttribute("loginInfo");%> 
-					<%session.removeAttribute("cartSize");%> 
-		        	<li><a class="nav-link scrollto" href="memberlogin">로그인</a></li>
-		        	<li><a class="nav-link scrollto" href="#">회원가입</a></li>
+		        	<li><a class="login" href="memberlogin.mb">로그인</a></li>
+		        	<li><a class="register" href="register.mb">회원가입</a></li>
 		        </c:when>
 				<c:otherwise>
-					<li><a class="nav-link scrollto" href="logout.mb">로그아웃</a></li>
-		        	<li><a class="nav-link scrollto" href="#">빠른예매</a></li>
+					<li><a class="login" href="logout.mb">로그아웃</a></li>
+		        	<li><a class="login" href="#">빠른예매</a></li>
 				</c:otherwise>
 			</c:choose>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+      </nav>
 
     </div>
   </header><!-- End Header -->

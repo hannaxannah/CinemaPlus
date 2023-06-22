@@ -1,3 +1,5 @@
+
+/* 영화 리스트 */
 .tit-area {
 	display: flex;
     position: relative;
@@ -32,6 +34,67 @@
     display: block;
     position: relative;
     float: left;
+}
+
+
+/* 로그인 */
+.navbar2 .login {
+  background:#FCFBFF;
+  border:none;
+  border-radius:20px;
+  padding:5px 17px;
+}
+
+.navbar2 .login,
+.navbar2 .login:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  font-weight: 500;
+  /* color: #AD91F3; */
+  color: #6B39EA;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+.navbar2 .login:hover,
+.navbar2 .login .active,
+.navbar2 .login .active:focus,
+.navbar2 .login:hover>a {
+  background: #EBE4FC;
+}
+.navbar2 .register {
+  background:#6B39EA;
+  border:none;
+  border-radius:20px;
+  padding:5px 17px;
+}
+
+.navbar2 .register,
+.navbar2 .register:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  font-weight: 500;
+  /* color: #AD91F3; */
+  color: #FCFBFF;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+.navbar2 .register:hover,
+.navbar2 .register .active,
+.navbar2 .register .active:focus,
+.navbar2 .register:hover>a {
+  background: #7B4EEC;
+}
+
+.navbar2 ul li+li {
+  padding-left: 10px;
 }
 
 .login-clean {
@@ -442,4 +505,275 @@
 }
 
 
+/* MY - MENU */
+.sidebar {
+    /* z-index: 996; */
+    transition: all 0.3s;
+    padding: 20px;
+    overflow-y: auto;
+    /* box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1); */
+}
 
+.sidebar-nav {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sidebar-nav .nav-item {
+    margin-bottom: 5px;
+}
+
+.sidebar-nav li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.sidebar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: #6b39ea;
+    transition: 0.3;
+    /* background: #f6f9ff; */
+    background: #EBE4FC;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+
+.nav-link {
+    display: block;
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+    font-size: var(--bs-nav-link-font-size);
+    font-weight: var(--bs-nav-link-font-weight);
+    color: var(--bs-nav-link-color);
+    text-decoration: none;
+    background: 0 0;
+    border: 0;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+.sidebar-nav .nav-link a {
+    color: #4154f1;
+    text-decoration: none;
+}
+
+.sidebar-nav .nav-link a {
+    color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
+    text-decoration: underline;
+}
+
+.sidebar-nav .nav-link a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.sidebar-nav .nav-link i {
+    font-size: 16px;
+    margin-right: 10px;
+    color: #6b39ea;
+}
+
+/* MY - MAIN */
+.dashboard .info-card {
+    padding-bottom: 10px;
+}
+
+.card {
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 5px;
+    background: #FCFBFF;
+    box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.mypageInfoTable {
+	width: 100%;
+	border-collapse: collapse;
+}
+.mypageInfoTable td {
+	padding: 10px;
+	border: 1px solid;
+}
+.mypageInfoTable tr:nth-child(1) td {
+	height: 60px;
+	font-size: 2em;
+	font-weight: 600;
+	padding-left: 40px;
+	vertical-align: bottom;
+	border: 0px;
+}
+.mypageInfoTable tr:nth-child(2) td {
+	height: 80px;
+	font-size: 0.9em;
+	padding-left: 50px;
+	vertical-align: top;
+	border: 0px;
+}
+.mypageInfoTable tr:nth-child(3) td {
+	width: 33%;
+	font-size: 1.1em;
+	font-weight: 600;
+	text-align: center;
+	vertical-align: middle;
+	border-bottom: 0px;
+}
+.mypageInfoTable tr:nth-child(4) td {
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 0px;
+	border-top: 0px;
+}
+
+.mypageInfoTable tr:nth-child(4) td strong {
+	font-size: 3.5rem;
+	font-weight: 300;
+}
+
+.customers-card .card-icon {
+    /* color: #4154f1; */
+    background: #f6f6fe;
+    width: 80px;
+    height: 80px;
+}
+/* MY 메인 - 예매내역/구매내역 */
+.myReservationPurchase {
+	width: 100%;
+	border-collapse: collapse;
+}
+.myReservationPurchase td {
+	padding: 10px;
+}
+.myReservationPurchase tr:nth-child(1) td:nth-child(1) {
+	width: 90%;
+	padding-left: 20px;
+	font-size: 1.1em;
+	font-weight: 600;
+	vertical-align: middle;
+}
+.myReservationPurchase tr:nth-child(1) td:nth-child(2) {
+	font-size: 0.9em;
+	text-align: right;
+	padding-right: 20px;
+}
+.myReservationPurchase tr:nth-child(1) td:nth-child(2) a {
+	text-decoration: none;
+	color: #000000;
+}
+.myReservationPurchase tr:nth-child(2) td {
+	padding-top: 0px;
+}
+.myReservationPurchase tr:nth-child(3) {
+	height: 120px;
+}
+
+
+/* 예매 - 빠른예매 */
+.dropdown-menu .show:hover,
+.dropdown-menu .show {
+	position: absolute;
+	inset: 0px auto auto 0px;
+	margin: 0px;
+	transform: translate3d(105.333px, 0px, 0px);
+	data-popper-placement: right-start;
+}
+
+.container-title {
+	display: flex;
+	height: 50px;
+	font-size: 1.3rem;
+	border: 1px solid #fff;
+	align-items: center;
+	justify-items: center;
+	justify-content: center;
+	color: #fff;
+}
+
+#btn-groupDropendArea {
+	width: 100%;
+	height: 600px;
+	display: flex;
+	flex-direction: column;
+	background: #fff;
+}
+
+.theater-area-btn {
+	width: 50%;
+    padding: 15px;
+    padding-left: 20px;
+    font-size: 1.2rem;
+    text-align: start;
+}
+
+.area-dropdown-menu {
+	width: 50%;
+	left: 50%;
+	position: absolute;
+    list-style: none;
+    padding: 0;
+    top: 0;
+    left: 52%;
+    z-index: 99;
+}
+
+.area-dropdown-item {
+    font-size: 1.1rem;
+	color: black;
+}
+
+.reservation-movie-list {
+	display: flex;
+	flex-flow: column;
+	padding: 20px;
+	padding-left: 40px;
+}
+
+.reservation-movie-list-item {
+	color: #000;
+	font-size: 1.1rem;
+	padding-bottom: 10px;
+}
+
+.reservation-movie-date {
+	width: 100%;
+	display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+}
+
+.reservation-movie-date-item {
+	padding: 20px 10px;
+}
+
+.reservation-movie-time {
+	padding: 40px;
+	display: flex;
+}
+
+.reservation-movie-time-btn {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 130px;
+    height: 60px;
+    padding: 8px 14px 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    margin-left: 15px;
+    margin-right: 15px;
+}
