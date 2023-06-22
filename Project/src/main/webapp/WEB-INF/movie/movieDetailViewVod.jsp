@@ -1,48 +1,76 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="../main/mainHeader.jsp"%>
 <%@ include file="../common/common.jsp"%>
-movieDetailView.jsp
-<br>
-<center>
-	<body>
-		<div class="ratio ratio-16x9" style="width: 900">
-			<iframe src="${movie.poster}" title="포스터"></iframe>
+<main id="main">
+
+	<section id="testimonials" class="testimonials section-bg">
+		<div class="container-fluid">
+
+			<div class="row justify-content-center">
+				<div class="col-xl-10">
+
+					<div class="row">
+
+						<div class="col-lg-12" style="display: flex; flex-direction: column;">
+							<!------------------------------
+								MovieDetail : 영화 상세정보
+							 ------------------------------>
+							<div style="padding: 0; background-color: #000; display: flex; justify-content: center;">
+								<!-- iframe original width="560" height="315" -->
+								<iframe width="840" height="472.5"
+									src="https://www.youtube.com/embed/cqGjhVJWtEg"
+									title="YouTube video player" frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+									allowfullscreen></iframe>
+							</div>
+							<div class="testimonial-item" style="padding: 40px 0; display: flex; flex-wrap: wrap;">
+								<div class="col-lg-10">
+									<h2>${movie.movie_title}</h2>
+								</div>
+								<div class="col-lg-2" style="display: inline-flex;align-items: flex-start; padding-left: 40px; margin-right: 0">
+									<input type="button" class="btn btn-primary btn-block" style="background-color: #6B49EA; border: 0px" value="예매하기">
+								</div>
+								<div class="col-lg-12">
+									<h4>
+										감독 : ${movie.director} | 장르 : 애니메이션/140 분 | 등급 : ${movie.rating} | 개봉일 : ${movie.open_date}<br>
+										출연진 : ${movie.actors}
+									</h4>
+									<h4 style="color: #F7F7F7; margin-top: 20px;">
+										${movie.movie_story}
+									</h4>
+								</div>
+							</div>
+							<!-- End MovieDetail : 영화 상세정보 -->
+							<!------------------------------
+								MovieDetail : 영화 감상평
+							 ------------------------------>
+							<!-- <hr style="width: 100%; border: 1px solid #fff; opacity: 0.8;"> -->
+							<div class="testimonial-item" style="padding: 40px 0; display: flex; flex-wrap: wrap;">
+								<a style="font-size: 1.2rem; font-weight: 500; color: #F7F7F7;">한줄 기록</a>
+								<hr style="width: 100%; border: 1px solid #fff; opacity: 0.8;">
+								<table class="MovieDetailReview">
+									<tr>
+										<td width="15%">
+											<b>gaga1</b>
+											<div style="margin-bottom: 5px;"></div>
+											4.5 / 5.0
+										</td>
+										<td width="85%">
+											내 최애 히어로 스파이디ㅠ 로튼토마토 높은 이유가 있죠 영화관에서 봐야됨
+										</td>
+									</tr>
+								</table>
+							</div>
+							<!-- <hr style="width: 100%; border: 1px solid #fff; opacity: 0.8;"> -->
+						</div><!-- col-lg-12 -->
+					</div><!-- row -->
+				</div><!-- col-xl-10 -->
+			</div><!-- row justify-content-center -->
+
 		</div>
-		<div class="container" style="width: 900">
-			<div class="row">
-				<div class="col">
-					<h1>${movie.movie_title}</h1>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">${movie.rating}|${movie.open_date}|평점</div>
-				<div class="col"></div>
-				<div class="col">
-					<c:if test="${movie.vod eq 0}">
-						<a href="insertVod.mv?movie_code=${movie.movie_code}&movie_title=${movie.movie_title}">VOD 추가하기</a>
-					</c:if>
-					<c:if test="${movie.vod eq 1}">
-						<a>VOD 가격 수정하기</a> | <a href="deleteVod.mv?movie_code=${movie.movie_code}">VOD삭제하기</a>
-					</c:if>
-				</div>
-			</div>
-			<hr class="dropdown-divider">
-			<div class="row">
-				<div class="col">
-					<b>감독</b>: ${movie.director}
-				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<b>출연</b>: ${movie.actors}
-				</div>
-			</div>
-			<hr class="dropdown-divider">
-			<div class="row">
-				<div class="col">
-					<b>줄거리</b>: ${movie.movie_story}
-				</div>
-			</div>
-		</div>
-	</body>
-</center>
+		<!-- "container-fluid" -->
+	</section>
+</main>
+<!-- End #main -->
+<%@ include file="../main/mainFooter.jsp"%>
