@@ -23,7 +23,9 @@
 									<img src="${posters[status.index]}" class="img-fluid" alt="">
 									<div class="portfolio-info">
 										<h4>
-											<a href="movieDetail.mv" title="More Details">${weekly.get("movieNm")}</a>
+											<a href="movieDetail.mv?title=${weekly.get('movieNm')}
+											&date=${weekly.get('openDt')}"
+											 title="More Details">${weekly.get("movieNm")}</a>
 										</h4>
 										<p>App</p>
 										<div class="portfolio-links">
