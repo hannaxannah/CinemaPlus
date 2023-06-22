@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" href="/favicon.ico">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
