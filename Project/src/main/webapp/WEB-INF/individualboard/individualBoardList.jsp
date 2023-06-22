@@ -6,16 +6,17 @@
 	individualBoard.jsp<br>
 	
 <style>
-	.formList{
-	margin: auto;
-	text-align: center;
-	}
 	b{
 	font-size: small;
 	}	
+	table{
+	margin: auto;
+	margin-top: 80px;
+	margin-bottom: 20px;
+	}
 </style>
 	
-	<table width="70%" class="formList">
+	<table width="750px" style="text-align: center;">
 		<tr>
 			<td>
 				<font style="font-size: x-large;">문의내역</font>
@@ -24,7 +25,7 @@
 	</table>
 <center>
 	<!-- 검색 설정은 내부브라우저 말고 외부브라우저에서 실행 -->
-	<form action="list.in" method="get" style="margin-left: 550px">
+	<form action="list.in" method="get" style="margin-left: 400px"  width="70%">
 		<select name="whatColumn">
 			<option value="">전체</option>
 			<option value="subject">제목</option>
@@ -33,7 +34,7 @@
 		<input type="text" name="keyword">
 		<input type="submit" value="검색">
 	</form>
-	<table width="70%">
+	<table width="750px">
 		<tr>
 			<td align="left">
 				<font style="font-size: small;">
@@ -44,7 +45,7 @@
 		</tr>
 	</table>
 	
-	<table border="1" width="70%">
+	<table border="1" width="750px">
 		<tr>
 			<td align="center">
 				<span><b>전체 (${pageInfo.totalCount}건)</b></span>
@@ -99,9 +100,11 @@
 </table>
 </center>
 
-<center>
+<center style="margin-bottom: 80px;">
 	${pageInfo.pagingHtml}
 </center>
+
+
 
 <%@include file="../main/mainFooter.jsp"%>
 

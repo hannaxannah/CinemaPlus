@@ -39,7 +39,7 @@ for (int i = 0; i < 7; i++) {
 %>
 
 
-	<table style="margin: auto; margin-top: 70px">
+	<table style="margin: auto; margin-top: 170px">
 		<tr>
 			<td>
 				<font style="font-size: small;">* 인증 확인 메일은 회원가입 시 입력한 메일로 자동 발송됩니다.</font><br>
@@ -48,7 +48,7 @@ for (int i = 0; i < 7; i++) {
 		</tr>
 	</table>
 
-   <form id="form" action="mail.mp" method="post">
+   <form id="form" action="mail.mp" method="post" style="margin-bottom: 170px;">
     <input type="hidden" name="to_email" id="to_email" value="${loginInfo.member_email}">
   <div class="field">
     <label for="to_name">인증 받을 계정ID</label>

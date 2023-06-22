@@ -11,7 +11,7 @@
 <style>
 	table {
 		margin: auto;
-		margin-top: 50px;
+		margin-top: 80px;
 	}
 	.coupon{
 	width: 700px;
@@ -59,7 +59,7 @@
     </table>
 </c:forEach><br><br>
 </form>  
-<div class="coupon">
+<div class="coupon" style="margin-bottom: 70px;">
 <details>
 	  <summary style="margin-left: 8px;">이용안내</summary><br>
  <div markdown="1">
