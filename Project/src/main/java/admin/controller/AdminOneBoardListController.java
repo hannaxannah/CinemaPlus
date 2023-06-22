@@ -19,7 +19,7 @@ import utility.Paging;
 
 
 @Controller
-public class AdminIndividualBoardListController {
+public class AdminOneBoardListController {
 	private final String command = "/board.admin";
 	private final String getPage = "adminOneBoardList";
 	
@@ -50,8 +50,12 @@ public class AdminIndividualBoardListController {
 		Paging pageInfo = new Paging(pageNumber,"7",idao.getTotalCount(map),url,whatColumn,keyword,null);
 		List<IndividualBoardBean> inboardLists = idao.getBoardList(map,pageInfo);
 		
+		/* 미답변 항목 갯수 */
+		int contentCount = idao.getContentCount();
+		System.out.println("contentCount:" + contentCount);
 		
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("contentCount", contentCount);
 		mav.addObject("inboardLists", inboardLists);
 		mav.addObject("pageInfo", pageInfo);
 		mav.setViewName(getPage);

@@ -23,10 +23,9 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                     	설명
+                    <p class="text-muted font-13 m-b-30" style="color:#F15F5F">
+                     	* 답변이 필요한 문의가 ${contentCount}건 있습니다.
                     </p>
-                    
                     <table id="datatable" class="table table-striped table-bordered">
 							<thead>
 								<tr>
@@ -53,6 +52,9 @@
 				<td align="center">${board.customer_id}</td>
 				<td align="center">${board.question_type}</td>
 				<td>
+				<c:if test="${board.issecret == 'Y'}">
+				<img width="15px;" height="15px;" alt="비밀글 이미지" src="<%=request.getContextPath()%>/resources/board_image/자물쇠아이콘.jpg">
+				</c:if>
 				<a href="inBoarddetail.admin?moviecode=${board.movie_code}&pageNumber=${pageInfo.pageNumber}">${board.subject}</a>
 				</td>
 				<td align="center">

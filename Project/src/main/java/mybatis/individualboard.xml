@@ -66,6 +66,12 @@
   		select * from individualboard
   		where customer_id = #{customer_id}
   	</select>
+  	
+  	<select id="GetContentCount" resultType="Integer">
+  		select count(*) - count(individual_content) from individualBoard
+	</select>
+  	
+  	
 </mapper>
 
 
