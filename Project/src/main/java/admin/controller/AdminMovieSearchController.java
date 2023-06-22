@@ -1,4 +1,4 @@
-package movie.controller;
+package admin.controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,11 +23,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-public class MovieSearchController {
+public class AdminMovieSearchController {
 
-	private final String command = "/search.mv";
-	private final String gotoPage = "movieSearch";
-	private final String get = "movieSearchForm";
+	private final String command = "/movieSearch.admin";
+	private final String gotoPage = "adminMovieSearch";
+	private final String get = "adminMovieSearchForm";
 
 	@RequestMapping(value = command,method = RequestMethod.GET)
 	public String doAction() {

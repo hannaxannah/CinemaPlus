@@ -30,7 +30,7 @@
 	</select>
 	
 	<!-- 	movie 추가하기 -->
-	<insert id="InsertMovie">
+	<insert id="InsertMovie" useGeneratedKeys="false">
 		insert into movie(movie_code, movie_num, movie_title,
 		movie_story, open_date, open_year, poster, director,
 		nation, genre, actors, rating)
@@ -41,7 +41,7 @@
 	</insert>
 	
 	<!-- vod 추가하기 -->
-	<insert id="InsertVod">
+	<insert id="InsertVod" useGeneratedKeys="false">
 		insert into vod
 		values( #{movie_code}, 10000,
 		#{vod_title})
@@ -71,7 +71,7 @@
 		where movie_code = #{movie_code}
 	</select>
 	
-	<insert id="InsertScreen">
+	<insert id="InsertScreen" useGeneratedKeys="false">
 		insert into screen	
 		values(#{movie_title}, #{seat_count}, #{seat_count}, #{screen_time}, #{time}, #{screen_name}, 
 		#{runtime}, #{ticket_price}, #{discount}, #{rating})

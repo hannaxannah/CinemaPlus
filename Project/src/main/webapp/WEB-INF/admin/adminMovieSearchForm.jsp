@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/common.jsp"%>
-<form action="search.mv" method="post">
+<form action="movieSearch.admin" method="post">
 <table>
 	<tr>
 		<td>영화제목</td>
