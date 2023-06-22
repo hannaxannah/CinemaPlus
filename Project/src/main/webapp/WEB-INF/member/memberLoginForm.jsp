@@ -38,7 +38,7 @@
 								<a href="https://kauth.kakao.com/oauth/authorize?client_id=0f2a40dae9d02f9c0e00332f2d04684a&redirect_uri=http://localhost:8080/ex/kakao.mb&response_type=code">
 								<img src="resources/Kakaologo.svg" width="28px;"></a>
 								
-								<a class="link-login-3" href="${google_url}">
+								<a class="link-login-3" href="https://accounts.google.com/o/oauth2/v2/auth?client_id=463335171535-cq8meuskkdbk1gkbincqebv3md4alf3i.apps.googleusercontent.com&redirect_uri=http://localhost:8080/ex/google.mb&response_type=code&scope=email profile">
 								<img src="https://developers.google.com/static/identity/images/g-logo.png?hl=ko" width="26px"></a>
 							</div>
 						</form>

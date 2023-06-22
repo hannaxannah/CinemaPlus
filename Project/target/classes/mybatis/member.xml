@@ -15,14 +15,21 @@
 	<insert id="NaverInsertMember" useGeneratedKeys="false">
 		insert into
 		member(member_code, member_id, member_pw, member_name, member_birth, member_phone, member_email, pw_question, pw_answer, member_start,member_marketing_agree,member_email_agree,member_sms_agree,member_point)
-		values(1, #{id},null,#{name},#{birth},#{phone},#{email},null,null,sysdate,null,null,null,0) 
+		values('naver', #{id},null,#{name},#{birth},#{phone},#{email},null,null,sysdate,null,null,null,0) 
 	</insert>
 	
 	<!-- 카카오 Api 회원가입 -->
 	<insert id="KakaoInsertMember" useGeneratedKeys="false">
 		insert into
 		member(member_code, member_id, member_pw, member_name, member_birth, member_phone, member_email, pw_question, pw_answer, member_start,member_marketing_agree,member_email_agree,member_sms_agree,member_point)
-		values(2, #{email},null,#{nickname},null,null,#{email},null,null,sysdate,null,null,null,0) 
+		values('kakao', #{email},null,#{nickname},null,null,#{email},null,null,sysdate,null,null,null,0) 
+	</insert>
+	
+	<!-- 구글 Api 회원가입 -->
+	<insert id="googleInsertMember" useGeneratedKeys="false">
+		insert into
+		member(member_code, member_id, member_pw, member_name, member_birth, member_phone, member_email, pw_question, pw_answer, member_start,member_marketing_agree,member_email_agree,member_sms_agree,member_point)
+		values('google', #{id},null,#{name},null,null,#{email},null,null,sysdate,null,null,null,0) 
 	</insert>
 	
 	
@@ -106,7 +113,7 @@
 		where member_code = #{member_code}
 	</update>
 	
-	<!-- 카카오로그인 : 이메일로 검색 -->
+	<!-- 카카오,구글로그인 : 이메일로 검색 -->
 	<select id="GetMemberByEmail" resultType="member.model.MemberBean">
 		select * from member where member_email = #{input_email}
 	</select>
