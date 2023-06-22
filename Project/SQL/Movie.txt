@@ -9,7 +9,7 @@ create table movie(
 	movie_num number,
 	movie_story varchar2(4000),
 	rating varchar2(20),
-	open_date date default sysdate,
+	open_date varchar2(10),
 	open_year varchar2(10),
 	genre varchar2(50),
 	nation varchar2(30),

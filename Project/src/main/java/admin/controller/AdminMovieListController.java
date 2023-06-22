@@ -1,4 +1,4 @@
-package movie.controller;
+package admin.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,9 +17,9 @@ import movie.model.MovieDao;
 import utility.Paging;
 
 @Controller
-public class MovieListController {
-	private final String command = "/list.mv";
-	private final String gotoPage = "movieList";
+public class AdminMovieListController {
+	private final String command = "/movieList.admin";
+	private final String gotoPage = "adminMovieList";
 
 	@Autowired
 	MovieDao movieDao;
@@ -28,7 +28,6 @@ public class MovieListController {
 	public String doAction(
 			@RequestParam(value="whatColumn",required = false) String whatColumn, 
 			@RequestParam(value="keyword",required = false) String keyword,
-			@RequestParam(value="pageNumber",required = false) String pageNumber,
 			Model model, HttpServletRequest request) {
 
 		Map<String,String> map= new HashMap<String,String>();
@@ -36,21 +35,9 @@ public class MovieListController {
 		map.put("whatColumn", whatColumn);
 		map.put("keyword", "%"+keyword+"%");
 
-		int totalCount=movieDao.getTotalCount(map);
-		
-		System.out.println("totalCount:"+totalCount);
-		String url = request.getContextPath()+command;
-		
-		Paging pageInfo= new Paging(pageNumber,"2",totalCount,url,whatColumn,keyword,null);
-		System.out.println("offset:"+pageInfo.getOffset());
-		System.out.println("limit:"+pageInfo.getLimit());
-
-
-		List<MovieBean> movieLists = movieDao.getAllMovie(pageInfo,map);
-
+		List<MovieBean> movieLists = movieDao.getAllMovie(map);
+			
 		model.addAttribute("movieLists", movieLists);
-		model.addAttribute("pageInfo", pageInfo);
-
 		return gotoPage;
 	}
 }

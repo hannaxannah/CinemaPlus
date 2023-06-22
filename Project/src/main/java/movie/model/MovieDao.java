@@ -19,11 +19,10 @@ public class MovieDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 
-	public List<MovieBean> getAllMovie(Paging pageInfo, Map<String, String> map) {
+	public List<MovieBean> getAllMovie(Map<String, String> map) {
 
 		List<MovieBean> list = new ArrayList<MovieBean>();
-		RowBounds rowBounds = new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
-		list = sqlSessionTemplate.selectList(namespace + ".GetMovieList", map, rowBounds);
+		list = sqlSessionTemplate.selectList(namespace + ".GetMovieList", map);
 		return list;
 	}
 	public int getTotalCount(Map<String, String> map) {
@@ -33,6 +32,7 @@ public class MovieDao {
 	}
 	public int insertMovie(MovieBean movieBean) {
 		int cnt = -1;
+		System.out.println(movieBean.getMovie_title());
 		cnt = sqlSessionTemplate.insert(namespace+".InsertMovie", movieBean);
 		System.out.println("성공여부: " + cnt);
 		return cnt;

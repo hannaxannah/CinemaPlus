@@ -76,18 +76,20 @@
 				// 가져온 값을 배열에 담는다.\
 				list.push(data);
 				
+				
 			});//for
 			
 			var movies = JSON.stringify(list);
+			alert(movies);
 			$.ajax({
-				url    :"insert.mv"
+				url    :"movieInsert.admin"
 				, type : "POST"
 				, traditional :true
 				, data   : {"movies": movies}
 				, dataType : "text"
 				, success : function(data){
 				      alert(data);
-					location.href = 'list.mv';
+					location.href = 'movieList.admin';
 				}
 				, error: function(jqXHR, textStatus, errorThrown) {
 					alert("ERROR : " + textStatus + " : " + errorThrown);
