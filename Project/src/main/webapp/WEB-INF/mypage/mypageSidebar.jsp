@@ -72,6 +72,18 @@
 										<span>회원 정보</span>
 									</a>
 								</li>
+									<li class="nav-item">
+									<a class="nav-link collapsed" href="myUpdate.mp?member_id=${loginInfo.member_id}">
+										<i class="bi bi-person"></i>
+										<span>회원정보 수정</span>
+									</a>
+								</li>
+									<li class="nav-item">
+									<a class="nav-link collapsed" href="myDelete.mp?member_id=${loginInfo.member_id}">
+										<i class="bi bi-person"></i>
+										<span>회원 탈퇴하기</span>
+									</a>
+								</li>
 								<!-- End Blank Page Nav -->
 							</ul>
 						</div>
