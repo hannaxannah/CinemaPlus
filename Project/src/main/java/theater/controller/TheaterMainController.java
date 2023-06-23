@@ -103,19 +103,6 @@ public class TheaterMainController {
 		return getPage;
 	}
 	
-	@RequestMapping(value=command, method=RequestMethod.GET)
-	public String doActionByGet(Model model,
-			@RequestParam("branch") String branch
-			) {
-		
-		TheaterCrawlingBean branchInfo = tdao.getHowtogetByBranch(branch);
-		//String howtoget = tcb.getHowtoget1() + tcb.getHowtoget2();
-		//http://www.cgv.co.kr/theaters/?page=location&theaterCode=0056#menu 
-		
-		//model.addAttribute("howtoget", howtoget);
-		model.addAttribute("branchInfo", branchInfo);
-		
-		return "redirect:/theater.th?branch="+branch;
-	}
+	
 	
 }
