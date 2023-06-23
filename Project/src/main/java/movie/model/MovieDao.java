@@ -19,10 +19,10 @@ public class MovieDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 
-	public List<MovieBean> getAllMovie(Map<String, String> map) {
+	public List<MovieBean> getAllMovie() {
 
 		List<MovieBean> list = new ArrayList<MovieBean>();
-		list = sqlSessionTemplate.selectList(namespace + ".GetMovieList", map);
+		list = sqlSessionTemplate.selectList(namespace + ".GetMovieList");
 		return list;
 	}
 	public int getTotalCount(Map<String, String> map) {

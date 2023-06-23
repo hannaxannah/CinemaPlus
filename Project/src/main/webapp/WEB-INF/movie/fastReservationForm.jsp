@@ -23,7 +23,7 @@
 							</c:if>
 							<td>${fastReservation.screen_time}</td>
 							<td>${fastReservation.movie_title}</td>
-							<td>#{fastReservation.left_seats}/${fastReservation.seat_count}석</td>
+							<td>${fastReservation.left_seats}/${fastReservation.seat_count}석</td>
 							<td>${fastReservation.screen_name}</td>
 							<td><input type="submit" value="예매하기"></td>
 						</tr>

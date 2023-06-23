@@ -81,7 +81,7 @@
 		select * from vod
 		where movie_code = #{movie_code}
 	</select>
-	
+	 	
 	<insert id="InsertScreen" useGeneratedKeys="false">
 		insert into screen	
 		values(#{movie_title}, #{seat_count}, #{seat_count}, #{screen_time}, #{time}, #{screen_name}, 
@@ -103,12 +103,12 @@
 		where screen_time = #{screen_time}
 	</select>
 	
-	<update id="InsertReservation">
+	<insert id="InsertReservation" useGeneratedKeys="false">
 		insert into ticket_reservation(reservation_num, movie_title, reservation_date, seat_number, 
 		seat_number2, ticket_price, screen_name, screen_time, member_id)	
 		values(seqres.nextval, #{movie_title}, sysdate, #{seat_number},#{seat_number2}, #{ticket_price}, 
 		#{screen_name}, #{screen_time}, #{member_id})
-	</update>
+	</insert>
 	
 	<select id="GetReservationByTime" resultType="movie.model.ReservationBean">
 		select * from ticket_reservation
@@ -121,5 +121,6 @@
 		set left_seats = left_seats -1
 		where Screen_time = #{Screen_time}
 	</update>
+	
 </mapper>
 

@@ -125,7 +125,7 @@
 							<div class="form-group">
 								<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 									<button class="btn btn-primary" type="reset">초기화</button>
-									<button type="submit" class="btn btn-success">영화 검색</button>
+									<button type="submit" class="btn btn-success">영화 오픈</button>
 								</div>
 							</div>
 

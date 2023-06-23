@@ -19,7 +19,7 @@ public class ScreenDao {
 	public int insertScreen(ScreenBean screenBean) {
 			int cnt = -1;
 			cnt = sqlSessionTemplate.insert(namespace+".InsertScreen", screenBean);
-			System.out.println("성공여부: " + cnt);
+			//System.out.println("성공여부: " + cnt);
 			return cnt;
 	}
 
@@ -49,7 +49,7 @@ public class ScreenDao {
 	public int insertReservation(ReservationBean reservationBean) {
 		int cnt = -1;
 		cnt = sqlSessionTemplate.insert(namespace+".InsertReservation", reservationBean);
-		System.out.println("성공여부: " + cnt);
+		//System.out.println("예약성공: " + cnt);
 		return cnt;
 		
 	}
@@ -63,7 +63,7 @@ public class ScreenDao {
 
 
 	public void removeSeat(String Screen_time) {
-		sqlSessionTemplate.update(namespace + ".removeSeat", Screen_time);
+		sqlSessionTemplate.update(namespace + ".RemoveSeat", Screen_time);
 	}
 	
 	
