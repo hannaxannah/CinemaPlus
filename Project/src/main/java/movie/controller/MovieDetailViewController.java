@@ -24,13 +24,16 @@ public class MovieDetailViewController {
 		VodBean vodBean = movieDao.getVodByCode(movie_code);
 		
 		boolean vod_on = false;
+		
 		if(vodBean != null) {
+			model.addAttribute("vodBean",vodBean);
 			vod_on = true;
 		}else {
 			vod_on = false;
 		}
 		model.addAttribute("movie",movie);
 		model.addAttribute("vod_on",vod_on);
+		
 		return getPage;
 
 	}

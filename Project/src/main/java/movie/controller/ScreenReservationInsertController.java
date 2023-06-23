@@ -25,9 +25,9 @@ public class ScreenReservationInsertController {
 	public String doAction(@RequestParam("seatnum") String[] seatnum,
 			@ModelAttribute("screen_time") String screen_time) {
 
-		System.out.println(seatnum.length);
+		//System.out.println(seatnum.length);
 
-		System.out.println(screen_time);
+		//System.out.println(screen_time);
 		List<ScreenBean> screenList = screenDao.getScreenByTime(screen_time);
 
 		ScreenBean screenBean = screenList.get(0);
