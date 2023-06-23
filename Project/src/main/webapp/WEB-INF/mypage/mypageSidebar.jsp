@@ -19,7 +19,7 @@
 								</li>
 								<!-- End Dashboard Nav -->
 								<li class="nav-item">
-									<a class="nav-link collapsed" href="myProductList.mp">
+									<a class="nav-link collapsed" href="pages-faq.html">
 										<i class="bi bi-card-list"></i>
 										<span>예매/구매내역</span>
 									</a>
@@ -27,7 +27,7 @@
 								<!-- End Profile Page Nav -->
 	
 								<li class="nav-item">
-									<a class="nav-link collapsed" href="pages-faq.html">
+									<a class="nav-link collapsed" href="myProductList.mp">
 										<i class="bi bi-ticket-perforated"></i>
 										<span>관람권/교환권</span>
 									</a>
