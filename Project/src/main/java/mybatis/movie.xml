@@ -40,11 +40,16 @@
 		#{nation}, #{genre}, #{actors},#{rating})
 	</insert>
 	
+	<delete id="DeleteMovie">
+		delete from movie
+		where movie_code = #{movie_code}
+	</delete>
+	
 	<!-- vod 추가하기 -->
 	<insert id="InsertVod" useGeneratedKeys="false">
 		insert into vod
 		values( #{movie_code}, 10000,
-		#{vod_title})
+		#{vod_title}, '')
 	</insert>
 	
 	<!-- vod 추가시 movie테이블 vod 생성 확인 -->
@@ -66,6 +71,12 @@
 		where movie_code = #{movie_code}
 	</update>
 	
+	<update id="UpdateVod">
+		update vod
+		set vod_price = #{vod_price}, url = #{url}
+		where movie_code = #{movie_code}
+	</update>
+	
 	<select id="GetVodByCode" resultType="movie.model.VodBean">
 		select * from vod
 		where movie_code = #{movie_code}
@@ -74,7 +85,7 @@
 	<insert id="InsertScreen" useGeneratedKeys="false">
 		insert into screen	
 		values(#{movie_title}, #{seat_count}, #{seat_count}, #{screen_time}, #{time}, #{screen_name}, 
-		#{runtime}, #{ticket_price}, #{discount}, #{rating})
+		#{runtime}, #{ticket_price}, #{discount}, #{rating}, #{url})
 	</insert>
 	
 	<select id="GetScreenList" resultType="movie.model.ScreenBean">

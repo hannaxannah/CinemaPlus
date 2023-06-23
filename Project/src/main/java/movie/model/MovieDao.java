@@ -76,4 +76,15 @@ public class MovieDao {
 		return vod;
 
 	}
+	public void updateVod(VodBean vodBean) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.update(namespace+".UpdateVod", vodBean);
+		
+		
+	}
+	public int deleteMovie(String movie_code) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.delete(namespace + ".DeleteMovie" , movie_code);
+		return 0;
+	}
 }

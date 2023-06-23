@@ -34,7 +34,8 @@ DROP TABLE vod CASCADE CONSTRAINTS;
 create table vod(
 	movie_code varchar2(10) primary key,
 	vod_price number,
-	vod_title varchar2(100) not null
+	vod_title varchar2(100) not null,
+	url varchar2(100)
 ) ;
 
 --------------------------------------------------
@@ -53,7 +54,8 @@ create table screen(
 	runtime number,
 	ticket_price number,
 	discount varchar2(10),
-	rating varchar2(20)
+	rating varchar2(20),
+	url varchar2(20)
 	) ;
 	
 ------------------

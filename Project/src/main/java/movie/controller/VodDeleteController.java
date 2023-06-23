@@ -11,7 +11,7 @@ import movie.model.MovieDao;
 public class VodDeleteController {
 	
 	private final String command = "/deleteVod.mv";
-	private final String getPage = "redirect:/detail.mv";
+	private final String gotoPage = "redirect:/movieList.admin";
 
 	@Autowired
 	MovieDao movieDao;
@@ -23,6 +23,6 @@ public class VodDeleteController {
 		if(cnt == 1) {
 			movieDao.vodOff(movie_code);
 		}
-		return getPage +"?movie_code="+ movie_code;
+		return gotoPage;
 	}
 }

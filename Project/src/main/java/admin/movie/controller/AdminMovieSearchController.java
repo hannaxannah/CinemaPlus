@@ -1,4 +1,4 @@
-package admin.controller;
+package admin.movie.controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
