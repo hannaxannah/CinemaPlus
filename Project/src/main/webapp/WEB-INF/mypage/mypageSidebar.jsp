@@ -64,6 +64,14 @@
 										<span>1:1문의</span>
 									</a>
 								</li>
+								
+									<li class="nav-item">
+									<a class="nav-link collapsed" href="myList.in?customer_id=${loginInfo.member_id}">
+										<i class="bi bi-envelope-paper"></i>
+										<span>나의 문의내역</span>
+									</a>
+								</li>
+								
 								<!-- End Login Page Nav -->
 	
 								<li class="nav-item">
