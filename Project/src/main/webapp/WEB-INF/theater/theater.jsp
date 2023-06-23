@@ -39,6 +39,7 @@
 					  <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0" style="display:flex;flex-flow:column;padding-top:20px;">
 						<!-- <a class="theater-branch-howtoget-title"><i class="bi bi-bus-front"></i>&ensp;교통안내</a> -->
 						<a class="theater-branch-howtoget">
+							<%-- ${subway} --%>
 							# 지하철<br>
 							- 2호선 강남역 11번 출구 도보 5분<br>
 							- 9호선 신논현역 5번 출구 도보 5분<br>

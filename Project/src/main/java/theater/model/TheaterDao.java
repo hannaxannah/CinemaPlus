@@ -15,6 +15,7 @@ public class TheaterDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 
+	/*
 	public List<LocationBean> getAllTheaterLocation() {		
 		List<LocationBean> lists = new ArrayList<LocationBean>();
 		lists = sqlSessionTemplate.selectList(namespace+".GetAllTheaterLocation");
@@ -34,5 +35,28 @@ public class TheaterDao {
 		branch = sqlSessionTemplate.selectList(namespace+".GetTheaterBranchByArea", area);
 		
 		return branch;
+	}
+	*/
+	
+	public List<String> getAllArea() {
+		List<String> area = new ArrayList<String>();
+		area = sqlSessionTemplate.selectList(namespace+".GetAllArea");
+		
+		return area;
+	}
+	
+	public List<String> getAllBranch(String area_code) {
+		List<String> branch = new ArrayList<String>();
+		branch = sqlSessionTemplate.selectList(namespace+".GetAllBranch", area_code);
+		
+		return branch;
+	}
+
+	public TheaterCrawlingBean getHowtogetByBranch(String branch) {
+		
+		TheaterCrawlingBean tcb = new TheaterCrawlingBean();
+		tcb = sqlSessionTemplate.selectOne(namespace+".GetBranchInfo", branch);
+		
+		return tcb;
 	}
 }
