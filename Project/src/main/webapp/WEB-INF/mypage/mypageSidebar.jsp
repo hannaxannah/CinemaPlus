@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<link href="resources/assets/img/favicon.ico" rel="icon">    
 <main id="main" style="background-color: #F2F2F2">
 
 	<section id="breadcrumbs" class="breadcrumbs">
