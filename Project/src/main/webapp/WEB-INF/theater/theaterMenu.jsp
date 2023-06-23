@@ -9,7 +9,7 @@
 				<ul class="theater-area-branch">
 					<c:if test="${areaName == '서울'}">
 						<c:forEach var="Branch" items="${seoul}">
-							<li class="dropdown"><a href="howtoget.th?branch=${branch}">${Branch}</a></li>
+							<li class="dropdown"><a href="howtoget.th?branch=${Branch}">${Branch}</a></li>
 						</c:forEach>
 					</c:if>
 					<c:if test="${areaName == '경기'}">
