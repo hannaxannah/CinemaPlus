@@ -20,23 +20,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 import theater.model.LocationBean;
 import theater.model.TheaterCrawlingBean;
 import theater.model.TheaterCrawlingDao;
+import theater.model.TheaterDao;
 
 
 @Controller
 public class TheaterHowtogetCrawlingController {
 	
+	private final String command = "howtoget.th";
+	//private final String getPage = "redirect:/howtoget.th";
 	
-	String url;
 	private final String WEB_DRIVER_ID = "webdriver.chrome.driver"; //드라이버 ID
 	private final String WEB_DRIVER_PATH = "C:/Users/pc/Downloads/chromedriver_win32/chromedriver.exe"; //드라이버 경로
 	
 	@Autowired
-	TheaterCrawlingDao tcd;
+	TheaterDao tdao;
 	
-	@RequestMapping(value="")
+	@RequestMapping(value=command)
 	public String crolling(HttpServletRequest request, Model model,
-			@RequestParam("branchInfo") TheaterCrawlingBean branchInfo
-			) throws Exception {
+			@RequestParam("branch") String branch) throws Exception {
 		
 		//드라이버 설정
 		try {
@@ -51,6 +52,9 @@ public class TheaterHowtogetCrawlingController {
 		
 		//위에서 설정한 옵션을 담은 드라이버 객체 생성
 		WebDriver driver = new ChromeDriver(options);
+		
+		//branch 정보 가져오기
+		TheaterCrawlingBean branchInfo = tdao.getHowtogetByBranch(branch);
 		
 		//branchInfo howtoget(url)로 이동
 		String howtoget = branchInfo.getHowtoget1() + branchInfo.getHowtoget2();
@@ -77,9 +81,10 @@ public class TheaterHowtogetCrawlingController {
 			throw new RuntimeException(e.getMessage());
 		}
 
+		model.addAttribute("address", branchInfo.getAddress());
 		model.addAttribute("subway", subway);
 		
-		return "theater.th?branch=";
+		return "theater.th?branch="+branch;
 	}
 	
 	
