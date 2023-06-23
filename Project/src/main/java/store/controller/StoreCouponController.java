@@ -27,10 +27,10 @@ public class StoreCouponController {
 	private final String re_getCouponPage = "redirect:/getCoupon.store";
 	
 	private final String create_command = "/couponCreate.store";
-	private final String getCouponCreatePage = "couponCreate";
+	private final String getCouponCreatePage = "adminCouponCreate";
 	
 	private final String management_command = "/couponManagement.store";
-	private final String getCouponManagementPage = "href_adminCouponList";
+	private final String getCouponManagementPage = "adminCouponList";
 	
 	private final String issue_command = "/couponIssue.store";
 

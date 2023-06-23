@@ -10,19 +10,31 @@
 		text-decoration: none;
 	}
 	
+	body{
+		background-color: #FFF;
+	}
+	
+	h1{
+		text-transform: uppercase;
+	    font-weight: 900;
+	    border-left: 10px solid #fec500;
+	    padding-left: 10px;
+	    margin-bottom: 30px;
+	}
 	ul,li{
 		list-style-type: none;
 	}
-	
+	a{
+		text-decoration: none;
+		color : #000;
+	}
 	.container_productList {
 		width: 1080px;
 		height: inherit;
 		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
-		border: 1px solid;
 		position: relative;
-		background-color: #FFF;
 	}
 
 	.contents{
@@ -146,7 +158,7 @@
             <div class="row">
                 <div class="contents">
                 	<div class="product_tab">
-	                    <h2>스토어</h2>
+	                    <h1>스토어</h1>
 							<div class="product_category_btn">
 								 <ul class="clearfix" width="100%">
 			                     		<li class="product_category"><a href=""><b>전체</b></a></li>
@@ -156,18 +168,18 @@
 			                     		<li class="product_category"><a href=""><b>기타</b></a></li>
 								</ul>
 							</div>
-							<div class="coupon_banner">
-								<c:choose>
-									<c:when test="${loginInfo eq null}">
-										<a href="getCoupon.store">
-									</c:when>
-									<c:otherwise>
-										<a href="getCoupon.store?member_code=${loginInfo.getMember_id()}">
-									</c:otherwise>
-								</c:choose>
-									쿠폰발급
-								</a>
-							</div>
+									<c:choose>
+										<c:when test="${loginInfo eq null}">
+											<div class="coupon_banner" OnClick="location.href ='getCoupon.store'" style="cursor:pointer;border:solid 1px;">
+												쿠폰
+											</div>
+										</c:when>
+										<c:otherwise>
+											<div class="coupon_banner" OnClick="location.href ='getCoupon.store?member_code=${loginInfo.getMember_id()}'" style="cursor:pointer;">
+												쿠폰
+											</div>
+										</c:otherwise>
+									</c:choose>
 					</div>
 					
                     <c:forEach var="products" items="${products}">
