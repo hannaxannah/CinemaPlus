@@ -1,5 +1,17 @@
 
 /* 영화 리스트 */
+.movie-list-reservation-btn {
+	font-size: 0.85em;
+    font-weight: 500;
+    /* color: #AD91F3; */
+    color: #FCFBFF;
+    transition: 0.3s;
+    background: #6B39EA;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 17px;
+}
+
 .tit-area {
 	display: flex;
     position: relative;
@@ -630,3 +642,61 @@
     margin-left: 15px;
     margin-right: 15px;
 }
+
+#reservation-go-seat {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-flow: flex-end;
+    flex-direction: row-reverse;
+    background: #6B39EA;
+}
+
+#reservation-go-seat input {
+	font-size: 1.1rem;
+    font-weight: 600;
+    /* color: #AD91F3; */
+    color: #FCFBFF;
+    transition: 0.3s;
+    background: #6B39EA;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 20px;
+}
+
+.reservation-select-number {
+	display: flex;
+	align-items: center;
+}
+
+.reservation-select-number .number {
+	font-size: 1.1rem;
+    font-weight: 500;
+    padding-right: 10px;
+}
+
+.reservation-select-number table {
+	margin-right: 30px;
+}
+
+.reservation-select-number td {
+	border: 1px solid #fff;
+	color: #fff;
+	padding: 10px;
+}
+.reservation-select-number td:nth-child(1) {
+	border-radius: 5px 0 0 5px;
+}
+.reservation-select-number td:nth-child(3) {
+	border-radius: 0 5px 5px 0;
+}
+
+
+
+
+
+
+
+
+
+

@@ -7,7 +7,7 @@
 	<section id="breadcrumbs" class="breadcrumbs">
 		<div class="container-fluid">
 				<div class="row justify-content-center">
-					<div class="col-xl-10" style="padding-bottom: 40px;">
+					<div class="col-xl-10" style="padding: 40px 0;">
 						<div class="row">
 							<div class="col-xl-3" style="display: flex; flex-direction: column; padding: 0;">
 								<div class="container-title">
@@ -102,7 +102,7 @@
 								</div>
 								<div class="container-dropend" id="btn-groupDropendArea" style="width: 100%">
 									<div class="reservation-movie-date" style="flex-flow: row;">
-										<c:forEach var="date" items="22<br>목, 23<br>금, 24<br>토, 25<br>일, 26<br>월, 27<br>화">
+										<c:forEach var="date" items="22<br>목, 23<br>금, 24<br>토, 25<br>일, 26<br>월, 27<br>화, 28<br>수">
 										<div class="reservation-movie-date-item">
 											${date}
 										</div>
@@ -130,12 +130,16 @@
 									</div>
 								</div>
 							</div>
+							<div class="col-xl-10" id="reservation-go-seat">
+								<input type="button" value="인원 및 좌석 선택" onClick="location.href='selectSeat.rv'">;
+							</div>
 						</div>
 					</div>
 					<!-- 영화관, 영화, 날짜, 시간 선택 안했으면 alert -->
-					<!-- 팝업창에 영화관, 영화, 날짜, 시간 띄우고 좌석을 선택하시겠습니까? 물어보기 -->
-					<!-- 선택 -> form 전송, 취소 -> 뒤로가기 -->
+					<!-- 인원/좌석 선택 버튼 클릭 -> form 전송 -->
+					<!-- 이때, 로그인 X -> 로그인 페이지, 로그인O -> 인원/좌석 선택 페이지 -->
 				</div>
+				
 			</div>
 		</div>
 	</section>
