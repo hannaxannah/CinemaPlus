@@ -19,7 +19,7 @@
 								</li>
 								<!-- End Dashboard Nav -->
 								<li class="nav-item">
-									<a class="nav-link collapsed" href="users-profile.html">
+									<a class="nav-link collapsed" href="myProductList.mp">
 										<i class="bi bi-card-list"></i>
 										<span>예매/구매내역</span>
 									</a>
