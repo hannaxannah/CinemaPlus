@@ -78,10 +78,16 @@
 		where payment_code = #{payment_code} and member_code = #{member_code}
 	</select>
 	
+	<!-- 결제 총갯수 -->
 	<select id="salePercent" resultType="Integer">
-		select count(*) from payment where
+		select count(*),sum(product_order_qty) from payment where
 		payment_code = #{payment_code} and member_code = #{member_code}
 	</select>
+	
+	<!-- <select id="OrderProductsAmount" resultType="Integer">
+		select sum(product_order_qty) from payment where
+		payment_code = #{payment_code} and member_code = #{member_code}
+	</select> -->
 	
 </mapper>
 
