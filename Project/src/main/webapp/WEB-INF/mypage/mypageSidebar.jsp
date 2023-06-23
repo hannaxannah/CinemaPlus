@@ -19,7 +19,6 @@
 								</li>
 								<!-- End Dashboard Nav -->
 								<li class="nav-item">
-									<a class="nav-link collapsed" href="pages-faq.html">
 									<a class="nav-link collapsed" href="#">
 										<i class="bi bi-card-list"></i>
 										<span>예매내역</span>
@@ -28,7 +27,6 @@
 								<!-- End Profile Page Nav -->
 	
 								<li class="nav-item">
-									<a class="nav-link collapsed" href="myProductList.mp">
 									<a class="nav-link collapsed" href="#">
 										<i class="bi bi-ticket-perforated"></i>
 										<span>MY 쿠폰</span>
@@ -66,6 +64,14 @@
 										<span>1:1문의</span>
 									</a>
 								</li>
+								
+									<li class="nav-item">
+									<a class="nav-link collapsed" href="myList.in?customer_id=${loginInfo.member_id}">
+										<i class="bi bi-envelope-paper"></i>
+										<span>나의 문의내역</span>
+									</a>
+								</li>
+								
 								<!-- End Login Page Nav -->
 	
 								<li class="nav-item">
