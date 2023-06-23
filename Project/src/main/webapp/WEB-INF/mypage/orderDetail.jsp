@@ -201,15 +201,15 @@ td{
                <small>결제 정보</small>
                <address class="m-t-5 m-b-5">
                   <strong class="text-inverse"></strong><br>
-                  카드사 : ${storeCardBean.card_company} <br>
-                  카드 번호 : ${fn:substring(storeCardBean.card_number,0,4)}-****-****-${fn:substring(storeCardBean.card_number,12,17)} <br>
-               	  카드 유효기간 (MM/YY) : (MONTH : ${fn:substring(storeCardBean.card_mmyy,0,2)}월 / YEAR : ${fn:substring(storeCardBean.card_mmyy,2,4)}년)<br>
+	                  카드사 : ${storeCardBean.card_company} <br>
+	                  카드 번호 : ${fn:substring(storeCardBean.card_number,0,4)}-****-****-${fn:substring(storeCardBean.card_number,12,17)} <br>
+	               	  카드 유효기간 (MM/YY) : ${fn:substring(storeCardBean.card_mmyy,0,2)}/${fn:substring(storeCardBean.card_mmyy,2,4)}<br>
                	  <c:choose>
 					<c:when test="${storeCardBean.card_installment eq 0}">
 						<font>할부 개월 : 일시불</font>
 					</c:when>
 					<c:otherwise>
-						<font>할부 개월 : <br> ${storeCardBean.card_installment} 개월</font>
+						<font>할부 개월 : ${storeCardBean.card_installment} 개월</font>
 					</c:otherwise>
 				</c:choose>
                </address>

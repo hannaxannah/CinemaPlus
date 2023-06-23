@@ -86,6 +86,7 @@ public class StorePaymentDao {
 		return cnt;
 	}
 	
+	/* 주문되있는 상품의 코드와 수량을 가져오는 코드 */
 	public List<StorePaymentBean> orderProductsCode(StorePaymentBean storePaymentBean) {
 		List<StorePaymentBean> myProductslist = new ArrayList<StorePaymentBean>();
 		
@@ -94,6 +95,12 @@ public class StorePaymentDao {
 		return myProductslist;
 	}
 	
-	
+//	public int orderProductsAmount(String payment_code) {
+//		int cnt = 0;
+//		
+//		cnt = sqlSessionTemplate.selectOne(namespace+".OrderProductsAmount",payment_code);
+//		
+//		return cnt;
+//	}
 
 }
