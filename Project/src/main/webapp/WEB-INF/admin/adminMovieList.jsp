@@ -29,14 +29,14 @@
 					</div>
 					<div class="x_content">
 						<p class="text-muted font-13 m-b-30">설명</p>
-<table>
+						<table>
 							<tr>
-									<td colspan="14" align="right"><input type="button"
-										value="추가하기" onclick="search()">
-									<td colspan="14" align="right"><input type="button"
-										value="순위보기" onclick="boxOffice()"></td>
-								</tr>
-</table>						
+								<td colspan="14" align="right"><input type="button"
+									value="추가하기" onclick="search()">
+								<td colspan="14" align="right"><input type="button"
+									value="순위보기" onclick="boxOffice()"></td>
+							</tr>
+						</table>
 						<table id="datatable" class="table table-striped table-bordered">
 							<thead>
 								<tr>
@@ -73,21 +73,20 @@
 										<td>${movie.open_date}</td>
 										<td>${movie.nation}</td>
 										<td>${movie.movie_story}</td>
-										<td>
-										<c:if test="${movie.vod == 0}">
-											<a href="insertVod.mv?movie_code=${movie.movie_code}
-													&movie_title=${movie.movie_title}" >vod추가</a>
-										</c:if>
-										<c:if test="${movie.vod == 1}">
-											<a href="deleteVod.mv?movie_code=${movie.movie_code}
-													&movie_title=${movie.movie_title}" >vod삭제</a>
-											<a href="updateVod.admin?movie_code=${movie.movie_code}
-													" >vod수정</a>
-										</c:if> 
-										
-										</td>
-										<td>
-											<a href="movieDelete.admin?movie_code=${movie.movie_code}" >삭제</a>
+										<td><c:if test="${movie.vod == 0}">
+												<a
+													href="insertVod.mv?movie_code=${movie.movie_code}
+													&movie_title=${movie.movie_title}">vod추가</a>
+											</c:if> <c:if test="${movie.vod == 1}">
+												<a
+													href="deleteVod.mv?movie_code=${movie.movie_code}
+													&movie_title=${movie.movie_title}">vod삭제</a>
+												<a
+													href="updateVod.admin?movie_code=${movie.movie_code}
+													">vod수정</a>
+											</c:if></td>
+										<td><a
+											href="movieDelete.admin?movie_code=${movie.movie_code}">삭제</a>
 										</td>
 									</tr>
 								</c:forEach>

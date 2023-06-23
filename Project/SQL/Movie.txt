@@ -54,7 +54,8 @@ create table screen(
 	runtime number,
 	ticket_price number,
 	discount varchar2(10),
-	rating varchar2(20)
+	rating varchar2(20),
+	url varchar2(20)
 	) ;
 	
 ------------------
