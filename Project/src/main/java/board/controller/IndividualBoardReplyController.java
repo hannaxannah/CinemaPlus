@@ -90,7 +90,7 @@ public class IndividualBoardReplyController {
 		      }
 	   
       if (session.getAttribute("loginInfo") == null) {
-         response.sendRedirect(request.getContextPath() + "/memberlogin.mb");
+         response.sendRedirect(request.getContextPath() + "/memberlogin");
          return null;
       }
 

@@ -43,7 +43,7 @@ public class IndividualBoardInsertController {
 		   HttpServletResponse response, HttpSession session) throws IOException {
      
 	   if (session.getAttribute("loginInfo") == null) {
-         response.sendRedirect(request.getContextPath() + "/memberlogin.mb");
+         response.sendRedirect(request.getContextPath() + "/memberlogin");
          return null;
       }
 
@@ -63,7 +63,7 @@ public class IndividualBoardInsertController {
            HttpServletResponse response) throws Exception {
 
       if (session.getAttribute("loginInfo") == null) {
-         response.sendRedirect(request.getContextPath() + "/memberlogin.mb");
+         response.sendRedirect(request.getContextPath() + "/memberlogin");
          return null;
       }
 
@@ -126,7 +126,7 @@ public class IndividualBoardInsertController {
          if (session.getAttribute("loginInfo") == null) {
             result.put("result", "fail");
             result.put("errorCode", 1);
-            result.put("redirectUrl", request.getContextPath() + "/memberlogin.mb");
+            result.put("redirectUrl", request.getContextPath() + "/memberlogin");
             return new ResponseEntity<Map<String, Object>>(result, HttpStatus.valueOf(200));
          }
          idao.updateReplyBoard(board);

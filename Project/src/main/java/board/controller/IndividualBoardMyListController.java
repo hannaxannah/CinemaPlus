@@ -33,7 +33,7 @@ public class IndividualBoardMyListController {
 	public String doAction(HttpSession session, Model model) {
 		
 		if(session.getAttribute("loginInfo") == null) { //로그인 X
-			return "redirect:/memberlogin.mb";
+			return "redirect:/memberlogin";
 		}
 		else { //로그인 O
 			MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
