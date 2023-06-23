@@ -101,7 +101,7 @@ document.getElementById('form')
 function check() {
 	if($("#message1").val() == <%=temp%>) {
 		alert("인증이 완료되었습니다.");
-		location.href="mypage_update.mb?member_id="+"${loginInfo.member_id}";
+		location.href="myUpdate.mp?member_id="+"${loginInfo.member_id}";
 	}else if($("#message1").val() != <%=temp%>) {
 		alert("인증번호가 맞지 않습니다.");
 		return;
