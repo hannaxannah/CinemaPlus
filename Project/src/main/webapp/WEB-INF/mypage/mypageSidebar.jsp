@@ -12,7 +12,7 @@
 						<div id="sidebar" class="sidebar">
 							<ul class="sidebar-nav" id="sidebar-nav">
 								<li class="nav-item">
-									<a class="nav-link " href="index.html">
+									<a class="nav-link " href="main.mp?member_id=${loginInfo.member_id}">
 										<i class="bi bi-grid"></i>
 										<span>MY</span>
 									</a>
@@ -29,9 +29,17 @@
 								<li class="nav-item">
 									<a class="nav-link collapsed" href="pages-faq.html">
 										<i class="bi bi-ticket-perforated"></i>
-										<span>쿠폰/관람권/교환권</span>
+										<span>관람권/교환권</span>
 									</a>
 								</li>
+								
+								<li class="nav-item">
+									<a class="nav-link collapsed" href="pages-faq.html">
+										<i class="bi bi-gift"></i>
+										<span>MY 쿠폰</span>
+									</a>
+								</li>
+								
 								<!-- End F.A.Q Page Nav -->
 	
 								<li class="nav-item">
