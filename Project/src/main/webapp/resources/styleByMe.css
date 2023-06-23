@@ -222,255 +222,107 @@
 	margin-top: 10px;
 }
 
-
-/* 영화관 header */
-/*--------------------------------------------------------------
-# Header #FCFBFF
---------------------------------------------------------------*/
-#theaterHeader {
-  transition: all 0.5s;
-  z-index: 997;
-  /* padding: 15px 0; *//* header 높이 줄이기 */
-  padding: 5px 0; 
-  margin-top: 50px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+#theaterNavbar a {
+	font-size: 1rem;
+	padding: 10px 25px;
 }
 
-#theaterHeader.header-scrolled,
-#theaterHeader.header-inner-pages {
-   background: #2e3339;
-   opacity: 0.95;
-}
-
-#theaterHeader .logo {
-  font-size: 1.2em;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-weight: 600;
-  letter-spacing: 1px;
-  font-family: 'Pretendard-Regular';
-}
-
-#theaterHeader .logo a {
-  color: #fff;
-}
-
-#theaterHeader .logo img {
-  max-width: 50%;
-  max-height: 40px;
-}
-
-@media (max-width: 992px) {
-  #theaterHeader {
-    border: 0;
+@media (max-width: 991px) {
+  #theaterNavbar ul {
+    display: flex;
+  }
+  
+  #theaterNavbar a {
+  	padding: 10px 8px 10px 8px;
+  }
+  
+  #theaterNavbar .dropdown ul {
+    left: 0px;
   }
 }
 
-/*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
-/**
-* Desktop Navigation 
-*/
-#navbarTheater .navbar {
-  padding: 0;
-  margin: 0 auto;
+#theaterNavbar .dropdown {
+	position: static;
 }
 
-#navbarTheater .navbar ul {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  list-style: none;
-  align-items: center;
-}
-
-#navbarTheater .navbar li {
-  position: relative;
-}
-
-#navbarTheater .navbar a,
-#navbarTheater .navbar a:focus {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 0 10px 30px;
-  text-transform: uppercase;
-  font-size: 0.85em;
-  font-weight: 500;
-  color: #6B39EA;
-  white-space: nowrap;
-  transition: 0.3s;
-}
-
-#navbarTheater .navbar a i,
-#navbarTheater .navbar a:focus i {
-  font-size: 0.85em;
-  line-height: 0;
-  margin-left: 5px;
-}
-
-#navbarTheater .navbar a:hover,
-#navbarTheater .navbar .active,
-#navbarTheater .navbar .active:focus,
-#navbarTheater .navbar li:hover>a {
-  color: #6882f9;
-}
-
-#navbarTheater .navbar .dropdown ul {
-  display: block;
-  position: absolute;
-  left: 14px;
-  top: calc(100% + 30px);
-  margin: 0;
-  padding: 10px 0;
-  z-index: 99;
-  opacity: 0;
-  visibility: hidden;
-  background: #fff;
-  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-  transition: 0.3s;
-  
-}
-
-#navbarTheater .navbar .dropdown ul li {
-  min-width: 200px;
-}
-
-#navbarTheater .navbar .dropdown ul a {
-  padding: 10px 20px;
-  font-size: 13px;
-  font-weight: 500;
-  text-transform: none;
-  color: #193c5a;
-}
-
-#navbarTheater .navbar .dropdown ul a i {
-  font-size: 12px;
-}
-
-#navbarTheater .navbar .dropdown ul a:hover,
-#navbarTheater .navbar .dropdown ul .active:hover,
-#navbarTheater .navbar .dropdown ul li:hover>a {
-  color: #428bca;
-}
-
-#navbarTheater .navbar .dropdown:hover>ul {
+#theaterNavbar .dropdown:hover>ul {
   opacity: 1;
   top: 100%;
   visibility: visible;
 }
 
-/**
-* Mobile Navigation 
-*/
-.mobile-nav-toggle {
-  color: #6B39EA;
-  font-size: 28px;
-  cursor: pointer;
-  display: none;
-  line-height: 0;
-  transition: 0.5s;
+#theaterNavbar .dropdown ul {
+	display: flex;
+    position: absolute;
+    width: 110%;
+    height: auto;
+    left: -40px;
+    top: calc(100% + 30px);
+    margin: 0;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    transition: 0.3s;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
-.mobile-nav-toggle.bi-x {
-  color: #6B39EA;
+#theaterNavbar .dropdown ul li {
+  min-width: 0px;
 }
 
-@media (max-width: 991px) {
-  .mobile-nav-toggle {
-    display: block;
-  }
-
-  .navbar ul {
-    display: none;
-  }
+.theater-intro {
+	width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding: 40px 0;
+    align-items: flex-start;
 }
 
-.navbar-mobile {
-  position: fixed;
-  overflow: hidden;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background: rgba(34, 39, 43, 0.9);
-  transition: 0.3s;
-  z-index: 999;
+.theater-intro img {
+	width: 100%; 
+	opacity: 0.8;
 }
 
-.navbar-mobile .mobile-nav-toggle {
-  position: absolute;
-  top: 15px;
-  right: 15px;
+.theater-branch-info {
+	padding: 20px 40px;
+	display: flex;
+	flex-flow: column;
 }
 
-.navbar-mobile ul {
-  display: block;
-  position: absolute;
-  top: 55px;
-  right: 15px;
-  bottom: 15px;
-  left: 15px;
-  padding: 10px 0;
-  border-radius: 10px;
-  background-color: #fff;
-  overflow-y: auto;
-  transition: 0.3s;
+.theater-intro a:hover,
+.theater-branch-info a:hover {
+	color: #FCFBFF;
 }
 
-.navbar-mobile a,
-.navbar-mobile a:focus {
-  padding: 10px 20px;
-  font-size: 15px;
-  color: #6B39EA;
+.theater-branch-name {
+	font-size: 2rem;
+	font-weight: 600;
+	color: #FCFBFF;
+	margin-bottom: 10px;
 }
 
-.navbar-mobile a:hover,
-.navbar-mobile .active,
-.navbar-mobile li:hover>a {
-  color: #6882f9;
+.theater-branch-address {
+	font-size: 1.1rem;
+	font-weight: 500;
+	color: #FCFBFF;\
 }
 
-.navbar-mobile .getstarted,
-.navbar-mobile .getstarted:focus {
-  margin: 15px;
+.theater-branch-howtoget-title {
+	font-size: 1.3rem;
+	font-weight: 500;
+	color: #FCFBFF;
+	margin-bottom: 10px;
 }
 
-.navbar-mobile .dropdown ul {
-  position: static;
-  display: none;
-  margin: 10px 20px;
-  padding: 10px 0;
-  z-index: 99;
-  opacity: 1;
-  visibility: visible;
-  background: #fff;
-  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
-}
-
-.navbar-mobile .dropdown ul li {
-  min-width: 200px;
-}
-
-.navbar-mobile .dropdown ul a {
-  padding: 10px 20px;
-  font-size: 14px;
-}
-
-.navbar-mobile .dropdown ul a i {
-  font-size: 12px;
-}
-
-.navbar-mobile .dropdown ul a:hover,
-.navbar-mobile .dropdown ul .active:hover,
-.navbar-mobile .dropdown ul li:hover>a {
-  color: #6882f9;
-}
-
-.navbar-mobile .dropdown>.dropdown-active {
-  display: block;
+.theater-branch-howtoget {
+	font-size: 1.1rem;
+	color: #FCFBFF;
+	margin-bottom: 20px;
 }
 
 
@@ -648,6 +500,7 @@
     width: 80px;
     height: 80px;
 }
+
 /* MY 메인 - 예매내역/구매내역 */
 .myReservationPurchase {
 	width: 100%;
