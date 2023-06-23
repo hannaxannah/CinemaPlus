@@ -68,7 +68,7 @@ public class MypageProductController {
 		
 		List<StorePaymentBean> myPaylist = storePaymentDao.myPayment_code(member_code);	
 		//System.out.println("결제 내역 코드"+myPaylist);
-		
+//		int orderProductsAmount = storePaymentDao.orderProductsAmount(member_code);
 		
 		//Payment 테이블에서 member_code기준으로 구매일/결제번호/구매 품목수/결제금액(card_number로 어디회사 카드인지 표시)/상세보기
 			
