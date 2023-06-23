@@ -23,44 +23,8 @@ public class TheaterMainController {
 	@Autowired
 	TheaterDao tdao;
 	
-	@Autowired
-	TheaterCrawlingDao tcd;
-	
 	@RequestMapping(value=command, method=RequestMethod.GET)
 	public String doActionByGet(Model model) {
-		
-		/*
-		List<LocationBean> lists = tdao.getAllTheaterLocation();
-		System.out.println("lists.size:"+lists.size());
-		
-		List<String> area = tdao.getAllTheaterArea();
-		System.out.println("area.size:"+area.size());
-		
-		List<String> seoul = tdao.getAllTheaterBranch("서울");
-		System.out.println("seoul.size:"+seoul.size());
-		
-		List<String> gyeonggi = tdao.getAllTheaterBranch("경기");
-		System.out.println("gyeonggi.size:"+gyeonggi.size());
-		
-		List<String> incheon = tdao.getAllTheaterBranch("인천");
-		List<String> kangwon = tdao.getAllTheaterBranch("강원");
-		List<String> daejeon = tdao.getAllTheaterBranch("대전/충청");
-		List<String> daegu = tdao.getAllTheaterBranch("대구");
-		List<String> busan = tdao.getAllTheaterBranch("부산/울산");
-		List<String> gyeongsang = tdao.getAllTheaterBranch("경상");
-		List<String> gwangju = tdao.getAllTheaterBranch("광주/전라/제주");
-				
-		model.addAttribute("area", area);
-		model.addAttribute("seoul", seoul);
-		model.addAttribute("gyeonggi", gyeonggi);
-		model.addAttribute("incheon", incheon);
-		model.addAttribute("kangwon", kangwon);
-		model.addAttribute("daejeon", daejeon);
-		model.addAttribute("daegu", daejeon);
-		model.addAttribute("busan", daejeon);
-		model.addAttribute("gyeongsang", gyeongsang);
-		model.addAttribute("gwangju", gwangju);
-		*/
 		
 		List<String> area = tdao.getAllArea();
 		
