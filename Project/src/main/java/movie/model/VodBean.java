@@ -4,6 +4,20 @@ public class VodBean {
 	private String movie_code;
 	private int vod_price;
 	private String vod_title;
+	private String url;
+	
+	public VodBean() {
+		super();
+	}
+	
+	public VodBean(String movie_code, int vod_price, String vod_title, String url) {
+		super();
+		this.movie_code = movie_code;
+		this.vod_price = vod_price;
+		this.vod_title = vod_title;
+		this.url = url;
+	}
+
 	public String getMovie_code() {
 		return movie_code;
 	}
@@ -21,6 +35,12 @@ public class VodBean {
 	}
 	public void setVod_title(String vod_title) {
 		this.vod_title = vod_title;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
 	}
 	
 	

@@ -5,7 +5,7 @@
 <script src="${path}/resources/js/jquery.js"></script>
 screenFrom.jsp
 <br>
-<form action="screenInsert.mv" method="post" name="scr">
+<form action="screenInsert.admin" method="post" name="scr">
 	상영관: <select class="form-select" name="screen_name" id="s1"
 		onchange="optionChange()" required="required">
 		<option value="">선택하세요</option>

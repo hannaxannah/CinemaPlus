@@ -6,10 +6,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -31,6 +33,7 @@ public class MovieBoxOfficeController {
 
 	private final String command = "/boxOffice.mv";
 	private final String getPage = "boxOffice";
+	private final String adminPage = "../admin/adminScreenList";
 
 	@Autowired
 	MovieDao movieDao;
@@ -39,7 +42,8 @@ public class MovieBoxOfficeController {
 	ScreenDao screenDao;
 
 	@RequestMapping(value = command)
-	public String doAction(Model model) throws ParseException 
+	public String doAction(Model model,
+							@RequestParam(value = "admin", required = false) String admin) throws ParseException 
 	{
 
 		// 인증키 (개인이 받아와야함)
@@ -156,8 +160,20 @@ public class MovieBoxOfficeController {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-
-		return getPage;
+		
+		if(admin != null) {
+			List<ScreenBean> oldScreenList = screenDao.getAllScreen();
+			Set<ScreenBean> set = new HashSet<ScreenBean>(oldScreenList);
+			 
+	        // Set을 List로 변경
+	        List<ScreenBean> newScreenList =new ArrayList<ScreenBean>(set);
+	        model.addAttribute("screenList", newScreenList);
+			return adminPage;
+			
+		}else {
+			return getPage;
+		}
+		
 	}
 
 }

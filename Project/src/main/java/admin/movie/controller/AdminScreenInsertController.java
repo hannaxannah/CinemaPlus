@@ -1,4 +1,4 @@
-package movie.controller;
+package admin.movie.controller;
 
 import java.util.List;
 
@@ -14,9 +14,10 @@ import movie.model.ScreenBean;
 import movie.model.ScreenDao;
 
 @Controller
-public class ScreenInsertController {
-	private final String command = "/screenInsert.mv";
-	private final String getPage = "screenInsertForm";
+public class AdminScreenInsertController {
+	private final String command = "/screenInsert.admin";
+	private final String getPage = "adminScreenInsertForm";
+	private final String gotoPage = "redirect:/boxOffice.mv?admin=admin";
 
 
 	@Autowired
@@ -66,6 +67,6 @@ public class ScreenInsertController {
 
 		screenDao.insertScreen(screenBean);
 
-		return null;
+		return gotoPage;
 	}
 }

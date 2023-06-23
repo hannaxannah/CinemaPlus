@@ -1,4 +1,4 @@
-package admin.controller;
+package admin.movie.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,7 +19,7 @@ import utility.Paging;
 @Controller
 public class AdminMovieListController {
 	private final String command = "/movieList.admin";
-	private final String gotoPage = "adminMovieList";
+	private final String getPage = "adminMovieList";
 
 	@Autowired
 	MovieDao movieDao;
@@ -38,6 +38,6 @@ public class AdminMovieListController {
 		List<MovieBean> movieLists = movieDao.getAllMovie(map);
 			
 		model.addAttribute("movieLists", movieLists);
-		return gotoPage;
+		return getPage;
 	}
 }

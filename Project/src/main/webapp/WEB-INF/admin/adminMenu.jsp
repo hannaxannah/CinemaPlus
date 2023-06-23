@@ -97,7 +97,8 @@
                   
                   <li><a><i class="fa fa-edit"></i> 영화 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="screenList.admin">상영 목록</a></li>
+                      <li><a href="boxOffice.mv?admin=admin">박스오피스 목록</a></li>
+                      <li><a href="screenOnList.admin">상영중</a></li>
                       <li><a href="movieList.admin">영화 목록</a></li>
                     </ul>
                   </li>
