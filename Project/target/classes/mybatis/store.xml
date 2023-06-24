@@ -78,17 +78,41 @@
 		where payment_code = #{payment_code} and member_code = #{member_code}
 	</select>
 	
+	<!-- 로그인 되있는 유저의 쿠폰 보유 여부 -->
+	<select id="CheckUserAvailableCoupon" resultType="String">
+		select coupon_code from coupon_user
+		where member_code = #{member_code}
+	</select>
+	
+	<!-- 쿠폰코드 바탕으로 쿠폰정보 가져오기 -->
+	<select id="Coupon_codeToName" resultType="store.model.StoreCouponBean">
+		select * from coupon
+		where coupon_code = #{coupon_code}
+	</select>
+	
+	<!-- 로그인 되있는 유저의 쿠폰리스트 -->
+	<select id="CheckUserAvailableCouponList" resultType="String">
+		select coupon_code from coupon_user
+		where member_code = #{member_code}
+	</select>
+	
 	<!-- 결제 총갯수 -->
-	<select id="salePercent" resultType="Integer">
+	<select id="SalePercent" resultType="Integer">
 		select count(*),sum(product_order_qty) from payment where
 		payment_code = #{payment_code} and member_code = #{member_code}
 	</select>
 	
-	<!-- <select id="OrderProductsAmount" resultType="Integer">
-		select sum(product_order_qty) from payment where
-		payment_code = #{payment_code} and member_code = #{member_code}
-	</select> -->
+	<!-- 쿠폰 중복여부 확인 -->
+	<select id="CheckDuplicateCoupon" resultType="Integer">
+		select count(coupon_code) from coupon_user where
+		coupon_code=#{coupon_code} and member_code=#{member_code}
+	</select>
 	
+	<!-- 결제시 해당 쿠폰 -1 -->
+	<update id="decreaseCouponQty">
+		update coupon set coupon_remain_qty = coupon_remain_qty - 1
+		where coupon_code = #{coupon_code}
+	</update>
 </mapper>
 
 

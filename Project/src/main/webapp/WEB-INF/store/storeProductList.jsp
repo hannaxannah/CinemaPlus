@@ -175,7 +175,7 @@
 											</div>
 										</c:when>
 										<c:otherwise>
-											<div class="coupon_banner" OnClick="location.href ='getCoupon.store?member_code=${loginInfo.getMember_id()}'" style="cursor:pointer;">
+											<div class="coupon_banner" OnClick="location.href ='getCoupon.store?member_code=${loginInfo.getMember_code()}'" style="cursor:pointer;">
 												쿠폰
 											</div>
 										</c:otherwise>

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import member.model.MemberBean;
 import store.model.StoreCartBean;
 import store.model.StoreCartList;
+import store.model.StoreCouponBean;
 import store.model.StoreCouponDao;
 import store.model.StoreProductBean;
 import store.model.StoreProductDao;
@@ -165,10 +166,11 @@ public class StoreCartController { //장바구니 컨트롤러
 		     return null;
 		}
 		
-//		MemberBean member = (MemberBean) session.getAttribute("loginInfo");
-//		String loginid = member.getMember_id();
-//		
-//		storeCouponDao.checkUserAvailableCoupon(loginid);
+		MemberBean member = (MemberBean) session.getAttribute("loginInfo");
+		String loginMember_code = member.getMember_code();
+		
+		List<StoreCouponBean> myCoupon = storeCouponDao.checkUserAvailableCoupon(loginMember_code);
+		//내 회원코드로 사용하지않은 쿠폰 불러오기
 		
 		StoreCartList cart = (StoreCartList)session.getAttribute("cart");
 		//장바구니 cart이 존재하는지 조회
@@ -198,7 +200,9 @@ public class StoreCartController { //장바구니 컨트롤러
 			cartBeanList.add(shop);
 		}
 		
+		
 		model.addAttribute("cartBeanList", cartBeanList); //물품리스트
+		model.addAttribute("myCoupon", myCoupon); //내 쿠폰리스트
 		
 		return orderPage;
 	}

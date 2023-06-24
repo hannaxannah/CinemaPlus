@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 productList.jsp<br>
     <%@include file="../common/common.jsp"%>
-     <%@ include file="../main/mainHeader.jsp"%>
+    <%@ include file="../main/mainHeader.jsp"%>
 	<%@ include file="mypageSidebar.jsp"%>
 	<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
  <style>
