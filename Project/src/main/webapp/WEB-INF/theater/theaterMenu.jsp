@@ -14,42 +14,42 @@
 					</c:if>
 					<c:if test="${areaName == '경기'}">
 						<c:forEach var="Branch" items="${gyeonggi}">
-							<li class="dropdown"><a href="#">${Branch}</a></li>
+							<li class="dropdown"><a href="howtoget.th?branch=${Branch}">${Branch}</a></li>
 						</c:forEach>
 					</c:if>
 					<c:if test="${areaName == '인천'}">
 						<c:forEach var="Branch" items="${incheon}">
-							<li class="dropdown"><a href="#">${Branch}</a></li>
+							<li class="dropdown"><a href="howtoget.th?branch=${Branch}">${Branch}</a></li>
 						</c:forEach>
 					</c:if>
 					<c:if test="${areaName == '강원'}">
 						<c:forEach var="Branch" items="${kangwon}">
-							<li class="dropdown"><a href="#">${Branch}</a></li>
+							<li class="dropdown"><a href="howtoget.th?branch=${Branch}">${Branch}</a></li>
 						</c:forEach>
 					</c:if>
 					<c:if test="${areaName == '대전/충청'}">
 						<c:forEach var="Branch" items="${daejeon}">
-							<li class="dropdown"><a href="#">${Branch}</a></li>
+							<li class="dropdown"><a href="howtoget.th?branch=${Branch}">${Branch}</a></li>
 						</c:forEach>
 					</c:if>
 					<c:if test="${areaName == '대구'}">
 						<c:forEach var="Branch" items="${daegu}">
-							<li class="dropdown"><a href="#">${Branch}</a></li>
+							<li class="dropdown"><a href="howtoget.th?branch=${Branch}">${Branch}</a></li>
 						</c:forEach>
 					</c:if>
 					<c:if test="${areaName == '부산/울산'}">
 						<c:forEach var="Branch" items="${busan}">
-							<li class="dropdown"><a href="#">${Branch}</a></li>
+							<li class="dropdown"><a href="howtoget.th?branch=${Branch}">${Branch}</a></li>
 						</c:forEach>
 					</c:if>
 					<c:if test="${areaName == '경상'}">
 						<c:forEach var="Branch" items="${gyeongsang}">
-							<li class="dropdown"><a href="#">${Branch}</a></li>
+							<li class="dropdown"><a href="howtoget.th?branch=${Branch}">${Branch}</a></li>
 						</c:forEach>
 					</c:if>
 					<c:if test="${areaName == '광주/전라/제주'}">
 						<c:forEach var="seoulBranch" items="${gwangju}">
-							<li class="dropdown"><a href="#">${seoulBranch}</a></li>
+							<li class="dropdown"><a href="howtoget.th?branch=${Branch}">${Branch}</a></li>
 						</c:forEach>
 					</c:if>
 				</ul>
