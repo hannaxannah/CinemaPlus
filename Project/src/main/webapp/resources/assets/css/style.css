@@ -129,8 +129,8 @@ h6 {
 #header.header-inner-pages {
    /* background: #6B39EA; */
    /* background: #1D0850; */
-   background: rgba(46, 51, 57, 0.95);
-/*   background: rgba(23, 26, 29, 0.8); */
+   background: rgba(46, 51, 57, 1);
+/*   background: rgba(46, 51, 57, 0.95); */
    /* background-image: linear-gradient(to right, #3C12A6, #6969F4); height: 50px; */
 }
 
