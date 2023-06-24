@@ -48,7 +48,7 @@
 						</c:forEach>
 					</c:if>
 					<c:if test="${areaName == '광주/전라/제주'}">
-						<c:forEach var="seoulBranch" items="${gwangju}">
+						<c:forEach var="Branch" items="${gwangju}">
 							<li class="dropdown"><a href="howtoget.th?branch=${Branch}">${Branch}</a></li>
 						</c:forEach>
 					</c:if>
