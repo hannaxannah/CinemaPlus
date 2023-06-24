@@ -3,16 +3,16 @@
 <%@ include file="../main/mainHeader.jsp"%>
 <main id="main">
 
-	<!-- 영화 : 박스오피스 -->
+	<!-- 우리집영화관 -->
 	<section id="portfolio" class="portfolio">
 		<div style="width: 90%; margin: 0 auto;">
 		<div class="container-fluid">
 
 			<div class="section-title">
-				<h3>박스오피스</h3>
+				<h3>우리집영화관</h3>
 				<div class="movie-list-classify">
 					<ol>
-				      <li><a href="" style="color:#6B39EA;">예매순</a></li>
+				      <li><a href="" style="color:#6B39EA;">가격순</a></li>
 				      <li><a href="">개봉일순</a></li>
 				      <!-- 선택한 순서일 때, 글자색: #6B39EA, 원래: #FCFBFF -->
 				    </ol>
@@ -41,9 +41,9 @@
 										<div style="margin-bottom: 100px"></div>
 										<h4>
 											<!-- 영화 제목 클릭 시, 영화 상세페이지로 넘어감 -->
-											<a href="movieDetail.mv" title="More Details">스파이더맨: 어크로스 더 유니버스</a>
+											<a href="mymovievoddetail.mv" title="More Details">스파이더맨: 어크로스 더 유니버스</a>
 										</h4>
-										<input type="button" class="movie-list-reservation-btn" value="예매하기">
+										<input type="button" class="movie-list-reservation-btn" value="구입하기">
 										<!-- 예매하기 넘길 때, 예를 들어 onClick="reservation.rv?movie_code=${movie_code}" -->
 										<div class="portfolio-links">
 											<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
@@ -56,7 +56,7 @@
 									</div>
 									<div class="rate-date">
 										<span class="date">개봉일 2023.06.21</span>
-										<span class="rate">예매율 22.5%</span>
+										<span class="rate">가격 3,500원</span>
 									</div>
 							</div>
 							<!-- End portfolio item -->

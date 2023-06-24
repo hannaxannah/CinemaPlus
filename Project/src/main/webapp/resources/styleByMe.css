@@ -1,5 +1,34 @@
 
 /* 영화 리스트 */
+.movie-list-classify {
+	display: flex;
+    flex-direction: row-reverse;
+    margin-right: 70px;
+    margin-top: 20px;
+}
+.movie-list-classify ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0 0 10px 0;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.movie-list-classify ol li a {
+  color:#FCFBFF;
+  text-decoration: none;
+  padding-left: 10px;
+}
+
+.movie-list-classify ol li a:hover {
+  color:#6B39EA;
+}
+
+.movie-list-classify ol li+li {
+  padding-left: 5px;
+}
+
 .movie-list-reservation-btn {
 	font-size: 0.85em;
     font-weight: 500;
@@ -37,7 +66,7 @@
     color: #F7F7F7;
 }
 
-.rate-date span.rate {
+.rate-date span.date {
     margin: 0 7px 0 0;
     padding: 0 8px 0 0;
 }
@@ -339,6 +368,18 @@
 
 
 /* 회원가입 */
+.select-pw-question {
+	word-wrap: normal;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.05);
+    outline: none;
+    color: inherit;
+    padding-left: 5px;
+    height: 42px;
+    width: 237px;	
+}
 
 /* 영화 상세정보 - 감상평 */
 .MovieDetailReview {
@@ -403,12 +444,16 @@
     border-radius: 4px;
 }
 
+.nav-tabs .nav-link.active {
+    color: #6b39ea;
+}
+
 .nav-link {
     display: block;
     padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
     font-size: var(--bs-nav-link-font-size);
     font-weight: var(--bs-nav-link-font-weight);
-    color: var(--bs-nav-link-color);
+    color: #000;
     text-decoration: none;
     background: 0 0;
     border: 0;
@@ -536,7 +581,239 @@
 }
 
 
+/* MY - 예매내역 */
+.my-reservation-search {
+	padding: 10px 40px;
+}
+
+.my-reservation-search-date {
+	background: #fff; 
+    border-radius: 2px;
+    border: 1px solid #dee2e6;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.05);
+    outline: none;
+    color: #212529;
+    padding-left: 12px;
+    height: 35px;
+}
+
+#reservation-tab-pane ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0 0 10px 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+#reservation-tab-pane ol li a,
+#purchase-tab-pane ol li a {
+  color:#2E2E2E;
+  text-decoration: none;
+}
+
+#reservation-tab-pane ol li a:hover, 
+.form-group a:hover {
+  color:#6B39EA;
+}
+
+#reservation-tab-pane ol li+li {
+  padding-left: 5px;
+}
+
+.my-search {
+	border:none;
+	border-radius:5px;
+	padding:5px 17px;
+	margin-left:10px;
+	background: #6B39EA;
+	color: #fff;
+}
+
+.table th,
+.table td {
+	text-align: center;
+}
+
+
+
 /* 예매 - 빠른예매 */
+.navbar, .navbar2 {
+  padding: 0;
+}
+
+.navbar ul, .navbar2 ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar li, .navbar2 li {
+  position: relative;
+}
+
+.navbar a,
+.navbar a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px 10px 15px;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  font-weight: 500;
+  /* color: #AD91F3; */
+  color: #FCFBFF;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+.navbar a i,
+.navbar a:focus i {
+  font-size: 0.85em;
+  line-height: 0;
+  margin-left: 5px;
+}
+
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover>a {
+  color: #6882f9;
+}
+
+.navbar .dropdown ul {
+  display: block;
+  position: absolute;
+  left: 14px;
+  top: calc(100% + 30px);
+  margin: 0;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: 0.3s;
+}
+
+.navbar .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar .dropdown ul a {
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: none;
+  color: #193c5a;
+}
+
+.navbar .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar .dropdown ul a:hover,
+.navbar .dropdown ul .active:hover,
+.navbar .dropdown ul li:hover>a {
+  color: #428bca;
+}
+
+.navbar .dropdown:hover>ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+}
+
+.navbar .dropdown .dropdown ul {
+  top: 0;
+  left: calc(100% - 30px);
+  visibility: hidden;
+}
+
+.navbar .dropdown .dropdown:hover>ul {
+  opacity: 1;
+  top: 0;
+  left: 100%;
+  visibility: visible;
+}
+/* 
+.reservation-theater-list {
+	background: #fff;
+	border-right: 1px solid rgba(242, 242, 242, 1);
+}
+
+#theaterSidebar {
+	padding: 10px 0;
+}
+
+.theater-area a {
+    font-size: 1.2rem;
+    padding: 15px 25px;
+    color: #000;
+}
+
+.theater-area-branch {
+	position: fixed;
+	overflow-y: auto;
+	scrollbar-width: thin;
+    scrollbar-color: #aab7cf transparent;
+    height: 549px;
+    width: 60%;
+    left: 40%;
+}
+
+#theaterSidebar .theater-area {
+	display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#theaterSidebar .dropdown {
+	position: static;
+}
+
+#theaterSidebar .dropdown:hover>ul {
+  opacity: 1;
+  top: 0;
+  visibility: visible;
+}
+
+#theaterSidebar .dropdown ul {
+	display: flex;
+    position: absolute;
+    width: 60%;
+    height: auto;
+    left: 40%;
+    margin: 0;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#theaterSidebar .navbar .dropdown ul {
+	transition: 0;
+}
+
+#theaterSidebar .dropdown ul li {
+  min-width: 0px;
+}
+
+#theaterSidebar .dropdown .dropdown a {
+	padding: 10px 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #000;
+}
+
+//////////////////////////////////////////
+
 .dropdown-menu .show:hover,
 .dropdown-menu .show {
 	position: absolute;
@@ -544,22 +821,24 @@
 	margin: 0px;
 	transform: translate3d(105.333px, 0px, 0px);
 	data-popper-placement: right-start;
-}
+} 
+*/
 
 .container-title {
 	display: flex;
 	height: 50px;
 	font-size: 1.3rem;
-	border: 1px solid #fff;
 	align-items: center;
 	justify-items: center;
 	justify-content: center;
-	color: #fff;
+	color: #FCFBFF;
+	background: #6B39EA;
+	border-bottom: 1px solid rgba(242, 242, 242, 1);
 }
 
 #btn-groupDropendArea {
 	width: 100%;
-	height: 600px;
+	height: 549px;
 	display: flex;
 	flex-direction: column;
 	background: #fff;
@@ -593,13 +872,15 @@
 	display: flex;
 	flex-flow: column;
 	padding: 20px;
-	padding-left: 40px;
+	padding-left: 20px;
+	border-right: 1px solid rgba(242, 242, 242, 1);
 }
 
-.reservation-movie-list-item {
+.reservation-movie-list-item, 
+.reservation-movie-list-item:hover {
 	color: #000;
-	font-size: 1.1rem;
-	padding-bottom: 10px;
+	font-size: 1.2rem;
+	padding: 10px;
 }
 
 .reservation-movie-date {
