@@ -14,45 +14,57 @@
 									영화관
 								</div>
 								<div class="reservation-theater-list" style="width: 100%">
-									<%
-										String[] 서울 = {"서울", "서울", "서울", "서울", "서울", "서울", "서울", "서울", "서울"};
-										String[] 경기 = {"경기", "경기", "경기", "경기", "경기", "경기", "경기", "경기", "경기"};
-										String[] 인천 = {"인천", "인천", "인천", "인천", "인천", "인천", "인천", "인천", "인천"};
-										String[] 강원 = {"강원", "강원", "강원", "강원", "강원", "강원", "강원", "강원", "강원"};
-										String[] 대전 = {"대전", "대전", "대전", "대전", "대전", "대전", "대전", "대전", "대전"};
-										String[] 대구 = {"대구", "대구", "대구", "대구", "대구", "대구", "대구", "대구", "대구"};
-										String[] 부산 = {"부산", "부산", "부산", "부산", "부산", "부산", "부산", "부산", "부산"};
-										String[] 경상 = {"경상", "경상", "경상", "경상", "경상", "경상", "경상", "경상", "경상"};
-										String[] 광주 = {"광주", "광주", "광주", "광주", "광주", "광주", "광주", "광주", "광주"};
-									%>
 									<div class="dropend" id="btn-groupDropendArea"> 
-										<c:forEach var="area" items="서울, 경기, 인천, 강원, 대전/충청, 대구, 부산/울산, 경상, 광주/전라/제주">
-										<button type="button" class="dropdown theater-area-btn" id="${area}" onClick="dp_menu()">
-											${area}
+										<c:forEach var="areaName" items="${area}">
+										<button type="button" class="dropdown theater-area-btn" id="${areaName}" onClick="dp_menu()">
+											${areaName}
 										</button>
 										<ul class="area-dropdown-menu" id="drop-content" style="display: none;">
-											<c:if test="${area == '서울'}">
-												<c:forEach var="branch" items="<%=서울%>">
-													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${branch}</a></li>											
+											<c:if test="${areaName == '서울'}">
+												<c:forEach var="Branch" items="${seoul}">
+													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>											
 												</c:forEach>
 											</c:if>
-											<c:if test="${area == '인천'}">
-												<c:forEach var="branch" items="<%=인천%>">
-													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${branch}</a></li>											
+											<c:if test="${areaName == '경기'}">
+												<c:forEach var="Branch" items="${gyeonggi}">
+													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>
 												</c:forEach>
 											</c:if>
-											<c:if test="${area == '부산'}">
-												<c:forEach var="branch" items="<%=부산%>">
-													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${branch}</a></li>											
+											<c:if test="${areaName == '인천'}">
+												<c:forEach var="Branch" items="${incheon}">
+													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>
 												</c:forEach>
 											</c:if>
-											<!-- 									
-											<li><a class="area-dropdown-item" href="#">Action</a></li>
-											<li><a class="area-dropdown-item" href="#">Another action</a></li>
-											<li><a class="area-dropdown-item" href="#">Something else here</a></li>
-											<li><hr class="area-dropdown-item"></li>
-											<li><a class="area-dropdown-item" href="#">Separated link</a></li>
-											 -->
+											<c:if test="${areaName == '강원'}">
+												<c:forEach var="Branch" items="${kangwon}">
+													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>
+												</c:forEach>
+											</c:if>
+											<c:if test="${areaName == '대전/충청'}">
+												<c:forEach var="Branch" items="${daejeon}">
+													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>
+												</c:forEach>
+											</c:if>
+											<c:if test="${areaName == '대구'}">
+												<c:forEach var="Branch" items="${daegu}">
+													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>
+												</c:forEach>
+											</c:if>
+											<c:if test="${areaName == '부산/울산'}">
+												<c:forEach var="Branch" items="${busan}">
+													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>
+												</c:forEach>
+											</c:if>
+											<c:if test="${areaName == '경상'}">
+												<c:forEach var="Branch" items="${gyeongsang}">
+													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>
+												</c:forEach>
+											</c:if>
+											<c:if test="${areaName == '광주/전라/제주'}">
+												<c:forEach var="seoulBranch" items="${gwangju}">
+													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>
+												</c:forEach>
+											</c:if>
 										</ul>
 										</c:forEach>
 									</div>
@@ -138,7 +150,7 @@
 					<!-- 영화관, 영화, 날짜, 시간 선택 안했으면 alert -->
 					<!-- 인원/좌석 선택 버튼 클릭 -> form 전송 -->
 					<!-- 이때, 로그인 X -> 로그인 페이지, 로그인O -> 인원/좌석 선택 페이지 -->
-				</div>
+				
 				
 			</div>
 		</div>
