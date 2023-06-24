@@ -13,8 +13,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="resources/assets/img/favicon.ico" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -61,15 +60,15 @@
           <li><a class="nav-link scrollto" href="reservation.rv">예매</a></li>
           <li><a class="nav-link scrollto" href="theater.th">영화관</a></li>
           <li><a class="nav-link scrollto" href="mymovie.mv">우리집 영화관</a></li>
-          <li><a class="nav-link scrollto" href="#">스토어</a></li>
-          <li><a class="nav-link scrollto" href="main.mp">MY</a></li>
+          <li><a class="nav-link scrollto" href="list.store">스토어</a></li>
+          <li><a class="nav-link scrollto" href="main.mp?member_id=${loginInfo.member_id}">MY</a></li>
         </ul>
       </nav><!-- .navbar -->
       <nav id="navbar2" class="navbar2">
       	<ul>
           <c:choose>
 				<c:when test="${loginInfo eq null}">
-		        	<li><a class="login" href="memberlogin.mb">로그인</a></li>
+		        	<li><a class="login" href="memberlogin">로그인</a></li>
 		        	<li><a class="register" href="register.mb">회원가입</a></li>
 		        </c:when>
 				<c:otherwise>

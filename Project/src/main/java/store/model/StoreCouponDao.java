@@ -41,7 +41,7 @@ public class StoreCouponDao {
 		return cnt;
 	}
 	
-	public List<StoreCouponBean> checkUserAvailableCoupon(String member_code) { 
+	public List<String> checkUserAvailableCoupon(String member_code) { 
 		List<String> myCouponList = new ArrayList<String>();
 		
 		myCouponList = sqlSessionTemplate.selectList(namespace+".CheckUserAvailableCoupon", member_code);
@@ -62,6 +62,25 @@ public class StoreCouponDao {
 //		for(int i=0;i<myCouponList.size();i++) {
 //			System.out.println(myCouponList.get(i).toString());
 //		}
+		return myCouponList;
+	}
+	
+	public List<StoreCouponBean> checkUserCoupon(String member_code) { 
+		List<String> myCouponList = new ArrayList<String>();
+		
+		myCouponList = sqlSessionTemplate.selectList(namespace+".CheckUserAvailableCoupon", member_code);
+		
+		List<StoreCouponBean> couponInfo = new ArrayList<StoreCouponBean>();
+		//쿠폰 정보를 담은 couponInfo
+
+		for(int i=0;i<myCouponList.size();i++) {
+			//System.out.println("쿠폰 코드 : "+myCouponList.get(i).toString());
+			List<StoreCouponBean> coupon = sqlSessionTemplate.selectList(namespace+".Coupon_codeToName",myCouponList.get(i).toString());
+			//System.out.println("쿠폰 이름들 : "+name);
+			couponInfo.addAll(coupon);
+			
+		}
+		
 		return couponInfo;
 	}
 	
