@@ -169,7 +169,7 @@ public class StoreCartController { //장바구니 컨트롤러
 		MemberBean member = (MemberBean) session.getAttribute("loginInfo");
 		String loginMember_code = member.getMember_code();
 		
-		List<StoreCouponBean> myCoupon = storeCouponDao.checkUserAvailableCoupon(loginMember_code);
+		List<StoreCouponBean> myCoupon = storeCouponDao.checkUserCoupon(loginMember_code);
 		//내 회원코드로 사용하지않은 쿠폰 불러오기
 		
 		StoreCartList cart = (StoreCartList)session.getAttribute("cart");
