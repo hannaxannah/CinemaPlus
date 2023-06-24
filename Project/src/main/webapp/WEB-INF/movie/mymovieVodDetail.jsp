@@ -24,11 +24,12 @@
 									allowfullscreen></iframe>
 							</div>
 							<div class="testimonial-item" style="padding: 40px 0; display: flex; flex-wrap: wrap;">
-								<div class="col-lg-10">
-									<h2>스파이더맨: 어크로스 더 유니버스</h2>
+								<div class="col-lg-10" style="display:flex;justify-content:space-between;align-items: center;">
+									<div><h2>스파이더맨: 어크로스 더 유니버스</h2></div>
+									<div><a style="color: #fff;font-size: 1.4rem;">3,500원</a></div>
 								</div>
 								<div class="col-lg-2" style="display: inline-flex;align-items: flex-start; padding-left: 40px; margin-right: 0">
-									<input type="button" class="btn btn-primary btn-block" style="background-color: #6B49EA; border: 0px" value="예매하기">
+									<input type="button" class="btn btn-primary btn-block" style="background-color: #6B49EA; border: 0px" value="구매하기">
 								</div>
 								<div class="col-lg-12">
 									<h4>
