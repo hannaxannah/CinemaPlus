@@ -130,10 +130,6 @@ h1 {
     font-size: 130%
 }
 
-.row:last-child .card:last-of-type .card-cont h3 {
-    text-decoration: line-through
-}
-
 .card-cont>div {
     display: table-row
 }
@@ -194,33 +190,28 @@ h1 {
     }
 }
 </style>
-
 <div class="container_coupon">
 	<div class="coupon_container">
 	<section class="container">
 <h1>쿠폰 발급</h1>
-<c:forEach var="c" items="${couponList}" varStatus="status2">
+<c:forEach var="c" items="${couponList}">
+
   <div class="row">
     <article class="card fl-left">
       <section class="date">
         <time datetime="23th feb">
         	<span>${c.coupon_rate}%</span>
-        	<c:if test="${checkCoupon ne null }">
-							<c:forEach begin="0" end="${checkCoupon.size()-1}" varStatus="status">
-								보유 쿠폰 번호 : ${checkCoupon.get(status.index).coupon_code} <br>
-							</c:forEach>
-						</c:if>
-						  <c:choose>
-							<c:when test="${c.coupon_remain_qty eq 0}"> 
-								<button class="issued" disabled="disabled">발급종료</button>
-							</c:when>
-							<c:when test=""> 
-								<button class="issued" disabled="disabled">발급완료</button>
-							</c:when>
-							<c:otherwise>
-								<a class="issue" href="couponIssue.store?coupon_code=${c.coupon_code}&member_code=${loginInfo.getMember_code()}">쿠폰 발급</a>
-							</c:otherwise>
-						</c:choose>  
+			  <c:choose>
+				<c:when test="${fn:contains(myCouponList,c.coupon_code)}"> 
+					<button class="issued" disabled="disabled">발급완료</button>
+				</c:when>
+				<c:when test="${c.coupon_remain_qty eq 0}"> 
+					<button class="issued" disabled="disabled">발급종료</button>
+				</c:when>
+				<c:otherwise>
+					<a class="issue" href="couponIssue.store?coupon_code=${c.coupon_code}&member_code=${loginInfo.getMember_code()}">쿠폰 발급</a>
+				</c:otherwise>
+			</c:choose>  
         </time>
       </section>
       <section class="card-cont">
@@ -233,7 +224,7 @@ h1 {
         <div class="even-info">
           <i class="fa fa-map-marker"></i>
           <p>
-            잔여 수량 : ${c.coupon_remain_qty}
+            잔여 수량 : ${c.coupon_remain_qty} 개
           </p>
         </div>
       </section>

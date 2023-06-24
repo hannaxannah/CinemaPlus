@@ -168,8 +168,12 @@ $(document).ready(function() {
 								
 								할인적용<br>
 								쿠폰
+									  
 								<select>
 									<option>=====</option>
+									<c:forEach items="${myCoupon}" var="coupon">
+										<option value="">[${coupon.coupon_rate}% 할인] ${coupon.coupon_name}</option>
+									</c:forEach>
 								</select>
 								
 								<table width="100%" border="1" style="margin-top : 50px">

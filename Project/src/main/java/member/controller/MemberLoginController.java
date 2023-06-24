@@ -31,7 +31,11 @@ public class MemberLoginController {
 	@RequestMapping(value=command, method = RequestMethod.GET)
 	public String login(@RequestParam("url") String url,
 						@RequestParam("google_url") String google_url,
-						Model model) {
+						Model model,HttpSession session) {
+		
+		//로그인 시도시 장바구니 목록와 장바구니 크기 세션 초기화
+		session.removeAttribute("loginInfo");
+		session.removeAttribute("cartSize");
 		
 		//네이버 
 		model.addAttribute("url", url);
