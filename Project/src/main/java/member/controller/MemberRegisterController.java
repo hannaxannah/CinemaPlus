@@ -1,5 +1,9 @@
 package member.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +36,7 @@ public class MemberRegisterController {
 	@RequestMapping(value=command, method=RequestMethod.POST)
 	public ModelAndView doAction(
 				@ModelAttribute("mb") @Valid MemberBean mb,
+				HttpServletResponse response,
 				BindingResult result) {
 
 		ModelAndView mav = new ModelAndView();
@@ -39,6 +44,9 @@ public class MemberRegisterController {
 		int total = mdao.getMemberTotal();//1
 		mb.setMember_code("M"+String.valueOf(total+1));//M2
 		System.out.println("total:"+total+"/setCode:"+mb.getMember_code());
+		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = null;
 		
 		
 		if(result.hasErrors()) {
@@ -48,7 +56,14 @@ public class MemberRegisterController {
 			int cnt = mdao.insertMember(mb);
 			
 			if(cnt > -1) {
-				mav.setViewName(gotoPage);
+				try {
+					out = response.getWriter();
+					out.println("<script>alert('cinema+ 회원이 되셨습니다.');history.go(-1);</script>");
+					out.flush();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+					mav.setViewName(gotoPage);
 				
 			}else {
 				mav.setViewName(getPage);

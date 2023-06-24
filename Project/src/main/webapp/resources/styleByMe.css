@@ -263,6 +263,7 @@
 	margin-top: 10px;
 }
 
+/* 영화관 */
 #theaterNavbar a {
 	font-size: 1rem;
 	padding: 10px 25px;
@@ -350,7 +351,7 @@
 .theater-branch-address {
 	font-size: 1.1rem;
 	font-weight: 500;
-	color: #FCFBFF;\
+	color: #FCFBFF;
 }
 
 .theater-branch-howtoget-title {
@@ -364,6 +365,28 @@
 	font-size: 1.1rem;
 	color: #FCFBFF;
 	margin-bottom: 20px;
+}
+.theater-branch-fee{
+	font-size: 1.1rem;
+	color: #FCFBFF;
+	margin-bottom: 20px;
+}
+
+#fee-table{
+	border-color:#FCFBFF;
+	font-size: 1.1rem;
+	color: #FCFBFF;
+	margin-bottom: 20px;
+	width: 600px;
+}
+ #fee-table th, td {
+    border-bottom: 1px solid;
+    padding: 10px;
+  }
+
+.fee-apply{
+	color: #01738b;
+	
 }
 
 
