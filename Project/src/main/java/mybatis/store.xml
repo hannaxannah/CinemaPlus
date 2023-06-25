@@ -81,7 +81,7 @@
 	<!-- 로그인 되있는 유저의 쿠폰 보유 여부 -->
 	<select id="CheckUserAvailableCoupon" resultType="String">
 		select coupon_code from coupon_user
-		where member_code = #{member_code}
+		where member_code = #{member_code} and coupon_state = 0
 	</select>
 	
 	<!-- 쿠폰코드 바탕으로 쿠폰정보 가져오기 -->
@@ -112,6 +112,12 @@
 	<update id="decreaseCouponQty">
 		update coupon set coupon_remain_qty = coupon_remain_qty - 1
 		where coupon_code = #{coupon_code}
+	</update>
+	
+	<!-- 결제시 해당 내 쿠폰내역에서 사용처리 -->
+	<update id="useMyCoupon">
+		update coupon_user set coupon_state = 1
+		where coupon_code = #{coupon_code} and member_code = #{member_code}
 	</update>
 </mapper>
 

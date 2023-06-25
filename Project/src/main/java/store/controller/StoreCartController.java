@@ -34,8 +34,6 @@ public class StoreCartController { //장바구니 컨트롤러
 	private final String order_command = "order.store"; //결제
 	private final String empty_command = "emptyAll.store"; //장바구니 전체 비우기
 	
-	private final String modify_command = "modifyCart.store"; //장바구니 수량 업데이트
-	
 	private final String cartPage = "storeCart";//장바구니페이지
 	private final String orderPage = "orderPage"; //결제페이지
 	

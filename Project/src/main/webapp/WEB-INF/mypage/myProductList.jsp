@@ -105,7 +105,7 @@ productList.jsp<br>
 					        <div class="panel-body">
 					        
 					        <c:forEach var="order" items="${order}" >
-								<a class="orderList" onclick="location.href='myOrderDetail.mp?payment_code=${order.payment_code}'">
+								<a class="orderList" onclick="location.href='myOrderDetail.mp?payment_code=${order.payment_code}&payment_sale_pay=${order.payment_sale_pay}'">
 						            <div class="row">
 						                <div class="col-md-1">
 						                	<i class="fa fa-credit-card" aria-hidden="true"></i>

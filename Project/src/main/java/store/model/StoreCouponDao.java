@@ -101,5 +101,11 @@ public class StoreCouponDao {
 		sqlSessionTemplate.selectOne(namespace+".decreaseCouponQty",coupon_code);
 		
 	}
+
+	public void useCoupon(StoreCoupon_UserBean storeCoupon_UserBean) {
+		
+		sqlSessionTemplate.update(namespace+".useMyCoupon",storeCoupon_UserBean);
+		
+	}
 	
 }

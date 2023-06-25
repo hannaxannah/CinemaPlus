@@ -81,6 +81,7 @@ public class MypageProductController {
 	@RequestMapping(detail_command)
 	public String detail(
 			@RequestParam("payment_code") String payment_code,
+			@RequestParam("payment_sale_pay") int payment_sale_pay,
 			HttpServletResponse response,
 			HttpSession session, 
 			Model model
@@ -105,6 +106,7 @@ public class MypageProductController {
 		MemberBean id = (MemberBean) session.getAttribute("loginInfo");
 		storePaymentBean.setPayment_code(payment_code); //결제코드 수동으로 주입
 		storePaymentBean.setMember_code(id.getMember_code());//멤버코드 주입
+		storePaymentBean.setPayment_sale_pay(payment_sale_pay);//할인 퍼센트 주입
 		
 		storeCardBean = storePaymentDao.card_Info(payment_code); //결제코드에 대한 카드정보
 		int productsCount = storePaymentDao.orderProductsCount(storePaymentBean);//해당 결제코드 상품 갯수
@@ -130,6 +132,7 @@ public class MypageProductController {
 		model.addAttribute("productsCount", productsCount);
 		model.addAttribute("storeCardBean", storeCardBean);
 		model.addAttribute("productList",productList);
+		model.addAttribute("payment_sale_pay",payment_sale_pay);
 		
 		return detail_page;
 	}
