@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" type="text/css" href="style.css">
 <%@ include file="../common/common.jsp" %>
-<%@ include file="../main/mainHeader.jsp"%>    
+<%@ include file="../main/mainHeader.jsp"%>
+<%@ include file="mypageSidebar.jsp"%>
 <style type="text/css">
 	table{
 		margin: auto;
@@ -16,30 +17,34 @@
 	}
 </style>
 
+<div class="col-lg-9" style="padding: 20px;">
+	<div class="card info-card customers-card">
+		<div class="card-body align-items-center justify-content-center">
+
 <form:form commandName="member"  action="myDelete.mp" method="post">
 <input type="hidden" name="member_code" value="${member.member_code}">
-<table border="1" style="margin-top: 150px;">
-	<tr align="center">
-		<td colspan="2"><B>회원님의 정보를 입력하시고 탈퇴 버튼을 클릭해주세요.</B></td>
+<table style="margin-top: 50px;">
+	<tr align="left">
+		<td colspan="2"><font style="font-size: medium;">* 회원님의 정보를 입력하시고 탈퇴 버튼을 클릭해주세요.</font></td>
 	</tr>
 	<tr>
-		<th>아이디 </th>
+		<th style="font-weight: 500;">아이디 </th>
 		<td>
-			 <input type="text" name="member_id" size="30" value="${loginInfo.member_id}" readonly style="background-color: #F6F6F6;">
+			 <input class="inputText3"  type="text" name="member_id" size="30" value="${loginInfo.member_id}" readonly>
 		</td>
 	</tr>
 	
 	<tr>
-	<th>비밀번호 </th>
+	<th style="font-weight: 500;">비밀번호 </th>
 		<td>
-		<input type="password" name="member_pw" size="30">
+		<input class="inputText3"  type="password" name="member_pw" size="30">
 		</td>
 	</tr>
 	
 	<tr>
-	<th>연락처 </th>
+	<th style="font-weight: 500;">연락처 </th>
 		<td>
-			<input type="text" name="member_phone" size="30" placeholder="'-'를 제외하고 입력하세요">
+			<input class="inputText3"  type="text" name="member_phone" size="30" placeholder="'-'를 제외하고 입력하세요">
 		</td>
 	</tr>
 	
@@ -51,6 +56,16 @@
 	</tr>
 </table>
 </form:form>
+
+</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+</main>
+
 
 <%@ include file="../main/mainFooter.jsp"%>
 
