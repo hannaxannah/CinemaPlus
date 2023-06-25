@@ -225,7 +225,7 @@ $(document).ready(function(){
 	$('#join').click(function(){
 		//alert("join");
 		if($('input[name = member_name]').val() == ""){
-			alert("이름을 입력하세요dhdhhdhdh");
+			alert("이름을 입력하세요.");
 			$('input[name = member_name]').focus();
 			return false;
 		}
