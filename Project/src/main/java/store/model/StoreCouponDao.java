@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
+import board.model.IndividualBoardBean;
+
 @Component
 public class StoreCouponDao {
 
@@ -106,6 +108,12 @@ public class StoreCouponDao {
 		
 		sqlSessionTemplate.update(namespace+".useMyCoupon",storeCoupon_UserBean);
 		
+	}
+
+	public List<StoreCouponBean> getCouponByCode(String member_code) {
+		List<StoreCouponBean> couponList = new ArrayList<StoreCouponBean>();
+		couponList = sqlSessionTemplate.selectList(namespace + ".CheckUserAvailableCouponList", member_code);
+		return couponList;
 	}
 	
 }
