@@ -20,7 +20,7 @@
 								</li>
 								<!-- End Dashboard Nav -->
 								<li class="nav-item">
-									<a class="nav-link collapsed" href="myreservation.mp">
+									<a class="nav-link collapsed" href="myreservation.mp?member_id=${loginInfo.member_id}">
 										<i class="bi bi-card-list"></i>
 										<span>예매내역</span>
 									</a>
@@ -28,7 +28,7 @@
 								<!-- End Profile Page Nav -->
 	
 								<li class="nav-item">
-									<a class="nav-link collapsed" href="pages-faq.html">
+									<a class="nav-link collapsed" href="myCouponList.mp?member_id=${loginInfo.member_id}">
 										<i class="bi bi-ticket-perforated"></i>
 										<span>MY 쿠폰</span>
 									</a>
@@ -43,7 +43,7 @@
 								<!-- End F.A.Q Page Nav -->
 	
 								<li class="nav-item">
-									<a class="nav-link collapsed" href="pages-contact.html">
+									<a class="nav-link collapsed" href="membership.mp?member_id=${loginInfo.member_id}">
 										<i class="bi bi-star"></i>
 										<span>멤버십</span>
 									</a>
@@ -51,7 +51,7 @@
 								<!-- End Contact Page Nav -->
 	
 								<li class="nav-item">
-									<a class="nav-link collapsed" href="pages-register.html">
+									<a class="nav-link collapsed" href="#">
 										<i class="bi bi-pencil-square"></i>
 										<span>영화기록</span>
 									</a>
@@ -59,7 +59,7 @@
 								<!-- End Register Page Nav -->
 	
 								<li class="nav-item">
-									<a class="nav-link collapsed" href="pages-login.html">
+									<a class="nav-link collapsed" href="insert.in">
 										<i class="bi bi-envelope"></i>
 										<span>1:1문의</span>
 									</a>
@@ -75,7 +75,7 @@
 								</li>
 								
 								<li class="nav-item">
-									<a class="nav-link collapsed" href="pages-error-404.html">
+									<a class="nav-link collapsed" href="list.bd">
 										<i class="bi bi-question-circle"></i>
 										<span>자주 묻는 질문</span>
 									</a>
@@ -83,9 +83,16 @@
 								<!-- End Error 404 Page Nav -->
 	
 								<li class="nav-item">
-									<a class="nav-link collapsed" href="memberinfo.mp">
+									<a class="nav-link collapsed" href="mail.mp?member_id=${loginInfo.member_id}">
 										<i class="bi bi-person"></i>
-										<span>회원 정보</span>
+										<span>회원 정보수정</span>
+									</a>
+								</li>
+								
+								<li class="nav-item">
+									<a class="nav-link collapsed" href="myDelete.mp?member_id=${loginInfo.member_id}">
+									<i class="bi bi-person-fill-x"></i>
+										<span>회원 탈퇴하기</span>
 									</a>
 								</li>
 								<!-- End Blank Page Nav -->

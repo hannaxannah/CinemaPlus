@@ -22,7 +22,7 @@ import member.model.MemberDao;
 public class MypageMemberUpdateController {
 	
 	private final String command = "/myUpdate.mp";
-	private final String getPage = "mypageMemberUpdateForm";
+	private final String getPage = "memberUpdateInfo";
 	private final String gotoPage = "redirect:/main.mp";
 	
 	@Autowired
@@ -61,7 +61,9 @@ public class MypageMemberUpdateController {
 				try {
 					out = response.getWriter();
 					System.out.println("mb.getMember_pw(): "+mb.getMember_pw() );
-					out.print("<script>alert('회원 정보가 수정되었습니다.');location.href='main.mp';</script>");
+					out.print("<script>alert('회원 정보가 수정되었습니다.');");
+					out.print("location.href='main.mp?member_id="+mb.getMember_id()+"' ");
+					out.print("</script>");
 					out.flush();
 					mav.setViewName(gotoPage);
 				} catch (IOException e) {
@@ -81,7 +83,7 @@ public class MypageMemberUpdateController {
 					System.out.println("mb.getMember_pw(): "+mb.getMember_pw() );
 					out = response.getWriter();
 					out.print("<script>alert('회원정보 및 비밀번호를 변경해주세요.');");
-					out.print("location.href='mypage_update.mb?member_id="+mb.getMember_id()+"' ");
+					out.print("location.href='myUpdate.mp?member_id="+mb.getMember_id()+"' ");
 					out.print("</script>");
 					out.flush();
 				} catch (IOException e) {

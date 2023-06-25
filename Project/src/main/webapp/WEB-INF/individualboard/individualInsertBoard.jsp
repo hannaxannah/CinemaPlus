@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 individualInsertBoard.jsp<br>
-<%@ include file="../common/common.jsp" %>
-<%@ include file="../main/mainHeader.jsp"%>    
+<%@include file="../common/common.jsp"%>
+<%@ include file="../main/mainHeader.jsp"%>
+<%@ include file="../mypage/mypageSidebar.jsp"%>  
 
 <style>
 	table{
@@ -20,6 +21,109 @@ individualInsertBoard.jsp<br>
 	height: 30px;
 	}
     
+    
+    
+  body {
+	
+}
+
+.orderList {
+	cursor: pointer;
+	text-align: center;
+}
+
+.orderList:hover {
+	transform: scale(1.1);
+}
+
+.panel-default {
+	border-color: #ddd;
+}
+
+.panel-order .row {
+	border-bottom: 1px solid #ccc;
+}
+
+.panel-order .row .col-md-1 {
+	text-align: center;
+	padding-top: 28px;
+}
+
+.panel-order .row .col-md-1 i {
+	width: 50px;
+	max-height: 50px;
+}
+
+.panel-order .row .row {
+	border-bottom: 0;
+}
+
+.panel-order .row .col-md-11 {
+	border-left: 1px solid #ccc;
+}
+
+.panel-order .row .row .col-md-12 {
+	text-align: left;
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+
+.panel-order .row .row .col-md-12:last-child {
+	font-size: 11px;
+	color: #555;
+	background: #efefef;
+}
+
+.panel-order .btn-group {
+	margin: 0px;
+	padding: 0px;
+}
+
+.panel-order .panel-body {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.panel-order .panel-deading {
+	margin-bottom: 0;
+}
+
+a {
+	color: #000000;
+	text-decoration: none;
+}
+
+.row .row {
+	text-align: left;
+}
+
+.panel-order .panel-heading {
+	color: #333;
+	background-color: #f5f5f5;
+	border-color: #ddd;
+	padding: 10px 15px;
+	border-bottom: 1px solid transparent;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.label-danger {
+	background-color: #5cb85c;
+}
+
+.label {
+	display: inline;
+	padding: .2em .6em .3em;
+	font-size: 75%;
+	font-weight: 700;
+	line-height: 1;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: .25em;
+}
+    
 </style>
 
 <script type="text/javascript" src="resources/js/jquery.js"></script>
@@ -29,6 +133,8 @@ individualInsertBoard.jsp<br>
     String[] questionArr = {"영화정보문의", "회원 및 포인트문의", "예매/결제문의", "이벤트문의", "일반문의", "제안/건의"};
 %>
 
+<div class="col-lg-9" style="padding: 20px;">
+	<div class="card info-card customers-card">
 <table width="800px;">
 <tr>
 	<td>
@@ -48,7 +154,7 @@ individualInsertBoard.jsp<br>
 </tr>
 </table>
 
-<font style="margin-left: 48%; font-size: large;">문의글 작성</font><br>
+<font style="margin: auto; font-size: large;">문의글 작성</font><br>
 <form name="boardForm" action="insert.in" method="POST" enctype="multipart/form-data" >
     <table width="800px" border="1">
         <caption style="text-align: right;"><font style="font-size:small; font-weight: bold;"><span class="t_red">*</span> 표시는 필수입력 항목입니다.</font></caption>
@@ -139,7 +245,12 @@ individualInsertBoard.jsp<br>
 </form><br><br>
 
 
+</div>
+</div>
+</div>
+</section>
 
+</main>
 
 
 <%@ include file="../main/mainFooter.jsp"%>
