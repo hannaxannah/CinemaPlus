@@ -136,6 +136,44 @@ function check_reservation_check() {
 	}
 }
 
+/* 아이디 유효성검사 */
+function chkId(str){
+		var reg_id = /^[a-z0-9]{3,10}$/;
+		if(!reg_id.test(str)){
+			return false;
+		}
+		return true;
+ 	}
+
+/* 비밀번호 유효성검사 */
+function chkPwd(str){
+		var reg_pwd = /^[a-z0-9]{8,12}$/;
+		if(!reg_pwd.test(str)){
+			return false;
+		}
+		return true;
+ 	}
+
+/* 생년월일 유효성검사 */
+function chkBir(str){
+		var reg_bir = /^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
+		if(!reg_bir.test(str)){
+			return false;
+		}
+		return true;
+ 	}
+
+ /* 핸드폰번호 유효성검사 */
+function chkPhn(str){
+		var reg_phn = /^[0-9]{11}$/;
+		if(!reg_phn.test(str)){
+			return false;
+		}
+		return true;
+ 	}	
+
+
+
 /* 회원가입 */
 $(document).ready(function(){
 	//alert(1);
@@ -187,7 +225,7 @@ $(document).ready(function(){
 	$('#join').click(function(){
 		//alert("join");
 		if($('input[name = member_name]').val() == ""){
-			alert("이름을 입력하세요");
+			alert("이름을 입력하세요dhdhhdhdh");
 			$('input[name = member_name]').focus();
 			return false;
 		}
@@ -197,18 +235,29 @@ $(document).ready(function(){
 			$('input[name = member_id]').focus();
 			return false;
 		}
+		else if(!chkId($.trim($("#member_id").val()))){
+ 			alert("아이디 형식을 확인해주세요.");
+ 			$('input[name = member_id]').focus();
+ 			return false;
+    	}
 		
 		if(!isCheck){
-			alert("아이디 중복체크 버튼을 눌러주세요");
+			alert("아이디 중복체크 버튼을 눌러주세요.");
 			$('#id_check').focus();
 			return false;
 		}
+		
 		
 		if($('input[name = member_pw]').val() == ""){
 			alert("비밀번호를 입력하세요");
 			$('input[name = member_pw]').focus();
 			return false;
 		}
+		else if(!chkPwd($.trim($("#member_pw").val()))){
+ 			alert("비밀번호 형식을 확인해주세요.");
+ 			$('input[name = member_pw]').focus();
+ 			return false;
+    	}
 		
 		if($('input[name = member_pwcheck]').val() == "") {
 			alert("비밀번호 확인을 입력하세요");
@@ -225,9 +274,9 @@ $(document).ready(function(){
 			return false;
 		}
 		
-		if($('input[name = pw_question]').val() == ""){
+		if(mb.pw_question.value==""){
 			alert("비밀번호 찾기 질문을 선택하세요");
-			$('input[name = pw_question]').focus();
+			mb.pw_question.focus();
 			return false;
 		}
 		
@@ -236,12 +285,27 @@ $(document).ready(function(){
 			$('input[name = pw_answer]').focus();
 			return false;
 		}
+		if($('input[name = member_birth]').val() == ""){
+			alert("생년월일을 입력하세요");
+			$('input[name = member_birth]').focus();
+			return false;
+		}
+		else if(!chkBir($.trim($("#member_birth").val()))){
+ 			alert("생년월일 형식을 확인해주세요.");
+ 			$('input[name = member_birth]').focus();
+ 			return false;
+    	}
 		
 		if($('input[name = member_phone]').val() == ""){
 			alert("휴대폰 번호를 입력하세요");
 			$('input[name = member_phone]').focus();
 			return false;
 		}
+		else if(!chkPhn($.trim($("#member_phone").val()))){
+ 			alert("- 없이 숫자 11자리를 입력해주세요.");
+ 			$('input[name = member_phone]').focus();
+ 			return false;
+    	}
 		
 		if($('input[name = member_email]').val() == ""){
 			alert("이메일을 입력하세요");
@@ -249,21 +313,18 @@ $(document).ready(function(){
 			return false;
 		}
 		
-		if($('input[name = member_marketing_agree]').val() == ""){
+		if(mb.member_marketing_agree.value==""){
 			alert("마케팅 활용 동의 여부를 선택하세요");
-			$('input[name = member_marketing_agree]').focus();
 			return false;
 		}
 		
-		if($('input[name = member_email_agree]').val() == ""){
+		if(mb.member_email_agree.value==""){
 			alert("마케팅 정보 email 수신 동의 여부를 선택하세요");
-			$('input[name = member_email_agree]').focus();
 			return false;
 		}
 		
-		if($('input[name = member_sms_agree]').val() == ""){
+		if(mb.member_sms_agree.value==""){
 			alert("마케팅 정보 sms 수신 동의 여부를 선택하세요");
-			$('input[name = member_sms_agree]').focus();
 			return false;
 		}
 		
