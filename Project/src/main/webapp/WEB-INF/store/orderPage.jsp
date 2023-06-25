@@ -161,7 +161,7 @@ $(document).ready(function() {
 											<td>${cart.product_sprice * cart.cart_qty }</td>
 										</tr>
 												<c:set var="original_price" value="${original_price + cart.product_sprice*cart.cart_qty}"/>
-												<c:set var="total_price" value="${toatl_price + original_price}"/>
+												<c:set var="total_price" value="${total_price + original_price}"/>
 												<c:set var="sum_point" value="${sum_point + cart.product_point*cart.cart_qty}"/>
 									</c:forEach>				
 								</table>
@@ -169,10 +169,10 @@ $(document).ready(function() {
 								할인적용<br>
 								쿠폰
 									  
-								<select>
-									<option>=====</option>
+								<select class="coupon_sale" id="coupon_sale" name="coupon_sale">
+									<option value="0" selected>=====</option>
 									<c:forEach items="${myCoupon}" var="coupon">
-										<option value="">[${coupon.coupon_rate}% 할인] ${coupon.coupon_name}</option>
+										<option value="${coupon.coupon_rate}" >[${coupon.coupon_rate}% 할인] ${coupon.coupon_name}  /${coupon.coupon_code}</option>
 									</c:forEach>
 								</select>
 								
@@ -185,25 +185,24 @@ $(document).ready(function() {
 											할인 금액
 										</th>
 										<th>
+											적립 포인트
+										</th>
+										<th>
 											총 결제 예정 금액
 										</th>
 									</tr>
 									<tr>	
 										<td>
-											${original_price}원
+											<span class="originalPrice"></span>
 										</td>
 										<td>
-											<c:set var="sale_price" value=""/>
-											<c:choose>
-												<c:when test="${empty sale_price}">
-													<c:set var="sale_price" value="0"/>
-												</c:when>
-											</c:choose>
-											<c:out value="${sale_price}"/>
-											원
+											<span class="salePrice"></span>
 										</td>
 										<td>
-											${total_price } 원
+											<span class="savePoint"></span>
+										</td>
+										<td>
+											<span class="finalPrice"></span>
 										</td>
 									</tr>
 									<tr>	
@@ -241,9 +240,9 @@ $(document).ready(function() {
 
 <div id="payDiv">
 <form action="pay.store" method="post" class="cardForm" id="cardForm" accept-charset="UTF-8">
-	<input type="hidden" name="total_price" value="${total_price}">	
 	<input type="hidden" name="sale_pay" value="${sale_price}">	
 	<input type="hidden" name="total_point" value="${sum_point}">	
+	<input type="hidden" name="use_coupon_code" value="">	
    	<input type="radio" class="payment" name="payment_card" id="payment_card" value="card"> 신용/체크 카드결제
    	<div id="cardDiv">
 	<table border="1" width="50%">
@@ -319,9 +318,44 @@ $(document).ready(function() {
 		</div>
 		</form>
 </div>
-
 <script type="text/javascript" src="resources/js/jquery.js"></script>
 <script type="text/javascript">
+
+$(document).ready(function(){
+	//페이지 로드시 가격 계산
+	setTotalInfo();
+	
+});
+
+
+function setTotalInfo(){
+	let totalPrice = <c:out value="${original_price}"/>;//전체 상품 가격
+	let salePercent = 0;//전체 상품 할인 가격
+	let getPoint = <c:out value="${sum_point}"/>; //적립 포인트
+	let purchasePrice = <c:out value="${total_price}"/>; //최종 가격
+	let sale_percent = $("#coupon_sale option:selected").val();
+	let indexofcoupon = $("#coupon_sale option:selected").text().indexOf('/');
+	let substrcoupon = $("#coupon_sale option:selected").text().substr(indexofcoupon);
+	let couponcode = substrcoupon.substring(1);
+		
+	$(".originalPrice").text(totalPrice);
+	$(".savePoint").text(parseInt(getPoint*(0.01*sale_percent)));
+	$(".salePrice").text(parseInt(totalPrice*(0.01*sale_percent)));
+	$(".finalPrice").text(parseInt(purchasePrice-(totalPrice*(0.01*sale_percent))));
+	
+	$("input[name=sale_pay]").val(sale_percent);
+	$("input[name=total_point]").val(parseInt(getPoint*(0.01*sale_percent)));
+	$("input[name=use_coupon_code]").val(couponcode);
+}
+	
+	$("#coupon_sale").change(function(){
+		
+		
+		
+		setTotalInfo();
+	    
+	});
+	
 function payment() {//결제 버튼 클릭
 	var birth_regEXP = /([0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1]))/;//주민번호6자리
 	var busi_regEXP = /^[0-9]{6,10}$/;// 숫자6~10자리 정규식

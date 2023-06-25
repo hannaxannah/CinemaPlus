@@ -262,19 +262,22 @@ td{
 						<td>${p.product_order_qty} 개</td>
 						<td>
 							<c:choose>
-								<c:when test="${p.payment_sale_pay eq 0}">
+								<c:when test="${payment_sale_pay eq 0}">
 									0 원
 								</c:when>
 								<c:otherwise>
-									${p.product_sprice * (1-(0.01*p.payment_sale_pay))} 원
+									<fmt:parseNumber integerOnly="true" value="${p.product_sprice * (1-(0.01*payment_sale_pay))}"/>
+									 원
 								</c:otherwise>
 							</c:choose>
 						</td>
 						<td>
-							${p.product_point * p.product_order_qty} <font>point</font>
+							<fmt:parseNumber integerOnly="true" value="${p.product_point * p.product_order_qty * (1-(0.01*payment_sale_pay)) } "/>
+							<font>point</font>
 						</td>
 						<td>
-							${p.product_sprice * p.product_order_qty} 원
+							<fmt:parseNumber integerOnly="true" value="${p.product_sprice * p.product_order_qty * (1-(0.01*payment_sale_pay))}"/>
+							 원
 						</td>
 					</tr>
 					<c:set var="original_price" value="${original_price + p.product_sprice*p.product_order_qty}"/>
@@ -299,28 +302,36 @@ td{
                      <div class="sub-price">
                         <small>할인 금액</small>
                         <c:choose>
-								<c:when test="${p.payment_sale_pay eq 0 || empty p.payment_sale_pay}">
+								<c:when test="${payment_sale_pay eq 0 || empty payment_sale_pay}">
 									<span class="text-inverse">0 원</span>
 								</c:when>
 								<c:otherwise>
-			                        <span class="text-inverse">${original_price*(1-0.01*p.payment_sale_pay)} 원</span>
+			                        <span class="text-inverse">
+			                        <fmt:parseNumber integerOnly="true" value="${original_price*(1-0.01*payment_sale_pay)}"/>
+			                         원
+			                        </span>
 								</c:otherwise>
 							</c:choose>
                      </div>
                      <div class="sub-price" style="padding-left: 200px;">
                         <small>적립 포인트</small>
-                        <span class="text-inverse">${sum_point} point</span>
+                        <span class="text-inverse">
+                        <fmt:parseNumber integerOnly="true" value="${sum_point*(1-0.01*payment_sale_pay)}"/>
+                         point
+                        </span>
                      </div>
                   </div>
                </div>
                <div class="invoice-price-right">
                   <small>최종 결제 금액</small> <span class="f-w-600">
                   	<c:choose>
-						<c:when test="${p.payment_sale_pay eq 0 || empty p.payment_sale_pay}">
+						<c:when test="${payment_sale_pay eq 0 || empty payment_sale_pay}">
 							<span class="text-inverse">${original_price} 원</span>
 						</c:when>
 						<c:otherwise>
-	                        <span class="text-inverse">${original_price*(1-0.01*p.payment_sale_pay)} 원</span>
+	                        <span class="text-inverse">
+	                       	 <fmt:parseNumber integerOnly="true" value="${original_price*(1-0.01*payment_sale_pay)} "/>
+	                        원</span>
 						</c:otherwise>
 					</c:choose>
                   </span>

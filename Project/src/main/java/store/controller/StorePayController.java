@@ -26,6 +26,8 @@ import member.model.MemberDao;
 import store.model.StoreCardBean;
 import store.model.StoreCartBean;
 import store.model.StoreCartList;
+import store.model.StoreCouponDao;
+import store.model.StoreCoupon_UserBean;
 import store.model.StorePaymentBean;
 import store.model.StorePaymentDao;
 import store.model.StoreProductBean;
@@ -34,7 +36,7 @@ import store.model.StoreProductDao;
 @Controller
 public class StorePayController {
 	private final String command = "/pay.store";
-	private final String getCouponPage = "";
+	private final String getPayPage = "";
 
 	@Autowired
 	StorePaymentDao storePaymentDao;
@@ -45,12 +47,15 @@ public class StorePayController {
 	@Autowired
 	MemberDao memberDao;
 	
+	@Autowired
+	StoreCouponDao storeCouponDao;
+	
 	@RequestMapping(command)
 	public String order(
 			@ModelAttribute("storeCardBean") StoreCardBean storeCardBean,
 			@ModelAttribute("StorePaymentBean") StoreCardBean StorePaymentBean,
-			@RequestParam("total_price") int total_price,
 			@RequestParam("sale_pay") int sale_pay,
+			@RequestParam("use_coupon_code") String use_coupon_code,
 			@RequestParam("total_point") String total_point,
 			HttpSession session,HttpServletResponse response
 			) throws IOException {
@@ -95,6 +100,7 @@ public class StorePayController {
 		storeCardBean.setPayment_code(payment_code);
 		storePaymentBean.setPayment_code(payment_code); //결제코드 수동으로 주입
 		storePaymentBean.setCard_number(storeCardBean.getCard_number());//카드번호 주입
+		storePaymentBean.setPayment_sale_pay(sale_pay);//카드번호 주입
 		storePaymentBean.setMember_code(id.getMember_code());//멤버코드 주입
 		int check1 = -1;
 		int check2 = -1;
@@ -121,6 +127,10 @@ public class StorePayController {
 					writer.println("alert('결제 완료');");
 					session.removeAttribute("cart"); //결제 완료시 장바구니 비우기
 					session.removeAttribute("cartSize");//결제 완료시 장바구니갯수 카운트 비우기
+					StoreCoupon_UserBean storeCoupon_UserBean = new StoreCoupon_UserBean();
+					storeCoupon_UserBean.setCoupon_code(use_coupon_code);
+					storeCoupon_UserBean.setMember_code(id.getMember_code());
+					storeCouponDao.useCoupon(storeCoupon_UserBean);
 					writer.println("location.href = 'list.store' ");
 					writer.println("</script>");
 					writer.flush();
@@ -141,7 +151,7 @@ public class StorePayController {
 
 		
 		
-		return getCouponPage; //쿠폰발급페이지로 넘어가기
+		return getPayPage;
 	}
 	
 	
