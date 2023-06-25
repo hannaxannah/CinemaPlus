@@ -133,7 +133,6 @@ a {
 					<div style="width: 100%;">
 						<div style="width: 100%; display: flex;">
 							<!-- Table -->
-							<c:forEach var="reservation" items="<%-- ${ coupons } --%>">
 								<table class="table">
 									<thead>
 										<tr>
@@ -143,15 +142,25 @@ a {
 											<th scope="col" width="25%">쿠폰상태</th>
 										</tr>
 									</thead>
-
-									<c:if test="${fn:length(couponLists) == 0}">
+								
+									<c:if test="${fn:length(myCouponLists) == 0}">
 										<tr>
 											<td colspan="4" align="center">쿠폰 내역이 없습니다.</td>
 										</tr>
 									</c:if>
 
+									<c:if test="${fn:length(myCouponLists) != 0}">
+										<c:forEach var="coupon" items="${myCouponLists}">
+											<tr>
+												<td align="center">${coupon.member_code}</td>
+												<td align="center">${coupon.coupon_code}</td>
+												<td align="center">${coupon.coupon_rate}</td>
+												<td align="center">${coupon.coupon_state}</td>
+											</tr>
+										</c:forEach>
+									</c:if>
+
 								</table>
-							</c:forEach>
 						</div>
 					</div>
 				</div>
