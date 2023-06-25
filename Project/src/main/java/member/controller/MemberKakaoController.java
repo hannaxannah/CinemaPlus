@@ -72,7 +72,7 @@ public class MemberKakaoController {
 		model.addAttribute("nickname", nickname);
 		
 		
-		member.model.MemberBean mb = sqlSessionTemplate.selectOne(namespace+".GetMemberById",email);
+		member.model.MemberBean mb = sqlSessionTemplate.selectOne(namespace+".GetMemberByEmail",email);
 		session.setAttribute("loginInfo", mb);//세션설정
 		 
 			
@@ -81,6 +81,9 @@ public class MemberKakaoController {
 			sqlSessionTemplate.insert(namespace+".KakaoInsertMember",model);
 			
 		    mb = sqlSessionTemplate.selectOne(namespace+".GetMemberById",email);
+			session.setAttribute("loginInfo", mb);//세션설정
+		}
+		else if(mb.getMember_email() == email) {
 			session.setAttribute("loginInfo", mb);//세션설정
 		}
 		return "redirect:/main.mn";

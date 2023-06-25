@@ -58,12 +58,12 @@ public class MemberRegisterController {
 			if(cnt > -1) {
 				try {
 					out = response.getWriter();
-					out.println("<script>alert('cinema+ 회원이 되셨습니다.');history.go(-1);</script>");
+					out.println("<script>alert('cinema+ 회원이 되셨습니다.');</script>");
 					out.flush();
+					mav.setViewName(gotoPage);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-					mav.setViewName(gotoPage);
 				
 			}else {
 				mav.setViewName(getPage);
