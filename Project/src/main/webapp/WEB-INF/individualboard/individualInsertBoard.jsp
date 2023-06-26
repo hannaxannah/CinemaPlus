@@ -219,7 +219,7 @@ a {
         
         
    <div class="mb-3">     
-  <label for="formCheck" class="form-label">옵션</label>
+  <label for="formCheck" class="form-label">옵션(선택사항)</label>
  <div class="form-check">
   <input class="form-check-input" type="checkbox" id="issecret" name="issecret" value="Y">
   <label class="form-check-label" for="flexCheckDefault">

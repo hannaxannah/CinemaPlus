@@ -137,7 +137,7 @@ a {
 			
 	<table class="table" style="width: 800px">
 			<div align="right" style="margin-right: 70px; margin-bottom: 40px">	
-				<input type="button" onclick="location.href='insert.in'" value="1:1문의">
+				<input type="button" class="btn btn-outline-secondary" onclick="location.href='insert.in'" value="1:1문의">
 			</div>
 		<tr align="center">
 			<th width="70">번호</th>
