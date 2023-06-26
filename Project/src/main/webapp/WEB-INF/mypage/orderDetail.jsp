@@ -184,7 +184,7 @@ td{
     
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
-   <div class="col-md-12">
+   <div class="col-md-12" style="margin-top: 50px;">
       <div class="invoice">
          <!-- begin invoice-company -->
          <div class="invoice-company text-inverse f-w-600">

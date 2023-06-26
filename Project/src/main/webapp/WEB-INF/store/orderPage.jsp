@@ -158,7 +158,11 @@ $(document).ready(function() {
 											<td width="110px" style="text-align:center;">
 					                            	<input type="text" class="cart_qty" id="cart_qty" name="cart_qty" title="수량 입력" readonly="readonly" value="${cart.cart_qty }">
 											</td>
-											<td>${cart.product_sprice * cart.cart_qty }</td>
+											<td>
+												<fmt:formatNumber value="${cart.product_sprice * cart.cart_qty }" pattern="#,###"/>원
+												 <br>
+												<fmt:formatNumber value="${cart.product_point * cart.cart_qty }" pattern="#,###"/> point
+											</td>
 										</tr>
 												<c:set var="original_price" value="${original_price + cart.product_sprice*cart.cart_qty}"/>
 												<c:set var="total_price" value="${total_price + original_price}"/>
@@ -341,7 +345,7 @@ function setTotalInfo(){
 	$(".originalPrice").text(totalPrice);
 	$(".savePoint").text(parseInt(getPoint*(0.01*sale_percent)));
 	$(".salePrice").text(parseInt(totalPrice*(0.01*sale_percent)));
-	$(".finalPrice").text(parseInt(purchasePrice-(totalPrice*(0.01*sale_percent))));
+	$(".finalPrice").text(parseInt(totalPrice-(totalPrice*(0.01*sale_percent))));
 	
 	$("input[name=sale_pay]").val(sale_percent);
 	$("input[name=total_point]").val(parseInt(getPoint*(0.01*sale_percent)));
