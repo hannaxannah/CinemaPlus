@@ -51,7 +51,7 @@
 								<!-- End Contact Page Nav -->
 	
 								<li class="nav-item">
-									<a class="nav-link collapsed" href="#">
+									<a class="nav-link collapsed" href="myMovieRecord.mp?member_id=${loginInfo.member_id}">
 										<i class="bi bi-pencil-square"></i>
 										<span>영화기록</span>
 									</a>
