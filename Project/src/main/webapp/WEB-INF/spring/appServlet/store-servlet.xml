@@ -18,5 +18,6 @@
 	<context:component-scan base-package="store"/>
 	<context:component-scan base-package="member"/>
 	<context:component-scan base-package="mypage"/>
+	<context:component-scan base-package="movie"/>
 	
 </beans>
