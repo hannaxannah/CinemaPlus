@@ -126,8 +126,8 @@ a {
 		</div>
 	</table>
 	<!-- 검색 설정은 내부브라우저 말고 외부브라우저에서 실행 -->
-	<form action="list.bd" method="get" style="margin-left: 500px">
-		<select name="whatColumn"  class="my-reservation-search-date">
+	<form action="list.bd" method="get" style="margin-left: 485px">
+		<select name="whatColumn"  class="my-reservation-search-date" >
 			<option value="">전체</option>
 			<option value="classification">분류</option>
 			<option value="question">제목</option>
@@ -147,7 +147,7 @@ a {
 			</p><br>
 				<span style="color: #B2CCFF;"><font style="font-size: small;">전체 (${pageInfo.totalCount}건)</font></span>
 			</th>
-			<div style="margin-top: 30px; margin-right: 20px" align="right">
+			<div style="margin-top: 30px; margin-right: 30px" align="right">
 				<a href="number.bd">번호 순</a>&nbsp;&nbsp;&nbsp;
 				<a href="date.bd">작성일 순</a>&nbsp;&nbsp;&nbsp;
 				<a href="hits.bd">조회수 순</a>&nbsp;&nbsp;&nbsp;
@@ -200,8 +200,13 @@ a {
 	</div>
 </div>
 	
-<div style="margin-bottom: 120px" align="center">
-	${pageInfo.pagingHtml}
+
+<div class="row" style="margin-bottom: 50px;">
+        <nav id="pagination" aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link">${pageInfo.pagingHtml}</a></li>
+            </ul>
+        </nav>
 </div>
 	
 	

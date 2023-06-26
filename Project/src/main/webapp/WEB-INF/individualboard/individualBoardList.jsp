@@ -216,8 +216,12 @@ a {
 </div>
 
 
-<div style="margin-bottom: 120px" align="center">
-	${pageInfo.pagingHtml}
+<div class="row" style="margin-bottom: 50px;">
+        <nav id="pagination" aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link">${pageInfo.pagingHtml}</a></li>
+            </ul>
+        </nav>
 </div>
 	
 	
