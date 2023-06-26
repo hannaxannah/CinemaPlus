@@ -56,10 +56,10 @@ insert into Product values(Product_seq.nextval,'영화티켓','DolbyCinema 전�
 insert into Product values(Product_seq.nextval,'영화티켓','MX전용관람권','MX전용관람권','MX전용관람권.png',100,17000,16000,2,160);
 insert into Product values(Product_seq.nextval,'영화티켓','일반관람권 (2D)','일반관람권 (2D)','일반관람권(2D).png',100,13000,12000,6,120);
 
-insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','사이다 M','사이다 M','사이다M.jpg',100,null,2800,2,280);
-insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','사이다 L','사이다 L','사이다L.jpg',100,null,3300,2,330);
-insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','콜라 M','콜라 M','콜라M.jpg',100,null,2800,2,280);
-insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','콜라 L','콜라 L','콜라L.jpg',100,null,3300,2,330);
+insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','사이다 M','사이다 M','사이다M.png',100,null,2800,2,280);
+insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','사이다 L','사이다 L','사이다L.png',100,null,3300,2,330);
+insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','콜라 M','콜라 M','콜라M.png',100,null,2800,2,280);
+insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','콜라 L','콜라 L','콜라L.png',100,null,3300,2,330);
 
 insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','싱글 패키지','2D 일반관람권 1매 + 팝콘(R)1 + 탄산음료(R)1','싱글패키지.png',100,21000,18000,4,180);
 insert into Product values(Product_seq.nextval,'팝콘/음료/스낵','더블 콤보','팝콘(R) 2 + 탄산음료(R) 2','더블콤보.png',100,null,10000,2,100);

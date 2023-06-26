@@ -53,6 +53,10 @@
     	justify-content: center;
         align-items: center;
 	}
+	.coupon_banner{
+		width : 1100px;
+		height : 325px;
+	}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 <link rel="stylesheet" href="resources/store.min.css" media="all">
@@ -65,17 +69,17 @@
     <div class="inner-wrap">
 		
 		<c:choose>
-										<c:when test="${loginInfo eq null}">
-											<div class="coupon_banner" OnClick="location.href ='getCoupon.store'" style="cursor:pointer;border:solid 1px;">
-												쿠폰
-											</div>
-										</c:when>
-										<c:otherwise>
-											<div class="coupon_banner" OnClick="location.href ='getCoupon.store?member_code=${loginInfo.getMember_code()}'" style="cursor:pointer;">
-												쿠폰
-											</div>
-										</c:otherwise>
-									</c:choose>
+			<c:when test="${loginInfo eq null}">
+				<div class="coupon_banner" OnClick="location.href ='getCoupon.store'" style="cursor:pointer;border:solid 1px;">
+					<img class="coupon_banner" src="resources/store_menuImages/쿠폰배너.png">
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div class="coupon_banner" OnClick="location.href ='getCoupon.store?member_code=${loginInfo.getMember_code()}'" style="cursor:pointer;">
+					<img class="coupon_banner" src="resources/store_menuImages/쿠폰배너.png">
+				</div>
+			</c:otherwise>
+		</c:choose>
 		
         <h1 class="tit">스토어</h1>
 	
