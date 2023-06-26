@@ -28525,12 +28525,12 @@ body.body-iframe .modal-layer2 {
 }
 
 .store-list .list li a {
-    position: relative;
-    display: block;
-    height: 435px;
-    text-decoration: none;
-    border: 1px solid #e4e4e4;
-    border-radius: 10px
+    /* position: relative; */
+    /* display: block; */
+    /* height: 435px; */
+    /* text-decoration: none; */
+    /* border: 1px solid #e4e4e4; */
+    /* border-radius: 10px; */
 }
 
 .store-list .list li a:focus,.store-list .list li a:hover {

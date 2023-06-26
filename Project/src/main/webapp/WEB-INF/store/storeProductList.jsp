@@ -67,7 +67,16 @@
 	.cart:hover {
 		transform: scale(1.1);
 }
+	.p_img{
+		width: 243px;
+		height:243px;
+	}
+	.coupon_banner{
+		width : 1100px;
+		height : 325px;
+	}
 </style>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 <link rel="stylesheet" href="resources/store.min.css" media="all">
 <div class="container_productList">
@@ -79,17 +88,17 @@
     <div class="inner-wrap">
 		
 		<c:choose>
-										<c:when test="${loginInfo eq null}">
-											<div class="coupon_banner" OnClick="location.href ='getCoupon.store'" style="cursor:pointer;border:solid 1px;">
-												쿠폰
-											</div>
-										</c:when>
-										<c:otherwise>
-											<div class="coupon_banner" OnClick="location.href ='getCoupon.store?member_code=${loginInfo.getMember_code()}'" style="cursor:pointer;">
-												쿠폰
-											</div>
-										</c:otherwise>
-									</c:choose>
+			<c:when test="${loginInfo eq null}">
+				<div class="coupon_banner" OnClick="location.href ='getCoupon.store'" style="cursor:pointer;border:solid 1px;">
+					<img class="coupon_banner" src="resources/store_menuImages/쿠폰배너.png">
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div class="coupon_banner" OnClick="location.href ='getCoupon.store?member_code=${loginInfo.getMember_code()}'" style="cursor:pointer;">
+					<img class="coupon_banner" src="resources/store_menuImages/쿠폰배너.png">
+				</div>
+			</c:otherwise>
+		</c:choose>
 		
         <h1 class="tit">스토어</h1>
 	
@@ -100,7 +109,7 @@
                 <li id="storeTab_giftcard" class=""><a href="categorylist.store?category_name=기프트카드" ><span class="pointmall">기프트카드</span></a></li>
                 <li id="storeTab_ticket" class=""><a href="categorylist.store?category_name=영화티켓" >영화 티켓</a></li>
                 <li id="storeTab_food" class=""><a href="categorylist.store?category_name=팝콘/음료/스낵" >팝콘/음료/굿즈</a></li>
-                <li id="storeTab_others" class=""><a href="categorylist.store?category_name=기타" ><span class="pointmall">기타</span></a></li>
+                <li id="storeTab_others" class=""><a href="categorylist.store?category_name=기타" >기타</a></li>
             </ul>
         </div>
         <!-- 전체 상품 -->
@@ -136,7 +145,7 @@
 							     	</c:choose>
 							             
 							         <div class="img">
-							         	<img src="<%=request.getContextPath()%>/resources/store_images/${products.product_image}" alt="${products_product_name }">
+							         	<img class="p_img" src="<%=request.getContextPath()%>/resources/store_images/${products.product_image}" alt="${products_product_name }">
 							         </div>
 							         <div class="info">
 							             <div class="tit">
@@ -160,11 +169,9 @@
 							                    		</c:otherwise>
 										</c:choose>
 							                  <p class="ea">
-								                  	<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="cart" viewBox="0 0 25 25">
-									                  	<a href="addCart.store?product_code=${products.product_code}&cart_qty=1">
-															<path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-									                  	</a> 
-													</svg>
+							                  		<a href="addCart.store?product_code=${products.product_code}&cart_qty=1" style="width: 70px;" class="btn btn-sm btn-primary">
+							                  			<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+							                  		</a>
 							                  </p>
 							             </div>
 							         </div>
