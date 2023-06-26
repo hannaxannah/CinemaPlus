@@ -48,7 +48,7 @@
 					
 					        <div class="panel-body">
 				<c:forEach var="coupon" items="<%-- ${ coupons } --%>">
-				    <table class="table" border="1" style="width: 700px;">
+				    <table class="table" border="1" style="width: 100%;">
 				        <tr>
 				          <th>쿠폰번호</th>
 				          <th>쿠폰명</th>

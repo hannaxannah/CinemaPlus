@@ -53,20 +53,6 @@
     	justify-content: center;
         align-items: center;
 	}
-	
-	.cart{
-		cursor: pointer;
-		background-color: #eee;
-		border-radius: 100%;
-		margin: 0px;
-        padding: 0px;
-        width: 100%;
-        height: 100%;
-	}
-	
-	.cart:hover {
-		transform: scale(1.1);
-}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 <link rel="stylesheet" href="resources/store.min.css" media="all">
@@ -96,17 +82,39 @@
 		
         <div class="tab-list fixed">
             <ul>
-                <li class="on" id="storeTab_"><a href="list.store">전체 상품</a></li>
-                <li id="storeTab_giftcard" class=""><a href="categorylist.store?category_name=기프트카드" ><span class="pointmall">기프트카드</span></a></li>
-                <li id="storeTab_ticket" class=""><a href="categorylist.store?category_name=영화티켓" >영화 티켓</a></li>
-                <li id="storeTab_food" class=""><a href="categorylist.store?category_name=팝콘/음료/스낵" >팝콘/음료/굿즈</a></li>
-                <li id="storeTab_others" class=""><a href="categorylist.store?category_name=기타" ><span class="pointmall">기타</span></a></li>
+                <li id="storeTab_"><a href="list.store">전체 상품</a></li>
+            	<c:choose>
+            		<c:when test="${category_name eq '기프트카드'}">
+		                <li id="storeTab_giftcard" class="on"><a href="categorylist.store?category_name=기프트카드" ><span class="pointmall">기프트카드</span></a></li>
+		                <li id="storeTab_ticket" class=""><a href="categorylist.store?category_name=영화티켓" >영화 티켓</a></li>
+		                <li id="storeTab_food" class=""><a href="categorylist.store?category_name=팝콘/음료/스낵" >팝콘/음료/굿즈</a></li>
+		                <li id="storeTab_others" class=""><a href="categorylist.store?category_name=기타" >기타</a></li>
+            		</c:when>
+            		<c:when test="${category_name eq '영화티켓'}">
+		                <li id="storeTab_giftcard" class=""><a href="categorylist.store?category_name=기프트카드" ><span class="pointmall">기프트카드</span></a></li>
+		                <li id="storeTab_ticket" class="on"><a href="categorylist.store?category_name=영화티켓" >영화 티켓</a></li>
+		                <li id="storeTab_food" class=""><a href="categorylist.store?category_name=팝콘/음료/스낵" >팝콘/음료/굿즈</a></li>
+		                <li id="storeTab_others" class=""><a href="categorylist.store?category_name=기타" >기타</a></li>
+            		</c:when>
+            		<c:when test="${category_name eq '팝콘/음료/스낵'}">
+		                <li id="storeTab_giftcard" class=""><a href="categorylist.store?category_name=기프트카드" ><span class="pointmall">기프트카드</span></a></li>
+		                <li id="storeTab_ticket" class=""><a href="categorylist.store?category_name=영화티켓" >영화 티켓</a></li>
+		                <li id="storeTab_food" class="on"><a href="categorylist.store?category_name=팝콘/음료/스낵" >팝콘/음료/굿즈</a></li>
+		                <li id="storeTab_others" class=""><a href="categorylist.store?category_name=기타" >기타</a></li>
+            		</c:when>
+            		<c:when test="${category_name eq '기타'}">
+		                <li id="storeTab_giftcard" class=""><a href="categorylist.store?category_name=기프트카드" ><span class="pointmall">기프트카드</span></a></li>
+		                <li id="storeTab_ticket" class=""><a href="categorylist.store?category_name=영화티켓" >영화 티켓</a></li>
+		                <li id="storeTab_food" class=""><a href="categorylist.store?category_name=팝콘/음료/스낵" >팝콘/음료/굿즈</a></li>
+		                <li id="storeTab_others" class="on"><a href="categorylist.store?category_name=기타" >기타</a></li>
+            		</c:when>
+            	</c:choose>
             </ul>
         </div>
         <!-- 전체 상품 -->
         <div id="divNewPrdtArea">
                 <div class="tit-util mt70 mb15">
-                    <h3 class="tit">전체 상품보기</h3>
+                    <h3 class="tit">${category_name}</h3>
 
                 </div>
 
@@ -114,7 +122,8 @@
                 <div class="store-list">
                     <ul class="list">
                     		<c:forEach var="products" items="${products}" varStatus="status">
-                    			<c:if test="${products ne null}">
+                    			<c:choose>
+                                <c:when test="${products ne null}">
                                 <li class="">
 							     <a class="category_product_list" href="productDetail.store?product_code=${products.product_code}">
 							     	<c:choose>
@@ -135,9 +144,7 @@
 							     		</c:when>
 							     	</c:choose>
 							             
-							         <div class="img">
-							         	<img src="<%=request.getContextPath()%>/resources/store_images/${products.product_image}" alt="${products_product_name }">
-							         </div>
+							         <div class="img"><img src="<%=request.getContextPath()%>/resources/store_images/${products.product_image}" alt="메가박스 기프트카드 2만원권" onerror="noImg(this);"></div>
 							         <div class="info">
 							             <div class="tit">
 							                 <p class="name">${products.product_name}</p>
@@ -160,17 +167,16 @@
 							                    		</c:otherwise>
 										</c:choose>
 							                  <p class="ea">
-								                  	<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="cart" viewBox="0 0 25 25">
-									                  	<a href="addCart.store?product_code=${products.product_code}&cart_qty=1">
-															<path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-									                  	</a> 
-													</svg>
 							                  </p>
 							             </div>
 							         </div>
 							     </a>
 							 </li>
-                              </c:if>  
+                                </c:when>
+                                <c:otherwise>
+                                	없음
+                                </c:otherwise>  
+							</c:choose>
                     		</c:forEach>
                     </ul>
                 </div>
