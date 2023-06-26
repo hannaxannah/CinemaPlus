@@ -21,8 +21,11 @@ public class StoreCartList {
 		return cartlists;
 	}
 	
+	public void deleteProduct(int product_code) {
+		cartlists.remove(product_code);
+	}
+	
 	public void removeCartList() {//상품목록 전체삭제
 		cartlists.clear();
-		return;
 	}
 }

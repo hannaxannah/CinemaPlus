@@ -71,10 +71,10 @@
 				                <th>
 				                <c:choose>
 				                	<c:when test="${c.coupon_state eq 0}">
-				                		<label class="label label-notavailable">사용 완료</label>
+				                		<label class="label label-available">사용 가능</label>
 				                	</c:when>
 				                	<c:otherwise>
-				                		<label class="label label-available">사용 가능</label>
+				                		<label class="label label-notavailable">사용 완료</label>
 				                	</c:otherwise>
 				                </c:choose>
 				                </th>
