@@ -77,6 +77,8 @@ public class MemberLoginController {
 			System.out.println("가입한 회원");
 			
 			if(mb.getMember_id().equals("admin")){//관리자 아이디
+				session.setAttribute("loginInfo", mb);//세션설정
+				
 				mav.setViewName(adminPage);
 				
 			}
