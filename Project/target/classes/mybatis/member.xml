@@ -113,7 +113,7 @@
 		where member_code = #{member_code}
 	</update>
 	
-	<!-- 카카오,구글로그인 : 이메일로 검색 -->
+	<!-- 네이버,카카오,구글로그인 : 이메일로 검색 -->
 	<select id="GetMemberByEmail" resultType="member.model.MemberBean">
 		select * from member where member_email = #{input_email}
 	</select>

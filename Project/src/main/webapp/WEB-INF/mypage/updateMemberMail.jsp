@@ -2,12 +2,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../common/common.jsp"%>
-<%@ include file="../main/mainHeader.jsp"%> 
+<%@ include file="../main/mainHeader.jsp"%>
+<%@ include file="mypageSidebar.jsp"%>
+<link rel="stylesheet" type="text/css"
+	href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
 
 <style>
+
 form{
 	margin-top: 30px;
-	margin-left: 40%;
+	margin-left: 35%;
 }
 .field {
   margin-bottom: 10px;
@@ -25,6 +29,108 @@ form{
   line-height: 1.5;
   font-size: 14px;
 }
+
+body {
+	
+}
+
+.orderList {
+	cursor: pointer;
+	text-align: center;
+}
+
+.orderList:hover {
+	transform: scale(1.1);
+}
+
+.panel-default {
+	border-color: #ddd;
+}
+
+.panel-order .row {
+	border-bottom: 1px solid #ccc;
+}
+
+.panel-order .row .col-md-1 {
+	text-align: center;
+	padding-top: 28px;
+}
+
+.panel-order .row .col-md-1 i {
+	width: 50px;
+	max-height: 50px;
+}
+
+.panel-order .row .row {
+	border-bottom: 0;
+}
+
+.panel-order .row .col-md-11 {
+	border-left: 1px solid #ccc;
+}
+
+.panel-order .row .row .col-md-12 {
+	text-align: left;
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+
+.panel-order .row .row .col-md-12:last-child {
+	font-size: 11px;
+	color: #555;
+	background: #efefef;
+}
+
+.panel-order .btn-group {
+	margin: 0px;
+	padding: 0px;
+}
+
+.panel-order .panel-body {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.panel-order .panel-deading {
+	margin-bottom: 0;
+}
+
+a {
+	color: #000000;
+	text-decoration: none;
+}
+
+.row .row {
+	text-align: left;
+}
+
+.panel-order .panel-heading {
+	color: #333;
+	background-color: #f5f5f5;
+	border-color: #ddd;
+	padding: 10px 15px;
+	border-bottom: 1px solid transparent;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.label-danger {
+	background-color: #5cb85c;
+}
+
+.label {
+	display: inline;
+	padding: .2em .6em .3em;
+	font-size: 75%;
+	font-weight: 700;
+	line-height: 1;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: .25em;
+}
+
 </style>
 
 <%
@@ -38,12 +144,14 @@ for (int i = 0; i < 7; i++) {
 	System.out.println("8자리 인증번호 : " + temp);
 %>
 
-
+<div class="col-lg-9" style="padding: 20px;">
+	<!-- 회원 상세 정보 요약 -->
+	<div class="card info-card customers-card">
 	<table style="margin: auto; margin-top: 170px">
 		<tr>
 			<td>
 				<font style="font-size: small;">* 인증 확인 메일은 회원가입 시 입력한 메일로 자동 발송됩니다.</font><br>
-				<font style="font-size: small; color: red;">* 메일 발송은 현재 175번 가능함 남용X</font>
+				<font style="font-size: small; color: red;">* 메일 발송은 현재 170번 가능함 남용X</font>
 			</td>
 		</tr>
 	</table>
@@ -109,6 +217,16 @@ function check() {
 } 
   
 </script>
+
+
+		</div>
+	</div>
+
+</div>
+</div>
+</section>
+
+</main>
 
 <%@ include file="../main/mainFooter.jsp"%>
 
