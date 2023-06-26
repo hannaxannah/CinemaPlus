@@ -1,6 +1,11 @@
 package movie.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +28,21 @@ public class ScreenSelectSeatsController {
 	@RequestMapping(value = command)
 	public String doAction(
 			@ModelAttribute("screenBean") ScreenBean screenBean,
-			Model model) {
+			Model model, HttpSession session, HttpServletResponse response) throws IOException {
+		
+		 response.setCharacterEncoding("EUC-KR");
+	     PrintWriter writer;
+	     
+			writer = response.getWriter();
+			if(session.getAttribute("loginInfo") == null) {
+			     writer.println("<script type='text/javascript'>");
+			     writer.println("alert('로그인 후 이용가능한 서비스입니다. 로그인 페이지로 이동합니다.');");
+			     writer.println("location.href = 'memberlogin' ");
+			     writer.println("</script>");
+			     writer.flush();
+			     return null;
+			}
+		
 		
 		List<ReservationBean> reservationList = screenDao.getReservationByTime(screenBean.getScreen_time());
 		for(int i=0; i<reservationList.size(); i++) {
