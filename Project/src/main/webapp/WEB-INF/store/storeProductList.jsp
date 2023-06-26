@@ -89,7 +89,7 @@
 		
 		<c:choose>
 			<c:when test="${loginInfo eq null}">
-				<div class="coupon_banner" OnClick="location.href ='getCoupon.store'" style="cursor:pointer;border:solid 1px;">
+				<div class="coupon_banner" OnClick="location.href ='getCoupon.store'" style="cursor:pointer;">
 					<img class="coupon_banner" src="resources/store_menuImages/쿠폰배너.png">
 				</div>
 			</c:when>
