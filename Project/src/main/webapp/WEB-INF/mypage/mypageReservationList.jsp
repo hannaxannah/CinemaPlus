@@ -128,10 +128,11 @@
 								              <table class="table">
 								                <thead>
 								                  <tr>
-								                    <th scope="col" width="15%">예매번호</th>
-								                    <th scope="col" width="20%">영화관</th>
-								                    <th scope="col" width="20%">영화</th>
-								                    <th scope="col" width="25%">영화시간</th>
+								                    <th scope="col" width="20%">예매날짜</th>
+								                    <th scope="col" width="10%">영화관</th>
+								                    <th scope="col" width="30%">영화</th>
+								                    <th scope="col" width="15%">영화시간</th>
+								                    <th scope="col" width="10%">좌석번호</th>
 								                    <th scope="col" width="20%">예매취소</th>
 <!-- 
 													<th>예매번호</th>
@@ -141,6 +142,7 @@
 													<th>결제금액</th>
 													<th>합계</th>
 													<th>예매취소</th>
+													
  -->
 										</tr>
 								                </thead>
@@ -153,13 +155,18 @@
 											</c:if>
 											 <c:if test="${fn:length(reservationList) != 0}">
 												<tbody>
-												<c:forEach var="reservation" items="${reservationList}">
+												<c:forEach var="reservation" items="${reservationList}" varStatus="status">
 													<tr>
-														<td>${reservation.reservation_num}</td>
+														<fmt:parseDate var="date1" value="${reservation	.reservation_date}" pattern="yyyy-MM-dd"/>
+														<fmt:formatDate  var="date2" value="${date1}" type="DATE" pattern="yyyy-MM-dd"/> 
+														<td>${date2}</td>
 														<td>${reservation.screen_name}</td>
 														<td>${reservation.movie_title}</td>
 														<td>${reservation.screen_time}</td>
+														<td>${reservation.seat_number}</td>
 														<td>예매취소</td>
+														
+														
 													</tr>
 												</c:forEach>												
 												</tbody>
