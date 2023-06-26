@@ -7,9 +7,6 @@ productList.jsp<br>
 	<%@ include file="mypageSidebar.jsp"%>
 	<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
  <style>
- 	body{
- 		
- 	}
  
  	.orderList{
  		 cursor: pointer;
