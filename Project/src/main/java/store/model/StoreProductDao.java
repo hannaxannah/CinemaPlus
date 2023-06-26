@@ -29,5 +29,21 @@ public class StoreProductDao {
 		
 		return storeProductBean;
 	}
+
+	public List<StoreProduct_CategoryBean> getAllCategory() {
+		List<StoreProduct_CategoryBean> lists = new ArrayList<StoreProduct_CategoryBean>();
+		
+		lists = sqlSessionTemplate.selectList(namespace+".GetCategoryList"); 
+		
+		return lists;
+	}
+	
+	public List<StoreProductBean> getProductByCategory(String category_name) {
+		List<StoreProductBean> lists = new ArrayList<StoreProductBean>();
+		
+		lists = sqlSessionTemplate.selectList(namespace+".GetProductListByCategory",category_name); 
+		
+		return lists;
+	}
 	
 }
