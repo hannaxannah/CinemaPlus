@@ -28,7 +28,7 @@
 								<!-- End Profile Page Nav -->
 	
 								<li class="nav-item">
-									<a class="nav-link collapsed" href="myCouponList.mp}">
+									<a class="nav-link collapsed" href="myCouponList.mp">
 										<i class="bi bi-ticket-perforated"></i>
 										<span>MY 쿠폰</span>
 									</a>
