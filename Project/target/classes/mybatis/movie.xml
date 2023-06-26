@@ -128,5 +128,18 @@
 		where Screen_time = #{Screen_time}
 	</update>
 	
+	<!-- 마이페이지-내가 관람한 영화목록 -->
+	<select id="GetReservation" resultType="movie.model.ReservationBean">
+		select movie_title,reservation_date,screen_name,listagg(seat_number,',') within group ( order by reservation_num)
+		from ticket_reservation where member_id = #{member_id}
+		group by movie_title,reservation_date,screen_name
+	</select>
+	
+	
+	<!-- 마이페이지-리뷰작성-제목 -->
+	<select id="WriteReview" resultType="movie.model.ReservationBean">
+		select distinct movie_title from ticket_reservation
+		where member_id = #{member_id}
+	</select>
 </mapper>
 

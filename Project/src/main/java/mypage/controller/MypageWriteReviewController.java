@@ -14,22 +14,21 @@ import movie.model.ReservationBean;
 import movie.model.ScreenDao;
 
 @Controller
-public class MypageMovieRecordController {
+public class MypageWriteReviewController {
 	
-	private final String command = "myMovieRecord.mp";
-	private final String getPage = "myMovieRecord";
+	private final String command = "writeReview.mp";
+	private final String getPage = "mypageWriteReview";
 	
 	
-	@Autowired
+	@Autowired 
 	ScreenDao screenDao;
 	
 	@RequestMapping(value=command)
-	
 		public String doAction(HttpSession session, Model model) {
 			MemberBean memberBean = (MemberBean) session.getAttribute("loginInfo");
 			String id = memberBean.getMember_id();
-			List<ReservationBean> reservationList = screenDao.getReservation(id);
-			model.addAttribute("reservationList", reservationList);
+			List<ReservationBean> List = screenDao.writeReview(id);
+			model.addAttribute("List", List);
 			return getPage;
 	}
 }
