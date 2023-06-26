@@ -47,7 +47,7 @@ public class BoardUpdateController {
 				@ModelAttribute("board") @Valid BoardBean board,
 				HttpServletResponse response,
 				BindingResult result,
-				@RequestParam("movie_num") String movie_num
+				@RequestParam("movienum") String movie_num
 				) {
 			
 			PrintWriter out = null;
