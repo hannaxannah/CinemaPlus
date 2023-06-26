@@ -151,7 +151,7 @@ public class NaverController {
 	     model.addAttribute("id",id);
 	     model.addAttribute("mobile",mobile);
 
-	     member.model.MemberBean mb = sqlSessionTemplate.selectOne(namespace+".GetMemberById",id);
+	     member.model.MemberBean mb = sqlSessionTemplate.selectOne(namespace+".GetMemberByEmail",email);
 		 session.setAttribute("loginInfo", mb);//세션설정
 		 
 			
@@ -160,6 +160,9 @@ public class NaverController {
 			sqlSessionTemplate.insert(namespace+".NaverInsertMember",model);
 			
 		    mb = sqlSessionTemplate.selectOne(namespace+".GetMemberById",id);
+			session.setAttribute("loginInfo", mb);//세션설정
+		}
+		else if(mb.getMember_email() == email) {
 			session.setAttribute("loginInfo", mb);//세션설정
 		}
 		return "redirect:/main.mn";

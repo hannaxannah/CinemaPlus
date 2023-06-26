@@ -63,7 +63,7 @@ $(document).ready(function() {
 %>
 
 <div class="container-register">
-<form:form commandName="mb" action="myUpdate.mp" method="post">
+<form:form commandName="mb" action="myUpdatexx.mp" method="post">
 	<input type="hidden" name="member_code" value="${mb.member_code}">
 	<table class="registerForm-1">
 		<tr>

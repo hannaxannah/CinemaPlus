@@ -37,7 +37,7 @@
 												쿠폰
 											</td>
 											<td>
-												영화기록
+												적립 포인트
 											</td>
 											<td>
 												1:1 문의
@@ -79,12 +79,12 @@
 														예매내역
 													</td>
 													<td>
-														<a href="myPurchaseList.mp?member_id=${loginInfo.member_id}">더보기</a>
+														<a href="myreservation.mp?member_id=${loginInfo.member_id}">더보기</a>
 													</td>
 												</tr>
 												<tr>
 													<td colspan="2">
-														<hr style="border: 1px solid black; margin: 0;">
+														<!-- <hr style="border: 1px solid black; margin: 0;"> -->
 													</td>
 												</tr>
 												<tr>
@@ -103,12 +103,12 @@
 														취소내역
 													</td>
 													<td>
-														<a href="myPurchaseList.mp?member_id=${loginInfo.member_id}">더보기</a>
+														<a href="myreservation.mp?member_id=${loginInfo.member_id}">더보기</a>
 													</td>
 												</tr>
 												<tr>
 													<td colspan="2">
-														<hr style="border: 1px solid black; margin: 0;">
+														<!-- <hr style="border: 1px solid black; margin: 0;"> -->
 													</td>
 												</tr>
 												<tr>

@@ -73,7 +73,7 @@
 		        </c:when>
 				<c:otherwise>
 					<li><a class="login" href="logout.mb">로그아웃</a></li>
-		        	<li><a class="login" href="#">빠른예매</a></li>
+		        	<li><a class="login" href="register.mb">빠른예매</a></li>
 				</c:otherwise>
 			</c:choose>
         </ul>
