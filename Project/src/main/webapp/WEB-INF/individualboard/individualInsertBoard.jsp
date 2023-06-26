@@ -5,10 +5,6 @@ individualInsertBoard.jsp<br>
 <%@ include file="../mypage/mypageSidebar.jsp"%>  
 
 <style>
-	table{
-		margin-top: 200px;
-		margin: auto;
-	}
     .t_red {
         color: #f55500
     }
@@ -17,11 +13,6 @@ individualInsertBoard.jsp<br>
         font-size: 8px;
         color: red;
     }
-    th {
-	height: 30px;
-	}
-    
-    
     
   body {
 	
@@ -124,6 +115,28 @@ a {
 	border-radius: .25em;
 }
     
+    
+    body{
+    margin-top:20px;
+    background:#f5f7fa;
+}
+.panel.panel-default {
+    border-top-width: 3px;
+}
+.panel {
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.14),0 2px 2px 0 rgba(0,0,0,.098),0 1px 5px 0 rgba(0,0,0,.084);
+    border: 0;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+.thumb96 {
+    width: 96px!important;
+    height: 96px!important;
+}
+.thumb48 {
+    width: 48px!important;
+    height: 48px!important;
+}
 </style>
 
 <script type="text/javascript" src="resources/js/jquery.js"></script>
@@ -135,112 +148,94 @@ a {
 
 <div class="col-lg-9" style="padding: 20px;">
 	<div class="card info-card customers-card">
-<table width="800px;">
-<tr>
-	<td>
-<font style="font-size: x-large;">1:1문의</font><br>
-	</td>
-</tr>
-<tr>
-	<td>
-	<p align="left">
+		<div class="card-body align-items-center justify-content-center">
+	
+<font style="margin: auto; font-size: large;">문의글 작성</font><hr width="90%">
+<p align="left">
     <b>고객님의 문의에 답변하는 직원은 <font color="red">고객 여러분의 가족 중 한 사람일 수 있습니다.</font></b><br>
     고객의 언어폭력(비하, 욕설, 협박, 성희롱 등)으로부터 직원을 보호하기 위해<br>
     관련 법에 따라 수사기관에 필요한 조치를 요구할 수 있으며, 형법에 의해 처벌 대상이 될 수 있습니다.<br><br>
 
     문의하시기 전 FAQ를 확인하시면 궁금증을 더욱 빠르게 해결하실 수 있습니다.<br><br><br>
 </p>
-	</td>
-</tr>
-</table>
 
-<font style="margin: auto; font-size: large;">문의글 작성</font><br>
 <form name="boardForm" action="insert.in" method="POST" enctype="multipart/form-data" >
-    <table width="800px" border="1">
-        <caption style="text-align: right;"><font style="font-size:small; font-weight: bold;"><span class="t_red">*</span> 표시는 필수입력 항목입니다.</font></caption>
-        <colgroup>
-            <col width="20%">
-            <col width="*">
-        </colgroup>
-        <tr>
-            <th>문의선택<span class="t_red">*</span></th>
-            <td>
-                <input id="select_type" name="select_type" size="98%" value="고객센터 문의" readonly="readonly">
-            </td>
-        </tr>
+   <table class="myMemberInfo">
+	  <div class="form-group">
+    <label for="exampleInputEmail1">문의선택<span class="t_red">*</span></label>
+    <input type="text" class="form-control" id="exampleInputEmail1"  name="select_type" aria-describedby="emailHelp" placeholder="Enter email" value="고객센터 문의" readonly>
+  </div><br><br>
+			
 
-        <tr>
-            <th>문의유형<span class="t_red">*</span></th>
-            <td>
-                <select id="question_type" name="question_type">
-                    <option value="">문의유형선택</option>
-                    <c:forEach var="question_type" items="<%=questionArr%>">
-                        <option value="${question_type}"
-                                <c:if test="${board.question_type.contains(question_type)}">selected</c:if>>${question_type}</option>
-                    </c:forEach>
-                </select>
-                <form:errors cssClass="err" path="question_type"/>
-            </td>
-        </tr>
+		<div class="form-group">
+    <label for="exampleFormControlSelect1">문의유형선택<span class="t_red">*</span></label>
+     <select id="question_type"  class="form-control" name="question_type">
+      <option value="">문의유형선택</option>
+           <c:forEach var="question_type" items="<%=questionArr%>">
+              <option value="${question_type}"
+                <c:if test="${board.question_type.contains(question_type)}">selected</c:if>>${question_type}</option>
+          </c:forEach>
+    </select>
+    <form:errors cssClass="err" path="question_type"/>
+  </div><br><br>
 
-        <tr>
-            <th>이름<span class="t_red">*</span></th>
-            <td>
-                <%--<input id="name" name="name" value="${board.name}" size="35%"/>--%>
-                ${name}
-            </td>
-        </tr>
-        <tr>
-            <th>이메일<span class="t_red">*</span></th>
-            <td>
-                <%--<input id="email" name="email" value="${board.email}" size="35%"/>--%>
-                        ${email}
-            </td>
-        </tr>
-        <tr>
-            <th>연락처<span class="t_red">*</span></th>
-            <td>
-                <%--<input id="telnum" name="telnum" value="${board.telnum}" size="35%"/>--%>
-                ${phone}
-            </td>
-        </tr>
-        <tr>
-            <th>제목<span class="t_red">*</span></th>
-            <td>
-                <input id="subject" name="subject" value="${board.subject}" size="98%"/>
-                <form:errors cssClass="err" path="subject"/>
-            </td>
-        </tr>
-        <tr>
-            <th>내용<span class="t_red">*</span></th>
-            <td>
-               <textarea style="resize: none;" id="content" name="content" cols="103" rows="15"
-					placeholder="- 문의내용에 개인정보(이름,연락처,카드번호 등)가 포함되지 않도록 유의하시기 바랍니다.
+   <div class="form-group col-md-6">
+      <label for="inputPassword4">이름<span class="t_red">*</span></label>
+      	<input type="text" class="form-control" name="member_name" value="${name}" id="inputPassword4" readonly>
+    </div><br>
+        
+        
+     <div class="form-row">
+    	<div class="form-group col-md-6">
+      	<label for="inputEmail4">이메일<span class="t_red">*</span></label>
+     		 <input type="email" class="form-control" name="email" value="${email}" id="inputEmail4" readonly>
+    </div><br>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">연락처<span class="t_red">*</span></label>
+      	<input type="text" class="form-control" name="telnum" value="${phone}" id="inputPassword4" readonly>
+    </div>
+  </div><br><br>
+        
+        
+        <div class="form-group">
+    <label for="exampleInputEmail1">제목<span class="t_red">*</span></label>
+    <input type="text" class="form-control" id="subject"  name="subject" aria-describedby="emailHelp" value="${board.subject}">
+  		<form:errors cssClass="err" path="subject"/>
+  </div><br>
+        
+          <div class="form-group">
+    <label for="exampleFormControlTextarea1">내용<span class="t_red">*</span></label>
+    <textarea class="form-control" style="resize: none;" id="content" name="content"  placeholder="- 문의내용에 개인정보(이름,연락처,카드번호 등)가 포함되지 않도록 유의하시기 바랍니다.
 - 회원로그인 후 문의작성시 나의 문의내역을 통해 답변을 확인하실 수 있습니다.">${board.content}</textarea>
-                <form:errors cssClass="err" path="content"/>
-            </td>
-        </tr>
-        <tr>
-            <th>사진첨부<span class="t_red">*</span></th>
-            <td>
-                <input type="file" name="upload" id="upload" value="파일선택"><br>
-                <span><font style="font-size: small;"> * 개인정보가 포함된 이미지 등록은 자제하여 주시기 바랍니다.</font></span>
-                <form:errors cssClass="err" path="image"/>
-            </td>
-        </tr>
-        <tr>
-            <th style="height: 40px;">옵션</th>
-            <td>
-                <input type="checkbox" id="issecret" name="issecret" value="Y">
-                <span style="font-size: unset;">비밀글 설정</span>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" align="center">
-                <input type="submit" value="등록">
-                <input type="reset" value="취소">
-            </td>
-        </tr>
+ 		 </div><br>
+        
+        
+        <div class="mb-3">
+  <label for="formFile" class="form-label">사진첨부<span class="t_red">*</span></label>
+  <input class="form-control" type="file" name="upload" id="upload" value="파일선택">
+	<span><font style="font-size: small;"> * 개인정보가 포함된 이미지 등록은 자제하여 주시기 바랍니다.</font></span>
+	<form:errors cssClass="err" path="image"/>
+	</div><br>
+        
+        
+   <div class="mb-3">     
+  <label for="formCheck" class="form-label">옵션</label>
+ <div class="form-check">
+  <input class="form-check-input" type="checkbox" id="issecret" name="issecret" value="Y">
+  <label class="form-check-label" for="flexCheckDefault">
+    <span style="font-size: unset;">비밀글 설정</span>
+  </label>
+</div>
+</div>        
+        
+        <div class="form-group" align="center">
+       <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" class="btn btn-primary" value="등록">
+                <input type="reset" class="btn btn-primary" value="취소">
+		</div>        
+		</div>
+        
+        
     </table>
 </form><br><br>
 
