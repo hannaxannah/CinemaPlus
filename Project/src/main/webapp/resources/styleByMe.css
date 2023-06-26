@@ -390,6 +390,14 @@
 }
 
 
+/* 마이페이지-리뷰 */
+.movieTitle {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+
+
 /* 회원가입 */
 .select-pw-question {
 	word-wrap: normal;
