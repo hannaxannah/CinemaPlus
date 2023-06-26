@@ -125,14 +125,13 @@
 											</div>
 								            <div style="width: 100%;display: flex;">
 								              <!-- Table -->
-								              <c:forEach var="reservation" items="<%-- ${ reservationList } --%>">
 								              <table class="table">
 								                <thead>
 								                  <tr>
 								                    <th scope="col" width="15%">예매번호</th>
 								                    <th scope="col" width="20%">영화관</th>
 								                    <th scope="col" width="20%">영화</th>
-								                    <th scope="col" width="25%">상영일</th>
+								                    <th scope="col" width="25%">영화시간</th>
 								                    <th scope="col" width="20%">예매취소</th>
 <!-- 
 													<th>예매번호</th>
@@ -146,10 +145,24 @@
 										</tr>
 								                </thead>
 								                
-								                <c:if test="${fn:length(reservationLists) == 0}">
+								                <c:if test="${fn:length(reservationList) == 0}">
 												<tr>
 													<td colspan="5" align="center">예매 내역이 없습니다.</td>
 												</tr>
+												
+											</c:if>
+											 <c:if test="${fn:length(reservationList) != 0}">
+												<tbody>
+												<c:forEach var="reservation" items="${reservationList}">
+													<tr>
+														<td>${reservation.reservation_num}</td>
+														<td>${reservation.screen_name}</td>
+														<td>${reservation.movie_title}</td>
+														<td>${reservation.screen_time}</td>
+														<td>예매취소</td>
+													</tr>
+												</c:forEach>												
+												</tbody>
 											</c:if>
 											<!-- 
 								                <tbody>
@@ -192,7 +205,6 @@
 								                 -->
 								                
 								              </table>
-								              </c:forEach>
 								              <!-- Table -->
 								         </div>
 									  	</div>

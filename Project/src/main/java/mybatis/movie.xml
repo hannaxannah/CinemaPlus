@@ -116,6 +116,12 @@
 		order by seat_number2
 	</select>
 	
+	<select id="GetReservationById" resultType="movie.model.ReservationBean">
+		select * from ticket_reservation
+		where member_id = #{member_id}
+		order by seat_number2
+	</select>
+	
 	<update id="RemoveSeat">
 		update screen
 		set left_seats = left_seats -1
