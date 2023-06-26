@@ -272,7 +272,7 @@ td{
 							</c:choose>
 						</td>
 						<td>
-							<fmt:parseNumber integerOnly="true" value="${p.product_point * p.product_order_qty * (1-(0.01*payment_sale_pay)) } "/>
+							<fmt:parseNumber integerOnly="true" value="${(p.product_point * p.product_order_qty) - (p.product_point * (0.01*payment_sale_pay) * p.product_order_qty) } "/>
 							<font>point</font>
 						</td>
 						<td>
@@ -282,7 +282,7 @@ td{
 					</tr>
 					<c:set var="original_price" value="${original_price + p.product_sprice*p.product_order_qty}"/>
 					<c:set var="total_price" value="${toatl_price + original_price}"/>
-					<c:set var="sum_point" value="${sum_point + p.product_point*p.product_order_qty}"/>
+					<c:set var="sum_point" value="${sum_point + ((p.product_point * p.product_order_qty) - (p.product_point * (0.01*payment_sale_pay) * p.product_order_qty))}"/>
 				</c:forEach>
                   </tbody>
                </table>
@@ -316,7 +316,7 @@ td{
                      <div class="sub-price" style="padding-left: 200px;">
                         <small>적립 포인트</small>
                         <span class="text-inverse">
-                        <fmt:parseNumber integerOnly="true" value="${sum_point*(1-0.01*payment_sale_pay)}"/>
+                        <fmt:parseNumber integerOnly="true" value="${sum_point}"/>
                          point
                         </span>
                      </div>
