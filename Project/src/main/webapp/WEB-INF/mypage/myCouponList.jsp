@@ -2,16 +2,12 @@
     pageEncoding="UTF-8"%>
     <%@include file="../common/common.jsp"%>
     <%@ include file="../main/mainHeader.jsp"%> 
-    
-<!-- 
-    [my쿠폰 혹은 쿠폰내역]
-    쿠폰번호 - 회원코드 or 회원아이디 - 쿠폰이름 - 쿠폰상태(0:미사용 / 1:사용완료)
-     -->
+    <%@ include file="mypageSidebar.jsp"%>
      
 <style>
 	table {
 		margin: auto;
-		margin-top: 80px;
+		margin-top: 30px;
 	}
 	.coupon{
 	width: 700px;
@@ -19,61 +15,81 @@
 	border: 1px solid black;
 	margin: auto;
 	}
+	
+	.label-available {
+    background-color: #5cb85c;
+	}
+	
+	.label-notavailable {
+    background-color: red;
+	}
+	
+	.label {
+	    display: inline;
+	    padding: .2em .6em .3em;
+	    font-size: 75%;
+	    font-weight: 700;
+	    line-height: 1;
+	    color: #fff;
+	    text-align: center;
+	    white-space: nowrap;
+	    vertical-align: baseline;
+	    borde
 </style> 
-    
-<form name="myform" action="myCouponList.mp" method="post">
-<table style="width: 700px;">
-	<tr>
-		<td>
-			<font style="font-size: x-large; margin: auto;">MY 쿠폰</font>
-		</td>
-	</tr>
-</table>
-<c:forEach var="coupon" items="<%-- ${ coupons } --%>">
-    <table class="table" border="1" style="width: 700px;">
-        <tr>
-          <th>쿠폰번호</th>
-          <th>회원계정</th>
-          <th>쿠폰명</th>
-          <th>할인률</th>
-          <th>쿠폰상태</th>
-        </tr>
-      
-      	<c:if test="${fn:length(couponLists) == 0}">
-			<tr>
-				<td colspan="4" align="center">쿠폰 내역이 없습니다.</td>
-			</tr>
-		</c:if>
-      
-      
-        <c:forEach var="item" items="<%-- ${ order.items } --%>" varStatus="status">
-                <tr>
-                <th><%-- ${ item.couponnumber} --%></th>
-                <td><%-- ${ item.membercode} --%></td>
-                <td><%-- ${ item.couponname} --%></td>
-                <td><%-- ${ item.coupon_rate} coupon이랑 join해서 가져옴 --%></td>
-                <td><%-- ${ item.couponstate } --%></td>
-            </tr>       
-        </c:forEach>
-      
-    </table>
-</c:forEach><br><br>
+ 
+ <div class="col-lg-9" style="padding: 20px;">
+		<div class="card info-card customers-card">
+			<div class="card-body align-items-center justify-content-center">   
+					<div class="container bootdey">
+					     <div class="panel panel-default panel-order">
+					        <div class="panel-heading">
+					            <strong>나의 쿠폰 리스트</strong>
+					            </div>
+					
+					        <div class="panel-body">
+				<c:forEach var="coupon" items="<%-- ${ coupons } --%>">
+				    <table class="table" border="1" style="width: 700px;">
+				        <tr>
+				          <th>쿠폰번호</th>
+				          <th>쿠폰명</th>
+				          <th>할인률</th>
+				          <th>쿠폰상태</th>
+				        </tr>
+				      
+				      	<c:if test="${fn:length(myCouponListInfo) == 0}">
+							<tr>
+								<td colspan="4" align="center">쿠폰 내역이 없습니다.</td>
+							</tr>
+						</c:if>
+				      
+				      
+				        <c:forEach var="c" items="${myCouponListInfo}" varStatus="status">
+				                <tr>
+				                <th>${c.coupon_code }</th>
+				                <th>${c.coupon_name }</th>
+				                <th>${c.coupon_rate } %</th>
+				                <th>
+				                <c:choose>
+				                	<c:when test="${c.coupon_state eq 0}">
+				                		<label class="label label-notavailable">사용 완료</label>
+				                	</c:when>
+				                	<c:otherwise>
+				                		<label class="label label-available">사용 가능</label>
+				                	</c:otherwise>
+				                </c:choose>
+				                </th>
+				            </tr>       
+				        </c:forEach>
+				      
+				    </table>
+				</c:forEach><br><br>
 </form>  
-<div class="coupon" style="margin-bottom: 70px;">
-<details>
-	  <summary style="margin-left: 8px;">이용안내</summary><br>
- <div markdown="1">
- 	<p>
-영화 예매 시에는 다른 결제수단(신용카드, 예매쿠폰, 계좌이체 등)과 병행하여 사용이 가능합니다.<br>
-등록 쿠폰이 특정 영화/극장 전용 쿠폰일 경우, 명시된 사용기간 내에만 사용이 가능합니다.<br>
-온라인 전용으로 발행된 쿠폰의 경우에는 현장 사용이 불가능합니다.<br>
-홈페이지 예매 후 예매취소는 홈페이지에서 상영시간 30분 전까지 가능합니다.<br>
-취소 시 현금 환불은 되지 않으며,기존 쿠폰으로 유효기간 중에서 재사용 하실 수 있습니다.<br>
-기타 할인쿠폰에 대한 문의사항이 있으실 경우, 1544-0101 또는 홈페이지를 이용해 주시기 바랍니다.<br>    
- 	</p>
- </div>
- </details>
- </div><br><br><br><br><br><br>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
  <%@ include file="../main/mainFooter.jsp"%>
 
  
