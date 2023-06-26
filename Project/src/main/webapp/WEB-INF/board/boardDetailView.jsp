@@ -25,11 +25,8 @@
 		width: 15%;
 		height: 40px;
 	}
-</style>    
-
-
- <style>
-        .search-form {
+  
+  .search-form {
   width: 80%;
   margin: 0 auto;
   margin-top: 1rem;
@@ -163,7 +160,8 @@
                 </div>
 
             </form>
-<!-- 
+            
+            <!-- 
             <ul id="article-comments" class="row col-md-10 col-lg-8 pt-3" style="margin-left: 20px;">
                 <li>
                     <form>
@@ -200,8 +198,8 @@
                     </form>
                 </li>
             </ul>
+             -->
 
- -->
         </sectoin>
     </div>
 
@@ -217,44 +215,6 @@
 
 
 </main>
-
-
-
-<%-- <table border="1" style="margin-top: 80px">
-	<tr>
-		<th>번호</th>
-		<td>${board.movie_num}</td>
-		<th>조회수</th>
-		<td>${board.hits}</td>
-	</tr>
-	<tr>
-		<th>카테고리</th>
-		<td>${board.classification}</td>
-		<th>작성일</th>
-		<td> 
-			<fmt:formatDate value="${board.qdate}" type="date" pattern="yyyy-MM-dd"/>
-		</td>
-	</tr>
-	<tr>
-		<th>제목</th>
-		<td colspan="3">${board.question}</td>
-	</tr>
-	<tr>
-		<th>내용</th>
-		<td colspan="3">
-			<textarea rows="15" cols="80" style="resize: none;" readonly>${board.content}</textarea>
-		</td>
-	</tr>
-	<tr>
-		<td colspan="4" align="center">
-			
-			<c:if test="${loginInfo.member_id eq 'admin'}">			
-			<input type="button" value="수정하기" onClick="location.href='faqUpdate.bd?movienum=${board.movie_num}'">
-			</c:if>
-			<input type="button" value="목록으로" onClick="location.href='list.bd?pageNumber=${param.pageNumber}'">
-		</td>
-	</tr>
-</table> --%>
 
 
 <%@ include file="../main/mainFooter.jsp"%>
