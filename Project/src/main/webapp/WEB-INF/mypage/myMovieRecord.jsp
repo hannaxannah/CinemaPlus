@@ -149,7 +149,7 @@ a {
 										<p>속초점</p>
 										<p>${reservation.screen_name}</p>
 										<p>${date2}</p>
-										<a href="" style="background-color: #EBE4FC; padding:5px;">리뷰쓰기</a> &nbsp;|  &nbsp;
+										<a href="writeReview.mp?member_id=${loginInfo.member_id}" style="background-color: #EBE4FC; padding:5px;">리뷰쓰기</a> &nbsp;|  &nbsp;
 										<a href="" style="background-color: #EBE4FC; padding:5px;">삭제하기</a>
 									</div>
 								</c:forEach>

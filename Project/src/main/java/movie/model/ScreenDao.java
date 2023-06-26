@@ -72,6 +72,20 @@ public class ScreenDao {
 		list = sqlSessionTemplate.selectList(namespace + ".GetReservationById", id);
 		return list;
 	}
+
+	/* 마이페이지-내가본영화목록 */
+	public List<ReservationBean> getReservation(String id) {
+		List<ReservationBean> list = new ArrayList<ReservationBean>();
+		list = sqlSessionTemplate.selectList(namespace + ".GetReservation", id);
+		return list;
+	}
+
+	/* 리뷰작성시 영화제목 */
+	public List<ReservationBean> writeReview(String id) {
+		List<ReservationBean> list = new ArrayList<ReservationBean>();
+		list = sqlSessionTemplate.selectList(namespace + ".WriteReview", id);
+		return list;
+	}
 	
 	
 }
