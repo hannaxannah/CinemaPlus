@@ -131,7 +131,7 @@ public class StorePayController {
 					storeCoupon_UserBean.setCoupon_code(use_coupon_code);
 					storeCoupon_UserBean.setMember_code(id.getMember_code());
 					storeCouponDao.useCoupon(storeCoupon_UserBean);
-					writer.println("location.href = 'list.store' ");
+					writer.println("location.href = 'myOrderDetail.mp?payment_code="+payment_code+"&payment_sale_pay="+sale_pay+"' ");
 					writer.println("</script>");
 					writer.flush();
 					return null; 
