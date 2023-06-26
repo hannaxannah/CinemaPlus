@@ -13,35 +13,34 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import board.model.IndividualBoardBean;
 import member.model.MemberBean;
 import mypage.model.MypageDao;
 import store.model.StoreCouponBean;
 import store.model.StoreCouponDao;
+import store.model.StorePaymentBean;
 
 @Controller
 public class MypageCouponController {
 	
 	private final String command = "/myCouponList.mp";
-	private final String getPage = "myCouponList";
+	private final String gotopage = "myCouponList";
+	
+	@Autowired
+	MypageDao pdao;
 	
 	@Autowired
 	StoreCouponDao storeCouponDao;
 	
 	@RequestMapping(command)
 	public String doAction(HttpSession session, Model model) {
+		MemberBean mb = (MemberBean) session.getAttribute("loginInfo");
+		String member_code = mb.getMember_code();
 		
-		if(session.getAttribute("loginInfo") == null) { //로그인 X
-			return "redirect:/memberlogin";
-		}
-		else { //로그인 O
-			MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
-			String member_code = loginInfo.getMember_code();
-
-			List<StoreCouponBean> myCouponLists = storeCouponDao.getCouponByCode(member_code);
-			System.out.println("myCouponLists  : "+myCouponLists );
-			model.addAttribute("myCouponLists",myCouponLists);
-			return getPage;
-		}
+		List<StoreCouponBean> myCouponListInfo = storeCouponDao.checkUserAvailableCouponListInfo(member_code);
+		
+		model.addAttribute("myCouponListInfo",myCouponListInfo);
+		
+		return gotopage;
 	}
+
 }
