@@ -78,11 +78,20 @@
 		where payment_code = #{payment_code} and member_code = #{member_code}
 	</select>
 	
-	<!-- 로그인 되있는 유저의 쿠폰 보유 여부 -->
+	<!-- 로그인 되있는 유저의 쿠폰  -->
 	<select id="CheckUserAvailableCoupon" resultType="String">
 		select coupon_code from coupon_user
-		where member_code = #{member_code} and coupon_state = 0
+		where member_code = #{member_code}
 	</select>
+
+	<!-- 로그인 되있는 유저의 사용할수있는 쿠폰 목록  -->
+	<select id="CheckUserAvailableCouponInfo" resultType="store.model.StoreCouponBean">
+		select  c.coupon_code as coupon_code,c.coupon_name as coupon_name,c.coupon_rate as coupon_rate,u.coupon_state as coupon_state
+		from coupon c,coupon_user u
+		where c.coupon_code = u.coupon_code and u.member_code = #{member_code} and u.coupon_state = 0
+	</select>
+	
+	
 	
 	<!-- 쿠폰코드 바탕으로 쿠폰정보 가져오기 -->
 	<select id="Coupon_codeToName" resultType="store.model.StoreCouponBean">
@@ -119,6 +128,14 @@
 		update coupon_user set coupon_state = 1
 		where coupon_code = #{coupon_code} and member_code = #{member_code}
 	</update>
+	
+	<!-- 로그인 되있는 유저의 쿠폰리스트의 정보 -->
+	<select id="CheckUserAvailableCouponListInfo" resultType="store.model.StoreCouponBean">
+		select  c.coupon_code as coupon_code,c.coupon_name as coupon_name,c.coupon_rate as coupon_rate,u.coupon_state as coupon_state
+		from coupon c,coupon_user u
+		where c.coupon_code = u.coupon_code and u.member_code = #{member_code}
+		order by c.coupon_code
+	</select>
 </mapper>
 
 
