@@ -33,6 +33,7 @@ public class StoreCartController { //장바구니 컨트롤러
 	private final String reload_command = "redirect:/cart.store"; //장바구니 리스트 불러오기
 	private final String order_command = "order.store"; //결제
 	private final String empty_command = "emptyAll.store"; //장바구니 전체 비우기
+	private final String delete_command = "delProduct.store"; //장바구니 전체 비우기
 	
 	private final String cartPage = "storeCart";//장바구니페이지
 	private final String orderPage = "orderPage"; //결제페이지
@@ -88,7 +89,7 @@ public class StoreCartController { //장바구니 컨트롤러
 		return reload_command;
 	}
 	
-//	장바구니
+//	장바구니 로드
 	@RequestMapping(list_command)
 	public String doAction(HttpSession session,
 							Model model,
@@ -205,27 +206,21 @@ public class StoreCartController { //장바구니 컨트롤러
 		return orderPage;
 	}
 	
-	/*
-	 * //카트 상품 수량 수정
-	 * 
-	 * @RequestMapping(modify_command) public String modifyCart(
-	 * 
-	 * @RequestParam() int ) {
-	 * 
-	 * 
-	 * response.setCharacterEncoding("EUC-KR"); PrintWriter writer;
-	 * 
-	 * writer = response.getWriter(); if(session.getAttribute("loginInfo") == null)
-	 * { writer.println("<script type='text/javascript'>");
-	 * writer.println("alert('수량이 변경되었습니다.');");
-	 * writer.println("location.href = 'redirect:/cart.store' ");
-	 * writer.println("</script>"); writer.flush(); return null; }
-	 * 
-	 * 
-	 * return cartPage; //결제페이지 }
-	 */
+	@RequestMapping(delete_command)
+	public String delProduct(
+			@RequestParam("product_code") int product_code,
+			HttpSession session) {
+		
+		StoreCartList cart = (StoreCartList)session.getAttribute("cart");
+		if(cart.getAllCartList().containsKey(product_code)) { //장바구니세션에 삽입할 상품코드와 같은 key값이 존재한다면
+			cart.deleteProduct(product_code);
+		}
+		session.removeAttribute("cartSize");
+		
+		return reload_command; //장바구니 페이지
+	}
 	
-//카트에 등록되있는 상품 제거	
+//카트 비우기	
 	@RequestMapping(empty_command)
 	public String emptyCart(HttpSession session) {
 		
@@ -234,6 +229,6 @@ public class StoreCartController { //장바구니 컨트롤러
 		session.removeAttribute("cart");
 		session.removeAttribute("cartSize");
 		
-		return cartPage; //결제페이지
+		return cartPage; //장바구니 페이지
 	}
 }

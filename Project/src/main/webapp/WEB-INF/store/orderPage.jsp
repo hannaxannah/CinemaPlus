@@ -338,17 +338,18 @@ function setTotalInfo(){
 	let getPoint = <c:out value="${sum_point}"/>; //적립 포인트
 	let purchasePrice = <c:out value="${total_price}"/>; //최종 가격
 	let sale_percent = $("#coupon_sale option:selected").val();
+	
 	let indexofcoupon = $("#coupon_sale option:selected").text().indexOf('/');
 	let substrcoupon = $("#coupon_sale option:selected").text().substr(indexofcoupon);
 	let couponcode = substrcoupon.substring(1);
 		
 	$(".originalPrice").text(totalPrice);
-	$(".savePoint").text(parseInt(getPoint*(0.01*sale_percent)));
+	$(".savePoint").text(parseInt(getPoint-(getPoint*(0.01*sale_percent))));
 	$(".salePrice").text(parseInt(totalPrice*(0.01*sale_percent)));
 	$(".finalPrice").text(parseInt(totalPrice-(totalPrice*(0.01*sale_percent))));
 	
 	$("input[name=sale_pay]").val(sale_percent);
-	$("input[name=total_point]").val(parseInt(getPoint*(0.01*sale_percent)));
+	$("input[name=total_point]").val(parseInt(getPoint-(getPoint*(0.01*sale_percent))));
 	$("input[name=use_coupon_code]").val(couponcode);
 }
 	

@@ -95,11 +95,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-
-	$(document).ready(function() {
-		
-	});//ready
-	
 		 //장바구니 비우기
 		function empty_cart() {
 			location.href = "emptyAll.store";
@@ -113,31 +108,6 @@
 			}
 			location.href = url;
 		}
-		
-		//선택 상품 수량증가
-		function btn_plus(i) {
-			$("input[type='text'][name="+i+"]").val(parseInt($("input[type='text'][name="+i+"]").val())+1); 
-			if ($("input[type='text'][name="+i+"]").val() > 10) {//최대 수량 10
-				alert("한번에 선택가능한 수량은 10개입니다.");
-				$("input[type='text'][name="+i+"]").val(10);
-			} 
-			
-		}
-		
-		//선택 상품 수량감소
-		function btn_minus(i) {
-			
-			$("input[type='text'][name="+i+"]").val(parseInt($("input[type='text'][name="+i+"]").val())-1); 
-			
-			if ($("input[type='text'][name="+i+"]").val() < 1) {//최대 수량 10
-				alert("최소 선택가능한 수량은 1개입니다.");
-				$("input[type='text'][name="+i+"]").val(1);
-			} 
-			
-		}
-		
-		
-
 </script>
 <c:set var="original_price" value="0"/>
 <c:set var="sale_price" value="0"/>
@@ -192,20 +162,13 @@
 														</span>
 												</td>
 												<td width="110px">
-													<form action="modifyCart.store" method="post">
-														<input type="hidden" name="product_code" value="${cart.product_code}">
-														<button type="button" class="btn_minus" title="수량감소" name="${status.count}" onClick="btn_minus('${status.count}')">-</button>
-						                            	<input type="text" class="cart_qty" name="${status.count}" title="수량 입력" readonly="readonly" value="${cart.cart_qty }">
-						                            	<button type="button" class="btn_plus" title="수량증가" name="${status.count}" onClick="btn_plus('${status.count}')">+</button>
-														<br>
-														<button type="submit">변경</button>
-													</form>
+						                            	<input type="text" class="cart_qty" title="수량 입력" readonly="readonly" value="${cart.cart_qty }">
 												</td>
 												<td>
 													<div style="float : left">
 														${cart.product_sprice * cart.cart_qty }원
 													</div>
-														<a href="" class="delete_cart_btn"></a>
+														<a href="delProduct.store?product_code=${cart.product_code}" class="delete_cart_btn"></a>
 												</td>
 											</tr>
 													<c:set var="original_price" value="${original_price + cart.product_sprice*cart.cart_qty}"/>
