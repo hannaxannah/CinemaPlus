@@ -56,7 +56,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="movie.mv">영화</a></li>
+          <li><a class="nav-link scrollto" href="boxOffice.mv">영화</a></li>
           <li><a class="nav-link scrollto" href="reservation.rv">예매</a></li>
           <li><a class="nav-link scrollto" href="theater.th">영화관</a></li>
           <li><a class="nav-link scrollto" href="mymovie.mv">우리집 영화관</a></li>
