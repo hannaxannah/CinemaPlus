@@ -136,8 +136,9 @@ a {
 								<table class="table">
 									<thead>
 										<tr>
-											<th scope="col" width="10%">회원계정</th>
-											<th scope="col" width="20%">쿠폰명</th>
+											<th scope="col" width="10%">회원코드</th>
+											<th scope="col" width="15%">아이디</th>
+											<th scope="col" width="30%">쿠폰명</th>
 											<th scope="col" width="20%">할인율</th>
 											<th scope="col" width="25%">쿠폰상태</th>
 										</tr>
@@ -145,19 +146,20 @@ a {
 								
 									<c:if test="${fn:length(myCouponLists) == 0}">
 										<tr>
-											<td colspan="4" align="center">쿠폰 내역이 없습니다.</td>
+											<td colspan="5" align="center">쿠폰 내역이 없습니다.</td>
 										</tr>
 									</c:if>
 
 									<c:if test="${fn:length(myCouponLists) != 0}">
-										<c:forEach var="coupon" items="${myCouponLists}">
-											<tr>
-												<td align="center">${coupon.member_code}</td>
+								<%-- <c:forEach var="coupon" items="${myCouponLists}">--%>
+ 											<tr>
+												<td align="center">${loginInfo.member_code}</td>
+												<td align="center">${loginInfo.member_id}</td>
 												<td align="center">${coupon.coupon_code}</td>
 												<td align="center">${coupon.coupon_rate}</td>
 												<td align="center">${coupon.coupon_state}</td>
 											</tr>
-										</c:forEach>
+								<%-- </c:forEach> --%>
 									</c:if>
 
 								</table>

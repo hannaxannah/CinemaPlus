@@ -185,7 +185,7 @@ a {
 		<tr>
 			<td align="center">${board.movie_num}</td>
 			<td align="center">${board.classification}</td>
-			<td align="left">
+			<td style="text-align: left;">
 			<a href="detail.bd?movienum=${board.movie_num }&pageNumber=${pageInfo.pageNumber}">${board.question}</a>
 			</td>
 			<td align="center"><fmt:formatDate value="${board.qdate}" type="date" pattern="yyyy-MM-dd"/> </td>

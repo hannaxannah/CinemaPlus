@@ -157,7 +157,7 @@ a {
 			<tr>
 				<td align="center">${board.movie_code}</td>
 				<td align="center">${board.question_type}</td>
-				<td>
+				<td style="text-align: left;">
 				<a <%-- href="detail.in?moviecode=${board.movie_code}&pageNumber=${pageInfo.pageNumber}" --%>>${board.subject}</a>
 				</td>
 				<td align="center">
