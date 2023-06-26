@@ -14,6 +14,15 @@ insert into member values('M7', 'shin', 'shin1234', '주영', '19971110', '01031
 insert into member values('M9', 'test', 'test1234', '테스트', '20230615', '01022227777', 'shinjugle@gmail.com', 'q5','답변테스트',sysdate,'동의','수신거부','수신동의', '7000');
 
 --individualboard(1:1문의게시판)
+
+drop sequence INDIVIDUALBOARD_SEQ;
+CREATE SEQUENCE INDIVIDUALBOARD_SEQ
+MINVALUE 1 
+MAXVALUE 10000 
+INCREMENT BY 1 
+START WITH 1
+NOCACHE
+
 DROP TABLE individualboard CASCADE CONSTRAINTS;
 
 CREATE TABLE individualboard(

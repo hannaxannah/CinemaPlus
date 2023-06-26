@@ -160,7 +160,7 @@ a {
 	<tr>	
 			<th>
 			<font style="font-size: small; color: #B2CCFF;">전체 (${pageInfo.totalCount}건)</font>
-			<input type="button" onclick="location.href='insert.in'" value="1:1문의">
+			<input type="button" class="btn btn-outline-secondary" onclick="location.href='insert.in'" value="1:1문의">
 			</th>	
 	</tr>
 		
