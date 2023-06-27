@@ -120,9 +120,8 @@ a {
 						<p style="font-size: 20px; text-align: center;" >영화 어떠셨나요?</p>
 						<textarea rows="12" cols="96" style="margin: 20px; "  placeholder="관람평을 입력해주세요."﻿﻿ ></textarea>
 						
-						<a href="writeReview.mp?member_id=${loginInfo.member_id}" style="background-color: #EBE4FC; padding:5px; margin-left: 380px;">등록</a>
+						<a href="writeReview.mp?member_id=${loginInfo.member_id}&pageNumber=${pageInfo.pageNumber}" style="background-color: #EBE4FC; padding:5px; margin-left: 380px;">등록</a>
 						<a href="myMovieRecord.mp?member_id=${loginInfo.member_id}" style="background-color: #EBE4FC; padding:5px;">취소</a>
-						
 					</div>
 			</div>
 			
