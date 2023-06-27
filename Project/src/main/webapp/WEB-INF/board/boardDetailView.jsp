@@ -109,7 +109,7 @@
     </header>
 
 	  <div class="form-group">
-  제목 : ${board.question}
+  <h4>제목 : ${board.question}</h4>
   </div><br><br>
 
 
@@ -150,13 +150,13 @@
                 </div>
                 
                  -->
-                <div class="col-md-3 col-lg-4" style="margin-bottom: 50px;">
+                <div class="col-md-3 col-lg-4" style="margin:auto; margin-bottom: 50px;">
                     <label for="comment-submit" hidden>댓글 쓰기</label>
                     
                     <c:if test="${loginInfo.member_id eq 'admin'}">			
-                    <button class="btn btn-primary" id="comment-submit" type="button" onClick="location.href='faqUpdate.bd?movienum=${board.movie_num}'">관리자 수정</button>
+                    <button class="btn btn-primary" id="FAQcomment-submit" type="button" onClick="location.href='faqUpdate.bd?movienum=${board.movie_num}'">관리자 수정</button>
 					</c:if>
-                    <button class="btn btn-primary" id="comment-submit" type="reset" onClick="location.href='list.bd?pageNumber=${param.pageNumber}'">목록으로</button>
+                    <button class="btn btn-primary" id="FAQcomment-submit" type="reset" onClick="location.href='list.bd?pageNumber=${param.pageNumber}'">목록으로</button>
                 </div>
 
             </form>

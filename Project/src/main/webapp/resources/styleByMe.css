@@ -1,19 +1,64 @@
 .button:hover,
 .button.active {
-  background: #6B39EA;
+  background: #322465;
   color: #EBE4FC;
 }
 .button:visited {
-  background: #6B39EA;
+  background: #322465;
   color: #EBE4FC;
 }
 .button {
   border: 0;
-   background: #ffffff;
-   margin: 5px;
-   font-size: 18px;
+  background: #ffffff;
+  margin: 5px;
+  font-size: 18px;
 }
 
+
+.timeButton:hover,
+.timeButton.active {
+  background: #322465;
+  color: #EBE4FC;
+}
+.timeButton:visited {
+  background: #322465;
+  color: #EBE4FC;
+}
+.timeButton {
+  border: 0;
+  background: #ffffff;
+  margin: 5px;
+  font-size: 18px;
+}
+
+
+/* 예매-시간버튼 */
+#reservation-movie-time-btn{
+	width:50px;
+	margin: 40px;
+}
+
+#FAQcomment-submit{
+	background: #EBE4FC;
+	color: #6B39EA;
+	border: none;
+	
+}
+
+
+#memberPointButton {
+	display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  font-size: 0.95em;
+  font:bold;
+  color: #6B39EA;
+  background:#EBE4FC;
+  border:none;
+  border-radius:25px;
+  padding:8px 28px;
+}
 
 
 /* 영화 리스트 */
@@ -882,7 +927,7 @@
 	justify-items: center;
 	justify-content: center;
 	color: #FCFBFF;
-	background: #6B39EA;
+	background: #322465;
 	border-bottom: 1px solid rgba(242, 242, 242, 1);
 }
 
@@ -972,19 +1017,20 @@
     display: flex;
     flex-flow: flex-end;
     flex-direction: row-reverse;
-    background: #6B39EA;
+    background: #322465;
 }
 
 #reservation-go-seat input {
-	font-size: 1.1rem;
-    font-weight: 600;
+	font-size: 0.9rem;
+    font-weight: 700;
     /* color: #AD91F3; */
-    color: #FCFBFF;
+    color: #000000;
     transition: 0.3s;
-    background: #6B39EA;
+    background: #ffffff;
     border: none;
     border-radius: 20px;
     padding: 5px 20px;
+    margin: 10px;
 }
 
 .reservation-select-number-seat {
