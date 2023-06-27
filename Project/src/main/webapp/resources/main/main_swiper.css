@@ -60,7 +60,6 @@
 }
 .swiper-slide .container {z-index: 20;}
 .swiper-slide:after {
-    content: ''; 
     position: absolute; 
     z-index: 2; 
     left: 0; top: 0; 

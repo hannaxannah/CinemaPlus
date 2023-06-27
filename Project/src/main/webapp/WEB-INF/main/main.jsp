@@ -48,7 +48,7 @@
     <!-- //banner -->
     
     
-    <section id="movie">
+    <section id="movie" style="background-color:#120531;">
         <div class="container">
             <div class="row">
                 <h2 class="ir_so">영화 예매</h2>
@@ -56,151 +56,28 @@
                     <div class="movie_chart">
                         <div class="swiper-container2 swiper-container-initialized swiper-container-horizontal" style="display: block;">
                            <div class="chart_cont1 swiper-wrapper" style="transform: translate3d(-318px, 0px, 0px); transition-duration: 0ms;">
-                               <div class="swiper-slide swiper-slide-prev" style="width: 294px; margin-right: 24px;">
-                                   <div class="poster">
+                               
+                               <c:forEach var="weekly" items="${weeklyBoxOfficeList}" varStatus="status">
+                               <div class="swiper-slide swiper-slide">
+                                   <div class="poster" >
                                        <figure>
-                                           <img src="./메가박스 사이트 코딩하기 _ 고객센터 _ SVG_files/poster01.jpg" srcset="assets/img/poster01@2.jpg 2x" alt="침묵">
+                                           <img src="${posters[status.index]}">
                                        </figure>
-                                       <div class="rank"><strong>1</strong></div>
+                                       <div class="rank"><strong>${status.count}</strong></div>
                                        <div class="mx">
                                            <span class="icon m ir_pm">MX</span>
                                            <span class="icon b ir_pm">Boutique</span>
                                        </div>
                                    </div>
                                    <div class="infor">
-                                       <h3><span class="icon all ir_pm">전체관람가</span> <strong>침묵</strong></h3>
+                                       <h3><span class="icon all ir_pm">전체관람가</span> <strong>${weekly.get('movieNm')}</strong></h3>
                                        <div class="infor_btn">
-                                           <a href="file:///C:/Users/KJS/Downloads/megabox2019-master/megabox2019-master/mega297_18.html#">상세정보</a>
-                                           <a href="file:///C:/Users/KJS/Downloads/megabox2019-master/megabox2019-master/mega297_18.html#">예매하기</a>
+                                           <a href="movieDetail.mv?title=${weekly.get('movieNm')}&date=${weekly.get('openDt')}">상세정보</a>
+                                           <a href="movieDetail.mv?title=${weekly.get('movieNm')}&date=${weekly.get('openDt')}" style="cursor: pointer;">예매하기</a>
                                        </div>
                                    </div>
                                </div>
-                               <div class="swiper-slide swiper-slide-active" style="width: 294px; margin-right: 24px;">
-                                   <div class="poster">
-                                       <figure>
-                                           <img src="./메가박스 사이트 코딩하기 _ 고객센터 _ SVG_files/poster02.jpg" srcset="assets/img/poster02@2.jpg 2x" alt="신세계">
-                                       </figure>
-                                       <div class="rank"><strong>2</strong></div>
-                                       <div class="mx">
-                                           <span class="icon m ir_pm">MX</span>
-                                       </div>
-                                   </div>
-                                   <div class="infor">
-                                       <h3><span class="icon a19 ir_pm">19세 이상 관람</span> <strong>신세계</strong></h3>
-                                       <div class="infor_btn">
-                                           <a href="file:///C:/Users/KJS/Downloads/megabox2019-master/megabox2019-master/mega297_18.html#">상세정보</a>
-                                           <a href="file:///C:/Users/KJS/Downloads/megabox2019-master/megabox2019-master/mega297_18.html#">예매하기</a>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="swiper-slide swiper-slide-next" style="width: 294px; margin-right: 24px;">
-                                   <div class="poster">
-                                       <figure>
-                                           <img src="./메가박스 사이트 코딩하기 _ 고객센터 _ SVG_files/poster03.jpg" srcset="assets/img/poster03@2.jpg 2x" alt="마스터">
-                                       </figure>
-                                       <div class="rank"><strong>3</strong></div>
-                                       <div class="mx">
-                                           <span class="icon m ir_pm">MX</span>
-                                       </div>
-                                   </div>
-                                   <div class="infor">
-                                       <h3><span class="icon a12 ir_pm">12세 이상 관람</span> <strong>마스터</strong></h3>
-                                       <div class="infor_btn">
-                                           <a href="file:///C:/Users/KJS/Downloads/megabox2019-master/megabox2019-master/mega297_18.html#">상세정보</a>
-                                           <a href="file:///C:/Users/KJS/Downloads/megabox2019-master/megabox2019-master/mega297_18.html#">예매하기</a>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="swiper-slide" style="width: 294px; margin-right: 24px;">
-                                   <div class="poster">
-                                       <figure>
-                                           <img src="./메가박스 사이트 코딩하기 _ 고객센터 _ SVG_files/poster04.jpg" srcset="assets/img/poster04@2.jpg 2x" alt="마약왕">
-                                       </figure>
-                                       <div class="rank"><strong>4</strong></div>
-                                       <div class="mx">
-                                           <span class="icon m ir_pm">MX</span>
-                                       </div>
-                                   </div>
-                                   <div class="infor">
-                                       <h3><span class="icon a15 ir_pm">15세 이상 관람</span> <strong>마약왕</strong></h3>
-                                       <div class="infor_btn">
-                                           <a href="file:///C:/Users/KJS/Downloads/megabox2019-master/megabox2019-master/mega297_18.html#">상세정보</a>
-                                           <a href="file:///C:/Users/KJS/Downloads/megabox2019-master/megabox2019-master/mega297_18.html#">예매하기</a>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="swiper-slide" style="width: 294px; margin-right: 24px;">
-                                   <div class="poster">
-                                       <figure>
-                                           <img src="./메가박스 사이트 코딩하기 _ 고객센터 _ SVG_files/poster05.jpg" srcset="assets/img/poster05@2.jpg 2x" alt="마약왕">
-                                       </figure>
-                                       <div class="rank"><strong>5</strong></div>
-                                       <div class="mx">
-                                           <span class="icon m ir_pm">MX</span>
-                                       </div>
-                                   </div>
-                                   <div class="infor">
-                                       <h3><span class="icon a15 ir_pm">15세 이상 관람</span> <strong>마약왕</strong></h3>
-                                       <div class="infor_btn">
-                                           <a href="file:///C:/Users/KJS/Downloads/megabox2019-master/megabox2019-master/mega297_18.html#">상세정보</a>
-                                           <a href="file:///C:/Users/KJS/Downloads/megabox2019-master/megabox2019-master/mega297_18.html#">예매하기</a>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="swiper-slide" style="width: 294px; margin-right: 24px;">
-                                   <div class="poster">
-                                       <figure>
-                                           <img src="./메가박스 사이트 코딩하기 _ 고객센터 _ SVG_files/poster06.jpg" srcset="assets/img/poster06@2.jpg 2x" alt="마약왕">
-                                       </figure>
-                                       <div class="rank"><strong>6</strong></div>
-                                       <div class="mx">
-                                           <span class="icon m ir_pm">MX</span>
-                                       </div>
-                                   </div>
-                                   <div class="infor">
-                                       <h3><span class="icon a15 ir_pm">15세 이상 관람</span> <strong>마약왕</strong></h3>
-                                       <div class="infor_btn">
-                                           <a href="file:///C:/Users/KJS/Downloads/megabox2019-master/megabox2019-master/mega297_18.html#">상세정보</a>
-                                           <a href="file:///C:/Users/KJS/Downloads/megabox2019-master/megabox2019-master/mega297_18.html#">예매하기</a>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="swiper-slide" style="width: 294px; margin-right: 24px;">
-                                   <div class="poster">
-                                       <figure>
-                                           <img src="./메가박스 사이트 코딩하기 _ 고객센터 _ SVG_files/poster07.jpg" srcset="assets/img/poster07@2.jpg 2x" alt="마약왕">
-                                       </figure>
-                                       <div class="rank"><strong>7</strong></div>
-                                       <div class="mx">
-                                           <span class="icon m ir_pm">MX</span>
-                                       </div>
-                                   </div>
-                                   <div class="infor">
-                                       <h3><span class="icon a15 ir_pm">15세 이상 관람</span> <strong>마약왕</strong></h3>
-                                       <div class="infor_btn">
-                                           <a href="file:///C:/Users/KJS/Downloads/megabox2019-master/megabox2019-master/mega297_18.html#">상세정보</a>
-                                           <a href="file:///C:/Users/KJS/Downloads/megabox2019-master/megabox2019-master/mega297_18.html#">예매하기</a>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="swiper-slide" style="width: 294px; margin-right: 24px;">
-                                   <div class="poster">
-                                       <figure>
-                                           <img src="./메가박스 사이트 코딩하기 _ 고객센터 _ SVG_files/poster08.jpg" srcset="assets/img/poster08@2.jpg 2x" alt="마약왕">
-                                       </figure>
-                                       <div class="rank"><strong>8</strong></div>
-                                       <div class="mx">
-                                           <span class="icon m ir_pm">MX</span>
-                                       </div>
-                                   </div>
-                                   <div class="infor">
-                                       <h3><span class="icon a15 ir_pm">15세 이상 관람</span> <strong>마약왕</strong></h3>
-                                       <div class="infor_btn">
-                                           <a href="file:///C:/Users/KJS/Downloads/megabox2019-master/megabox2019-master/mega297_18.html#">상세정보</a>
-                                           <a href="file:///C:/Users/KJS/Downloads/megabox2019-master/megabox2019-master/mega297_18.html#">예매하기</a>
-                                       </div>
-                                   </div>
-                               </div>
+                               </c:forEach>
                            </div>
                         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
                     </div>
@@ -242,16 +119,24 @@
                 delay: 6000,
             },
             breakpoints: {
-                600: {
+                300: {
                     slidesPerView: 1.4,
                     spaceBetween: 24
                 },
-                768: {
+                600: {
                     slidesPerView: 2,
                     spaceBetween: 24
                 },
-                960: {
+                900: {
                     slidesPerView: 3,
+                    spaceBetween: 24
+                },
+                1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 24
+                },
+                1500: {
+                    slidesPerView: 5,
                     spaceBetween: 24
                 }
             }

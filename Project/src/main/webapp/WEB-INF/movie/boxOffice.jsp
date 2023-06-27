@@ -23,6 +23,7 @@
 					style="position: relative; width: 100%; margin: 0 auto;">
 					<div class="col-xl-10">
 						<div class="row">
+						
 							<c:forEach var="weekly" items="${weeklyBoxOfficeList}"
 								varStatus="status">
 								<!-- Start portfolio item -->
@@ -38,7 +39,8 @@
 											&date=${weekly.get('openDt')}"
 													title="More Details">${weekly.get("movieNm")}</a>
 											</h4>
-											<input type="button" class="movie-list-reservation-btn" value="예매하기">
+											<a class="movie-list-reservation-btn" href="movieDetail.mv?title=${weekly.get('movieNm')}
+											&date=${weekly.get('openDt')}">예매하기</a>
 											<div class="portfolio-links">
 												<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
 											</div>
@@ -76,6 +78,7 @@
 								</div>
 								<!-- End portfolio item -->
 							</c:forEach>
+							
 						</div>
 					</div>
 
