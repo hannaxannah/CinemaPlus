@@ -103,7 +103,7 @@
 														취소내역
 													</td>
 													<td>
-														<a href="myreservation.mp?member_id=${loginInfo.member_id}">더보기</a>
+														<a href="myreservDelete.mp?member_id=${loginInfo.member_id}">더보기</a>
 													</td>
 												</tr>
 												<tr>

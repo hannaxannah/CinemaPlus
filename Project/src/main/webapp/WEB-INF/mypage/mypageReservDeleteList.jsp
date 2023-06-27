@@ -99,7 +99,7 @@
 								<div class="card-body align-items-center justify-content-center">
 									<ul class="nav nav-tabs" id="myTab" role="tablist">
 									  <li class="nav-item" role="presentation">
-									    <button class="nav-link active" id="reservation-tab" onclick="location.href='myreservation.mp?member_id=${loginInfo.member_id}'"  data-bs-toggle="tab" data-bs-target="#reservation-tab-pane" type="button" role="tab" aria-controls="reservation-tab-pane" aria-selected="true">예매내역</button>
+									    <button class="nav-link active" id="reservation-tab" onclick="location.href='myreservation.mp?member_id=${loginInfo.member_id}'">예매내역</button>
 									  </li>
 									  <li class="nav-item" role="presentation">
 									    <button class="nav-link" id="purchase-tab" data-bs-toggle="tab" data-bs-target="#purchase-tab-pane" type="button" role="tab" aria-controls="purchase-tab-pane" aria-selected="false">취소내역</button>
@@ -130,22 +130,22 @@
 								                  </tr>
 								                </thead>
 								                
-								                <c:if test="${fn:length(reservationDelList) == 0}">
+								                <c:if test="${fn:length(delList) == 0}">
 												<tr>
 													<td colspan="5" align="center">취소 내역이 없습니다.</td>
 												</tr>
 												
 											</c:if>
-											 <c:if test="${fn:length(reservationDelList) != 0}">
+											 <c:if test="${fn:length(delList) != 0}">
 												<tbody>
-												<c:forEach var="Delreservation" items="${reservationDelList}" varStatus="status">
+												<c:forEach var="delList" items="${delList}" varStatus="status">
 													<tr>
-														<fmt:parseDate var="date1" value="${Delreservation.reservation_date}" pattern="yyyy-MM-dd"/>
+														<fmt:parseDate var="date1" value="${delList.reservation_date}" pattern="yyyy-MM-dd"/>
 														<fmt:formatDate  var="date2" value="${date1}" type="DATE" pattern="yyyy-MM-dd"/> 
 														<td>${date2}</td>
-														<td>${Delreservation.screen_name}</td>
-														<td>${Delreservation.movie_title}</td>
-														<td>${Delreservation.seat_number}</td>
+														<td>${delList.screen_name}</td>
+														<td>${delList.movie_title}</td>
+														<td>${delList.seat_number}</td>
 														<td><a href="">실행취소</a></td>
 													</tr>
 												</c:forEach>												

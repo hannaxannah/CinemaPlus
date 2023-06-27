@@ -3,9 +3,12 @@ package movie.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import board.model.BoardBean;
 
 
 @Component
@@ -88,10 +91,20 @@ public class ScreenDao {
 	}
 
 	/* 마이페이지 예매내역 삭제 */
-	public int deleteReservation(String reservation_num) {
+	public int deleteReservation(String member_id) {
 		int cnt = -1;
-		cnt = sqlSessionTemplate.delete(namespace+".MyRervDelete", reservation_num);
+		cnt = sqlSessionTemplate.delete(namespace+".MyRervDelete", member_id);
 		return cnt;
+	}
+
+
+	/* 마이페이지 취소내역 */
+	public List<ScreenBean> deleteMyReserList(String reservation_num) {
+		List<ScreenBean> lists = new ArrayList<ScreenBean>();
+
+		lists = sqlSessionTemplate.selectList(namespace + ".getDeleteMyReserList",reservation_num);
+		System.out.println("lists.size():" + lists.size());
+		return lists;
 	}
 	
 	
