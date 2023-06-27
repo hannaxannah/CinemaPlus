@@ -141,5 +141,13 @@
 		select distinct movie_title from ticket_reservation
 		where member_id = #{member_id}
 	</select>
+	
+	<!-- 마이페이지 예매내역 삭제 -->
+	<delete id = "MyRervDelete">
+		delete ticket_reservation
+		where reservation_num = #{reservation_num}
+	</delete>
+	
+	
 </mapper>
 

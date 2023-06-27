@@ -99,61 +99,61 @@
 								<div class="card-body align-items-center justify-content-center">
 									<ul class="nav nav-tabs" id="myTab" role="tablist">
 									  <li class="nav-item" role="presentation">
-									    <button class="nav-link active" id="reservation-tab" data-bs-toggle="tab" data-bs-target="#reservation-tab-pane" type="button" role="tab" aria-controls="reservation-tab-pane" aria-selected="true">예매내역</button>
+									    <button class="nav-link active" id="reservation-tab" onclick="location.href='myreservation.mp?member_id=${loginInfo.member_id}'"  data-bs-toggle="tab" data-bs-target="#reservation-tab-pane" type="button" role="tab" aria-controls="reservation-tab-pane" aria-selected="true">예매내역</button>
 									  </li>
 									  <li class="nav-item" role="presentation">
-									    <button class="nav-link" id="purchase-tab" onclick="location.href='myreservDelete.mp?member_id=${loginInfo.member_id}'" >취소내역</button>
+									    <button class="nav-link" id="purchase-tab" data-bs-toggle="tab" data-bs-target="#purchase-tab-pane" type="button" role="tab" aria-controls="purchase-tab-pane" aria-selected="false">취소내역</button>
 									  </li>
 									</ul>
 									<div class="tab-content" id="myTabContent">
-									  <div class="tab-pane fade show active" id="reservation-tab-pane" role="tabpanel" aria-labelledby="reservation-tab" tabindex="0" style="display:flex;flex-flow:column;padding-top:20px;">
+									  <div class="tab-pane fade" id="purchase-tab-pane" role="tabpanel" aria-labelledby="purchase-tab" tabindex="0">
 									  	<div style="width:100%;">
-									  		 <div class="my-reservation-search">
+									  		<div class="my-reservation-search">
 									  			<a style="font-size:1.1rem;font-weight:600;padding-right:20px;">조회기간</a>
 									  			<input type="date" class="my-reservation-search-date">
 									  			<a style="font-size:1.1rem;font-weight:600;padding:0 10px;">~</a>
 									  			<input type="date" class="my-reservation-search-date">
 									  			<input type="submit" class="my-search" value="검색">
-									  		</div> <br>
-								            <div style="width: 100%;display: flex;">
-								              <!-- Table -->
+									  		</div><br>
+								             <div style="width: 100%;display: flex;">
+								             <!--  Table -->
+								             
+								             
 								              <table class="table">
 								                <thead>
 								                  <tr>
 								                    <th scope="col" width="20%">예매날짜</th>
-								                    <th scope="col" width="10%">영화관</th>
+								                    <th scope="col" width="15%">영화관</th>
 								                    <th scope="col" width="30%">영화</th>
-								                    <th scope="col" width="15%">영화시간</th>
-								                    <th scope="col" width="10%">좌석번호</th>
-								                    <th scope="col" width="20%">예매취소</th>
-										</tr>
+								                    <th scope="col" width="20%">좌석번호</th>
+								                    <th scope="col" width="15%">실행취소</th>
+								                  </tr>
 								                </thead>
 								                
-								                <c:if test="${fn:length(reservationList) == 0}">
+								                <c:if test="${fn:length(reservationDelList) == 0}">
 												<tr>
-													<td colspan="5" align="center">예매 내역이 없습니다.</td>
+													<td colspan="5" align="center">취소 내역이 없습니다.</td>
 												</tr>
 												
 											</c:if>
-											 <c:if test="${fn:length(reservationList) != 0}">
+											 <c:if test="${fn:length(reservationDelList) != 0}">
 												<tbody>
-												<c:forEach var="reservation" items="${reservationList}" varStatus="status">
+												<c:forEach var="Delreservation" items="${reservationDelList}" varStatus="status">
 													<tr>
-														<fmt:parseDate var="date1" value="${reservation	.reservation_date}" pattern="yyyy-MM-dd"/>
+														<fmt:parseDate var="date1" value="${Delreservation.reservation_date}" pattern="yyyy-MM-dd"/>
 														<fmt:formatDate  var="date2" value="${date1}" type="DATE" pattern="yyyy-MM-dd"/> 
 														<td>${date2}</td>
-														<td>${reservation.screen_name}</td>
-														<td>${reservation.movie_title}</td>
-														<td>${reservation.screen_time}</td>
-														<td>${reservation.seat_number}</td>
-														<td><a href="reservDel.mp?reservation_num=${reservation.reservation_num}">예매취소</a></td>
+														<td>${Delreservation.screen_name}</td>
+														<td>${Delreservation.movie_title}</td>
+														<td>${Delreservation.seat_number}</td>
+														<td><a href="">실행취소</a></td>
 													</tr>
 												</c:forEach>												
 												</tbody>
 											</c:if>
 								              </table>
 								              <!-- Table -->
-								         </div>
+								             </div>
 									  	</div>
 									  </div>
 									</div>

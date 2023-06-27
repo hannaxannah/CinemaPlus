@@ -13,6 +13,13 @@ insert into member values('M5', 'lee', 'lee1234', '리', '20200101', '0103333555
 insert into member values('M7', 'shin', 'shin1234', '주영', '19971110', '01031711401', 'shin@naver.com', 'q7','q7답변',sysdate,'비동의','수신거부','수신거부', '3500');
 insert into member values('M9', 'test', 'test1234', '테스트', '20230615', '01022227777', 'shinjugle@gmail.com', 'q5','답변테스트',sysdate,'동의','수신거부','수신동의', '7000');
 
+--ticket_reservation insert
+
+INSERT INTO (RESERVATION_NUM, MOVIE_TITLE, reservation_date, SEAT_NUMBER, SEAT_NUMBER2, TICKET_PRICE, SCREEN_NAME, SCREEN_TIME, MEMBER_ID) VALUES (1, '스즈메의 문단속', sysdate, '11', 55, 15000, 'CGV고잔', '150', 'lee');
+INSERT INTO (RESERVATION_NUM, MOVIE_TITLE, reservation_date, SEAT_NUMBER, SEAT_NUMBER2, TICKET_PRICE, SCREEN_NAME, SCREEN_TIME, MEMBER_ID) VALUES (2, '탑건', sysdate, '23', 33, 12500, 'CGV중앙', '180', 'lee');
+
+
+
 --individualboard(1:1문의게시판)
 
 drop sequence INDIVIDUALBOARD_SEQ;
