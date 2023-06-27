@@ -47,7 +47,14 @@ public class ScreenSelectSeatsController {
 		List<ReservationBean> reservationList = screenDao.getReservationByTime(screenBean.getScreen_time());
 		for(int i=0; i<reservationList.size(); i++) {
 			ReservationBean reservation = reservationList.get(i);
-			System.out.println(reservation.getSeat_number2());
+			System.out.println(reservation.getSeat_number());
+			System.out.println(reservation.getMovie_title());
+			System.out.println(reservation.getScreen_name());
+			String seatnum = reservation.getSeat_number();
+			String seatRow = seatnum.substring(0,1);
+			String seatCol = seatnum.substring(1);
+			reservation.setSeat_number(seatRow);
+			reservation.setSeat_number2(seatCol);
 		}
 		model.addAttribute("reservationList", reservationList);
 		

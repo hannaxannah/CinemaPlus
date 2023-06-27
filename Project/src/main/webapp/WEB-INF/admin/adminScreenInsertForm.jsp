@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="./adminMenu.jsp"%>
 <%@ include file="../common/common.jsp"%>
-<c:set var="path" value="${pageContext.request.contextPath}" />
-<script src="${path}/resources/js/jquery.js"></script>
+<%-- <c:set var="path" value="${pageContext.request.contextPath}" />
+<script src="${path}/resources/js/jquery.js"></script> --%>
 <!-- page content -->
 <div class="right_col" role="main" style="min-height: 3535.8px;">
 	<div class="">
@@ -28,7 +28,7 @@
 						<form id="demo-form2" name="screen_form"
 							action="screenInsert.admin" method="post"
 							onSubmit="return emptyCheck()" data-parsley-validate=""
-							class="form-horizontal form-label-left" novalidate="">
+							class="form-horizontal form-label-left" >
 
 							<div class="form-group">
 								<label class="control-label col-md-3 col-sm-3 col-xs-12">상영관
@@ -49,7 +49,7 @@
 									오픈 시간<span class="required">*</span>
 								</label>
 								<div class="col-md-6 col-sm-6 col-xs-12">
-									<select class="form-select" name=screen_time id="s2">
+									<select  name=screen_time id="s3">
 									</select>
 								</div>
 							</div>
@@ -153,19 +153,19 @@
 			o = 10;
 			$('input[name=seat_count]').attr('value', "100");
 		}
-		$('#s2').empty();
-		alert()
+		$('#s3').empty();
 		for (var i = o; i < 25; i = i + 3) {
-			$('#s2').append('<option>' + i + ":00" + '</option>');
+			$('#s3').append('<option value = "' + i + ':00">' + i + ":00" + '</option>');
 		}
 		if ('${fn:length(opendScreenTimes)}' != 0) {
 			alert(2);
 			<c:forEach var="opendScreenTime" items="${opendScreenTimes}">
-			$('#s2').children("option[value='${opendScreenTime}']").remove();
+			$("select#s3 option[value='${opendScreenTime}']").remove();
 			</c:forEach>
 		}
 		if (v == "") {
-			$('#s2').empty();
+			$('#s3').empty();
+			$('input[name=seat_count]').attr('value', "0");
 		}
 	}
 

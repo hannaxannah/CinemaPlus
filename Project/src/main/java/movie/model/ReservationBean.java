@@ -5,7 +5,7 @@ public class ReservationBean {
 	private String movie_title;
 	private String reservation_date;
 	private String seat_number;
-	private int seat_number2;
+	private String seat_number2;
 	private int ticket_price;
 	private String screen_name;
 	private String screen_time;
@@ -59,10 +59,10 @@ public class ReservationBean {
 	public void setMember_id(String member_id) {
 		this.member_id = member_id;
 	}
-	public int getSeat_number2() {
+	public String getSeat_number2() {
 		return seat_number2;
 	}
-	public void setSeat_number2(int seat_number2) {
+	public void setSeat_number2(String seat_number2) {
 		this.seat_number2 = seat_number2;
 	}
 	
