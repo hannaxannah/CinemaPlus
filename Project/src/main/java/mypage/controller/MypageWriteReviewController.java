@@ -25,10 +25,11 @@ public class MypageWriteReviewController {
 	
 	@RequestMapping(value=command)
 		public String doAction(HttpSession session, Model model) {
-			MemberBean memberBean = (MemberBean) session.getAttribute("loginInfo");
-			String id = memberBean.getMember_id();
+			MemberBean mb = (MemberBean) session.getAttribute("loginInfo");
+			String id = mb.getMember_id();
 			List<ReservationBean> List = screenDao.writeReview(id);
 			model.addAttribute("List", List);
+		     
 			return getPage;
 	}
 }

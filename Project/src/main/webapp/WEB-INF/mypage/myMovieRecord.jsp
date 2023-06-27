@@ -113,58 +113,107 @@ a {
 		<div class="card-body align-items-center justify-content-center">
 			<ul class="nav nav-tabs" id="myTab" role="tablist">
 				<li class="nav-item" role="presentation">
-					<button class="nav-link active" id="reservation-tab" data-bs-toggle="tab" data-bs-target="#reservation-tab-pane" type="button" role="tab" aria-controls="reservation-tab-pane" aria-selected="true">
-						내가 본 영화 (총 ${fn:length(reservationList)}건)
-					</button>
+					<button class="nav-link active" id="reservation-tab"
+						data-bs-toggle="tab" data-bs-target="#reservation-tab-pane"
+						type="button" role="tab" aria-controls="reservation-tab-pane"
+						aria-selected="true">내가 본 영화 (총
+						${fn:length(reservationList)}건)</button>
 				</li>
-				 <li class="nav-item" role="presentation">
-					<button class="nav-link" id="purchase-tab" data-bs-toggle="tab" data-bs-target="#purchase-tab-pane" type="button" role="tab" aria-controls="purchase-tab-pane" aria-selected="false">
-						작성한 리뷰 목록
-					</button>
+				<li class="nav-item" role="presentation">
+					<button class="nav-link" id="purchase-tab" data-bs-toggle="tab"
+						data-bs-target="#purchase-tab-pane" type="button" role="tab"
+						aria-controls="purchase-tab-pane" aria-selected="false">
+						작성한 리뷰 목록</button>
 				</li>
 			</ul>
 			<div class="tab-content" id="myTabContent">
 				<div class="tab-pane fade show active" id="reservation-tab-pane"
 					role="tabpanel" aria-labelledby="reservation-tab" tabindex="0"
-					style=" flex-flow: column; padding-top: 20px;">
+					style="flex-flow: column; padding-top: 20px;">
 					<div style="width: 1000px;">
-					
-						
-						<div style="width: 770px; padding: 15px;" >
+
+
+						<div style="width: 770px; padding: 15px;">
 							<c:if test="${fn:length(reservationList) == null}">
-								<p colspan="5" align="center">리뷰 내역이 없습니다.</p>
+								<p colspan="6" align="center">리뷰 내역이 없습니다.</p>
 							</c:if>
 
 							<c:if test="${fn:length(reservationList) != null}">
-								<c:forEach var="reservation" items="${reservationList}" varStatus="status">
-									<fmt:parseDate var="date1" value="${reservation.reservation_date}" pattern="yyyy-MM-dd" />
-									<fmt:formatDate var="date2" value="${date1}" type="DATE" pattern="yyyy-MM-dd" />
-									<div style="width: 190px; padding-left: 30px; padding-bottom:50px; float: left;">
+								<c:forEach var="reservation" items="${reservationList}"
+									varStatus="status">
+									<fmt:parseDate var="date1"
+										value="${reservation.reservation_date}" pattern="yyyy-MM-dd" />
+									<fmt:formatDate var="date2" value="${date1}" type="DATE"
+										pattern="yyyy-MM-dd" />
+									<div
+										style="width: 190px; padding-left: 30px; padding-bottom: 50px; float: left;">
 										<img
-										src="https://img.megabox.co.kr/SharedImg/2021/12/16/ixl5QxDVs5Gn8nQN3rslK8BUmgFVklj8_230.jpg"
-										onerror="noImg(this)" alt="스파이더맨: 노 웨이 홈">
+											src="https://img.megabox.co.kr/SharedImg/2021/12/16/ixl5QxDVs5Gn8nQN3rslK8BUmgFVklj8_230.jpg"
+											onerror="noImg(this)" alt="스파이더맨: 노 웨이 홈">
 									</div>
 									<div style="width: 180px; padding-left: 20px; float: left;">
 										<p class="movieTitle">${reservation.movie_title}</p>
 										<p>속초점</p>
 										<p>${reservation.screen_name}</p>
 										<p>${date2}</p>
-										<a href="writeReview.mp?member_id=${loginInfo.member_id}" style="background-color: #EBE4FC; padding:5px;">리뷰쓰기</a> &nbsp;|  &nbsp;
-										<a href="" style="background-color: #EBE4FC; padding:5px;">삭제하기</a>
+										<a href="writeReview.mp?member_id=${loginInfo.member_id}"
+											style="background-color: #EBE4FC; padding: 5px;">리뷰쓰기</a>
 									</div>
 								</c:forEach>
 							</c:if>
+							<!-- Table -->
 						</div>
 					</div>
+				</div>
+				<div class="tab-pane fade" id="purchase-tab-pane" role="tabpanel"
+					aria-labelledby="purchase-tab" tabindex="0">
+					<div style="width: 100%;">
+						
+						
+						<div style="width: 100%; display: flex;">
+							<!--  Table -->
+							<table class="table" style="width: 850px">
+								
+								<tr align="center">
+									<th width="5%">번호</th>
+									<th width="15%">영화제목</th>
+									<th width="40%">한줄평</th>
+									<th width="15%">등록일</th>
+									<th width="10%">수정</th>
+									<th width="10%">삭제</th>
+									
+								</tr>
+								<c:if test="${fn:length(lists) == 0}">
+									<tr>
+										<td colspan="6" align="center">작성하신 리뷰가 없습니다.</td>
+									</tr>
+								</c:if>
+
+								<c:forEach var="review" items="${lists}">
+									<tr>
+										<td align="center">${review}</td>
+										<td align="center">${review}</td>
+										<td style="text-align: left;">${review}</td>
+										
+										<td align="center"><fmt:formatDate
+												value="${review}" type="date"
+												pattern="yyyy-MM-dd HH:ss" /></td>
+												<td><a href="">수정</a></td>
+												<td><a href="">삭제</a></td>
+									</tr>
+								</c:forEach>
+							</table>
+							<!-- Table -->
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-
 </div>
 </div>
 </div>
 </section>
-
 </main>
 <!-- End #main -->
 <%@ include file="../main/mainFooter.jsp"%>
