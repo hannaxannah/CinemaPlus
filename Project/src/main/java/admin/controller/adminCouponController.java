@@ -16,7 +16,7 @@ import store.model.StoreCouponDao;
 
 
 @Controller
-public class admimCouponController {
+public class adminCouponController {
 	private final String command = "/coupon.admin";
 	private final String mainPage = "adminCouponList";
 	private final String re_command = "redirect:/coupon.admin";
