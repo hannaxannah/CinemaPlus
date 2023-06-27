@@ -25,13 +25,6 @@ public class StoreCouponController {
 	private final String command = "/getCoupon.store";
 	private final String getCouponPage = "couponGetPage";
 	private final String re_getCouponPage = "redirect:/getCoupon.store";
-	
-	private final String create_command = "/couponCreate.store";
-	private final String getCouponCreatePage = "adminCouponCreate";
-	
-	private final String management_command = "/couponManagement.store";
-	private final String getCouponManagementPage = "adminCouponList";
-	
 	private final String issue_command = "/couponIssue.store";
 
 	@Autowired
@@ -50,41 +43,6 @@ public class StoreCouponController {
 		model.addAttribute("myCouponList", myCouponList);//쿠폰 list
 		
 		return getCouponPage; //쿠폰발급페이지로 넘어가기
-	}
-	
-	@RequestMapping(value=create_command,method = RequestMethod.GET)
-	public String admin_Page() {
-		
-		return getCouponCreatePage; //관리자의 쿠폰생성 페이지로 넘어가기
-	}
-	
-	@RequestMapping(value=create_command,method = RequestMethod.POST)
-	public String admin_Page(
-				@ModelAttribute("storeCouponBean") @Valid StoreCouponBean storeCouponBean
-			) {
-		
-		int confirm = storeCouponDao.createCoupon(storeCouponBean); //삽입하고 삽입됬는지 확인하는 confirm변수
-		
-		if(confirm == 1) {
-			System.out.println("쿠폰 생성 성공");
-			
-			return getCouponPage; //쿠폰 발급페이지로 넘어가기 
-		}else {
-			System.out.println("쿠폰 생성 실패");
-			
-			return getCouponCreatePage; //쿠폰 생성 실패 생성페이지로 돌아가기
-		}
-		
-	}
-	
-	@RequestMapping(management_command)
-	public String management_Page(Model model) {
-		 
-		List<StoreCouponBean> couponList = storeCouponDao.getAllCoupon(); //전체 쿠폰 리스트
-		
-		model.addAttribute("couponList", couponList);//쿠폰 list
-		
-		return getCouponManagementPage;//property설정 해줘야되서 store폴더의 send로 admin href 실행
 	}
 	
 	@RequestMapping(issue_command)

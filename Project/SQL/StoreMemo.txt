@@ -88,7 +88,14 @@ CREATE TABLE Coupon (
 	coupon_remain_qty number NOT NULL
 ); 
 
-insert into coupon values(Coupon_seq.nextval,'6월 쿠폰',20,50,50);
+insert into coupon values(Coupon_seq.nextval,'KT멤버쉽혜택 25% 쿠폰',25,50,50);
+insert into coupon values(Coupon_seq.nextval,'매점 50% 할인 쿠폰',50,2,2);
+insert into coupon values(Coupon_seq.nextval,'스피드 20% 쿠폰',20,1,1);
+insert into coupon values(Coupon_seq.nextval,'앵콜 35% 쿠폰',35,5,0);
+insert into coupon values(Coupon_seq.nextval,'누구나 10% 쿠폰',10,100,50);
+insert into coupon values(Coupon_seq.nextval,'속전속결 25% 쿠폰',25,900,900);
+insert into coupon values(Coupon_seq.nextval,'땡스데이 5월의 30% 쿠폰',30,10,1);
+insert into coupon values(Coupon_seq.nextval,'7월 여름의 반값 할인 쿠폰',50,50,50);
 
 drop table Coupon_user cascade constraints purge ;
 CREATE TABLE Coupon_user (
@@ -112,7 +119,7 @@ CREATE TABLE card (
 );
 commit;
 
----------------------------------------------------------------------------결제 (미완성)
+---------------------------------------------------------------------------결제
 drop sequence payment_seq;
 
 create sequence payment_seq;
@@ -135,5 +142,3 @@ CREATE TABLE Payment (
 	payment_date TIMESTAMP NOT NULL
 );
 commit;
-
-insert into Payment values(payment_seq.nextval,1,2,3,4,5,6,7,sysdate); //표본 넣지마세요

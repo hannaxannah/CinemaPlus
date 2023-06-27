@@ -64,7 +64,7 @@
                   </div>
                   <div class="x_content">
                     <br>
-                    <form id="demo-form2" name="coupon_form" action="couponCreate.store" method="post" onSubmit="return emptyCheck()" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+                    <form id="demo-form2" name="coupon_form" action="couponCreate.admin" method="post" onSubmit="return emptyCheck()" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" >쿠폰이름 <span class="required">*</span>

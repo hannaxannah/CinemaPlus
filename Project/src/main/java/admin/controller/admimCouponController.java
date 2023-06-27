@@ -19,9 +19,12 @@ import store.model.StoreCouponDao;
 public class admimCouponController {
 	private final String command = "/coupon.admin";
 	private final String mainPage = "adminCouponList";
+	private final String re_command = "redirect:/coupon.admin";
 	
 	private final String createCommand = "/couponCreate.admin";
 	private final String createPage = "adminCouponCreate";
+	private final String re_createCommand = "redirect:/couponCreate.admin";
+	
 	
 	
 	@Autowired
@@ -51,10 +54,11 @@ public class admimCouponController {
 		
 		if(confirm == 1) {
 			System.out.println("쿠폰 생성 성공");
+			return re_command;
 		}else {
 			System.out.println("쿠폰 생성 실패");
 		}
-		return createPage; //쿠폰 생성 실패 생성페이지로 돌아가기
+		return re_createCommand; //쿠폰 생성 실패 생성페이지로 돌아가기
 	}
 	
 }
