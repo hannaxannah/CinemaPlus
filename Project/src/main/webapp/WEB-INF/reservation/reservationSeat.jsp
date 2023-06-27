@@ -122,51 +122,53 @@
 							</div>
 							<!-- 선택 정보 조회 -->
 							<div class="col-xl-3" style="padding: 20px 10px 20px 10px;">
-								<div class="">
-									<!-- 상영 등급, 제목 -->
-									<div class="rreservation-ticketeservation-ticket-title">
-										<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-										<p class="tit"><b>스파이더맨: 어크로스 더 유니버스</b></p>
-									</div>
-									<hr style="border: 1px solid #7F7F7F">
-									<!-- 영화관, 상영관, 날짜, 시간, 포스터 -->
-									<div class="reservation-ticket-theater">
-										<div style="width: 50%;">
-											<p class="tit">상암월드컵경기장</p>
-											<p class="tit">4관</p>
-											<p class="tit">2023.06.23(금)</p>
-											<p class="tit">20:20 ~ 22:50</p>
-										</div>
-										<div style="width: 50%; text-align: end;">
-											<img src="resources/images/movie-poster-1.jpg" style="width: 60%; text-align: end; padding-right: 5px;">
-										</div>
-									</div>
-									<hr style="border: 1px solid #7F7F7F">
-									<!-- 좌석 선택 정보 -->
-									<div class="reservation-ticket-seat">
-										<div style="width: 50%; border: 1px solid #CCCCCC; border-radius: 5px 0 0 5px; padding: 5px;">
-											<div style="margin-top: 5px;"></div>
-											<p class="tit"><i class="bi bi-square-fill" id="selectedSeat" style=" justify-content: unset; display:unset;"></i><span>&nbsp;선택</span></p>
-											<div style="margin-top: 5px;"></div>
-											<p class="tit"><i class="bi bi-x-square-fill" style="color: #CCCCCC"></i>&nbsp;선택불가</p>
-											<div style="margin-top: 5px;"></div>
-											<p class="tit"><i class="bi bi-square-fill" id="seat" style=" justify-content: unset; display:unset;"></i><span>&nbsp;선택가능</span></p>
-										</div>
-										<div style="width: 50%; text-align: center; border: 1px solid #CCCCCC; border-radius: 0 5px 5px 0; border-left: 0; padding: 5px;">
-											<p class="tit" style="margin: 0;">선택좌석</p>
-											<hr style="width: 70%; border: 1px solid #7F7F7F; margin: 0 auto; margin-top: 5px; margin-bottom: 5px;">
-											<div style="margin: 0; padding-top: 15px;">
-												<p class="tit" style="margin: 0;display: flex;justify-content: center;align-items: center;">
-													<font style="font-size:1.3rem;">4</font>개
-												</p>
-											</div>
-										</div>
-									</div>
-									<div class="reservation-ticket-price">
-										<div class="reservation-price">최종결제금액</div>
-										<div class="reservation-price"><a class="reservation-price-bold">100,000</a>원</div>
-									</div>
-								</div>
+								<div class="reservation-ticket">
+	<!-- 상영 등급, 제목 -->
+	<div class="reservation-ticket-title" style="display: flex;align-items: center;">
+		<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
+		<p class="tit" style="margin-block-end: 0;margin-left: 5px;">
+			<b>스파이더맨: 어크로스 더 유니버스</b>
+		</p>
+	</div>
+	<hr style="border: 1px solid #7F7F7F">
+		<!-- 영화관, 상영관, 날짜, 시간, 포스터 -->
+		<div class="reservation-ticket-theater">
+			<div style="width: 50%;">
+				<p class="tit">상암월드컵경기장</p>
+				<p class="tit">4관</p>
+				<p class="tit">2023.06.23(금)</p>
+				<p class="tit">20:20 ~ 22:50</p>
+			</div>
+			<div style="width: 50%; text-align: end;">
+				<img src="resources/images/movie-poster-1.jpg" style="width: 60%; text-align: end; padding-right: 5px;">
+			</div>
+		</div>
+		<hr style="border: 1px solid #7F7F7F">
+		<!-- 좌석 선택 정보 -->
+		<div class="reservation-ticket-seat">
+			<div style="width: 50%; border: 1px solid #CCCCCC; border-radius: 5px 0 0 5px; padding: 5px;">
+				<div style="margin-top: 5px;"></div>
+					<p class="tit"><i class="bi bi-square-fill" style="color: #503396"></i><span>&nbsp;선택</span></p>
+					<div style="margin-top: 5px;"></div>
+					<p class="tit"><i class="bi bi-x-square-fill" style="color: #CCCCCC"></i>&nbsp;선택불가</p>
+					<div style="margin-top: 5px;"></div>
+					<p class="tit"><i class="bi bi-square-fill" style="color: #747474"></i><span>&nbsp;선택가능</span></p>
+				</div>
+				<div style="width: 50%; text-align: center; border: 1px solid #CCCCCC; border-radius: 0 5px 5px 0; border-left: 0; padding: 5px;">
+					<p class="tit" style="margin: 0;">선택좌석</p>
+					<hr style="width: 70%; border: 1px solid #7F7F7F; margin: 0 auto; margin-top: 5px; margin-bottom: 5px;">
+					<div style="margin: 0; padding-top: 15px;">
+						<p class="tit" style="margin: 0;display: flex;justify-content: center;align-items: center;">
+							<font style="font-size:1.3rem;">4</font>개
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="reservation-ticket-price">
+				<div class="reservation-price">최종결제금액</div>
+				<div class="reservation-price"><a class="reservation-price-bold">100,000</a>원</div>
+			</div>
+		</div>
 								<div class="reservation-go-pay">
 									<input type="button" class="reservation-go-pay-btn" value="결제하기" onClick="location.href='pay.rv'">
 								</div>
