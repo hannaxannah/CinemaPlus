@@ -78,14 +78,16 @@ public class MemberLoginController {
 			
 			if(mb.getMember_id().equals("admin")){//관리자 아이디
 				session.setAttribute("loginInfo", mb);//세션설정
-				
+				session.removeAttribute("cart");
+				session.removeAttribute("cartSize");
 				mav.setViewName(adminPage);
 				
 			}
 			else if(mb.getMember_pw().equals(input_pw)) {
 				// 로그인
 				session.setAttribute("loginInfo", mb);//세션설정
-				
+				session.removeAttribute("cart");
+				session.removeAttribute("cartSize");
 				mav.setViewName(gotoPage);
 			}else { // 가입은 했는데 비번이 일치하지 않는다.
 				
