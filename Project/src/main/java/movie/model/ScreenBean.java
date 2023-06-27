@@ -12,6 +12,9 @@ public class ScreenBean {
 	private String discount;
 	private String rating;
 	private String url;
+	private int is_deleted;
+	
+	
 	public ScreenBean() {
 		super();
 	}
@@ -19,7 +22,8 @@ public class ScreenBean {
 	
 
 	public ScreenBean(String movie_title, int seat_count, int left_seats, String screen_time, String time,
-			String screen_name, int runtime, int ticket_price, String discount, String rating, String url) {
+			String screen_name, int runtime, int ticket_price, String discount, String rating, String url,
+			int is_deleted) {
 		super();
 		this.movie_title = movie_title;
 		this.seat_count = seat_count;
@@ -32,6 +36,7 @@ public class ScreenBean {
 		this.discount = discount;
 		this.rating = rating;
 		this.url = url;
+		this.is_deleted = is_deleted;
 	}
 
 
@@ -110,6 +115,18 @@ public class ScreenBean {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+
+
+	public int getIs_deleted() {
+		return is_deleted;
+	}
+
+
+
+	public void setIs_deleted(int is_deleted) {
+		this.is_deleted = is_deleted;
 	}
 	
 	

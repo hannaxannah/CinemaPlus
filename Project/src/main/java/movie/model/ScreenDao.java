@@ -106,6 +106,14 @@ public class ScreenDao {
 		System.out.println("lists.size():" + lists.size());
 		return lists;
 	}
+
+
+	public int updateCancle(String reservation_num) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.update(namespace + ".updateCancleServ", reservation_num);
+		System.out.println("cnt:" + cnt);
+		return cnt;
+	}
 	
 	
 }
