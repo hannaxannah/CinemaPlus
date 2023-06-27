@@ -20,14 +20,16 @@ import store.model.StoreProductDao;
 @Controller
 public class adminStoreController {
 	private final String command = "/productList.admin";
+	private final String createCommand = "/productList.admin";
 	
 	private final String listPage = "adminProductList";
+	private final String createPage = "adminProductCreate";
 	
 	@Autowired
 	StoreProductDao storeProductDao;
 	
 	@RequestMapping(command)
-	public String adminCouponList(Model model) {
+	public String adminProductList(Model model) {
 		
 		List<StoreProductBean> ProductList = storeProductDao.getAllProduct(); //전체 상품목록리스트
 		
@@ -36,11 +38,11 @@ public class adminStoreController {
 		return listPage;
 	}
 	
-//	@RequestMapping(value=createCommand,method = RequestMethod.GET)
-//	public String adminCouponCreate() {
-//		
-//		return createPage; //관리자의 쿠폰생성 페이지로 넘어가기
-//	}
+	@RequestMapping(value=createCommand,method = RequestMethod.GET)
+	public String adminProductCreate() {
+		
+		return createPage; //관리자의 쿠폰생성 페이지로 넘어가기
+	}
 //	
 //	@RequestMapping(value=createCommand,method = RequestMethod.POST)
 //	public String adminCouponCreate(

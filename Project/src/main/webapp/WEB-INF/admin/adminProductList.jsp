@@ -3,7 +3,11 @@
     
 <%@ include file="./adminMenu.jsp" %>    
 <%@ include file="../common/common.jsp" %>   
-
+<style>
+	.product_img:hover{
+		transform: scale(2.5);
+	}
+</style>
 <!-- 내용 -->
         <div class="right_col" role="main">
           <div class="">
@@ -31,16 +35,16 @@
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>상품 고유 코드</th>
+                          <th>상품 코드</th>
+                          <th>상품 이미지</th>
                           <th>카테고리이름</th>
                           <th>상품이름</th>
                           <th>상품설명</th>
-                          <th>상품 이미지</th>
-                          <th>상품 갯수</th>
+                          <th>갯수</th>
                           <th>상품 가격</th>
                           <th>상품 세일 가격</th>
                           <th>상품 상태</th>
-                          <th>상품 적립 포인트</th>
+                          <th>적립 포인트</th>
                         </tr>
                       </thead>
 
@@ -49,10 +53,10 @@
                  <c:forEach var="p" items="${ProductList}">
                  	<tr>
                           <td>${p.product_code}</td>
+                          <td><img src="resources/store_images/${p.product_image}" class="product_img" style="width: 75px;"></td>
                           <td>${p.category_name}</td>
                           <td>${p.product_name}</td>
                           <td>${p.product_detail}</td>
-                          <td><img src="resources/store_images/${p.product_image}" style="width: 110px;"></td>
                           <td>${p.product_qty}</td>
                           <td>${p.product_price}</td>
                           <td>${p.product_sprice}</td>

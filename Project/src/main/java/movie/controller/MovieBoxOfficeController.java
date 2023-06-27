@@ -77,13 +77,14 @@ public class MovieBoxOfficeController {
 			String[] posters = new String[weeklyBoxOfficeList.size()];
 			String[] runtimes = new String[weeklyBoxOfficeList.size()];
 			String[] ratings = new String[weeklyBoxOfficeList.size()];
-
+			String[] stories = new String[weeklyBoxOfficeList.size()];
 
 			for(int i=0; i<weeklyBoxOfficeList.size(); i++) {
 				JSONObject weekly = (JSONObject)weeklyBoxOfficeList.get(i);
 				//System.out.println(i + "code" + weekly.get("movieCd"));
 				String movieCode = (String)weekly.get("movieCd");
 				String title = (String)weekly.get("movieNm");
+				
 				String openDt = (String)weekly.get("openDt");
 				String date = openDt.substring(0, 4);
 				//				System.out.println("title: " + title);
@@ -132,7 +133,12 @@ public class MovieBoxOfficeController {
 					posters[i] = posts[0];
 					runtimes[i] = (String)result3.get("runtime");
 					ratings[i] = (String)result3.get("rating");
+					
+					JSONObject plots = (JSONObject) result3.get("plots");
+					JSONArray plot = (JSONArray) plots.get("plot");
 
+					JSONObject plotText = (JSONObject) plot.get(0);
+					stories[i] = (String)plotText.get("plotText");
 				}
 
 			}
@@ -156,6 +162,7 @@ public class MovieBoxOfficeController {
 			model.addAttribute("posters", posters);
 			model.addAttribute("ratings", ratings);
 			model.addAttribute("runtimes", runtimes);
+			model.addAttribute("stories", stories);
 			model.addAttribute("weeklyBoxOfficeList", weeklyBoxOfficeList);
 		}catch(Exception e) {
 			e.printStackTrace();
