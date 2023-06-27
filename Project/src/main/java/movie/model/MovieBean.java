@@ -17,7 +17,7 @@ public class MovieBean {
 	private int vod;
 
 
-
+	
 
 
 	public MovieBean() {
@@ -124,6 +124,4 @@ public class MovieBean {
 		this.vod = vod;
 	}
 	
-	
-
 }

@@ -1,6 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../main/mainHeader.jsp"%>
+<script type="text/javascript">
+function change_btn(e) {
+	  var btns = document.querySelectorAll(".button");
+	  btns.forEach(function (btn, i) {
+	    if (e.currentTarget == btn) {
+	      btn.classList.add("active");
+	    } else {
+	      btn.classList.remove("active");
+	    }
+	  });
+	  console.log(e.currentTarget);
+	}
+	
+function change_btn2(e) {
+	  var btns2 = document.querySelectorAll(".timeButton");
+	  btns2.forEach(function (btn, i) {
+	    if (e.currentTarget == btn) {
+	      btn.classList.add("active");
+	    } else {
+	      btn.classList.remove("active");
+	    }
+	  });
+	  console.log(e.currentTarget);
+	}
+	
+	
+
+</script>
+
 <main id="main">
 
 	<!-- 예매 -->
@@ -74,36 +103,39 @@
 								<div class="container-title">
 									영화
 								</div>
+								
 								<div class="container-dropend" id="btn-groupDropendArea" style="width: 100%">
 									<div class="reservation-movie-list">
-										<a class="reservation-movie-list-item">
-											<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-											스파이더맨: 어크로스 더 유니버스
-										</a>
-										<a class="reservation-movie-list-item">
-											<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-											스파이더맨: 어크로스 더 유니버스
-										</a>
-										<a class="reservation-movie-list-item">
-											<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-											스파이더맨: 어크로스 더 유니버스
-										</a>
-										<a class="reservation-movie-list-item">
-											<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-											스파이더맨: 어크로스 더 유니버스
-										</a>
-										<a class="reservation-movie-list-item">
-											<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-											스파이더맨: 어크로스 더 유니버스
-										</a>
-										<a class="reservation-movie-list-item">
-											<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-											스파이더맨: 어크로스 더 유니버스
-										</a>
-										<a class="reservation-movie-list-item">
-											<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-											스파이더맨: 어크로스 더 유니버스
-										</a>
+										
+											
+											 <button class="button" id="open" onclick="change_btn(event)">
+											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
+											 스파이더맨: 어크로스 더 유니버스</button>
+										
+											 <button class="button" id="open" onclick="change_btn(event)">
+											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
+											 스파이더맨: 어크로스 더 유니버스</button>
+											 
+											 <button class="button" id="open" onclick="change_btn(event)">
+											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
+											 스파이더맨: 어크로스 더 유니버스</button>
+											 
+											 <button class="button" id="open" onclick="change_btn(event)">
+											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
+											 스파이더맨: 어크로스 더 유니버스</button>
+											 
+											 <button class="button" id="open" onclick="change_btn(event)">
+											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
+											 스파이더맨: 어크로스 더 유니버스</button>
+											 
+											 <button class="button" id="open" onclick="change_btn(event)">
+											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
+											 스파이더맨: 어크로스 더 유니버스</button>
+											 
+											 <button class="button" id="open" onclick="change_btn(event)">
+											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
+											 스파이더맨: 어크로스 더 유니버스</button>
+											 
 										<br>
 									</div>
 								</div>
@@ -121,23 +153,26 @@
 										</c:forEach>
 									</div>
 									<div class="reservation-movie-time">
-										<div class="reservation-movie-time-btn" onClick="">
-											<!-- 상영시간 -->
-											<a>16:15</a>
-											<!-- 잔여석 상영관 -->
-											<a>10/30&emsp;&emsp;2관</a>
+										<div id="reservation-movie-time-btn" onClick="">
+											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
+											16:15<br> <!-- 상영시간 -->
+											10석/30석<br> <!-- 잔여석 -->
+											2관 <!-- 상영관 -->
+											</button>
 										</div>
-										<div class="reservation-movie-time-btn" onClick="">
-											<!-- 상영시간 -->
-											<a>16:15</a>
-											<!-- 잔여석 상영관 -->
-											<a>10/30&emsp;&emsp;2관</a>
+										<div id="reservation-movie-time-btn" onClick="">
+											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
+											16:15<br> <!-- 상영시간 -->
+											10석/30석<br> <!-- 잔여석 -->
+											2관 <!-- 상영관 -->
+											</button>
 										</div>
-										<div class="reservation-movie-time-btn" onClick="">
-											<!-- 상영시간 -->
-											<a>16:15</a>
-											<!-- 잔여석 상영관 -->
-											<a>10/30&emsp;&emsp;2관</a>
+										<div id="reservation-movie-time-btn" onClick="">
+											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
+											16:15<br> <!-- 상영시간 -->
+											10석/30석<br> <!-- 잔여석 -->
+											2관 <!-- 상영관 -->
+											</button>
 										</div>
 									</div>
 								</div>

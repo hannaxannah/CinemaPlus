@@ -3,9 +3,12 @@ package movie.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import board.model.BoardBean;
 
 
 @Component
@@ -88,11 +91,78 @@ public class ScreenDao {
 	}
 
 	/* 마이페이지 예매내역 삭제 */
-	public int deleteReservation(String reservation_num) {
+	/*
+	public int deleteReservation(String member_id) {
 		int cnt = -1;
-		cnt = sqlSessionTemplate.delete(namespace+".MyRervDelete", reservation_num);
+		cnt = sqlSessionTemplate.delete(namespace+".MyRervDelete", member_id);
 		return cnt;
+	}
+	 */
+
+	/* 마이페이지 */
+	public int insertCancleReservation(ReservationBean reservationBean) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.insert(namespace+".insertCancleReservation", reservationBean);
+		return cnt;
+		
 	}
 	
 	
+	/* 마이페이지 취소내역 */
+	
+	
+	
+	/*
+	public List<ScreenBean> deleteMyReserList(String reservation_num) {
+		List<ScreenBean> lists = new ArrayList<ScreenBean>();
+
+		lists = sqlSessionTemplate.selectList(namespace + ".getDeleteMyReserList",reservation_num);
+		System.out.println("lists.size():" + lists.size());
+		return lists;
+	}
+	*/
+
+	/* 마이페이지 취소내역 */
+	public int deleteCancle(String reservation_num) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.delete(namespace + ".DeleteCancleServ", reservation_num);
+		System.out.println("cnt:" + cnt);
+		return cnt;
+	}
+
+
+	public ReservationBean getReservationByNum(String reservation_num) {
+		ReservationBean reservationBean = sqlSessionTemplate.selectOne(namespace + ".GetReservationByNum", reservation_num);
+		return reservationBean;
+	}
+
+
+	public List<ReservationBean> deleteMyReserList(String member_id) {
+		List<ReservationBean> list = new ArrayList<ReservationBean>();
+		list = sqlSessionTemplate.selectList(namespace + ".getDeleteMyReserList", member_id);
+		return list;
+	}
+
+
+	public ReservationBean getReservationDelByNum(String reservation_num) {
+		ReservationBean reservationBean = sqlSessionTemplate.selectOne(namespace + ".GetgetReservationDelByNum", reservation_num);
+		return reservationBean;
+	}
+
+
+	public int deleteToCancle(String reservation_num) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.delete(namespace + ".DeleteToCancleServ", reservation_num);
+		System.out.println("cnt:" + cnt);
+		return cnt;
+	}
+
+	/* 취소내역 - 다시 예매내역으로 */
+	public int insertCancleToReservation(ReservationBean reservationBean) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.insert(namespace+".insertCancleToReservation", reservationBean);
+		return cnt;
+	}
+
+
 }

@@ -141,9 +141,7 @@ public class MemberDao {
 	/* 스토어 상품 결제시 회원아이디와 point를 받아서 보유 포인트에 더함 */
 	public int updateUserPoint(MemberBean memberBean) {
 		int cnt = -1;
-		
 		cnt = sqlSessionTemplate.update(namespace + ".UpdateUserPoint",memberBean);
-		
 		return cnt;
 	}
 	
@@ -157,5 +155,12 @@ public class MemberDao {
 		return cnt;
 		
 	}
-	
+
+
+	public List<MemberBean> getAllMemberList() {
+		List<MemberBean> lists = new ArrayList<MemberBean>();
+		lists = sqlSessionTemplate.selectList(namespace+".GetAllMemberList");
+		return lists;
+	}
+
 }

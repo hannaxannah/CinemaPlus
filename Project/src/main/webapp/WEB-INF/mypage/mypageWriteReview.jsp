@@ -108,9 +108,9 @@ a {
 </style>
 
 	<!-- 회원 상세 정보 요약 -->
-				<div class="card info-card customers-card" id="reservation-tab-pane" role="tabpanel" aria-labelledby="reservation-tab" tabindex="0" style=" flex-flow: column; margin-top: 22px; background-color: #6B39EA;">
-					<div style="width:850px; height: 40px; background-color: #6B39EA; margin-top: 10px;">
-					<a style="font-size: 19px; color: #ffffff; font-style: oblique; ">&nbsp;&nbsp;한줄평 작성하기</a>
+				<div class="card info-card customers-card" id="reservation-tab-pane" role="tabpanel" aria-labelledby="reservation-tab" tabindex="0" style=" flex-flow: column; margin-top: 22px; background-color: #322465;">
+					<div style="width:850px; height: 40px; margin-top: 10px;">
+					<a style="font-size: 19px; font-style: oblique; color:#FFF; ">&nbsp;&nbsp;한줄평 작성하기</a>
 					</div>
 					
 					<div style="width: 850px; height: 503px;  background-color:#FFFFFF;">

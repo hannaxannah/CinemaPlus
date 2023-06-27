@@ -159,13 +159,17 @@
 								                    </td>
 								                    
 								                    <td class="text-center text-lg text-medium">
-								                    	<span class="product_price_sale">
-															<fmt:formatNumber value="${cart.product_sprice}" pattern="#,###"/>원
-														</span> 
+								                   		 <c:if test="${cart.product_price eq 0}">
+									                    	<span class="product_price_sale">
+																<fmt:formatNumber value="${cart.product_sprice}" pattern="#,###"/>원
+																<c:set var="original_price" value="${original_price + cart.product_sprice*cart.cart_qty}"/>
+															</span> 
+														</c:if>
 														<c:if test="${cart.product_price ne 0}">
 															<span class="product_price_original">
 																<fmt:formatNumber value="${cart.product_price}" pattern="#,###"/>원
 																<c:set var="sale_price" value="${sale_price + (cart.product_price-cart.product_sprice)*cart.cart_qty}"/>
+																<c:set var="original_price" value="${original_price + cart.product_price*cart.cart_qty}"/>
 															</span>
 														</c:if>
 															<span class="product_point">
@@ -175,8 +179,6 @@
 								                    <td class="text-center text-lg text-medium">${cart.product_sprice * cart.cart_qty }원</td>
 								                    <td class="text-center"><a class="remove-from-cart" href="delProduct.store?product_code=${cart.product_code}" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="fa fa-trash"></i></a></td>
 								                </tr>
-												<c:set var="original_price" value="${original_price + cart.product_sprice*cart.cart_qty}"/>
-												<c:set var="total_price" value="${toatl_price + original_price}"/>
 												<c:set var="total_point" value="${total_point + cart.product_point}"/>
 								                </c:forEach>
 								                </c:otherwise>
@@ -195,7 +197,7 @@
 							          	<span class="text-medium"><c:out value="${total_point}" default="0"/> point</span>
 							        </div>
 							        <div class="column text-lg">총 결제 예정 금액 :
-							        	<span class="text-medium"><c:out value="${total_price}" default="0"/>원</span>
+							        	<span class="text-medium"><c:out value="${original_price-sale_price}" default="0"/>원</span>
 							        </div>
 							    </div>
 							    <div class="shopping-cart-footer">

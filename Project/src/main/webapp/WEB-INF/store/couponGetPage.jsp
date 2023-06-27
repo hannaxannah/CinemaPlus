@@ -162,6 +162,17 @@ h1 {
     line-height: 30px;
     border-radius: 2px;
 }
+.finished {
+    display: block;
+    text-decoration: none;
+    width: 80px;
+    height: 30px;
+    background-color: #F00;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 2px;
+}
 .issue{
 	display: block;
     text-decoration: none;
@@ -202,11 +213,11 @@ h1 {
         <time datetime="23th feb">
         	<span>${c.coupon_rate}%</span>
 			  <c:choose>
+				<c:when test="${c.coupon_remain_qty eq 0}"> 
+					<button class="finished" disabled="disabled">발급종료</button>
+				</c:when>
 				<c:when test="${fn:contains(myCouponList,c.coupon_code)}"> 
 					<button class="issued" disabled="disabled">발급완료</button>
-				</c:when>
-				<c:when test="${c.coupon_remain_qty eq 0}"> 
-					<button class="issued" disabled="disabled">발급종료</button>
 				</c:when>
 				<c:otherwise>
 					<a class="issue" href="couponIssue.store?coupon_code=${c.coupon_code}&member_code=${loginInfo.getMember_code()}">쿠폰 발급</a>

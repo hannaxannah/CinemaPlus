@@ -23,22 +23,24 @@
 					style="position: relative; width: 100%; margin: 0 auto;">
 					<div class="col-xl-10">
 						<div class="row">
+						
 							<c:forEach var="weekly" items="${weeklyBoxOfficeList}"
 								varStatus="status">
 								<!-- Start portfolio item -->
 								<div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
 									<!-- style="position: absolute; left: 0px; top: 0px;" -->
-									<div class="portfolio-wrap">
-										<img src="${posters[status.index]}" class="img-fluid" alt="">
-										<div class="portfolio-info">
+									<div class="portfolio-wrap" style="width:294px;height:420px;">
+										<img src="${posters[status.index]}" class="img-fluid" style="width:294px;height:420px;" alt="">
+										<div class="portfolio-info" style="width:294px;height:420px;">
+											<p style="margin: 100px 0;">${fn:substring(stories[status.index],0,150)} .....</p>
 											<h4>
 												<a
 													href="movieDetail.mv?title=${weekly.get('movieNm')}
 											&date=${weekly.get('openDt')}"
 													title="More Details">${weekly.get("movieNm")}</a>
 											</h4>
-											<p>App</p>
-											<input type="button" class="movie-list-reservation-btn" value="예매하기">
+											<a class="movie-list-reservation-btn" href="movieDetail.mv?title=${weekly.get('movieNm')}
+											&date=${weekly.get('openDt')}">예매하기</a>
 											<div class="portfolio-links">
 												<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
 											</div>
@@ -76,6 +78,7 @@
 								</div>
 								<!-- End portfolio item -->
 							</c:forEach>
+							
 						</div>
 					</div>
 
