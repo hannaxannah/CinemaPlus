@@ -144,4 +144,25 @@ public class ScreenDao {
 	}
 
 
+	public ReservationBean getReservationDelByNum(String reservation_num) {
+		ReservationBean reservationBean = sqlSessionTemplate.selectOne(namespace + ".GetgetReservationDelByNum", reservation_num);
+		return reservationBean;
+	}
+
+
+	public int deleteToCancle(String reservation_num) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.delete(namespace + ".DeleteToCancleServ", reservation_num);
+		System.out.println("cnt:" + cnt);
+		return cnt;
+	}
+
+	/* 취소내역 - 다시 예매내역으로 */
+	public int insertCancleToReservation(ReservationBean reservationBean) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.insert(namespace+".insertCancleToReservation", reservationBean);
+		return cnt;
+	}
+
+
 }

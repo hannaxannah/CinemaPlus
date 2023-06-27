@@ -115,7 +115,9 @@ a {
 	vertical-align: baseline;
 	border-radius: .25em;
 }
-
+#red{
+	color: red !important;
+}
 </style>
 	
 <div class="col-lg-9" style="padding: 20px;">
@@ -204,7 +206,17 @@ a {
 <div class="row" style="margin-bottom: 50px;">
         <nav id="pagination" aria-label="Page navigation">
             <ul class="pagination justify-content-center">
-                <li class="page-item"><a class="page-link">${pageInfo.pagingHtml}</a></li>
+            	
+                <li class="page-item" style = "display:flex;">
+                
+               <div class="row" style="margin-bottom: 50px;">
+							<nav id="pagination" aria-label="Page navigation">
+								<ul class="pagination justify-content-center">
+									<li class="page-item" style="display: flex;">${pageInfo.pagingHtml}</li>
+								</ul>
+							</nav>
+						</div>
+					</li>
             </ul>
         </nav>
 </div>

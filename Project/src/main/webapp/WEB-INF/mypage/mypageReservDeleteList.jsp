@@ -146,7 +146,7 @@
 														<td>${del.screen_name}</td>
 														<td>${del.movie_title}</td>
 														<td>${del.seat_number}</td>
-														<td><a href="">실행취소</a></td>
+														<td><a href="cancleDelete.mp?reservation_num=${reservation.reservation_num}">실행취소</a></td>
 													</tr>
 												</c:forEach>												
 												</tbody>

@@ -85,7 +85,9 @@ a {
 .row .row {
 	text-align: left;
 }
-
+#red{
+	color: red !important;
+}
 .panel-order .panel-heading {
 	color: #333;
 	background-color: #f5f5f5;
@@ -219,7 +221,7 @@ a {
 <div class="row" style="margin-bottom: 50px;">
         <nav id="pagination" aria-label="Page navigation">
             <ul class="pagination justify-content-center">
-                <li class="page-item"><a class="page-link">${pageInfo.pagingHtml}</a></li>
+                <li class="page-item" style = "display: flex;">${pageInfo.pagingHtml}</li>
             </ul>
         </nav>
 </div>
