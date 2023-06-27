@@ -249,6 +249,38 @@
 .login-clean form .form-group {
 	padding-bottom: 12px;
 }
+/* 회원가입 */
+.selectBox1{
+	width:178px;
+	height:26px;
+}
+
+.container-register{
+	background:#FCFCFC;
+	padding:80px 0;
+	max-width:950px;
+	width:800px;
+	height:80%;
+	margin: auto;
+	background-color:#ffffff;
+	padding:90px;
+	border-radius:4px;
+	color:#2E2E2E;
+	box-shadow:1px 1px 5px rgba(0,0,0,0.1);
+	font-size: 13px;
+	
+}
+
+.registerForm-1{
+	width:550px;
+	margin: auto;
+	
+}
+
+.register-button{
+	margin-left: 250px;
+	
+}
 
 .form-control {
     background: #fff; 
@@ -442,7 +474,7 @@
 	width: 600px;
 }
  #fee-table th, td {
-    border-bottom: 1px solid;
+    /* border-bottom: 1px solid; */
     padding: 10px;
   }
 
@@ -710,6 +742,11 @@
 #reservation-tab-pane ol li a:hover, 
 .form-group a:hover {
   color:#6B39EA;
+}
+
+.registerButton{
+	 background-color:#6B39EA;
+	 color: #ffffff;
 }
 
 #reservation-tab-pane ol li+li {
