@@ -134,8 +134,8 @@ a {
 
 
 						<div style="width: 770px; padding: 15px;">
-							<c:if test="${fn:length(reservationList) == null}">
-								<p colspan="6" align="center">리뷰 내역이 없습니다.</p>
+							<c:if test="${fn:length(reservationList) == 0}">
+								<p align="center">관람한 영화가 없습니다.</p>
 							</c:if>
 
 							<c:if test="${fn:length(reservationList) != null}">
