@@ -4,10 +4,14 @@
 <link rel="stylesheet" href="resources/main/main_reset.css">
 <link rel="stylesheet" href="resources/main/main_style.css">
 <link rel="stylesheet" href="resources/main/main_swiper.css">
-
+<style>
+	body{
+		margin-top: 49px;
+	}
+</style>
 <main id="main">
 
-	<section id="banner">
+	<section id="banner" style="padding:0px">
         
         <div class="slider">
            <div class="swiper-container swiper-container-initialized swiper-container-horizontal">
@@ -48,30 +52,50 @@
     <!-- //banner -->
     
     
-    <section id="movie" style="background-color:#120531;">
+    <section id="movie" style="background-color:#120531; padding:0px">
         <div class="container">
             <div class="row">
                 <h2 class="ir_so">영화 예매</h2>
                 <div class="movie">
+                <h2 style="color: #FFF;text-align: center;padding: 30px;">박스 오피스</h2>
                     <div class="movie_chart">
                         <div class="swiper-container2 swiper-container-initialized swiper-container-horizontal" style="display: block;">
                            <div class="chart_cont1 swiper-wrapper" style="transform: translate3d(-318px, 0px, 0px); transition-duration: 0ms;">
                                
                                <c:forEach var="weekly" items="${weeklyBoxOfficeList}" varStatus="status">
                                <div class="swiper-slide swiper-slide">
-                                   <div class="poster" >
-                                       <figure>
-                                           <img src="${posters[status.index]}">
+                                   <div class="poster" style="height:350px">
+                                       <figure style="margin: 0;">
+                                           <img style="width: 100%;height:350px;" src="${posters[status.index]}">
                                        </figure>
                                        <div class="rank"><strong>${status.count}</strong></div>
-                                       <div class="mx">
-                                           <span class="icon m ir_pm">MX</span>
-                                           <span class="icon b ir_pm">Boutique</span>
-                                       </div>
                                    </div>
                                    <div class="infor">
-                                       <h3><span class="icon all ir_pm">전체관람가</span> <strong>${weekly.get('movieNm')}</strong></h3>
-                                       <div class="infor_btn">
+                                       <div class="tit-area" style="margin:0">
+										<c:if test="${ratings[status.index] eq '18세관람가'}">
+											<img
+												src="https://img.megabox.co.kr/static/pc/images/common/txt/18_46x46.png"
+												width="23px" height="23px">
+										</c:if>
+										<c:if test="${ratings[status.index] eq '15세관람가'}">
+											<img
+												src="https://img.megabox.co.kr/static/pc/images/common/txt/15_46x46.png"
+												width="23px" height="23px">
+										</c:if>
+										<c:if test="${ratings[status.index] eq '12세관람가'}">
+											<img
+												src="https://img.megabox.co.kr/static/pc/images/common/txt/12_46x46.png"
+												width="23px" height="23px">
+										</c:if>
+										<c:if
+											test="${ratings[status.index] ne '18세관람가' &&  ratings[status.index] ne '12세관람가' && ratings[status.index] ne '15세관람가'}">
+											<img
+												src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png"
+												width="23px" height="23px">
+										</c:if>
+									 <strong style="color:#000;" class="tit">${weekly.get('movieNm')}</strong>
+									</div>
+                                       <div class="infor_btn" style="margin-top: 15px;">
                                            <a href="movieDetail.mv?title=${weekly.get('movieNm')}&date=${weekly.get('openDt')}">상세정보</a>
                                            <a href="movieDetail.mv?title=${weekly.get('movieNm')}&date=${weekly.get('openDt')}" style="cursor: pointer;">예매하기</a>
                                        </div>
