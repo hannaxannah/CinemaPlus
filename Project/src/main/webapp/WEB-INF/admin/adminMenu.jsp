@@ -71,7 +71,8 @@
               <div class="menu_section">
                 <h3>관리자 메뉴</h3>
                 <ul class="nav side-menu">
-                
+                	
+                   <li><a href="main.mn"><i class="fa fa-home"></i> 유저페이지</a></li>	
                   <li><a><i class="fa fa-home"></i> 예시 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="adminTest1.admin">테이블</a></li>
@@ -80,7 +81,7 @@
                   </li>
                   
                   
-                  <li><a><i class="fa fa-edit"></i> 쿠폰 <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-edit"></i> 스토어 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="couponCreate.admin">쿠폰 발급</a></li>
                       <li><a href="coupon.admin">쿠폰 리스트</a></li>
