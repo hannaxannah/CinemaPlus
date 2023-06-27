@@ -15,10 +15,8 @@ insert into member values('M9', 'test', 'test1234', '테스트', '20230615', '01
 
 --ticket_reservation insert
 
-INSERT INTO (RESERVATION_NUM, MOVIE_TITLE, reservation_date, SEAT_NUMBER, SEAT_NUMBER2, TICKET_PRICE, SCREEN_NAME, SCREEN_TIME, MEMBER_ID) VALUES (1, '스즈메의 문단속', sysdate, '11', 55, 15000, 'CGV고잔', '150', 'lee');
-INSERT INTO (RESERVATION_NUM, MOVIE_TITLE, reservation_date, SEAT_NUMBER, SEAT_NUMBER2, TICKET_PRICE, SCREEN_NAME, SCREEN_TIME, MEMBER_ID) VALUES (2, '탑건', sysdate, '23', 33, 12500, 'CGV중앙', '180', 'lee');
-
-
+insert into ticket_reservation values(1, '스즈메의 문단속', sysdate, '11', 55, 15000, 'CGV고잔', '150', 'lee');
+insert into ticket_reservation values(2, '탑건', sysdate, '23', 33, 12500, 'CGV중앙', '180', 'lee');
 
 --individualboard(1:1문의게시판)
 
