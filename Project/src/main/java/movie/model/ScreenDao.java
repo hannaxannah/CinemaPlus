@@ -86,6 +86,13 @@ public class ScreenDao {
 		list = sqlSessionTemplate.selectList(namespace + ".WriteReview", id);
 		return list;
 	}
+
+	/* 마이페이지 예매내역 삭제 */
+	public int deleteReservation(String reservation_num) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.delete(namespace+".MyRervDelete", reservation_num);
+		return cnt;
+	}
 	
 	
 }
