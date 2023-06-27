@@ -92,7 +92,6 @@
                     <ul class="nav child_menu">
                       <li><a href="couponCreate.admin">쿠폰 발급</a></li>
                       <li><a href="coupon.admin">쿠폰 리스트</a></li>
-                      <li><a href="#">상품 등록</a></li>
                       <li><a href="productList.admin">상품 리스트</a></li>
                     </ul>
                   </li>
