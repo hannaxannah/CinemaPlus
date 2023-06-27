@@ -72,7 +72,6 @@ create table ticket_reservation(
 	ticket_price number,
 	screen_name varchar2(10),
 	screen_time varchar2(10),
-	is_deleted number default 0,
 	member_id varchar2(50)
 	) ;
 
