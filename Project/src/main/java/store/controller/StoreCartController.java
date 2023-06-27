@@ -205,7 +205,7 @@ public class StoreCartController { //장바구니 컨트롤러
 		
 		return orderPage;
 	}
-	
+//선택한 상품 삭제	
 	@RequestMapping(delete_command)
 	public String delProduct(
 			@RequestParam("product_code") int product_code,
