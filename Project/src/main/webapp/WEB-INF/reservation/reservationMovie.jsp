@@ -13,6 +13,21 @@ function change_btn(e) {
 	  });
 	  console.log(e.currentTarget);
 	}
+	
+function change_btn2(e) {
+	  var btns2 = document.querySelectorAll(".timeButton");
+	  btns2.forEach(function (btn, i) {
+	    if (e.currentTarget == btn) {
+	      btn.classList.add("active");
+	    } else {
+	      btn.classList.remove("active");
+	    }
+	  });
+	  console.log(e.currentTarget);
+	}
+	
+	
+
 </script>
 
 <main id="main">
@@ -138,23 +153,26 @@ function change_btn(e) {
 										</c:forEach>
 									</div>
 									<div class="reservation-movie-time">
-										<div class="reservation-movie-time-btn" onClick="">
-											<!-- 상영시간 -->
-											<a>16:15</a>
-											<!-- 잔여석 상영관 -->
-											<a>10/30&emsp;&emsp;2관</a>
+										<div id="reservation-movie-time-btn" onClick="">
+											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
+											16:15<br> <!-- 상영시간 -->
+											10석/30석<br> <!-- 잔여석 -->
+											2관 <!-- 상영관 -->
+											</button>
 										</div>
-										<div class="reservation-movie-time-btn" onClick="">
-											<!-- 상영시간 -->
-											<a>16:15</a>
-											<!-- 잔여석 상영관 -->
-											<a>10/30&emsp;&emsp;2관</a>
+										<div id="reservation-movie-time-btn" onClick="">
+											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
+											16:15<br> <!-- 상영시간 -->
+											10석/30석<br> <!-- 잔여석 -->
+											2관 <!-- 상영관 -->
+											</button>
 										</div>
-										<div class="reservation-movie-time-btn" onClick="">
-											<!-- 상영시간 -->
-											<a>16:15</a>
-											<!-- 잔여석 상영관 -->
-											<a>10/30&emsp;&emsp;2관</a>
+										<div id="reservation-movie-time-btn" onClick="">
+											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
+											16:15<br> <!-- 상영시간 -->
+											10석/30석<br> <!-- 잔여석 -->
+											2관 <!-- 상영관 -->
+											</button>
 										</div>
 									</div>
 								</div>
