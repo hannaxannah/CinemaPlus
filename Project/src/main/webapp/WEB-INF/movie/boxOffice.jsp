@@ -37,8 +37,10 @@
 											&date=${weekly.get('openDt')}"
 													title="More Details">${weekly.get("movieNm")}</a>
 											</h4>
-											<p>App</p>
-											<input type="button" class="movie-list-reservation-btn" value="예매하기">
+											<p>${screenOn[status.index] }</p>
+											<c:if test="${screenOn[status.index] eq 'on'}">
+												<input type="button" class="movie-list-reservation-btn" value="예매하기" onclick="location.href='fastReservation.mv?movie_title=${weekly.get('movieNm')}'">
+											</c:if>
 											<div class="portfolio-links">
 												<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
 											</div>

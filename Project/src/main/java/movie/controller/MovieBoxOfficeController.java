@@ -43,7 +43,7 @@ public class MovieBoxOfficeController {
 
 	@RequestMapping(value = command)
 	public String doAction(Model model,
-							@RequestParam(value = "admin", required = false) String admin) throws ParseException 
+			@RequestParam(value = "admin", required = false) String admin) throws ParseException 
 	{
 
 		// 인증키 (개인이 받아와야함)
@@ -77,7 +77,7 @@ public class MovieBoxOfficeController {
 			String[] posters = new String[weeklyBoxOfficeList.size()];
 			String[] runtimes = new String[weeklyBoxOfficeList.size()];
 			String[] ratings = new String[weeklyBoxOfficeList.size()];
-
+			String[] screenOn = new String[weeklyBoxOfficeList.size()];
 
 			for(int i=0; i<weeklyBoxOfficeList.size(); i++) {
 				JSONObject weekly = (JSONObject)weeklyBoxOfficeList.get(i);
@@ -89,7 +89,14 @@ public class MovieBoxOfficeController {
 				//				System.out.println("title: " + title);
 				//				System.out.println("date: " + date);
 				//				System.out.println("movieCode: " + movieCode);
+				List<ScreenBean> screenOnList = screenDao.getScreenByMovieTitle(title);
 
+					if(screenOnList != null && screenOnList.size() != 0) {
+						screenOn[i] = "on";
+					}else {
+						screenOn[i] = "off";
+					}
+				
 
 				StringBuilder urlBuilder = new StringBuilder("https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=y");
 				urlBuilder.append("&" + URLEncoder.encode("ServiceKey","UTF-8") + "=1073781M200XYOF0GMF1");
@@ -138,42 +145,43 @@ public class MovieBoxOfficeController {
 			}
 
 			List<ScreenBean> screenList = screenDao.getAllScreen();
-			
+
 			if(screenList.size() != 0) {
 				String[] arr = new String[screenList.size()];
 
 				for(int i=0; i<screenList.size(); i++) {
 					arr[i] = (screenList.get(i)).getMovie_title();
 				}
-				   HashSet<String> hashSet = 
-			                new HashSet<String>(Arrays.asList(arr));
-				   
-				   String[] opendScreenTitles = hashSet.toArray(new String[0]);
+				HashSet<String> hashSet = 
+						new HashSet<String>(Arrays.asList(arr));
+
+				String[] opendScreenTitles = hashSet.toArray(new String[0]);
 				model.addAttribute("opendScreenTitles", opendScreenTitles);
 			}
-			
-			
+
+
 			model.addAttribute("posters", posters);
 			model.addAttribute("ratings", ratings);
 			model.addAttribute("runtimes", runtimes);
 			model.addAttribute("weeklyBoxOfficeList", weeklyBoxOfficeList);
+			model.addAttribute("screenOn", screenOn);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		if(admin != null) {
 			List<ScreenBean> oldScreenList = screenDao.getAllScreen();
 			Set<ScreenBean> set = new HashSet<ScreenBean>(oldScreenList);
-			 
-	        // Set을 List로 변경
-	        List<ScreenBean> newScreenList =new ArrayList<ScreenBean>(set);
-	        model.addAttribute("screenList", newScreenList);
+
+			// Set을 List로 변경
+			List<ScreenBean> newScreenList =new ArrayList<ScreenBean>(set);
+			model.addAttribute("screenList", newScreenList);
 			return adminPage;
-			
+
 		}else {
 			return getPage;
 		}
-		
+
 	}
 
 }

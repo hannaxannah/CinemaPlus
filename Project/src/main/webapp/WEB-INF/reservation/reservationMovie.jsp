@@ -115,13 +115,14 @@
 								<div class="container-dropend" id="btn-groupDropendArea" style="width: 100%">
 									<div class="reservation-movie-date" style="flex-flow: row;">
 										<c:forEach var="date" items="22<br>목, 23<br>금, 24<br>토, 25<br>일, 26<br>월, 27<br>화, 28<br>수">
-										<div class="reservation-movie-date-item">
+										<div class="reservation-movie-date-item" >
+											<input type="checkbox" value="${date}">
 											${date}
 										</div>
 										</c:forEach>
 									</div>
 									<div class="reservation-movie-time">
-										<div class="reservation-movie-time-btn" onClick="">
+										<div class="reservation-movie-time-btn" onClick="" id="num1">
 											<!-- 상영시간 -->
 											<a>16:15</a>
 											<!-- 잔여석 상영관 -->
@@ -129,9 +130,9 @@
 										</div>
 										<div class="reservation-movie-time-btn" onClick="">
 											<!-- 상영시간 -->
-											<a>16:15</a>
+											<a></a>
 											<!-- 잔여석 상영관 -->
-											<a>10/30&emsp;&emsp;2관</a>
+											<a>16:15&emsp;<br>10/30&emsp;&emsp;2관</a>
 										</div>
 										<div class="reservation-movie-time-btn" onClick="">
 											<!-- 상영시간 -->
@@ -156,5 +157,67 @@
 		</div>
 	</section>
 </main>
+<script>
+alert("좌석은 최대 4개까지 예약 할 수 있습니다.");
+var seatnum = [];
+var selec = 0;
+document.addEventListener('DOMContentLoaded', () =>{
+
+
+
+const seatContainer = document.querySelector('.breadcrumbs');
+
+const movie = document.getElementById('movie'); // 선택할 영화
+
+let count = document.querySelector('#count'); // 인원수
+
+
+
+// 선택한 좌석수 텍스트 변경해주기
+
+function countSeat(){
+    const selectedSeatCount = document.querySelectorAll('.selectedSeat').length;
+
+    count.textContent = selectedSeatCount;
+    
+}
+
+
+//좌석 클릭했을때
+
+seatContainer.addEventListener('click', (e) => {
+	alert(e.target.text);
+	alert(e.target.value);
+    if(e.target.className === 'seat' && selec <4){
+        e.target.className = 'selectedSeat';
+       
+        seatnum.push(e.target.id)
+        selec = selec +1;
+    } else if(e.target.className === 'selectedSeat'){
+        e.target.className = 'seat';
+        
+        for(var i = 0; i < seatnum.length; i++) {
+        	  if(seatnum[i] === e.target.id)  {
+        		  seatnum.splice(i, 1);
+        	    i--;
+        	  }
+        	}
+        selec = selec -1;
+    }
+    countSeat();
+   
+})
+
+function selectMovie() {
+	alert(1);
+}
+
+
+})
+function submitSeatnum() {
+	 location.href = "screenReservationInsert.mv?seatnum="+ seatnum + "&screen_time=" + '${screenBean.screen_time}';
+	
+}
+</script>
 <!-- End #main -->
 <%@ include file="../main/mainFooter.jsp"%>
