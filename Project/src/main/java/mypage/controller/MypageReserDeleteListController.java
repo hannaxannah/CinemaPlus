@@ -26,9 +26,8 @@ public class MypageReserDeleteListController {
 	public String doActionByGet(HttpSession session, Model model) {
 		MemberBean memberBean = (MemberBean) session.getAttribute("loginInfo");
 		String id = memberBean.getMember_id();
-		
-		List<ReservationBean> reservationDelList = screenDao.getReservationById(id);
-		model.addAttribute("reservationDelList", reservationDelList);
+		List<ReservationBean> delList = screenDao.deleteMyReserList(id);
+		model.addAttribute("delList", delList);
 		return getPage;
 	}
 }

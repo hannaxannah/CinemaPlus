@@ -118,7 +118,7 @@
 	
 	<select id="GetReservationById" resultType="movie.model.ReservationBean">
 		select * from ticket_reservation
-		where member_id = #{member_id} and is_deleted = 0
+		where member_id = #{member_id}
 		order by seat_number2
 	</select>
 	
@@ -142,12 +142,36 @@
 		where member_id = #{member_id}
 	</select>
 	
-	<!-- 마이페이지 예매내역 취소내역 이동 -->
-	<update id="updateCancleServ">
-		update ticket_reservation 
-   		set is_deleted = 1
+	<!-- 마이페이지 - 취소내역 -->
+	<insert id="insertCancleReservation" useGeneratedKeys="false">
+		insert into cancel_reservation	
+		values(cancle_seqres.nextval, #{movie_title}, sysdate, #{seat_number},#{seat_number2}, #{ticket_price}, 
+		#{screen_name}, #{screen_time}, 0,  #{member_id})
+	</insert>
+	
+	
+	<!-- 마이페이지 - 취소내역 삭제 -->
+	<delete id="myDeleteResevationList">
+		delete from cancel_reservation
 		where reservation_num = #{reservation_num}
-	</update>
+	</delete>
+	
+	<!-- 마이페이지 취소내역 -->
+	<select id="getDeleteMyReserList" resultType="movie.model.ReservationBean">
+		select * from cancel_reservation
+		where member_id = #{member_id}
+		order by seat_number2
+	</select>
+	<select id = "GetReservationByNum" resultType = "movie.model.ReservationBean">
+	 select * from ticket_reservation
+	 where reservation_num = #{reservation_num}
+	</select>
+	
+	<!-- 마이페이지 예매내역 내용 삭제 -->
+	<delete id="DeleteCancleServ">
+		delete from ticket_reservation
+		where reservation_num = #{reservation_num}
+	</delete>
 	
 </mapper>
 

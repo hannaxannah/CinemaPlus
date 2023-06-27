@@ -138,14 +138,14 @@
 											</c:if>
 											 <c:if test="${fn:length(delList) != 0}">
 												<tbody>
-												<c:forEach var="delList" items="${delList}" varStatus="status">
+												<c:forEach var="del" items="${delList}" varStatus="status">
 													<tr>
-														<fmt:parseDate var="date1" value="${delList.reservation_date}" pattern="yyyy-MM-dd"/>
+														<fmt:parseDate var="date1" value="${del.reservation_date}" pattern="yyyy-MM-dd"/>
 														<fmt:formatDate  var="date2" value="${date1}" type="DATE" pattern="yyyy-MM-dd"/> 
 														<td>${date2}</td>
-														<td>${delList.screen_name}</td>
-														<td>${delList.movie_title}</td>
-														<td>${delList.seat_number}</td>
+														<td>${del.screen_name}</td>
+														<td>${del.movie_title}</td>
+														<td>${del.seat_number}</td>
 														<td><a href="">실행취소</a></td>
 													</tr>
 												</c:forEach>												

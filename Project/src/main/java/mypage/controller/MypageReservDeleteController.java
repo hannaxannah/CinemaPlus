@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import board.model.BoardBean;
 import board.model.IndividualBoardBean;
+import movie.model.ReservationBean;
 import movie.model.ScreenBean;
 import movie.model.ScreenDao;
 
@@ -39,8 +40,8 @@ public class MypageReservDeleteController {
 		
 		PrintWriter out = null;
 		response.setContentType("text/html; charset=UTF-8");
-		
-		int cnt = screenDao.updateCancle(reservation_num);
+		ReservationBean reservationBean = screenDao.getReservationByNum(reservation_num);
+		int cnt = screenDao.deleteCancle(reservation_num);
 		
 		/*
 		 * List<ScreenBean> delList = screenDao.deleteMyReserList(reservation_num);
@@ -52,6 +53,8 @@ public class MypageReservDeleteController {
 				
 				out = response.getWriter();
 				System.out.println("예매내역 삭제 성공");
+				int cnt2 = screenDao.insertCancleReservation(reservationBean);
+				System.out.println("cnt " + cnt2);
 				out.print("<script>alert('예매목록이 삭제되었습니다.');location.href='myreservation.mp';</script>");
 				out.flush();
 				/*
