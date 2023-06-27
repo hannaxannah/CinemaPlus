@@ -22,7 +22,7 @@ public class MemberLoginController {
 	private final String command = "memberlogin.mb";
 	private final String getPage = "memberLoginForm";
 	private final String gotoPage = "redirect:/main.mn";
-	private final String adminPage = "redirect:/adminTest1.admin";
+	private final String adminPage = "redirect:/boxOffice.mv?admin=admin";
 
 	@Autowired 
 	MemberDao mdao;	
