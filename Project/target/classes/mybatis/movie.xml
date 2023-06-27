@@ -118,7 +118,7 @@
 	
 	<select id="GetReservationById" resultType="movie.model.ReservationBean">
 		select * from ticket_reservation
-		where member_id = #{member_id}
+		where member_id = #{member_id} and is_deleted = 0
 		order by seat_number2
 	</select>
 	
@@ -142,12 +142,12 @@
 		where member_id = #{member_id}
 	</select>
 	
-	<!-- 마이페이지 예매내역 삭제 -->
-	<delete id = "MyRervDelete">
-		delete ticket_reservation
+	<!-- 마이페이지 예매내역 취소내역 이동 -->
+	<update id="updateCancleServ">
+		update ticket_reservation 
+   		set is_deleted = 1
 		where reservation_num = #{reservation_num}
-	</delete>
-	
+	</update>
 	
 </mapper>
 

@@ -30,6 +30,7 @@ public class MypageReservDeleteController {
 
 	@RequestMapping(command)
 	public String doAction(@RequestParam("reservation_num") String reservation_num,
+			
 			HttpServletResponse response,
 			Model model) {
 		
@@ -39,7 +40,7 @@ public class MypageReservDeleteController {
 		PrintWriter out = null;
 		response.setContentType("text/html; charset=UTF-8");
 		
-		int cnt = screenDao.deleteReservation(reservation_num);
+		int cnt = screenDao.updateCancle(reservation_num);
 		
 		/*
 		 * List<ScreenBean> delList = screenDao.deleteMyReserList(reservation_num);
