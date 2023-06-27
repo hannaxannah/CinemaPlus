@@ -39,68 +39,72 @@ function change_btn2(e) {
 					<div class="col-xl-10" style="padding: 40px 0;">
 						<div class="row">
 							<div class="col-xl-3" style="display: flex; flex-direction: column; padding: 0;">
-								<div class="container-title">
+								<div class="container-title" style="border-right: 1px solid #FCFBFF;">
 									영화관
 								</div>
-								<div class="reservation-theater-list" style="width: 100%">
-									<div class="dropend" id="btn-groupDropendArea"> 
-										<c:forEach var="areaName" items="${area}">
-										<button type="button" class="dropdown theater-area-btn" id="${areaName}" onClick="dp_menu()">
-											${areaName}
-										</button>
-										<ul class="area-dropdown-menu" id="drop-content" style="display: none;">
-											<c:if test="${areaName == '서울'}">
-												<c:forEach var="Branch" items="${seoul}">
-													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>											
-												</c:forEach>
-											</c:if>
-											<c:if test="${areaName == '경기'}">
-												<c:forEach var="Branch" items="${gyeonggi}">
-													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>
-												</c:forEach>
-											</c:if>
-											<c:if test="${areaName == '인천'}">
-												<c:forEach var="Branch" items="${incheon}">
-													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>
-												</c:forEach>
-											</c:if>
-											<c:if test="${areaName == '강원'}">
-												<c:forEach var="Branch" items="${kangwon}">
-													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>
-												</c:forEach>
-											</c:if>
-											<c:if test="${areaName == '대전/충청'}">
-												<c:forEach var="Branch" items="${daejeon}">
-													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>
-												</c:forEach>
-											</c:if>
-											<c:if test="${areaName == '대구'}">
-												<c:forEach var="Branch" items="${daegu}">
-													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>
-												</c:forEach>
-											</c:if>
-											<c:if test="${areaName == '부산/울산'}">
-												<c:forEach var="Branch" items="${busan}">
-													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>
-												</c:forEach>
-											</c:if>
-											<c:if test="${areaName == '경상'}">
-												<c:forEach var="Branch" items="${gyeongsang}">
-													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>
-												</c:forEach>
-											</c:if>
-											<c:if test="${areaName == '광주/전라/제주'}">
-												<c:forEach var="seoulBranch" items="${gwangju}">
-													<li class="dropdown" style="padding: 10px;"><a class="area-dropdown-item" href="#">${Branch}</a></li>
-												</c:forEach>
-											</c:if>
+								<div class="reservation-theater-list" style="width: 100%;background: #fff;">
+									<nav id="theaterSidebar" class="navbar">
+										<ul class="theater-area" style="flex-flow: column;align-items: flex-start;">
+											<c:forEach var="areaName" items="${area}">
+												<li class="dropdown" style="width: 100%;">
+													<button style="width: 100%; text-align: left; padding: 10px 25px; border: 0px; background: #fff;">
+														<span style="font-size: 1.2rem;color: #000;">${areaName}</span>
+													</button>
+													<ul class="theater-area-branch" id="branchName">
+														<c:if test="${areaName == '서울'}">
+															<c:forEach var="Branch" items="${seoul}">
+																<li class="dropdown"><a class="reservation-theater-branch" href="#">${Branch}</a></li>
+															</c:forEach>
+														</c:if>
+														<c:if test="${areaName == '경기'}">
+															<c:forEach var="Branch" items="${gyeonggi}">
+																<li class="dropdown"><a class="reservation-theater-branch" href="#">${Branch}</a></li>
+															</c:forEach>
+														</c:if>
+														<c:if test="${areaName == '인천'}">
+															<c:forEach var="Branch" items="${incheon}">
+																<li class="dropdown"><a class="reservation-theater-branch" href="#">${Branch}</a></li>
+															</c:forEach>
+														</c:if>
+														<c:if test="${areaName == '강원'}">
+															<c:forEach var="Branch" items="${kangwon}">
+																<li class="dropdown"><a class="reservation-theater-branch" href="#">${Branch}</a></li>
+															</c:forEach>
+														</c:if>
+														<c:if test="${areaName == '대전/충청'}">
+															<c:forEach var="Branch" items="${daejeon}">
+																<li class="dropdown"><a class="reservation-theater-branch" href="#">${Branch}</a></li>
+															</c:forEach>
+														</c:if>
+														<c:if test="${areaName == '대구'}">
+															<c:forEach var="Branch" items="${daegu}">
+																<li class="dropdown"><a class="reservation-theater-branch" href="#">${Branch}</a></li>
+															</c:forEach>
+														</c:if>
+														<c:if test="${areaName == '부산/울산'}">
+															<c:forEach var="Branch" items="${busan}">
+																<li class="dropdown"><a class="reservation-theater-branch" href="#">${Branch}</a></li>
+															</c:forEach>
+														</c:if>
+														<c:if test="${areaName == '경상'}">
+															<c:forEach var="Branch" items="${gyeongsang}">
+																<li class="dropdown"><a class="reservation-theater-branch" href="#">${Branch}</a></li>
+															</c:forEach>
+														</c:if>
+														<c:if test="${areaName == '광주/전라/제주'}">
+															<c:forEach var="seoulBranch" items="${gwangju}">
+																<li class="dropdown"><a class="reservation-theater-branch" href="#">${seoulBranch}</a></li>
+															</c:forEach>
+														</c:if>
+													</ul>
+												</li>
+											</c:forEach>
 										</ul>
-										</c:forEach>
-									</div>
+									</nav>
 								</div>
 							</div>
 							<div class="col-xl-4" style="display: flex; flex-direction: column; padding: 0;">
-								<div class="container-title">
+								<div class="container-title" style="border-right: 1px solid #FCFBFF;">
 									영화
 								</div>
 								
@@ -141,7 +145,7 @@ function change_btn2(e) {
 								</div>
 							</div>
 							<div class="col-xl-5" style="display: flex; flex-direction: column; padding: 0;">
-								<div class="container-title">
+								<div class="container-title" style="border-right: 1px solid #FCFBFF;">
 									날짜/시간
 								</div>
 								<div class="container-dropend" id="btn-groupDropendArea" style="width: 100%">
