@@ -80,6 +80,11 @@
                     </ul>
                   </li>
                   
+                   <li><a><i class="fa fa-edit"></i> 회원 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="memberList.admin">회원 리스트</a></li>
+                    </ul>
+                  </li>
                   
                   <li><a><i class="fa fa-edit"></i> 스토어 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
