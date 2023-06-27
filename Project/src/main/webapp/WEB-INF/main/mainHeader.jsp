@@ -61,7 +61,18 @@
           <li><a class="nav-link scrollto" href="theater.th">영화관</a></li>
           <li><a class="nav-link scrollto" href="mymovie.mv">우리집 영화관</a></li>
           <li><a class="nav-link scrollto" href="list.store">스토어</a></li>
-          <li><a class="nav-link scrollto" href="main.mp?member_id=${loginInfo.member_id}">MY</a></li>
+          
+         <c:choose>
+		    <c:when test="${loginInfo.member_id != 'admin' }">
+		   		<li><a class="nav-link scrollto" href="main.mp?member_id=${loginInfo.member_id}">MY</a></li>
+		    </c:when>
+		    <c:otherwise>
+				<li><a class="nav-link scrollto" href="boxOffice.mv?admin=${loginInfo.member_id}">admin</a></li>
+		    </c:otherwise>
+		</c:choose> 
+          
+          
+         
         </ul>
       </nav><!-- .navbar -->
       <nav id="navbar2" class="navbar2">
