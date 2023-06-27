@@ -3,6 +3,9 @@
 <%@ include file="../common/common.jsp" %>
 <%@ include file="../main/mainHeader.jsp"%>
 <%@ include file="./cartNavigation.jsp" %>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+<link rel="stylesheet" href="resources/store.min.css" media="all">
 <style>
 	section{
 		padding:0px;
@@ -58,8 +61,6 @@
 		height : 325px;
 	}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-<link rel="stylesheet" href="resources/store.min.css" media="all">
 <div class="container_productList">
 <section id="store">
 	<!-- contents -->
@@ -171,6 +172,9 @@
 							                    		</c:otherwise>
 										</c:choose>
 							                  <p class="ea">
+							                  		<a href="addCart.store?product_code=${products.product_code}&cart_qty=1" style="width: 70px;" class="btn btn-sm btn-primary">
+							                  			<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+							                  		</a>
 							                  </p>
 							             </div>
 							         </div>
