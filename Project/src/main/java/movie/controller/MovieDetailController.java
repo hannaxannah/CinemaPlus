@@ -39,13 +39,7 @@ public class MovieDetailController {
 	@RequestMapping(value = command)
 	public String doAction(HttpServletRequest request, Model model,HttpSession session) {
 		
-		
 		MemberBean mb = (MemberBean) session.getAttribute("loginInfo");
-		
-		
-		
-		
-		
 		
 		try {
 			request.setCharacterEncoding("utf-8");
