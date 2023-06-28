@@ -1035,8 +1035,8 @@
 .reservation-movie-date {
 	width: 100%;
 	display: flex;
-    justify-content: space-around;
-    border: 1px solid black;
+	justify-content: space-around;
+	/* border: 1px solid black; */
 }
 
 .reservation-movie-date-item {

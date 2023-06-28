@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../main/mainHeader.jsp"%>
-
+<style>
+	nav::-webkit-scrollbar {
+		  display: none;
+		}
+	
+</style>
 <main id="main">
 
 	<!-- 예매 -->
@@ -10,7 +15,7 @@
 				<div class="row justify-content-center">
 					<div class="col-xl-10" style="padding: 40px 0;">
 						<div class="row">
-							<div class="col-xl-3" style="display: flex; flex-direction: column; padding: 0;">
+							<div class="col-xl-3" style="display: flex; flex-direction: column; padding: 0; background-color: #FFF;">
 								<div class="container-title" style="border-right: 1px solid #FCFBFF;">
 									영화관
 								</div>
