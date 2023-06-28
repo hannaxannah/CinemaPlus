@@ -1,7 +1,60 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../main/mainHeader.jsp"%>
-
+<style>
+	.timeButton{
+		display: block;
+	    position: relative;
+	    height: 80px;
+	    padding: 8px 14px 5px;
+	    border-radius: 4px;
+	    border: 1px solid #ddd;
+	    cursor: pointer;
+	    background: #f8f8f8;
+	    background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(248, 248, 248, 1) 100%);
+	    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(248, 248, 248, 1) 100%);
+	    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(248, 248, 248, 1) 100%);
+	}
+	
+	dt{
+		overflow: hidden;
+	    position: absolute !important;
+	    width: 1px;
+	    height: 1px;
+	    clip: rect(1px, 1px, 1px, 1px);
+	}
+	
+	.sit_time{
+		display: block;
+	    font-size: 15px;
+	    font-weight: bold;
+	    text-align: center;
+	}
+	.tooltip{
+		display: none;
+	    position: absolute;
+	    left: 50%;
+	    top: -41px;
+	    height: 32px;
+	    line-height: 34px;
+	    margin-left: -38px;
+	    padding: 0 8px;
+	    border-radius: 4px;
+	    font-family: 'Roboto';
+	    font-size: 13px;
+	    color: #FFF;
+	    white-space: nowrap;
+	    background-color: #333;
+	}
+	
+	.reservation-movie-time::-webkit-scrollbar {
+	    display: none; 
+	}
+	
+	.theater-area-branch::-webkit-scrollbar {
+	    display: none; 
+	}
+</style>
 <main id="main">
 
 	<!-- 예매 -->
@@ -85,28 +138,8 @@
 										
 											
 											  <c:forEach var="title" items="${titleList}">
-											 <button class="button" id="${title}" onclick="change_btn(event)">
-											 <c:if test="${fastReservation.rating eq '18세관람가'}">
-											<img
-												src="https://img.megabox.co.kr/static/pc/images/common/txt/18_46x46.png"
-												width="23px" height="23px">
-										</c:if>
-										<c:if test="${fastReservation.rating eq '15세관람가'}">
-											<img
-												src="https://img.megabox.co.kr/static/pc/images/common/txt/15_46x46.png"
-												width="23px" height="23px">
-										</c:if>
-										<c:if test="${fastReservation.rating eq '12세관람가'}">
-											<img
-												src="https://img.megabox.co.kr/static/pc/images/common/txt/12_46x46.png"
-												width="23px" height="23px">
-										</c:if>
-										<c:if
-											test="${fastReservation.rating ne '18세관람가' &&  fastReservation.rating ne '12세관람가' && fastReservation.rating ne '15세관람가'}">
-											<img
-												src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png"
-												width="23px" height="23px">
-										</c:if>
+											 <button class="button" id="${title}" onclick="change_btn(event)" style="text-align: left;">
+											
 											 ${title}</button>
 											 
 											 </c:forEach> 
@@ -119,8 +152,8 @@
 								<div class="container-title" style="border-right: 1px solid #FCFBFF;">
 									날짜/시간
 								</div>
-								<div class="container-dropend" id="btn-groupDropendArea" style="width: 100%">
-									<div class="reservation-movie-date" style="flex-flow: row;">
+								<div class="container-dropend" id="btn-groupDropendArea" style="width:100%; border:1px solid rgba(242, 242, 242, 1);">
+									<div class="reservation-movie-date" style="flex-flow: row;border: 1px solid rgba(242, 242, 242, 1);">
 										<c:forEach var="date" items="22<br>목, 23<br>금, 24<br>토, 25<br>일, 26<br>월, 27<br>화, 28<br>수">
 										<div class="reservation-movie-date-item" >
 											<input type="checkbox" value="${date}">
@@ -128,14 +161,64 @@
 										</div>
 										</c:forEach>
 									</div>
-									<div class="reservation-movie-time">
+
+									
+
+						<h5 style="margin: 20px;">2D</h4>
+								<div class="reservation-movie-time" style="overflow:scroll;">
 										<c:forEach var="screen" items="${screenList}">
-											<div id="${screen.movie_title}" onClick="">
-											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)" id="${screen.screen_time}">
-											<a>상영시간 ${screen.screen_time}
-												잔여석${screen.left_seats}/${screen.seat_count}석
-												<br>
-												상영관${fastReservation.screen_name}</a>
+											<div id="${screen.movie_title}" onClick="" style="margin-bottom: 30px;">
+												<div>
+											 <button class="button" id="${title}" onclick="change_btn(event)">
+											 <c:if test="${screen.rating eq '18세관람가'}">
+											<img
+												src="https://img.megabox.co.kr/static/pc/images/common/txt/18_46x46.png"
+												width="23px" height="23px">
+										</c:if>
+										<c:if test="${screen.rating eq '15세관람가'}">
+											<img
+												src="https://img.megabox.co.kr/static/pc/images/common/txt/15_46x46.png"
+												width="23px" height="23px">
+										</c:if>
+										<c:if test="${screen.rating eq '12세관람가'}">
+											<img
+												src="https://img.megabox.co.kr/static/pc/images/common/txt/12_46x46.png"
+												width="23px" height="23px">
+										</c:if>
+										<c:if
+											test="${screen.rating ne '18세관람가' &&  screen.rating ne '12세관람가' && screen.rating ne '15세관람가'}">
+											<img
+												src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png"
+												width="23px" height="23px">
+										</c:if>
+													${screen.movie_title }</div>
+											<button class="timeButton"  style="width:100px" onclick="change_btn2(event)" id="${screen.screen_time}">
+											<a style="font-family: 'Roboto'; font-size: 11px;color: #666; padding-right: 0;padding-left:0;"> 
+												<dl>
+													<dt>상영시간</dt>
+													<dd class="time">
+														<strong class="sit_time">
+															${screen.screen_time } ~
+															<span>
+																<c:set var="startTime_1" value="${screen.time}"/>
+																	<c:if test="${fn:length(screen.time) eq 2}">
+																<c:set var="startTime_1" value="${screen.time}"/>
+																	</c:if>
+																<fmt:parseNumber var="startTime_2" value="${(startTime_1 * (1000*60*60)) + (screen.runtime * (1000*60))}" integerOnly="true" />
+																
+																<fmt:parseNumber var="hh" value="${(startTime_2  / (1000*60)) / 60 }" integerOnly="true" /> 
+																<fmt:parseNumber var="mm" value="${(startTime_2  / (1000*60)) % 60 }" integerOnly="true" />
+																${hh}:<c:if test="${mm < 10}">0</c:if>${mm}
+															</span>
+														</strong>
+													</dd>
+													<dt>잔여석</dt>
+													<dd class="seat">
+														<strong>${screen.left_seats}</strong> / ${screen.seat_count}
+													</dd>
+													<dt>상영관</dt>
+													<dd class="hall">${fastReservation.screen_name}</dd>
+												</dl>
 												<input type="hidden" name="screen_time" value="${screen.screen_time}">
 												<input type="hidden" name="movie_title" value="${screen.movie_title}">
 												<input type="hidden" name="seat_count" value="${screen.seat_count}">
@@ -152,7 +235,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-xl-10" id="reservation-go-seat">
+							<div class="col-xl-10" id="reservation-go-seat" >
 								<input type="submit" value="인원 및 좌석 선택" form="myform">;
 							</div>
 						</div>
