@@ -1,5 +1,6 @@
 package board.controller;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -47,12 +48,16 @@ public class BoardUpdateController {
 				@ModelAttribute("board") @Valid BoardBean board,
 				HttpServletResponse response,
 				BindingResult result,
-				@RequestParam("movienum") String movie_num
-				) {
+				@RequestParam("movie_num") String movie_num
+				) throws IOException {
 			
-			PrintWriter out = null;
-			response.setContentType("text/html; charset=UTF-8");
-
+			System.out.println("update movienum: " + movie_num);
+			
+			response.setCharacterEncoding("EUC-KR");
+		    PrintWriter writer;
+		     
+			writer = response.getWriter();
+				
 			ModelAndView mav = new ModelAndView();
 			BoardBean Board = boardDao.GetBoardByNum(movie_num);
 			
@@ -62,9 +67,22 @@ public class BoardUpdateController {
 				int cnt = boardDao.updateFaqBoard(board);
 				if(cnt != -1) {
 					System.out.println("update성공");
-					mav.setViewName(gotoPage);
+					
+					  writer.println("<script type='text/javascript'>");
+					  writer.println("alert('FAQ정보가 수정 되었습니다.');");
+					  writer.println("location.href='list.bd' ");
+					  writer.println("</script>");
+					  writer.flush();
+					  
 				}else {
 					System.out.println("update실패");
+					
+					  writer.println("<script type='text/javascript'>");
+					  writer.println("alert('FAQ정보 수정에 실패하였습니다.');");
+					  writer.println("location.href = 'history.go(-2);'");
+					  writer.println("</script>");
+					  writer.flush();
+					  
 					mav.setViewName(getPage);
 				}
 			}

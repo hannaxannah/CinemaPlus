@@ -63,7 +63,9 @@
         width: 100%;
         height: 100%;
 	}
-	
+	.navbar a{
+		font-size: 15px;
+	}
 	.cart:hover {
 		transform: scale(1.1);
 }

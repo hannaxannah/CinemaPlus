@@ -161,6 +161,13 @@
 		select count(*) from coupon_user where 
 		member_code = #{member_code} and coupon_state = 0
 	</select>	
+	
+	
+	<select id="GetAllMemberList" resultType="member.model.MemberBean">
+		select * from member
+	</select>	
+	
+	
 </mapper>
 
 

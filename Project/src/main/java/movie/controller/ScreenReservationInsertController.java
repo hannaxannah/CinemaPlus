@@ -40,28 +40,14 @@ public class ScreenReservationInsertController {
 		reservationBean.setScreen_name(screenBean.getScreen_name());
 		reservationBean.setScreen_time(screenBean.getScreen_time());
 		reservationBean.setTicket_price(screenBean.getTicket_price());
-		int j = 1;
-		int k = 65;
-		int l = 0;
-		String sNum;
 		for(int i=0; i<seatnum.length; i++) {
-			int seat = Integer.parseInt(seatnum[i]);
 			while(true) {
-				if(seat / (j*10) == 0) {
-					sNum = "" + (char)k + (seat-l*10) % (j*10);
-					reservationBean.setSeat_number(sNum);
-					reservationBean.setSeat_number2(seat);
-					//System.out.println(sNum);
+					reservationBean.setSeat_number(seatnum[i]);
 					int cnt = screenDao.insertReservation(reservationBean);
 					if(cnt == 1) {
 						screenDao.removeSeat(screenBean.getScreen_time());
 					}
 					break;
-				}else {
-					j++;
-					k++;
-					l++;
-				}
 			}
 		}
 		return getPage;

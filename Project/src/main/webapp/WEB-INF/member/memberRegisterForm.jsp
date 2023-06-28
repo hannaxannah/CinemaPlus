@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../main/mainHeader.jsp"%>
-
+<main id="main" style="background-color: #FCFBFF">
 <!-- 회원가입 -->
 <div class="container-register">
-<div class="register">회원가입</div>
+<div class="register"style="margin-bottom: 20px;"><h2>회원가입</h2></div>
 <form:form commandName="mb" action="register.mb" method="post">
-<div class="register-1">회원정보입력<hr></div>
+<div class="register-1"><hr></div>
 <table class="registerForm-1">
 	<tr>
 		<td>
@@ -124,7 +124,8 @@
 		</td>
 	</tr>
 </table>
-<div class="register-1">마케팅 정보 수집 및 수신 동의<hr></div>
+<br><br>
+<div class="registerForm-2"><h5>마케팅 정보 수집 및 수신 동의</h5><hr></div>
 <table class="registerForm-2">
 	<tr>
 		<td>
@@ -175,11 +176,11 @@
 	</tr>
 </table>
 <div class="register-button">
-	<input type="button" class="registerButton" value="취소" onClick="location.href='main.mn'">
-	<input type="submit" class="registerButton" id="join" value="가입하기">
+	<input type="button" class="registerButton"  value="취소" onClick="location.href='main.mn'">
+	<input type="submit" class="registerButton"  id="join" value="가입하기">
 </div>
 </form:form>
 </div>
 
-
+</main>
 <%@ include file="../main/mainFooter.jsp"%>

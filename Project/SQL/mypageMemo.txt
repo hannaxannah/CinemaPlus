@@ -13,6 +13,11 @@ insert into member values('M5', 'lee', 'lee1234', '리', '20200101', '0103333555
 insert into member values('M7', 'shin', 'shin1234', '주영', '19971110', '01031711401', 'shin@naver.com', 'q7','q7답변',sysdate,'비동의','수신거부','수신거부', '3500');
 insert into member values('M9', 'test', 'test1234', '테스트', '20230615', '01022227777', 'shinjugle@gmail.com', 'q5','답변테스트',sysdate,'동의','수신거부','수신동의', '7000');
 
+--ticket_reservation insert
+
+insert into ticket_reservation values(1, '스즈메의 문단속', sysdate, '11', 55, 15000, 'CGV고잔', '150', 'lee');
+insert into ticket_reservation values(2, '탑건', sysdate, '23', 33, 12500, 'CGV중앙', '180', 'lee');
+
 --individualboard(1:1문의게시판)
 
 drop sequence INDIVIDUALBOARD_SEQ;
@@ -91,9 +96,26 @@ select * from FAQ;
 
 
 
+DROP TABLE cancel_reservation CASCADE CONSTRAINTS;
+ 
+create table cancel_reservation (
+	reservation_num number not null,
+	movie_title varchar2(100),
+	reservation_date date default sysdate,
+	seat_number varchar2(10),
+	seat_number2 number,
+	ticket_price number,
+	screen_name varchar2(10),
+	screen_time varchar2(10),
+	is_deleted number default 0,
+	member_id varchar2(50)
+	) ;
 
+drop sequence cancle_seqres ;
+create sequence cancle_seqres start with 1 increment by 1 nocache ;
 
-
+insert into ticket_reservation values(1, '스즈메의 문단속', sysdate, '11', 55, 15000, 'CGV고잔', '150', 0, 'lee');
+insert into ticket_reservation values(2, '탑건', sysdate, '23', 33, 12500, 'CGV중앙', '180', 0, 'lee');
 
 
 
