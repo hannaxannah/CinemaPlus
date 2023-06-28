@@ -2,8 +2,20 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../main/mainHeader.jsp"%>
 <%@ include file="../common/common.jsp"%>
+<style>
+	.reserve{
+		font-size: 0.85em;
+	    font-weight: 500;
+	    transition: 0.3s;
+	    color : #FFF;
+	    background: #FF4357;
+	    border: none;
+	    border-radius: 20px;
+	    padding: 5px 17px;
+	    margin-bottom: 20px;
+	}
+</style>
 <main id="main">
-
 	<!-- 영화 : 박스오피스 -->
 	<section id="portfolio" class="portfolio">
 		<div style="width: 90%; margin: 0 auto;">
@@ -33,7 +45,7 @@
 										<img src="${posters[status.index]}" class="img-fluid" style="width:294px;height:420px;" alt="">
 										<div class="portfolio-info" style="width:294px;height:420px;">
 											<p style="margin: 100px 0;">${fn:substring(stories[status.index],0,150)} .....</p>
-											<h4>
+											<h4 style="margin-bottom: 20px;">
 												<a
 													href="movieDetail.mv?title=${weekly.get('movieNm')}
 											&date=${weekly.get('openDt')}"
@@ -41,11 +53,12 @@
 											</h4>
 
 											<c:if test="${screenOn[status.index] eq 'on'}">
+<<<<<<< HEAD
 												<input type="button" class="movie-list-reservation-btn" value="빠른예매" onclick="location.href='fastReservation.mv?movie_title=${weekly.get('movieNm')}'">
+=======
+												<a class="reserve" href="fastReservation.mv?movie_title=${weekly.get('movieNm')}">예매하기</a>
+>>>>>>> branch 'main' of https://github.com/JSCU0403/CinePlus.git
 											</c:if>
-
-											<a class="movie-list-reservation-btn" href="movieDetail.mv?title=${weekly.get('movieNm')}
-											&date=${weekly.get('openDt')}">예매하기</a>
 											<div class="portfolio-links">
 												<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
 											</div>
