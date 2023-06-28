@@ -120,6 +120,7 @@
 									<input type="text" name="url">
 								</div>
 							</div>
+							<input type="hidden" name="poster" value="${poster}">
 
 							<div class="ln_solid"></div>
 							<div class="form-group">

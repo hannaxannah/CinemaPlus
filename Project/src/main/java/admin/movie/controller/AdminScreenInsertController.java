@@ -27,6 +27,7 @@ public class AdminScreenInsertController {
 	public String doAction(@RequestParam(value = "movie_title") String movie_title,
 			@RequestParam(value = "movie_runtime") String movie_runtime,
 			@RequestParam(value = "rating") String rating,
+			@RequestParam(value = "poster") String poster,
 			Model model){
 
 		System.out.println(movie_runtime);
@@ -36,6 +37,7 @@ public class AdminScreenInsertController {
 		model.addAttribute("movie_runtime", movie_runtime);
 		model.addAttribute("movie_title", movie_title);
 		model.addAttribute("rating", rating);
+		model.addAttribute("poster", poster);
 		String[] opendScreenTimes = new String[screenList.size()];
 
 

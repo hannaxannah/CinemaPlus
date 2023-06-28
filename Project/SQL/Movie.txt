@@ -55,7 +55,8 @@ create table screen(
 	ticket_price number,
 	discount varchar2(10),
 	rating varchar2(20),
-	url varchar2(20)
+	url varchar2(20),
+	poster varchar2(100)
 	) ;
 	
 ------------------

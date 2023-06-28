@@ -201,7 +201,6 @@
 	</section>
 </main>
 <script>
-alert("좌석은 최대 4개까지 예약 할 수 있습니다.");
 var selectedTime;
 function selectTime(val) {
    $('input[name=screen_time]').attr('value',val.id);
@@ -219,7 +218,6 @@ function selectTime(val) {
       
       for(var i=1; i<=6; i++){
     	  input = document.createElement("input");
-    	  alert(values[i-1]);
     	  input.setAttribute("type", "hidden");
           input.setAttribute("id", "input");
           input.setAttribute("name", values[i-1]);

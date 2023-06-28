@@ -63,7 +63,8 @@
 											</c:if>
 											<a class="btn btn-primary" href="screenInsert.admin?movie_title=${weekly.get('movieNm')}
 													&movie_runtime=${runtimes[status.index]}
-													&rating=${ratings[status.index]}">영화오픈</a>
+													&rating=${ratings[status.index]}
+													&poster=${posters[status.index]}">영화오픈</a>
 										</td>
 									</tr>
 								</c:forEach>

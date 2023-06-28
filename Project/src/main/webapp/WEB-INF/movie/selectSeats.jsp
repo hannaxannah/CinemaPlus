@@ -72,7 +72,7 @@
 											<table>
 												<tr>
 													<td><i class="bi bi-plus-lg" onclick="plusAdult()"></i></td>
-													<td>0</td>
+													<td><span id="adult">0</span></td>
 													<td><i class="bi bi-dash-lg" onclick="minusAdult()"></i></td>
 												</tr>
 											</table>
@@ -84,7 +84,7 @@
 											<table>
 												<tr>
 													<td><i class="bi bi-plus-lg" onclick="plusTeen()"></i></td>
-													<td>0</td>
+													<td><span id="teen">0</span></td>
 													<td><i class="bi bi-dash-lg" onclick="minusTeen()"></i></td>
 												</tr>
 											</table>
@@ -96,7 +96,7 @@
 											<table>
 												<tr>
 													<td><i class="bi bi-plus-lg" onclick="plusHandicap()"></i></td>
-													<td>0</td>
+													<td><span id="handicap">0</span></td>
 													<td><i class="bi bi-dash-lg" onclick="minusHandicap()"></i></td>
 												</tr>
 											</table>
@@ -155,20 +155,42 @@
 								<div class="">
 									<!-- 상영 등급, 제목 -->
 									<div class="rreservation-ticketeservation-ticket-title">
-										<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-										<p class="tit"><b>스파이더맨: 어크로스 더 유니버스</b></p>
+										<c:if test="${screenBean.rating eq '18세관람가'}">
+											<img
+												src="https://img.megabox.co.kr/static/pc/images/common/txt/18_46x46.png"
+												width="23px" height="23px">
+										</c:if>
+										<c:if test="${screenBean.rating eq '15세관람가'}">
+											<img
+												src="https://img.megabox.co.kr/static/pc/images/common/txt/15_46x46.png"
+												width="23px" height="23px">
+										</c:if>
+										<c:if test="${screenBean.rating eq '12세관람가'}">
+											<img
+												src="https://img.megabox.co.kr/static/pc/images/common/txt/12_46x46.png"
+												width="23px" height="23px">
+										</c:if>
+										<c:if
+											test="${screenBean.rating ne '18세관람가' &&  screenBean.rating ne '12세관람가' && screenBean.rating ne '15세관람가'}">
+											<img
+												src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png"
+												width="23px" height="23px">
+										</c:if>
+										<p class="tit"><b>${screenBean.movie_title}</b></p>
 									</div>
 									<hr style="border: 1px solid #7F7F7F">
 									<!-- 영화관, 상영관, 날짜, 시간, 포스터 -->
 									<div class="reservation-ticket-theater">
 										<div style="width: 50%;">
 											<p class="tit">상암월드컵경기장</p>
-											<p class="tit">4관</p>
-											<p class="tit">2023.06.23(금)</p>
+											<p class="tit">${screenBean.screen_name}</p>
+											<c:set var="now" value="<%=new java.util.Date()%>" />
+											<c:set var="sysYear"><fmt:formatDate value="${now}" pattern="yyyy.MM.dd(E)" /></c:set> 
+											<p class="tit">${sysYear}</p>
 											<p class="tit">20:20 ~ 22:50</p>
 										</div>
 										<div style="width: 50%; text-align: end;">
-											<img src="resources/images/movie-poster-1.jpg" style="width: 60%; text-align: end; padding-right: 5px;">
+											<img src="${screenBean.poster}" style="width: 60%; text-align: end; padding-right: 5px;">
 										</div>
 									</div>
 									<hr style="border: 1px solid #7F7F7F">
@@ -187,14 +209,14 @@
 											<hr style="width: 70%; border: 1px solid #7F7F7F; margin: 0 auto; margin-top: 5px; margin-bottom: 5px;">
 											<div style="margin: 0; padding-top: 15px;">
 												<p class="tit" style="margin: 0;display: flex;justify-content: center;align-items: center;">
-													<font style="font-size:1.3rem;">4</font>개
+													<font style="font-size:1.3rem;"><span id="selec">0</span></font>개
 												</p>
 											</div>
 										</div>
 									</div>
 									<div class="reservation-ticket-price">
 										<div class="reservation-price">최종결제금액</div>
-										<div class="reservation-price"><a class="reservation-price-bold">100,000</a>원</div>
+										<div class="reservation-price"><a class="reservation-price-bold"><span id="price"></span></a>원</div>
 									</div>
 								</div>
 								<div class="reservation-go-pay">
@@ -215,8 +237,12 @@ alert("좌석은 최대 4개까지 예약 할 수 있습니다.");
 var seatnum = [];
 var selec = 0;
 var people = 0;
-var teen = 0;
-var handicap = 0;
+var adults = 0;
+var teens = 0;
+var price = 0;
+var handicaps = 0;
+
+
 document.addEventListener('DOMContentLoaded', () =>{
 
 
@@ -241,7 +267,7 @@ seatContainer.addEventListener('click', (e) => {
 	//alert(e.target.className);
 	//alert(e.target.id);
 	//alert(e.target.text);
-    if(e.target.id === 'seat' && selec < 4 && e.target.className === 'bi bi-square-fill'){
+    if(e.target.id === 'seat' && selec < people && e.target.className === 'bi bi-square-fill'){
         e.target.id = 'selectedSeat';
         var sCol = e.target.children[0].textContent;
         //alert(e.target.children[0].textContent);
@@ -251,6 +277,7 @@ seatContainer.addEventListener('click', (e) => {
         //alert(seat);
         seatnum.push(seat);
         selec = selec +1;
+        $("#selec").text(selec);
     } else if(e.target.id === 'selectedSeat'){
         e.target.id = 'seat';
         
@@ -262,6 +289,7 @@ seatContainer.addEventListener('click', (e) => {
         	  }
         	}
         selec = selec -1;
+        $("#selec").text(selec);
     }
     countSeat();
    
@@ -271,65 +299,99 @@ seatContainer.addEventListener('click', (e) => {
 
 
 })
-/* function plusAdult() {
+
+ function plusAdult() {
 	
-	if(checkOver()){
+	console.log(document.getElementById("adult"));
+	adults = $("#adult").text();
+	adults = Number(adults);
+	
+	if(checkOver() && adults != 4){
+	adults = adults + 1;
 	people = people + 1;
-	adult = adult + 1;
+	price = price + 10000;
+	
+	$("#adult").text(adults);
+	$("#price").text(price);
 	}
-	
-	
 }
+
 function minusAdult() {
-	if(checkLow()){
+	adults = $("#adult").text();
+	adults = Number(adults);
+	if(checkLow() && adults != 0) {
+	adults = adults - 1;
 	people = people - 1;
-	adult = adult - 1;
+	price = price - 10000;
 	}
+	$("#adult").text(adults);
+	$("#price").text(price);
 }
+
 function plusTeen() {
-	if(checkOver()){
-	people = people + 1;
-	teen = teen + 1;
+	teens = $("#teen").text();
+	teens = Number(teens);
+	if(checkOver() && teens != 4){
+	teens = teens + 1;
+	people = people +1;
+	price = price + 8000;
 	}
+	$("#teen").text(teens);
+	$("#price").text(price);
 }
 function minusTeen() {
-	if(checkLow()){
-	people = people - 1;
-	teen = teen - 1;
-	
+	teens = $("#teen").text();
+	teens = Number(teens);
+	if(checkLow() && teens != 0) {
+	teens = teens - 1;
+	people = people -1;
+	price = price - 8000;
 	}
+	$("#teen").text(teens);
+	$("#price").text(price);
 }
+
 function plusHandicap() {
 	
-	if(checkOver()){
+	handicaps = $("#handicap").text();
+	handicaps = Number(handicaps);
+	if(checkOver() && handicaps != 4){
+	handicaps = handicaps + 1;
 	people = people + 1;
-	handicap = handicap + 1;
+	price = price + 5000;
 	}
+	$("#handicap").text(handicaps);
+	$("#price").text(price);
 	
 }
 function minusHandicap() {
-	if(checkLow()){
+	handicaps = $("#handicap").text();
+	handicaps = Number(handicaps);
+	if(checkLow() && handicaps != 0) {
+	handicaps = handicaps - 1;
 	people = people - 1;
-	handicap = handicap - 1;
-	
+	price = price - 5000;
 	}
+	$("#handicap").text(handicaps);
+	$("#price").text(price);
 }
+
 function checkOver() {
-	if(people = 4){
-		alert("4명까지 선택 가능합니다");
-		alert(people);
+	if(people == 4){
 		return false;
 	}
 	return true;
 }
 function checkLow() {
-	if(people = 0){
-		alert("0명 이상으로 선택해주세요");
-		alert(people);
+	if(people == 0){
+		return false;
+	}
+	if(people == selec){
+		alert("이미 좌석이 선택되었습니다.");
 		return false;
 	}
 	return true;
-} */
+} 
 function submitSeatnum() {
 	 location.href = "screenReservationInsert.mv?seatnum="+ seatnum + "&screen_time=" + '${screenBean.screen_time}';
 	

@@ -85,7 +85,7 @@
 	<insert id="InsertScreen" useGeneratedKeys="false">
 		insert into screen	
 		values(#{movie_title}, #{seat_count}, #{seat_count}, #{screen_time}, #{time}, #{screen_name}, 
-		#{runtime}, #{ticket_price}, #{discount}, #{rating}, #{url})
+		#{runtime}, #{ticket_price}, #{discount}, #{rating}, #{url}, #{poster})
 	</insert>
 	
 	<select id="GetScreenList" resultType="movie.model.ScreenBean">
