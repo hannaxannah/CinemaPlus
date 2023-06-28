@@ -16,14 +16,14 @@
 <script type="text/javascript">
 	function pointEvent(member_id,member_point,reservCount) {
 		
-		if(member_point == 0 || member_point<3000 || reservCount < 5) {
-			member_point = 'Welcome';
+		if(member_point == 0 || member_point<3000 && reservCount < 5) {
+			memberInfo = 'Welcome';
 		}else if(member_point>=3000 && member_point<5000 || reservCount >= 5 && reservCount <10) {
-			member_point = 'Friends';
+			memberInfo = 'Friends';
 		}else if(member_point>=5000 && member_point<10000 || reservCount >= 10 && reservCount <15) {
-			member_point = 'VIP';
+			memberInfo = 'VIP';
 		}else if(member_point>=10000 || reservCount >= 15) {
-			member_point = 'MVP';
+			memberInfo = 'MVP';
 		}
 		
 		if(member_id == null) {
@@ -31,7 +31,7 @@
 			return;
 		}
 		
-		alert(member_id+'회원님의 등급은 '+member_point+'입니다.');
+		alert(member_id+'회원님의 등급은 '+memberInfo+'입니다.');
 		alert(member_id+'회원님의 예매횟수는 '+reservCount+'입니다.');
 	}
 </script>

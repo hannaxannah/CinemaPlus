@@ -16,14 +16,15 @@
 										<tr>
 											<td colspan="3">
 												<c:set var = "grade" scope = "session" value = "${mybean.member_point}"/>
+												<c:set var = "mcount" scope = "session" value = "${MembershipCount}"/>
 													<c:choose>
-									       			 <c:when test = "${grade eq null || grade <3000}">
+									       			 <c:when test = "${grade eq null || grade <3000 && mcount < 5}">
 									       			   <font style="font-size: middle; margin-left: 20px;">회원 등급 : WELCOME</font><br><br>
 									       			 </c:when>
-									       			 <c:when test = "${grade >=3000 && grade <5000}">
+									       			 <c:when test = "${grade >=3000 && grade <5000 || mcount >= 5 && mcount <10}">
 									          			<font style="font-size: middle; margin-left: 20px;">회원 등급 : FRIENDS</font><br><br>
 									        		</c:when>
-									        		<c:when test = "${grade >=5000 && grade <10000}">
+									        		<c:when test = "${grade >=5000 && grade <10000  || mcount >= 10 && mcount <15}">
 									           			<font style="font-size: middle; margin-left: 20px;">회원 등급 : VIP</font><br><br>
 									        		</c:when>
 									        		<c:otherwise>
