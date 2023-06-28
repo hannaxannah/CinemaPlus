@@ -74,21 +74,14 @@
                 	
                     <li><a href="main.mn"><i class="fa fa-home"></i> 유저페이지</a></li>	
                    
-                    
-                  <!-- <li><a><i class="fa fa-home"></i> 예시 <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="adminTest1.admin">테이블</a></li>
-                      <li><a href="adminTest2.admin">생성</a></li>
-                    </ul>
-                  </li> -->
                   
-                   <li><a><i class="fa fa-edit"></i> 회원 <span class="fa fa-chevron-down"></span></a>
+                   <li><a><i class="fa fa-child"></i> 회원 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="memberList.admin">회원 리스트</a></li>
                     </ul>
                   </li>
                   
-                  <li><a><i class="fa fa-edit"></i> 스토어 <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-shopping-cart"></i> 스토어 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="couponCreate.admin">쿠폰 발급</a></li>
                       <li><a href="coupon.admin">쿠폰 리스트</a></li>
@@ -96,7 +89,7 @@
                     </ul>
                   </li>
                   
-                    <li><a><i class="fa fa-edit"></i> 고객센터 <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-comment"></i> 고객센터 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="faqInsert.admin">FAQ 등록</a></li>
                       <li><a href="faq.admin">FAQ 조회</a></li>
@@ -104,7 +97,7 @@
                     </ul>
                   </li>
                   
-                  <li><a><i class="fa fa-edit"></i> 영화 <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-film"></i> 영화 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="boxOffice.mv?admin=admin">박스오피스 목록</a></li>
                       <li><a href="screenOnList.admin">상영중</a></li>
