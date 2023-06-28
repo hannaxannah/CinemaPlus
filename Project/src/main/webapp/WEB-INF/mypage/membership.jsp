@@ -16,9 +16,9 @@
 <script type="text/javascript">
 	function pointEvent(member_id,member_point,reservCount) {
 		
-		if(member_point == 0 || member_point<3000 && reservCount < 5) {
+		if((member_point == 0 || member_point<3000) && reservCount < 5) {
 			memberInfo = 'Welcome';
-		}else if(member_point>=3000 && member_point<5000 || reservCount >= 5 && reservCount <10) {
+		}else if((member_point>=3000 && member_point<5000) || (reservCount >= 5 && reservCount <10)) {
 			memberInfo = 'Friends';
 		}else if(member_point>=5000 && member_point<10000 || reservCount >= 10 && reservCount <15) {
 			memberInfo = 'VIP';
