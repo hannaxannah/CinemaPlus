@@ -16,9 +16,9 @@
 <script type="text/javascript">
 	function pointEvent(member_id,member_point,reservCount) {
 		
-		if(member_point == 0 || member_point<3000 && reservCount < 5) {
+		if((member_point == 0 || member_point<3000) && reservCount < 5) {
 			memberInfo = 'Welcome';
-		}else if(member_point>=3000 && member_point<5000 || reservCount >= 5 && reservCount <10) {
+		}else if((member_point>=3000 && member_point<5000) || (reservCount >= 5 && reservCount <10)) {
 			memberInfo = 'Friends';
 		}else if(member_point>=5000 && member_point<10000 || reservCount >= 10 && reservCount <15) {
 			memberInfo = 'VIP';
@@ -154,8 +154,9 @@ a {
  		<font style="font-size: medium; color: #A6A6A6" >* 회원 혜택은 매 선정마다 달라질 수 있습니다.</font>
 		</span><br><br><br>
 			
+			<c:if test="${memberLogin.member_id == null && memberLogin.member_id == 'admin' }">
 			<input type="button" name="member_point" id="memberPointButton" value="나의 회원등급 확인하기" onclick="return pointEvent('${loginInfo.member_id}','${loginInfo.member_point}','${reservCount}')">
-			
+			</c:if>
 			<div class="tab-content" id="myTabContent">
 				<div class="tab-pane fade show active" id="reservation-tab-pane"
 					role="tabpanel" aria-labelledby="reservation-tab" tabindex="0"

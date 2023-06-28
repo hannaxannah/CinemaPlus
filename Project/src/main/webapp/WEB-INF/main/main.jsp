@@ -59,7 +59,7 @@
 	    font-size: 12px;
 	    color: #666;
 	    line-height: 1.417em;
-	    border: 1px solid #f4f4f4;
+	    border: 1px solid #b2b2b2;
 	    border-radius: 11px;
 	}
 	.giftcon_list dd a {
@@ -191,8 +191,8 @@
 									 <strong style="color:#000;" class="tit">${weekly.get('movieNm')}</strong>
 									</div>
                                        <div class="infor_btn" style="margin-top: 15px;">
-                                           <a href="movieDetail.mv?title=${weekly.get('movieNm')}&date=${weekly.get('openDt')}">상세정보</a>
-                                           <a href="movieDetail.mv?title=${weekly.get('movieNm')}&date=${weekly.get('openDt')}" style="cursor: pointer;">예매하기</a>
+                                           <a href="movieDetail.mv?title=${weekly.get('movieNm')}&date=${weekly.get('openDt')}"style="cursor: pointer; background-color: #38116a; color:#ffffff; font-size: 13px;">상세정보</a>
+                                           <a href="movieDetail.mv?title=${weekly.get('movieNm')}&date=${weekly.get('openDt')}" style="cursor: pointer; background-color: #38116a; color:#ffffff; font-size: 13px;">예매하기</a>
                                        </div>
                                    </div>
                                </div>

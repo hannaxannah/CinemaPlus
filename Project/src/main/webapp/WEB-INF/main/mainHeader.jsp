@@ -84,7 +84,7 @@
 		        </c:when>
 				<c:otherwise>
 					<li><a class="login" href="logout.mb">로그아웃</a></li>
-		        	<li><a class="login" href="reservation.rv">빠른예매</a></li>
+		        	<li><a class="register" href="reservation.rv">빠른예매</a></li>
 				</c:otherwise>
 			</c:choose>
         </ul>

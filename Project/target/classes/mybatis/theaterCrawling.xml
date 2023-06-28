@@ -40,4 +40,8 @@
 		values (#{code}, #{area}, #{branch}, #{address}, #{howtoget1}, #{howtoget2})
 	</insert>
 	
+	<select id="TheaterAreaCode" resultType="String">
+		select area from (select count(*), area_code, area from branch group by area_code, area order by area_code)
+	</select>
+	
 </mapper>

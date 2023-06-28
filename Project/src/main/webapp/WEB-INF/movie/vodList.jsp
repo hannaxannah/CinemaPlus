@@ -10,8 +10,18 @@
 
 			<div class="section-title">
 				<h3>박스오피스</h3>
+				</div>
+				<div class="col-xl-12" style="display: flex; flex-direction: column; align-items: center;">
+				<nav id="theaterNavbar" class="navbar">
+					<ul>
+						<li class="dropdown"><a href="mymovieshowtime.mv">상영시간표</a></li>
+						<li class="dropdown"><a href="mymovievod.mv">VOD</a></li>
+					</ul>
+				</nav>
+				</div>
+				
 			</div>
-				<div class="row portfolio-container justify-content-center" style="position: relative; width: 100%; margin: 0 auto;">
+				<div class="row portfolio-container justify-content-center" style="position: relative; width: 100%; margin: 50px auto;">
 					<div class="col-xl-10">
 						<div class="row">
 							<c:forEach var="movie" items="${movieList}" varStatus="status">
@@ -19,16 +29,15 @@
 							<!-- Start portfolio item -->
 							<div class="col-xl-3 col-lg-4 col-md-6 portfolio-item">
 								<!-- style="position: absolute; left: 0px; top: 0px;" -->
-								<div class="portfolio-wrap">
-									<img src="${movie.poster}" class="img-fluid" alt="">
-									<div class="portfolio-info">
+								<div class="portfolio-wrap" style="width:294px;height:420px;">
+									<img src="${movie.poster}" class="img-fluid" style="width:294px;height:420px;" alt="">
+									<div class="portfolio-info" style="width:294px;height:420px;">
 										<h4>
 											<a href="detail.mv?movie_code=${movie.movie_code}"
 											 title="More Details">${vod.vod_title}</a>
 										</h4>
-										<p>App</p>
+										<p style="margin: 100px 0;">${fn:substring(movie.movie_story,0,150)}.....</p>
 										<div class="portfolio-links">
-											<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
 										</div>
 									</div>
 								</div>
@@ -49,8 +58,8 @@
 										<p title="${vod.vod_title}" class="tit">${vod.vod_title}</p>
 									</div>
 									<div class="rate-date">
-										<span class="rate">가격 ${vod.vod_price}원</span>
-										<span class="date">개봉일 ${movie.open_date}</span>
+										<span class="rate">가격 ${vod.vod_price}원</span> <br>
+										<span class="date">개봉일 ${movie.open_date} </span>
 									</div>
 							</div>
 							<!-- End portfolio item -->

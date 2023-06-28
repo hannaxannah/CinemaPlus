@@ -114,14 +114,14 @@ a {
 					</div>
 					
 					<div style="width: 850px; height: 503px;  background-color:#FFFFFF;">
-					<c:forEach var="List" items="${List}">
-						<strong><p style="font-size: 28px; text-align: center; padding-top: 10px;" >"${List.reservation_num }"</p></strong>
+					<c:forEach var="Lists" items="${Lists}">
+						<strong><p style="font-size: 28px; text-align: center; padding-top: 10px;" >"${Lists.movie_title }"</p></strong>
 						</c:forEach>
 						<p style="font-size: 20px; text-align: center;" >영화 어떠셨나요?</p>
 						<textarea rows="12" cols="96" style="margin: 20px; "  placeholder="관람평을 입력해주세요."﻿﻿ ></textarea>
 						
-						<a href="writeReview.mp?member_id=${loginInfo.member_id}&pageNumber=${pageInfo.pageNumber}" style="background-color: #EBE4FC; padding:5px; margin-left: 380px;">등록</a>
-						<a href="myMovieRecord.mp?member_id=${loginInfo.member_id}" style="background-color: #EBE4FC; padding:5px;">취소</a>
+						<a href="writeReview.mp?member_id=${loginInfo.member_id}&pageNumber=${pageInfo.pageNumber}" style="background-color: #EBE4FC; color:#6b39ea; padding:5px; margin-left: 380px;  border-radius: 5px;">등록</a>
+						<a href="myMovieRecord.mp?member_id=${loginInfo.member_id}" style="background-color: #EBE4FC; padding:5px; border-radius: 5px; color:#6b39ea;">취소</a>
 					</div>
 			</div>
 			

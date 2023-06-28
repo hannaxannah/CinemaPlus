@@ -14,7 +14,7 @@
 								<div class="container-title" style="border-right: 1px solid #FCFBFF;">
 									영화관
 								</div>
-								<div class="reservation-theater-list" style="width: 100%;background: #fff;">
+								<div class="reservation-theater-list" style="width: 400px; height:459px; background: #fff;">
 									<nav id="theaterSidebar" class="navbar">
 										<ul class="theater-area" style="flex-flow: column;align-items: flex-start;">
 											<c:forEach var="areaName" items="${area}">
@@ -84,14 +84,14 @@
 									<div class="reservation-movie-list">
 										
 											
-											<!--   <button class="button" id="open1" onclick="change_btn(event)">
+											  <button class="button" id="open1" onclick="change_btn(event)">
 											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
 											 스파이더맨: 어크로스 더 유니버스</button>
 										
 											 <button class="button" id="open2" onclick="change_btn(event)">
 											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-											 스파이더맨: 어크로스 더 유니버스</button> -->
-											<c:forEach var="title" items="${titleList}">
+											 스파이더맨: 어크로스 더 유니버스</button>
+											<%--  <c:forEach var="title" items="${titleList}">
 											 <button class="button" id="${title}" onclick="change_btn(event)">
 											 <c:if test="${fastReservation.rating eq '18세관람가'}">
 											<img
@@ -116,7 +116,7 @@
 										</c:if>
 											 ${title}</button>
 											 
-											 </c:forEach>
+											 </c:forEach> --%>
 											 
 										<br>
 									</div>
@@ -136,6 +136,7 @@
 										</c:forEach>
 									</div>
 									<div class="reservation-movie-time">
+<<<<<<< HEAD
 										<c:forEach var="screen" items="${screenList}">
 											<div id="${screen.movie_title}" onClick="">
 											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)" id="${screen.screen_time}">
@@ -161,22 +162,29 @@
 											16:15<br> 상영시간
 											5석/30석<br> 잔여석
 											2관 상영관
+=======
+										<div id="open1" onClick="">
+											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
+											16:15<br> <!-- 상영시간 -->
+											5석/30석<br> <!-- 잔여석 -->
+											2관 <!-- 상영관 -->
+>>>>>>> branch 'main' of https://github.com/JSCU0403/CinePlus.git
 											</button>
 										</div>
 										<div id="open1" onClick="">
 											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
-											16:15<br> 상영시간
-											5석/50석<br> 잔여석
-											2관 상영관
+											16:15<br> <!-- 상영시간 -->
+											5석/50석<br> <!-- 잔여석 -->
+											2관 <!-- 상영관 -->
 											</button>
 										</div>
 										<div id="open2" onClick="">
 											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
-											16:15<br> 상영시간
-											10석/30석<br> 잔여석
-											2관 상영관
+											16:15<br> <!-- 상영시간 -->
+											10석/30석<br> <!-- 잔여석 -->
+											2관 <!-- 상영관 -->
 											</button>
-										</div> -->
+										</div>
 										<!-- <div id="reservation-movie-time-btn" onClick="">
 											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
 											16:15<br> 상영시간
@@ -205,13 +213,17 @@
 
 function change_btn(e) {
 	  var btns = document.querySelectorAll(".button");
-	  
 	  btns.forEach(function (btn, i) {
 	    if (e.currentTarget == btn) {
 	      btn.classList.add("active");
+<<<<<<< HEAD
 	     var eid = e.target.id;
 	     console.log($('.reservation-movie-time').children());
+=======
+	     
+>>>>>>> branch 'main' of https://github.com/JSCU0403/CinePlus.git
 	     const divAll = $('.reservation-movie-time').children();//모든 div
+<<<<<<< HEAD
 	     const divSelected = $('.reservation-movie-time').children('#'+eid);//선택한div
 	     divAll.hide();
 	     for(var i=0; i<divAll.length; i++){
@@ -222,6 +234,15 @@ function change_btn(e) {
 	     
 		
 		   
+=======
+	     const divSelelted = $('.reservation-movie-time').children('#' + e.target.id);//선택한div
+	      
+		   if(divSelelted.attr('id') == e.target.id){
+			   divAll.hide();
+			   divSelelted.show();
+		      
+		   } 
+>>>>>>> branch 'main' of https://github.com/JSCU0403/CinePlus.git
 	      
 	    } else {
 	      btn.classList.remove("active");
