@@ -182,5 +182,13 @@ public class ScreenDao {
 		return cnt;
 	}
 
+	/* 취소내역 - 완전삭제 */
+	public int deleteAll(String reservation_num) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.delete(namespace + ".DeleteAllServ", reservation_num);
+		System.out.println("cnt:" + cnt);
+		return cnt;
+	}
+
 
 }

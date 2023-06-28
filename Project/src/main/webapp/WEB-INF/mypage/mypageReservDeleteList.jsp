@@ -122,11 +122,12 @@
 								              <table class="table">
 								                <thead>
 								                  <tr>
-								                    <th scope="col" width="20%">예매날짜</th>
-								                    <th scope="col" width="15%">영화관</th>
-								                    <th scope="col" width="30%">영화</th>
-								                    <th scope="col" width="20%">좌석번호</th>
+								                    <th scope="col" width="15%">예매날짜</th>
+								                    <th scope="col" width="20%">영화관</th>
+								                    <th scope="col" width="25%">영화</th>
+								                    <th scope="col" width="15%">좌석번호</th>
 								                    <th scope="col" width="15%">실행취소</th>
+								                    <th scope="col" width="15%">완전삭제</th>
 								                  </tr>
 								                </thead>
 								                
@@ -147,6 +148,7 @@
 														<td>${del.movie_title}</td>
 														<td>${del.seat_number}</td>
 														<td><a href="cancleDelete.mp?reservation_num=${del.reservation_num}">실행취소</a></td>
+														<td><a href="hangDelete.mp?reservation_num=${del.reservation_num}">완전삭제</a></td>
 													</tr>
 												</c:forEach>												
 												</tbody>
