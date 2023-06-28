@@ -153,10 +153,11 @@ a {
 									</div>
 									<div style="width: 180px; padding-left: 20px; float: left;">
 										<p class="movieTitle">${reservation.movie_title}</p>
+										<p class="reservation_num">${reservation.reservation_num}</p>
 										<p>속초점</p>
 										<p>${reservation.screen_name}</p>
 										<p>${date2}</p>
-										<a href="writeReview.mp?member_id=${loginInfo.member_id}"
+										<a href="writeReview.mp?reservation_num=${reservation.reservation_num}&movie_title=${reservation.movie_title}"
 											style="background-color: #EBE4FC; padding: 5px;">리뷰쓰기</a>
 									</div>
 								</c:forEach>

@@ -114,8 +114,8 @@ a {
 					</div>
 					
 					<div style="width: 850px; height: 503px;  background-color:#FFFFFF;">
-					<c:forEach var="List" items="${List}" varStatus="status">
-						<strong><p style="font-size: 28px; text-align: center; padding-top: 10px;" >"${List.movie_title}"</p></strong>
+					<c:forEach var="List" items="${List}">
+						<strong><p style="font-size: 28px; text-align: center; padding-top: 10px;" >"${List.reservation_num }"</p></strong>
 						</c:forEach>
 						<p style="font-size: 20px; text-align: center;" >영화 어떠셨나요?</p>
 						<textarea rows="12" cols="96" style="margin: 20px; "  placeholder="관람평을 입력해주세요."﻿﻿ ></textarea>
