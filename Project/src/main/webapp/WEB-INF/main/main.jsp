@@ -109,6 +109,11 @@
             </div>
         </div>
     </section>  
+    
+    <section>
+    	 <h2 style="color: #FFF;text-align: center;padding: 30px;">스토어</h2>
+    </section>
+    
 </main>
 <!-- End #main -->
 <%@ include file="mainFooter.jsp"%>
