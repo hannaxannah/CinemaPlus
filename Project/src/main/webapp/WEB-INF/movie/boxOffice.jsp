@@ -39,6 +39,11 @@
 											&date=${weekly.get('openDt')}"
 													title="More Details">${weekly.get("movieNm")}</a>
 											</h4>
+
+											<c:if test="${screenOn[status.index] eq 'on'}">
+												<input type="button" class="movie-list-reservation-btn" value="예매하기" onclick="location.href='fastReservation.mv?movie_title=${weekly.get('movieNm')}'">
+											</c:if>
+
 											<a class="movie-list-reservation-btn" href="movieDetail.mv?title=${weekly.get('movieNm')}
 											&date=${weekly.get('openDt')}">예매하기</a>
 											<div class="portfolio-links">

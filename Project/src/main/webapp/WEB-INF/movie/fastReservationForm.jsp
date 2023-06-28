@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../main/mainHeader.jsp"%>
+<%@ include file="../common/common.jsp"%>
 <main id="main">
 	<!-- 예매 -->
 	<section id="breadcrumbs" class="breadcrumbs">
