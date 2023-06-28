@@ -108,13 +108,13 @@
 									<div class="tab-content" id="myTabContent">
 									  <div class="tab-pane fade show active" id="reservation-tab-pane" role="tabpanel" aria-labelledby="reservation-tab" tabindex="0" style="display:flex;flex-flow:column;padding-top:20px;">
 									  	<div style="width:100%;">
-									  		 <div class="my-reservation-search">
+									  		<!--  <div class="my-reservation-search">
 									  			<a style="font-size:1.1rem;font-weight:600;padding-right:20px;">조회기간</a>
 									  			<input type="date" class="my-reservation-search-date">
 									  			<a style="font-size:1.1rem;font-weight:600;padding:0 10px;">~</a>
 									  			<input type="date" class="my-reservation-search-date">
 									  			<input type="submit" class="my-search" value="검색">
-									  		</div> <br>
+									  		</div> <br> -->
 								            <div style="width: 100%;display: flex;">
 								              <!-- Table -->
 								              <table class="table">
