@@ -136,11 +136,39 @@
 										</c:forEach>
 									</div>
 									<div class="reservation-movie-time">
+<<<<<<< HEAD
+										<c:forEach var="screen" items="${screenList}">
+											<div id="${screen.movie_title}" onClick="">
+											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)" id="${screen.screen_time}">
+											<a>상영시간 ${screen.screen_time}
+												잔여석${screen.left_seats}/${screen.seat_count}석
+												<br>
+												상영관${fastReservation.screen_name}</a>
+												<input type="hidden" name="screen_time" value="${screen.screen_time}">
+												<input type="hidden" name="movie_title" value="${screen.movie_title}">
+												<input type="hidden" name="seat_count" value="${screen.seat_count}">
+												<input type="hidden" name="screen_name" value="${screen.screen_name}">
+												<input type="hidden" name="ticket_price" value="${screen.ticket_price}">
+												<input type="hidden" name="rating" value="${screen.rating}">
+											</button>
+										</div>
+										</c:forEach>
+										<form action="selectSeats.mv" method="post" id="myform" name="aForm">
+										
+										</form>
+									
+										<!-- <div id="open1" onClick="">
+											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
+											16:15<br> 상영시간
+											5석/30석<br> 잔여석
+											2관 상영관
+=======
 										<div id="open1" onClick="">
 											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
 											16:15<br> <!-- 상영시간 -->
 											5석/30석<br> <!-- 잔여석 -->
 											2관 <!-- 상영관 -->
+>>>>>>> branch 'main' of https://github.com/JSCU0403/CinePlus.git
 											</button>
 										</div>
 										<div id="open1" onClick="">
@@ -168,7 +196,7 @@
 								</div>
 							</div>
 							<div class="col-xl-10" id="reservation-go-seat">
-								<input type="button" value="인원 및 좌석 선택" onClick="location.href='selectSeat.rv'">;
+								<input type="submit" value="인원 및 좌석 선택" form="myform">;
 							</div>
 						</div>
 					</div>
@@ -182,73 +210,31 @@
 	</section>
 </main>
 <script>
-alert("좌석은 최대 4개까지 예약 할 수 있습니다.");
-var seatnum = [];
-var selec = 0;
-document.addEventListener('DOMContentLoaded', () =>{
-
-
-
-const seatContainer = document.querySelector('.breadcrumbs');
-
-const movie = document.getElementById('movie'); // 선택할 영화
-
-let count = document.querySelector('#count'); // 인원수
-
-
-
-// 선택한 좌석수 텍스트 변경해주기
-
-function countSeat(){
-    const selectedSeatCount = document.querySelectorAll('.selectedSeat').length;
-
-    count.textContent = selectedSeatCount;
-    
-}
-
-
-//좌석 클릭했을때
-
-seatContainer.addEventListener('click', (e) => {
-	//alert(e.target.text);
-	//alert(e.target.value);
-    if(e.target.className === 'seat' && selec <4){
-        e.target.className = 'selectedSeat';
-       
-        seatnum.push(e.target.id)
-        selec = selec +1;
-    } else if(e.target.className === 'selectedSeat'){
-        e.target.className = 'seat';
-        
-        for(var i = 0; i < seatnum.length; i++) {
-        	  if(seatnum[i] === e.target.id)  {
-        		  seatnum.splice(i, 1);
-        	    i--;
-        	  }
-        	}
-        selec = selec -1;
-    }
-   
-})
-
-function selectMovie() {
-	alert(1);
-}
-
-
-})
-function submitSeatnum() {
-	 location.href = "screenReservationInsert.mv?seatnum="+ seatnum + "&screen_time=" + '${screenBean.screen_time}';
-	
-}
 
 function change_btn(e) {
 	  var btns = document.querySelectorAll(".button");
 	  btns.forEach(function (btn, i) {
 	    if (e.currentTarget == btn) {
 	      btn.classList.add("active");
+<<<<<<< HEAD
+	     var eid = e.target.id;
+	     console.log($('.reservation-movie-time').children());
+=======
 	     
+>>>>>>> branch 'main' of https://github.com/JSCU0403/CinePlus.git
 	     const divAll = $('.reservation-movie-time').children();//모든 div
+<<<<<<< HEAD
+	     const divSelected = $('.reservation-movie-time').children('#'+eid);//선택한div
+	     divAll.hide();
+	     for(var i=0; i<divAll.length; i++){
+	    	 if(divAll.eq(i).attr('id') === e.target.id){
+				   divAll.eq(i).show();
+			   } 
+	     }
+	     
+		
+		   
+=======
 	     const divSelelted = $('.reservation-movie-time').children('#' + e.target.id);//선택한div
 	      
 		   if(divSelelted.attr('id') == e.target.id){
@@ -256,6 +242,7 @@ function change_btn(e) {
 			   divSelelted.show();
 		      
 		   } 
+>>>>>>> branch 'main' of https://github.com/JSCU0403/CinePlus.git
 	      
 	    } else {
 	      btn.classList.remove("active");
@@ -264,18 +251,42 @@ function change_btn(e) {
 	  //console.log(e.currentTarget);
 	}
 	
-function change_btn2(e) {
+function change_btn2(e	) {
 	  var btns2 = document.querySelectorAll(".timeButton");
 	  btns2.forEach(function (btn, i) {
 	    if (e.currentTarget == btn) {
 	      btn.classList.add("active");
+			console.log(btn);	    
+			$('input[name=screen_time]').attr('value',btn.id);
+			 var input = document.createElement("input");
+			   var values = ['screen_time', 'movie_title', 'seat_count', 'screen_name', 'ticket_price', 'rating'];
+			   var aForm = document.forms["aForm"].getElementsByTagName("input");
+			   while(aForm[0]){
+				   aForm[0].remove();
+			   }
+			   $(btn).each( function() {
+			     
+			      var c = $(btn).children();
+			      console.log(c);
+			      alert(c);
+			      for(var i=1; i<=6; i++){
+			    	  input = document.createElement("input");
+			    	  //alert(values[i-1]);
+			    	  input.setAttribute("type", "hidden");
+			          input.setAttribute("id", "input");
+			          input.setAttribute("name", values[i-1]);
+			          input.setAttribute("value", c.eq(i).val());
+			          document.getElementById("myform").appendChild(input);
+			      }
+			     
+			   })
+	    
 	    } else {
 	      btn.classList.remove("active");
 	    }
 	  });
-	  console.log(e.currentTarget);
+	  //console.log(e.currentTarget);
 	}
-	
 	
 
 </script>
