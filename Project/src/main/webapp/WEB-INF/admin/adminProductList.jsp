@@ -60,7 +60,31 @@
                           <td>${p.product_qty}</td>
                           <td>${p.product_price}</td>
                           <td>${p.product_sprice}</td>
-                          <td>${p.product_state}</td>
+                          <td>
+                          <c:choose>
+                          	<c:when test="${p.product_state eq 0}">
+                          		품절
+                          	</c:when>
+                          	<c:when test="${p.product_state eq 1}">
+                          		상품대기
+                          	</c:when>
+                          	<c:when test="${p.product_state eq 2}">
+                          		판매중
+                          	</c:when>
+                          	<c:when test="${p.product_state eq 3}">
+                          		new
+                          	</c:when>
+                          	<c:when test="${p.product_state eq 4}">
+                          		best
+                          	</c:when>
+                          	<c:when test="${p.product_state eq 5}">
+                          		추천상품
+                          	</c:when>
+                          	<c:when test="${p.product_state eq 6}">
+                          		대표상품
+                          	</c:when>
+                          </c:choose>
+                          </td>
                           <td>${p.product_point}</td>
                    </tr>
                  </c:forEach>     

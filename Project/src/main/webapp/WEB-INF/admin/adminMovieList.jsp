@@ -74,19 +74,12 @@
 										<td>${movie.nation}</td>
 										<td>${movie.movie_story}</td>
 										<td><c:if test="${movie.vod == 0}">
-												<a
-													href="insertVod.mv?movie_code=${movie.movie_code}
-													&movie_title=${movie.movie_title}">vod추가</a>
+												<a class="btn btn-success" href="insertVod.mv?movie_code=${movie.movie_code}&movie_title=${movie.movie_title}">vod추가</a>
 											</c:if> <c:if test="${movie.vod == 1}">
-												<a
-													href="deleteVod.mv?movie_code=${movie.movie_code}
-													&movie_title=${movie.movie_title}">vod삭제</a>
-												<a
-													href="updateVod.admin?movie_code=${movie.movie_code}
-													">vod수정</a>
+												<a class="btn btn-danger" href="deleteVod.mv?movie_code=${movie.movie_code}&movie_title=${movie.movie_title}">vod삭제</a>
+												<a class="btn btn-info" href="updateVod.admin?movie_code=${movie.movie_code}">vod수정</a>
 											</c:if></td>
-										<td><a
-											href="movieDelete.admin?movie_code=${movie.movie_code}">삭제</a>
+										<td><a class="btn btn-danger" href="movieDelete.admin?movie_code=${movie.movie_code}">삭제</a>
 										</td>
 									</tr>
 								</c:forEach>
