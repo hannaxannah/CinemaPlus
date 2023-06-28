@@ -8,7 +8,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>문의게시판 <small>전체</small></h3>
+                <h3>회원 <small>전체</small></h3>
               </div>
 
             </div>

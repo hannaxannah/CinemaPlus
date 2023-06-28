@@ -235,11 +235,7 @@ $(document).ready(function(){
 			$('input[name = member_id]').focus();
 			return false;
 		}
-		else if(!chkId($.trim($("#member_id").val()))){
- 			alert("아이디 형식을 확인해주세요.");
- 			$('input[name = member_id]').focus();
- 			return false;
-    	}
+		
 		
 		if(!isCheck){
 			alert("아이디 중복체크 버튼을 눌러주세요.");

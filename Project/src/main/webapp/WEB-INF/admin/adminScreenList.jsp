@@ -54,14 +54,14 @@
 										<td>
 											<c:forEach var="screen" items="${screenList}">
 												<c:if test="${screen.movie_title eq weekly.get('movieNm')}">
-													상영중<br>
+												<span class="btn btn-success">상영중</span><br>
 													<c:set var="on" value="1"/>
 												</c:if>
 											</c:forEach>
 											<c:if test="${on == 0}">
-													상영x	<br>
+													<span class="btn btn-danger">상영x</span>	<br>
 											</c:if>
-											<a href="screenInsert.admin?movie_title=${weekly.get('movieNm')}
+											<a class="btn btn-primary" href="screenInsert.admin?movie_title=${weekly.get('movieNm')}
 													&movie_runtime=${runtimes[status.index]}
 													&rating=${ratings[status.index]}">영화오픈</a>
 										</td>

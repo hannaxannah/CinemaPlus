@@ -87,17 +87,17 @@
 			visibility: hidden;
 		}
 	.card_input{
-		background: rgba(255, 255, 255, 0.2);
+		background: #2A59B9;
 	    color: rgba(255, 255, 255, 0.5);
 	    border: none;
-	    height: 23px;
+	    height: 30px;
 	    border-radius: 2px;
 	    padding: 5px 4px;
 	    text-align: center;
 	    margin: 5px;
 	}
 	.company{
-		background: rgba(255, 255, 255, 0.2);
+		background: #2A59B9;
 		float: right;
 	}
 	.top-0 {
@@ -243,12 +243,12 @@
 					             	<div id="area">
 									  <div class="master-card">
 									    <div class="card">
-									      <div class="title">카드 결제 &nbsp; &nbsp;
+									      <div class="title" style="margin-right: 21px;">카드 결제 &nbsp; &nbsp;
 									      <form action="pay.store" method="post" class="cardForm" id="cardForm" accept-charset="UTF-8">
 									       <input type="hidden" name="sale_pay" value="${sale_price}">	
 											<input type="hidden" name="total_point" value="${sum_point}">	
 											<input type="hidden" name="use_coupon_code" value="">	
-									      	<select name="card_company" class="company">
+									      	<select name="card_company" class="company" style="height:30px">
 										   		<option value="신한카드" selected="selected">신한카드</option>
 										   		<option value="BC카드">BC카드</option>
 										   		<option value="삼성카드">삼성카드</option>
@@ -267,8 +267,8 @@
 									          <div class="day-select"><span>카드 유효기간</span>
 									         	<input type="text" class="card_input" id="card_mmyy" name="card_mmyy" placeholder="MM/YY" maxlength="4" size="4">
 									          </div>
-									          <div class="password" style="margin-left: 160px;"><span style="display: block; font-size: 12px;">비밀번호</span>
-									         	<input type="text" class="card_input" id="card_pw" name="card_pw" placeholder="앞두자리" maxlength="2" size="2">**
+									          <div class="password" style="margin-left: 167px;"><span style="display: block; font-size: 12px;">비밀번호 앞 두자리</span>
+									         	<input type="text" class="card_input" id="card_pw" name="card_pw" placeholder="**" maxlength="2" style="width: 50px;">* *
 									          </div>
 									        </div>
 									        <div class="selects-date selecters" style="margin-top: 20px;">
@@ -284,7 +284,7 @@
 												</select>
 									          </div>
 									        </div>
-									      <div class="name" style="font-size: 20px;"><span>${loginInfo.getMember_name()}</span></div>
+									      <div class="name" style="font-size: 20px;margin-right: 25px;"><span>${loginInfo.getMember_name()}</span></div>
 									         
 									         
 									         </form>
@@ -373,11 +373,22 @@ function setTotalInfo(){
 function payment() {//결제 버튼 클릭
 	var birth_regEXP = /([0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1]))/;//주민번호6자리
 	var busi_regEXP = /^[0-9]{6,10}$/;// 숫자6~10자리 정규식
-	var mmyy_regEXP = /(^0[1-9][0-9][0-9]$)|(^1[012][0-9][0-9]$)/;//월-년도 4자리 정규식
 	var card_regEXP = /^(?:(94[0-9]{14})|(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$/;
 	
 	//유효성 체크
-	if ($("#card_birth").val() == "") {
+	if ($("#card_num").val() == "") {
+		alert("카드번호는 필수입력사항입니다.");
+		$("#card_num").focus();
+		return false;
+	}else if ($(".card_mmyy").val() == "") {
+		alert("유효기간은 필수입력사항입니다.");
+		$(".card_mmyy").focus();
+		return false;
+	}else if ($("#card_pwd").val() == "") {
+		alert("비밀번호는 필수입력사항입니다.");
+		$("#card_pwd").focus();
+		return false;
+	}else if ($("#card_birth").val() == "") {
 		alert("생년월일은 필수입력사항입니다.");
 		$("#card_birth").focus();
 		return false;
@@ -385,29 +396,8 @@ function payment() {//결제 버튼 클릭
 		alert("생년월일 및 사업자번호 형식이 올바르지 않습니다.");
 		$("#card_birth").focus();
 		return false;
-	} else if ($(".card_mmyy").val() == "") {
-		alert("유효기간은 필수입력사항입니다.");
-		$(".card_mmyy").focus();
-		return false;
-	}
-	/* else if (mmyy_regEXP.test($(".card_mmyy").val()) == false) {
-		alert("년 월 형식이 올바르지 않습니다.");
-		$(".card_mmyy").focus();
-		return false;
-	}  */
-	else if ($("#card_num").val() == "") {
-		alert("카드번호는 필수입력사항입니다.");
-		$("#card_num").focus();
-		return false;
-	} /* else if (!card_regEXP.test($("#card_num").val())) {
-		alert("카드번호 형식이 올바르지 않습니다.");
-		$("#card_num").focus();
-		return false;
-	} */ else if ($("#card_pwd").val() == "") {
-		alert("비밀번호는 필수입력사항입니다.");
-		$("#card_pwd").focus();
-		return false;
-	}
+	} 
+	 
 
 	$("#cardForm").submit();
 }

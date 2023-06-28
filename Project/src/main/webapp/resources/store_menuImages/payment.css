@@ -36,7 +36,7 @@ input option, select option {
   /* right: 10px; */
 }
 #area * {
-  font-family: "Ubuntu", sans-serif;
+  /* font-family: "Ubuntu", sans-serif; */
 }
 #area .master-card {
   /* padding: 10px; */
@@ -59,14 +59,14 @@ input option, select option {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   top: 0;
-  left: 5px;
+  left: 10px;
   bottom: 0;
   right: 0;
   background: #0B63E6;
   /* height: 275px; */
   /* max-height: 175px; */
   overflow: hidden;
-  width: 400px;
+  width: 390px;
   z-index: 2;
   transform: rotateY(0deg);
 }
@@ -84,11 +84,11 @@ input option, select option {
   display: flex;
 }
 #area .master-card .card .input-number .inputs-number input {
-  background: rgba(255, 255, 255, 0.2);
+  background: #2A59B9;
   color: #FFF;
   border: none;
   height: 30px;
-  width: 350px;
+  width: 340px;
   border-radius: 2px;
   padding: 5px 4px;
   text-align: center;
@@ -110,7 +110,7 @@ input option, select option {
   color: #FFF;
 }
 #area .master-card .card .selects-date select {
-  background: rgba(255, 255, 255, 0.2);
+  background: #2A59B9;
   color: rgba(255, 255, 255, 0.5);
   border: none;
   width: 50px;
@@ -185,7 +185,7 @@ input option, select option {
   margin-right: 10px;
   color: #FFF;
   /* font-size: 14px; */
-  padding: 10px 0;
+  padding-top: 10px;
   text-align: right;
 }
 #area .master-card .card-back {

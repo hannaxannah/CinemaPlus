@@ -28,6 +28,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import movie.model.MovieDao;
 import movie.model.ScreenBean;
 import movie.model.ScreenDao;
+import store.model.StoreProductBean;
+import store.model.StoreProductDao;
 
 @Controller
 public class MainController {
@@ -41,10 +43,21 @@ public class MainController {
 	@Autowired
 	ScreenDao screenDao;
 	
+	@Autowired
+	StoreProductDao storeProductDao;
+	
 	@RequestMapping(value=command, method = RequestMethod.GET)
 	public String doAction(Model model,
 			@RequestParam(value = "admin", required = false) String admin) throws ParseException 
 	{
+		//스토어 리스트 받아오기
+		
+		List<StoreProductBean> giftlist = storeProductDao.getProductByCategory("기프트카드");
+		List<StoreProductBean> ticketlist = storeProductDao.getProductByCategory("영화티켓");
+		List<StoreProductBean> snacklist = storeProductDao.getProductByCategory("팝콘/음료/스낵");
+		
+		
+		//영화받아오는 코드
 		
 		// 인증키 (개인이 받아와야함)
 				String key = "6786e461570e23c0ed056fcb41d2c488";
@@ -164,6 +177,10 @@ public class MainController {
 					model.addAttribute("runtimes", runtimes);
 					model.addAttribute("stories", stories);
 					model.addAttribute("weeklyBoxOfficeList", weeklyBoxOfficeList);
+					
+					model.addAttribute("giftlist",giftlist );//기프트 카테고리 상품을 담은 products
+					model.addAttribute("ticketlist",ticketlist );//영화티켓 카테고리 상품을 담은 products
+					model.addAttribute("snacklist",snacklist );//스낵 카테고리 상품을 담은 products
 				}catch(Exception e) {
 					e.printStackTrace();
 				}

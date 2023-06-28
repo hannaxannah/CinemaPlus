@@ -24,8 +24,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import member.model.MemberBean;
 import movie.model.MovieBean;
+import movie.model.MovieDao;
 import movie.model.ScreenBean;
 import movie.model.ScreenDao;
+import movie.model.VodBean;
 
 @Controller
 public class MovieDetailController {
@@ -35,7 +37,7 @@ public class MovieDetailController {
 	
 	@Autowired
 	ScreenDao screenDao;
-	
+
 	@RequestMapping(value = command)
 	public String doAction(HttpServletRequest request, Model model,HttpSession session) {
 		

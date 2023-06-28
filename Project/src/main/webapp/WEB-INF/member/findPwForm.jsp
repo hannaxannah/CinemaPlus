@@ -11,7 +11,7 @@
 				<div class="col-xl-10">
 					<!-- 회원 로그인 -->
 					<div class="login-clean">
-						<form action="findid.mb" method="POST">
+						<form action="findpw.mb" method="POST">
 							<ol>
 				           		<li><a href="findid.mb">아이디 찾기</a></li>
 				            	<li><a href="findpw.mb" style="color:#6B39EA;">비밀번호 찾기</a></li>

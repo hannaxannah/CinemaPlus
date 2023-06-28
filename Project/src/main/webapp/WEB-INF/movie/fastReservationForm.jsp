@@ -2,27 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../main/mainHeader.jsp"%>
 <%@ include file="../common/common.jsp"%>
-<style type="text/css">
-		.container-dropend a:hover {
-	background-color: gray;
-}
-	.reservation-movie-list-item a:hover {
-	color:blue; 
-}
-	.reservation-movie-date-item a:hover {
-	background-color: gray;
-}
-</style>
 <main id="main">
-
 	<!-- 예매 -->
-	<form action="selectSeats.mv" method="post">
-	<input type="hidden" name="screen_time" value="${fastReservation.screen_time}">
-	
-	<input type="hidden" name="seat_count" value="">
-	<input type="hidden" name="screen_name" value="${fastReservation.screen_name}">
-	<input type="hidden" name="ticket_price" value="${fastReservation.ticket_price}">
-	<input type="hidden" name="rating" value="${fastReservation.rating}">
 	<section id="breadcrumbs" class="breadcrumbs">
 		<div class="container-fluid">
 				<div class="row justify-content-center">
@@ -95,6 +76,32 @@
 								</div>
 								<div class="container-dropend" id="btn-groupDropendArea" style="width: 100%">
 									<div class="reservation-movie-list">
+									<c:forEach var="fastReservation" items="${fastReservationList}" end="0">
+										<a class="reservation-movie-list-item">
+										<c:if test="${fastReservation.rating eq '18세관람가'}">
+											<img
+												src="https://img.megabox.co.kr/static/pc/images/common/txt/18_46x46.png"
+												width="23px" height="23px">
+										</c:if>
+										<c:if test="${fastReservation.rating eq '15세관람가'}">
+											<img
+												src="https://img.megabox.co.kr/static/pc/images/common/txt/15_46x46.png"
+												width="23px" height="23px">
+										</c:if>
+										<c:if test="${fastReservation.rating eq '12세관람가'}">
+											<img
+												src="https://img.megabox.co.kr/static/pc/images/common/txt/12_46x46.png"
+												width="23px" height="23px">
+										</c:if>
+										<c:if
+											test="${fastReservation.rating ne '18세관람가' &&  fastReservation.rating ne '12세관람가' && fastReservation.rating ne '15세관람가'}">
+											<img
+												src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png"
+												width="23px" height="23px">
+										</c:if>
+											${fastReservation.movie_title}
+										</a>
+									</c:forEach>
 										<!-- <a class="reservation-movie-list-item">
 											<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
 											스파이더맨: 어크로스 더 유니버스
@@ -123,32 +130,6 @@
 											<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
 											스파이더맨: 어크로스 더 유니버스
 										</a> -->
-										<c:forEach var="fastReservation" items="${fastReservationList}" end="0">
-											<a class="reservation-movie-list-item">
-											<c:if test="${fastReservation.rating eq '18세관람가'}">
-											<img
-												src="https://img.megabox.co.kr/static/pc/images/common/txt/18_46x46.png"
-												width="23px" height="23px">
-										</c:if>
-										<c:if test="${fastReservation.rating eq '15세관람가'}">
-											<img
-												src="https://img.megabox.co.kr/static/pc/images/common/txt/15_46x46.png"
-												width="23px" height="23px">
-										</c:if>
-										<c:if test="${fastReservation.rating eq '12세관람가'}">
-											<img
-												src="https://img.megabox.co.kr/static/pc/images/common/txt/12_46x46.png"
-												width="23px" height="23px">
-										</c:if>
-										<c:if
-											test="${fastReservation.rating ne '18세관람가' &&  fastReservation.rating ne '12세관람가' && fastReservation.rating ne '15세관람가'}">
-											<img
-												src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png"
-												width="23px" height="23px">
-										</c:if>
-											${fastReservation.movie_title}
-											</a>
-										</c:forEach>
 										<br>
 									</div>
 								</div>
@@ -160,21 +141,31 @@
 								<div class="container-dropend" id="btn-groupDropendArea" style="width: 100%">
 									<div class="reservation-movie-date" style="flex-flow: row;">
 										<c:forEach var="date" items="22<br>목, 23<br>금, 24<br>토, 25<br>일, 26<br>월, 27<br>화, 28<br>수">
-										<div class="reservation-movie-date-item" >
-											<a>${date}</a>
+										<div class="reservation-movie-date-item">
+											${date}
 										</div>
 										</c:forEach>
 									</div>
 									<div class="reservation-movie-time">
+									
 										<c:forEach var="fastReservation" items="${fastReservationList}">
-										<div class="reservation-movie-time-btn" onclick="selectTime(this)" id="${fastReservation.screen_time}">
-												<input type="hidden" name="screen_time" value="">
+											<div class="reservation-movie-time-btn" onclick="selectTime(this)"  id="${fastReservation.screen_time}">
+												<a>상영시간 ${fastReservation.screen_time}
+												잔여석${fastReservation.left_seats}/${fastReservation.seat_count}석
+												<br>
+												상영관${fastReservation.screen_name}</a>
+												<input type="hidden" name="screen_time" value="${fastReservation.screen_time}">
 												<input type="hidden" name="movie_title" value="${fastReservation.movie_title}">
-											<a>${fastReservation.screen_time}&emsp;<br>${fastReservation.left_seats}/${fastReservation.seat_count}석&emsp;<br>${fastReservation.screen_name}</a>
+												<input type="hidden" name="seat_count" value="${fastReservation.seat_count}">
+												<input type="hidden" name="screen_name" value="${fastReservation.screen_name}">
+												<input type="hidden" name="ticket_price" value="${fastReservation.ticket_price}">
+												<input type="hidden" name="rating" value="${fastReservation.rating}">
 											</div>
-										
 										</c:forEach>
-										<!-- <div class="reservation-movie-time-btn" onClick="" id="num1">
+										<form action="selectSeats.mv" method="post" id="myform" name="aForm">
+										
+										</form>
+										<!-- <div class="reservation-movie-time-btn" onClick="">
 											상영시간
 											<a>16:15</a>
 											잔여석 상영관
@@ -182,9 +173,9 @@
 										</div>
 										<div class="reservation-movie-time-btn" onClick="">
 											상영시간
-											<a></a>
+											<a>16:15</a>
 											잔여석 상영관
-											<a>16:15&emsp;<br>10/30&emsp;&emsp;2관</a>
+											<a>10/30&emsp;&emsp;2관</a>
 										</div>
 										<div class="reservation-movie-time-btn" onClick="">
 											상영시간
@@ -196,7 +187,7 @@
 								</div>
 							</div>
 							<div class="col-xl-10" id="reservation-go-seat">
-								<input type="submit" value="인원 및 좌석 선택">;
+								<input type="submit" value="인원 및 좌석 선택" form="myform">;
 							</div>
 						</div>
 					</div>
@@ -208,25 +199,36 @@
 			</div>
 		</div>
 	</section>
-	</form>
 </main>
-
 <script>
 alert("좌석은 최대 4개까지 예약 할 수 있습니다.");
 var selectedTime;
 function selectTime(val) {
-	$('input[name=screen_time]').attr('value',val.id);
-	$(val).each( function() {
-		var c = $(val).children();
-		alert(c.eq(0).val());
-		alert(c.eq(1).val());
-		
-	})
+   $('input[name=screen_time]').attr('value',val.id);
+   
+   var input = document.createElement("input");
+   var values = ['screen_time', 'movie_title', 'seat_count', 'screen_name', 'ticket_price', 'rating'];
+   var aForm = document.forms["aForm"].getElementsByTagName("input");
+   while(aForm[0]){
+	   aForm[0].remove();
+   }
+   
+   $(val).each( function() {
+     
+      var c = $(val).children();
+      
+      for(var i=1; i<=6; i++){
+    	  input = document.createElement("input");
+    	  alert(values[i-1]);
+    	  input.setAttribute("type", "hidden");
+          input.setAttribute("id", "input");
+          input.setAttribute("name", values[i-1]);
+          input.setAttribute("value", c.eq(i).val());
+          document.getElementById("myform").appendChild(input);
+      }
+     
+   })
 }
-function submit() {
-	alert();
-}
-
 </script>
 <!-- End #main -->
 <%@ include file="../main/mainFooter.jsp"%>
