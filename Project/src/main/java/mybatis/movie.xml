@@ -187,10 +187,17 @@
 		where reservation_num = #{reservation_num}
 	</delete>
 	
-	<delete id="DeleteToCancleServ">
+	<delete id="DeleteToCancelServ">
 		delete from cancel_reservation
 		where reservation_num = #{reservation_num}
 	</delete>
+	
+	<!-- 멤버쉽 - 아이디마다 예매횟수 -->
+	<select id = "GetReservCountById" resultType="int">
+	 select count(*) from ticket_reservation
+	 where member_id = #{member_id}
+	</select>
+	
 	
 </mapper>
 

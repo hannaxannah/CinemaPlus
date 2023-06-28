@@ -150,9 +150,9 @@ public class ScreenDao {
 	}
 
 
-	public int deleteToCancle(String reservation_num) {
+	public int deleteToCancel(String reservation_num) {
 		int cnt = -1;
-		cnt = sqlSessionTemplate.delete(namespace + ".DeleteToCancleServ", reservation_num);
+		cnt = sqlSessionTemplate.delete(namespace + ".DeleteToCancelServ", reservation_num);
 		System.out.println("cnt:" + cnt);
 		return cnt;
 	}
@@ -161,6 +161,15 @@ public class ScreenDao {
 	public int insertCancleToReservation(ReservationBean reservationBean) {
 		int cnt = -1;
 		cnt = sqlSessionTemplate.insert(namespace+".insertCancleToReservation", reservationBean);
+		return cnt;
+	}
+
+
+	/* 아이디마다의 예매 수 */
+	public int getReservCountById(String id) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.selectOne(namespace + ".GetReservCountById", id);
+		System.out.println("예매 수 cnt: " + cnt);
 		return cnt;
 	}
 

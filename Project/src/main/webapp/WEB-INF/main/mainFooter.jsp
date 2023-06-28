@@ -36,7 +36,7 @@
   
   <%
   //이동할url
-  String targetURL = "http://localhost:8080/ex/WEB-INF/mypage/mypurchaseList.jsp";
+  String targetURL = "http://localhost:8080/ex/WEB-INF/mypage/mypageReservationList.jsp";
   
   //현재url
   String currentURL = request.getRequestURL().toString();
