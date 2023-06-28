@@ -9,6 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -186,6 +187,10 @@ public class MovieDetailController {
 				screen_on = false;
 			}
 			MovieBean movie = new MovieBean();
+			List<ScreenBean> screenList = screenDao.getScreenByMovieTitle(title);
+			ScreenBean screenBean = screenList.get(0);
+			String sUrl = screenBean.getUrl();
+			model.addAttribute("sUrl", sUrl);
 			movie.setActors(movieActors[0]);
 			movie.setDirector(movieDirectors[0]);
 			movie.setMovie_story(stories[0]);
