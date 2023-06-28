@@ -14,7 +14,7 @@
 						<form action="memberlogin.mb" method="POST">
 							<ol>
 				           		<li><a href="memberlogin.mb" style="color:#6B39EA;">회원</a></li>
-				            	<li><a href="nonmemberlogin.mb">비회원</a></li>
+				            	<!-- <li><a href="nonmemberlogin.mb">비회원</a></li> -->
 				            </ol>
 							<h2 class="sr-only" style="margin-bottom: 20px;">로그인</h2>
 							<div class="form-group">
@@ -29,7 +29,7 @@
 							<div class="form-group idpwfind">
 								<a href="findid.mb">ID/PW 찾기</a>
 								<a href="register.mb">회원가입</a>
-								<a href="nonmember-reservation.mb">비회원 예매확인</a>
+								<!-- <a href="nonmember-reservation.mb">비회원 예매확인</a> -->
 							</div>
 							<div class="form-group link-login">
 								<a class="link-login-1" href="${url}">
