@@ -18,18 +18,18 @@
 				            </ol>
 							<h2 class="sr-only" style="margin-bottom: 20px;">로그인</h2>
 							<div class="form-group">
-								<input class="form-control" type="text" name="nonmember_name" placeholder="이름">
+								<input class="form-control" type="text" name="nonmember_name" id="nonmember_name" placeholder="이름">
 							</div>
 							<div class="form-group">
-								<input class="form-control" type="text" name="nonmember_phone" placeholder="휴대폰번호">
+								<input class="form-control" type="text" name="nonmember_phone" id="nonmember_phone" placeholder="휴대폰번호">
 								<br>
 								
 							</div>
 							<div class="form-group">
-								<input class="form-control" type="text" name="nonmember_birth" placeholder="생년월일">
+								<input class="form-control" type="text" name="nonmember_birth" id="nonmember_birth" placeholder="생년월일">
 							</div>
 							<div class="form-group">
-								<input class="form-control" type="password" name="nonmember_pw" placeholder="비밀번호">
+								<input class="form-control" type="password" name="nonmember_pw" id="nonmember_pw" placeholder="비밀번호">
 							</div>
 							<div class="form-group">
 								<input class="form-control" type="password" name="nonmember_pwcheck" placeholder="비밀번호 확인">

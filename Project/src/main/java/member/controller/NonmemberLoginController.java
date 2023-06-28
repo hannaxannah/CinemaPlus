@@ -13,7 +13,7 @@ public class NonmemberLoginController {
 
 	private final String command = "nonmemberlogin.mb";
 	private final String getPage = "nonmemberLoginForm";
-	private final String gotoPage = "redirect:/mainLogined.mn"; //나중에 예매하기로 가게 바꾸기
+	private final String gotoPage = "redirect:/main.mn"; //나중에 예매하기로 가게 바꾸기
 	
 	@Autowired
 	NonmemberDao ndao;
