@@ -6,12 +6,12 @@
 <mapper namespace="member.model.NonmemberBean">
 
 	<!-- nonmember 테이블 총 레코드 수 -->
-	<select id="GetNonmemberTotal" resultType="int">
+	<select id="GetNonmemberTotal" resultType="int" >
 		select count(*) from nonmember
 	</select>
 
 	<!-- 비회원 로그인 -->
-	<insert id="InsertNonmember">
+	<insert id="InsertNonmember"  useGeneratedKeys="false">
 		insert into nonmember values(
 		#{nonmember_code}, #{nonmember_name}, #{nonmember_phone}, #{nonmember_birth},
 		#{nonmember_pw}, #{nonmember_agree})
