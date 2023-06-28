@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import board.model.BoardBean;
+import member.model.MemberBean;
 
 
 @Component
@@ -169,6 +170,14 @@ public class ScreenDao {
 	public int getReservCountById(String id) {
 		int cnt = -1;
 		cnt = sqlSessionTemplate.selectOne(namespace + ".GetReservCountById", id);
+		System.out.println("예매 수 cnt: " + cnt);
+		return cnt;
+	}
+
+	/* 아이디마다의 예매 수 - 메인 */
+	public int getReservCountById(MemberBean id) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.selectOne(namespace + ".GetMainCountById", id);
 		System.out.println("예매 수 cnt: " + cnt);
 		return cnt;
 	}

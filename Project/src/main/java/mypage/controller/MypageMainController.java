@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import member.model.MemberBean;
 import member.model.MemberDao;
+import movie.model.ScreenDao;
 
 @Controller
 public class MypageMainController {
@@ -25,6 +26,9 @@ public class MypageMainController {
 	
 	@Autowired
 	MemberDao mdao;
+
+	@Autowired
+	ScreenDao screenDao;
 	
 	@RequestMapping(value=command)
 	public ModelAndView doAction(
@@ -54,9 +58,14 @@ public class MypageMainController {
 		
 		MemberBean mybean = mdao.GetMemberById(member_id);
 		MemberBean id = (MemberBean) session.getAttribute("loginInfo");
+		
 		int couponSize = mdao.MyUsableCouponCount(id.getMember_code());
+		
+		int MembershipCount = screenDao.getReservCountById(id);
+		
 		mav.addObject("mybean", mybean);
 		mav.addObject("couponSize", couponSize);
+		mav.addObject("MembershipCount", MembershipCount);
 		mav.setViewName(getPage);
 		
 		return mav;
