@@ -130,16 +130,16 @@
 	
 	<!-- 마이페이지-내가 관람한 영화목록 -->
 	<select id="GetReservation" resultType="movie.model.ReservationBean">
-		select movie_title,reservation_date,screen_name,listagg(seat_number,',') within group ( order by reservation_num)
+		select reservation_num, movie_title,reservation_date,screen_name,listagg(seat_number,',') within group ( order by reservation_num)
 		from ticket_reservation where member_id = #{member_id}
-		group by movie_title,reservation_date,screen_name
+		group by reservation_num, movie_title,reservation_date,screen_name
 	</select>
 	
 	
 	<!-- 마이페이지-리뷰작성-제목 -->
 	<select id="WriteReview" resultType="movie.model.ReservationBean">
-		select distinct movie_title from ticket_reservation
-		where member_id = #{member_id}
+		select distinct * from ticket_reservation
+		where reservation_num = #{reservation_num} and member_id = #{member_id}
 	</select>
 	
 	<!-- 마이페이지 - 취소내역 -->
