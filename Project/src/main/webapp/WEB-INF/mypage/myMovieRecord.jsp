@@ -158,7 +158,7 @@ a {
 										<p>${reservation.screen_name}</p>
 										<p>${date2}</p>
 										<a href="writeReview.mp?reservation_num=${reservation.reservation_num}&movie_title=${reservation.movie_title}"
-											style="background-color: #EBE4FC; padding: 5px;">리뷰쓰기</a>
+											style="background-color: #EBE4FC; color:#6b39ea; border-radius: 5px; padding: 5px;">리뷰쓰기</a>
 									</div>
 								</c:forEach>
 							</c:if>
