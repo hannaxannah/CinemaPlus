@@ -3,50 +3,52 @@
 <%@ include file="../main/mainHeader.jsp"%>
 <main id="main" style="background-color: #FCFBFF">
 <!-- 회원가입 -->
+<div style="height: 80px;"></div>
 <div class="container-register">
-<div class="register"style="margin-bottom: 20px;"><h2>회원가입</h2></div>
+<div class="register" ><h2>회원가입</h2></div>
 <form:form commandName="mb" action="register.mb" method="post">
 <div class="register-1"><hr></div>
-<table class="registerForm-1">
+<table class="registerForm-1" >
 	<tr>
 		<td>
-			<a style="color: #DE0000">*&nbsp&nbsp</a>이름
+			<a style="color: #DE0000">*&nbsp&nbsp</a>이름<br>
 		</td>
 		<td>
-			<input type="text" class="inputText3" name="member_name" value="${mb.member_name}">
+			<input type="text" class="inputText3" name="member_name" value="${mb.member_name}"  style="border: var(--bs-border-width) solid var(--bs-border-color);">
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<a style="color: #DE0000">*&nbsp&nbsp</a>아이디
+			<a style="color: #DE0000">*&nbsp&nbsp</a>아이디<br>
 		</td>
 		<td>
-			<input type="text" class="inputText3" name="member_id" value="${mb.member_id}" id="member_id">
-			<input type="button" class="idcheckbutton" value="중복체크" id="id_check" style="background-color:#EBE4FC; color:#6b39ea; border-color:#EBE4FC; width:80px; height: 30px; border-radius: 12px;">
+			<input type="text" class="inputText3" name="member_id" value="${mb.member_id}" id="member_id"  style="border: var(--bs-border-width) solid var(--bs-border-color);">&nbsp&nbsp
+			<input type="button" class="idcheckbutton" value="중복체크" id="id_check" style="background-color:#6b39ea; color:#ffffff; border:0; width:80px; height: 30px; border-radius: 12px;">
 			<span id="idcheck-message"></span><br>
 			
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<a style="color: #DE0000">*&nbsp&nbsp</a>비밀번호
+			<a style="color: #DE0000">*&nbsp&nbsp</a>비밀번호<br>
 		</td>
 		<td>
-			<input type="password" class="inputText3" name="member_pw" id="member_pw"><br>
+			<input type="password" class="inputText3" name="member_pw" id="member_pw"  style="border: var(--bs-border-width) solid var(--bs-border-color);"><br>
 		</td>
 	</tr>
 	<tr>
 		<td></td>
 		<td>
 			<a class="register-infor" style="color:#000000;">비밀번호는 영문 소문자/숫자를 조합하여 8~12자 이내로 입력해주세요</a>
+			<div style="height: 10px;"></div>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<a style="color: #DE0000">*&nbsp&nbsp</a>비밀번호 확인
+			<a style="color: #DE0000">*&nbsp&nbsp</a>비밀번호 확인<br>
 		</td>
 		<td>
-			<input type="password" class="inputText3" name="member_pwcheck">
+			<input type="password" class="inputText3" name="member_pwcheck"  style="border: var(--bs-border-width) solid var(--bs-border-color);">
 			<span id="pwcheck-message"></span>
 		</td>
 	</tr>
@@ -55,7 +57,7 @@
 			<a style="color: #DE0000">*&nbsp&nbsp</a>비밀번호 찾기 질문
 		</td>
 		<td>
-			<select name="pw_question" class="selectBox1">
+			<select name="pw_question" class="selectBox1"  style="border: var(--bs-border-width) solid var(--bs-border-color);">
 				<option value="">선택하세요
 				<option value="q1"<c:if test="${mb.pw_question == 'q1'}">selected</c:if>>기억에 남는 추억의 장소는?
 				<option value="q2"<c:if test="${mb.pw_question == 'q2'}">selected</c:if>>자신의 인생 좌우명은?
@@ -71,20 +73,22 @@
 		<td></td>
 		<td>
 			<a class="register-infor" style="color:#000000;">비밀번호 찾기 시 사용할 질문을 선택해주세요</a>
+		<div style="height: 10px;"></div>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<a style="color: #DE0000">*&nbsp&nbsp</a>비밀번호 찾기 답변
+			<a style="color: #DE0000">*&nbsp&nbsp</a>비밀번호 찾기 답변<br>
 		</td>
 		<td>
-			<input type="text" class="inputText3" name="pw_answer" value="${mb.pw_answer}"><br>
+			<input type="text" class="inputText3" name="pw_answer" value="${mb.pw_answer}"  style="border: var(--bs-border-width) solid var(--bs-border-color);">
 		</td>
 	</tr>
 	<tr>
 		<td></td>
 		<td>
 			<a class="register-infor" style="color:#000000;">비밀번호 찾기 시 사용할 답변을 입력해주세요</a>
+			<div style="height: 10px;"></div>
 		</td>
 	</tr>
 	 <tr>
@@ -92,13 +96,14 @@
          <a style="color: #DE0000">*&nbsp&nbsp</a>생년월일
       </td>
       <td>
-         <input type="text" class="inputText3" name="member_birth" value="${mb.member_birth}" id="member_birth"><br>
+         <input type="text" class="inputText3" name="member_birth" value="${mb.member_birth}" id="member_birth"  style="border: var(--bs-border-width) solid var(--bs-border-color);"><br>
       </td>
    </tr>
    <tr>
 		<td></td>
 		<td>
 			<a class="register-infor" style="color:#000000;">생년월일은 8자리 숫자로 입력해주세요</a>
+			<div style="height: 10px;"></div>
 		</td>
 	</tr>
 	<tr>
@@ -106,13 +111,14 @@
 			<a style="color: #DE0000">*&nbsp&nbsp</a>휴대폰번호
 		</td>
 		<td>
-			<input type="text" class="inputText3" name="member_phone" value="${mb.member_phone}" id="member_phone"><br>
+			<input type="text" class="inputText3" name="member_phone" value="${mb.member_phone}" id="member_phone"  style="border: var(--bs-border-width) solid var(--bs-border-color);">
 		</td>
 	</tr>
 	<tr>
 		<td></td>
 		<td>
 			<a class="register-infor" style="color:#000000;">휴대폰 번호는 '-' 없이 11자리의 숫자로 입력해주세요</a>
+			<div style="height: 10px;"></div>
 		</td>
 	</tr>
 	<tr>
@@ -120,7 +126,7 @@
 			<a style="color: #DE0000">*&nbsp&nbsp</a>이메일
 		</td>
 		<td>
-			<input type="email" class="inputText3" name="member_email" value="${mb.member_email}">
+			<input type="email" class="inputText3" name="member_email" value="${mb.member_email}"  style="border: var(--bs-border-width) solid var(--bs-border-color);">
 		</td>
 	</tr>
 </table>
@@ -129,11 +135,13 @@
 <table class="registerForm-2">
 	<tr>
 		<td>
-			마케팅 활용을 위한 개인정보 수집 이용 안내
+			마케팅 활용을 위한 개인정보 수집 이용 안내&nbsp&nbsp&nbsp&nbsp
 		</td>
 		<td>
+		<div style="background-color: #F2F2F2; padding-top: 10px; padding-bottom: 10px; padding-left: 12px; width: 130px;">
 			<input type="radio" name="member_marketing_agree" value="동의">&nbsp동의&nbsp&nbsp
 			<input type="radio" name="member_marketing_agree" value="미동의">&nbsp미동의
+			</div>
 		</td>
 	</tr>
 	<tr>
@@ -159,11 +167,11 @@
 		<td colspan="2" style="font-size: 0.9em">
 			거래정보와 관련된 내용(예매완료/취소)과 소멸포인트 안내는 수신동의 여부와 관계없이 SMS, PUSH 알림 또는 이메일로 발송됩니다.<br>
 			이 외 타 정보는 수신동의를 하셔야만 받으실 있습니다. (2014.05.16 기준)
-			<div style="padding-bottom: 7px"></div>
-			! 수신 동의 여부를 선택해주세요
-			<div style="padding-bottom: 7px"></div>
-			<div style="background-color: #F2F2F2; padding-top: 10px; padding-bottom: 10px; padding-left: 15px;">
-				<a style="font-weight: 500; margin-right: 20px;"> 이메일 </a>
+			<div style="padding-bottom: 7px;" ></div>
+			<a style="color:red;">! 수신 동의 여부를 선택해주세요</a>
+			<div style="padding-bottom: 7px; "></div>
+			<div style="background-color: #F2F2F2; padding-top: 10px; padding-bottom: 10px; padding-left: 9px; width: 645px;">
+				<a style="font-weight: 500; margin-right: 23px;"> 이메일 </a>
 				<input type="radio" name="member_email_agree" value="수신동의">&nbsp수신동의&nbsp&nbsp
 				<input type="radio" name="member_email_agree" value="수신거부">&nbsp수신거부
 				<br>
@@ -176,11 +184,12 @@
 	</tr>
 </table>
 <div class="register-button">
-	<input type="button" class="registerButton"  value="취소" onClick="location.href='main.mn'" style="background-color:#EBE4FC; color:#6b39ea; border-color:#EBE4FC; width:80px; height: 30px; border-radius: 12px;">
-	<input type="submit" class="registerButton"  id="join" value="가입하기" style="background-color:#EBE4FC; color:#6b39ea; border-color:#EBE4FC; width:80px; height: 30px; border-radius: 12px;">
+	<input type="button" class="registerButton"  value="취소" onClick="location.href='main.mn'" style="background-color:#6b39ea; color:#ffffff; border:0; width:80px; height: 30px; border-radius: 12px;">
+	<input type="submit" class="registerButton"  id="join" value="가입하기" style="background-color:#6b39ea; color:#ffffff; border:0; width:80px; height: 30px; border-radius: 12px;">
 </div>
 </form:form>
 </div>
-
+<div style="height: 80px;"></div>
 </main>
+
 <%@ include file="../main/mainFooter.jsp"%>
