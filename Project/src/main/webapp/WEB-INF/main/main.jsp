@@ -37,7 +37,7 @@
 	}
 	
 	.giftcon_list_wrap > li {
-	    width: 325px;
+	    width: 375px;
 	    padding: 20px 19px 0px;
 	    border: 1px solid #e4e4e4;
 	    border-radius: 10px;

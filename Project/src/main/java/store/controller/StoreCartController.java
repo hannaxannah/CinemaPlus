@@ -56,11 +56,20 @@ public class StoreCartController { //장바구니 컨트롤러
 			 response.setCharacterEncoding("EUC-KR");
 		     PrintWriter writer;
 		     
+		     
+		     MemberBean mb = (MemberBean) session.getAttribute("loginInfo");
 				writer = response.getWriter();
 				if(session.getAttribute("loginInfo") == null) {
 				     writer.println("<script type='text/javascript'>");
 				     writer.println("alert('로그인 후 이용가능한 서비스입니다. 로그인 페이지로 이동합니다.');");
 				     writer.println("location.href = 'memberlogin' ");
+				     writer.println("</script>");
+				     writer.flush();
+				     return null;
+				}else if(mb.getMember_id().equals("admin")) {
+					writer.println("<script type='text/javascript'>");
+				     writer.println("alert('관리자는 스토어를 이용하실수없습니다.');");
+				     writer.println("location.href = 'memberList.admin' ");
 				     writer.println("</script>");
 				     writer.flush();
 				     return null;
@@ -98,6 +107,7 @@ public class StoreCartController { //장바구니 컨트롤러
 		
 		response.setCharacterEncoding("EUC-KR");
 		PrintWriter writer;
+		MemberBean mb = (MemberBean) session.getAttribute("loginInfo");
 		
 		writer = response.getWriter();
 		if(session.getAttribute("loginInfo") == null) {
@@ -107,7 +117,16 @@ public class StoreCartController { //장바구니 컨트롤러
 		     writer.println("</script>");
 		     writer.flush();
 		     return null;
+		}else if(mb.getMember_id().equals("admin")) {
+			writer.println("<script type='text/javascript'>");
+		     writer.println("alert('관리자는 스토어를 이용하실수없습니다.');");
+		     writer.println("location.href = 'memberList.admin' ");
+		     writer.println("</script>");
+		     writer.flush();
+		     return null;
 		}
+		
+		
 		StoreCartList cart = (StoreCartList)session.getAttribute("cart");
 		//장바구니 cart이 존재하는지 조회
 		Map<Integer,Integer> product_order_qty = null;
@@ -155,11 +174,20 @@ public class StoreCartController { //장바구니 컨트롤러
 		response.setCharacterEncoding("EUC-KR");
 		PrintWriter writer;
 		
+		MemberBean mb = (MemberBean) session.getAttribute("loginInfo");
+		
 		writer = response.getWriter();
-		if(session.getAttribute("loginInfo") == null) {
+		if(mb == null) {
 		     writer.println("<script type='text/javascript'>");
 		     writer.println("alert('로그인 후 이용가능한 서비스입니다. 로그인 페이지로 이동합니다.');");
 		     writer.println("location.href = 'memberlogin' ");
+		     writer.println("</script>");
+		     writer.flush();
+		     return null;
+		}else if(mb.getMember_id().equals("admin")) {
+			writer.println("<script type='text/javascript'>");
+		     writer.println("alert('관리자는 스토어를 이용하실수없습니다.');");
+		     writer.println("location.href = 'memberList.admin' ");
 		     writer.println("</script>");
 		     writer.flush();
 		     return null;

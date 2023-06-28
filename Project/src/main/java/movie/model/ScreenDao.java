@@ -85,9 +85,9 @@ public class ScreenDao {
 	}
 
 	/* 리뷰작성시 영화제목 */
-	public List<ReservationBean> writeReview(String id) {
+	public List<ReservationBean> writeReview(String reservation_num) {
 		List<ReservationBean> list = new ArrayList<ReservationBean>();
-		list = sqlSessionTemplate.selectList(namespace + ".WriteReview", id);
+		list = sqlSessionTemplate.selectList(namespace + ".WriteReview", reservation_num);
 		return list;
 	}
 
