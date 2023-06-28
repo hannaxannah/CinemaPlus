@@ -150,7 +150,7 @@ for (int i = 0; i < 7; i++) {
 	<table style="margin: auto; margin-top: 170px">
 		<tr>
 			<td>
-				<font style="font-size: small;">* 인증 확인 메일은 회원가입 시 입력한 메일로 자동 발송됩니다.</font><br>
+				<font style="font-size: small; color:red;">* 인증 확인 메일은 회원가입 시 입력한 메일로 자동 발송됩니다.</font><br>
 			</td>
 		</tr>
 	</table>
@@ -158,21 +158,21 @@ for (int i = 0; i < 7; i++) {
    <form id="form" action="mail.mp" method="post" style="margin-bottom: 170px;">
     <input type="hidden" name="to_email" id="to_email" value="${loginInfo.member_email}">
   <div class="field">
-    <label for="to_name">인증 받을 계정ID</label>
-    <input type="text" name="to_name" id="to_name" value="${sessionScope.loginInfo.member_id}" readonly="readonly">
+    <label for="to_name" style="font-size: 14px;">인증 받을 계정ID</label>
+    <input type="text" name="to_name" id="to_name" style=" height:30px; border: var(--bs-border-width) solid var(--bs-border-color);" value="${sessionScope.loginInfo.member_id}" readonly="readonly">
   </div>
   <div class="field">
-    <label for="from_name">보내는 사람</label>
-    <input type="text" name="from_name" id="from_name" value="CINEMA PLUS" readonly="readonly">
+    <label for="from_name" style="font-size: 14px;">보내는 사람</label>
+    <input type="text" name="from_name" id="from_name" style="height:30px; border: var(--bs-border-width) solid var(--bs-border-color);" value="CINEMA PLUS" readonly="readonly">
   </div>
   
   <div class="field">
-    <label for="message">인증번호 확인</label>
+    <label for="message" style="font-size: 14px;">인증번호 확인</label>
     <input type="hidden" name="message" id="message" value="<%=temp%>">
-    <input type="text" name="message1" id="message1">
-  </div>
-  <input type="submit" id="button" value="메일 전송하기">
-  <input type="button" id="checkButton" onclick="return check()" value="인증 확인">
+    <input type="text" name="message1" id="message1" style=" height:30px; border: var(--bs-border-width) solid var(--bs-border-color);">
+  </div><br>
+  <input type="submit" id="button" value="메일 전송하기" style="background-color: #EBE4FC; color:#6b39ea; border-radius: 5px; padding: 5px; border:0; margin-left: 40px;">
+  <input type="button" id="checkButton" onclick="return check()" value="인증 확인" style="background-color: #EBE4FC; color:#6b39ea; border-radius: 5px; padding: 5px; border:0;">
 </form>
 
 

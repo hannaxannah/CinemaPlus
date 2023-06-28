@@ -117,7 +117,7 @@
 									  		</div> <br> -->
 								            <div style="width: 100%;display: flex;">
 								              <!-- Table -->
-								              <table class="table">
+								              <table class="table" style="background-color: #f4f4f4;">
 								                <thead>
 								                  <tr>
 								                    <th scope="col" width="20%">예매날짜</th>

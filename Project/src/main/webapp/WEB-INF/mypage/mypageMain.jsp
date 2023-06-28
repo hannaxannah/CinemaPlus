@@ -9,8 +9,8 @@
 								<form:form commandName="mybean" id="myform" action="main.mp" method="post">
 									<table class="mypageInfoTable">
 										<tr>
-											<td colspan="3">
-												${loginInfo.member_name} 님, 안녕하세요!
+											<td colspan="3"  style="background-color:#EBE4FC; border-radius: 25px;" >
+												${loginInfo.member_name} 님, 안녕하세요 !
 											</td>
 										</tr>
 										<tr>
@@ -19,18 +19,18 @@
 												<c:set var = "mcount" scope = "session" value = "${MembershipCount}"/>
 													<c:choose>
 									       			 <c:when test = "${grade eq null || grade <3000 && mcount < 5}">
-									       			   <font style="font-size: middle; margin-left: 20px;">회원 등급 : WELCOME</font><br><br>
+									       			   <font style="font-size:20px;"><br>회원 등급 : WELCOME</font><br><br>
 									       			 </c:when>
 									       			 <c:when test = "${grade >=3000 && grade <5000 || mcount >= 5 && mcount <10}">
-									          			<font style="font-size: middle; margin-left: 20px;">회원 등급 : FRIENDS</font><br><br>
+									          			<font style="font-size:20px;"><br>회원 등급 : FRIENDS</font><br><br>
 									        		</c:when>
 									        		<c:when test = "${grade >=5000 && grade <10000  || mcount >= 10 && mcount <15}">
-									           			<font style="font-size: middle; margin-left: 20px;">회원 등급 : VIP</font><br><br>
+									           			<font style="font-size:20px;">회원 등급 : VIP</font><br><br>
 									        		</c:when>
 									        		<c:otherwise>
-									        			<font style="font-size: middle; margin-left: 20px;">회원 등급 : MVP</font><br><br>
+									        			<font style="font-size:20px;">회원 등급 : MVP</font><br><br>
 									        		</c:otherwise>
-									     			</c:choose>						
+									     			</c:choose>	
 											</td>
 										</tr>
 										<tr>
