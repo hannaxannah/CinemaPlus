@@ -111,11 +111,11 @@ create table cancel_reservation (
 	member_id varchar2(50)
 	) ;
 
-drop sequence cancle_seqres ;
-create sequence cancle_seqres start with 1 increment by 1 nocache ;
+drop sequence cancel_seqres ;
+create sequence cancel_seqres start with 1 increment by 1 nocache ;
 
-insert into ticket_reservation values(1, '스즈메의 문단속', sysdate, '11', 55, 15000, 'CGV고잔', '150', 0, 'lee');
-insert into ticket_reservation values(2, '탑건', sysdate, '23', 33, 12500, 'CGV중앙', '180', 0, 'lee');
+insert into ticket_reservation values(1, '스즈메의 문단속', sysdate, '11', 55, 15000, 'CGV고잔', '150', 'lee');
+insert into ticket_reservation values(2, '탑건', sysdate, '23', 33, 12500, 'CGV중앙', '180', 'lee');
 
 
 

@@ -21,7 +21,7 @@ import movie.model.ScreenBean;
 import movie.model.ScreenDao;
 
 @Controller
-public class MypageCancleDeleteController {
+public class MypageCancelDeleteController {
 	
 	private final String command = "cancleDelete.mp";
 	private final String gotoPage = "redirect:/myreservation.mp";
@@ -41,7 +41,8 @@ public class MypageCancleDeleteController {
 		PrintWriter out = null;
 		response.setContentType("text/html; charset=UTF-8");
 		ReservationBean reservationBean = screenDao.getReservationDelByNum(reservation_num);
-		int cnt = screenDao.deleteToCancle(reservation_num);
+		int cnt = screenDao.deleteToCancel(reservation_num);
+		System.out.println("return cnt: " + cnt);
 		
 		/*
 		 * List<ScreenBean> delList = screenDao.deleteMyReserList(reservation_num);

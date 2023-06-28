@@ -14,15 +14,15 @@
 	href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
 	
 <script type="text/javascript">
-	function pointEvent(member_id,member_point) {
+	function pointEvent(member_id,member_point,reservCount) {
 		
-		if(member_point == 0 || member_point<3000) {
+		if(member_point == 0 || member_point<3000 || reservCount < 5) {
 			member_point = 'Welcome';
-		}else if(member_point>=3000 && member_point<5000) {
+		}else if(member_point>=3000 && member_point<5000 || reservCount >= 5 && reservCount <10) {
 			member_point = 'Friends';
-		}else if(member_point>=5000 && member_point<10000) {
+		}else if(member_point>=5000 && member_point<10000 || reservCount >= 10 && reservCount <15) {
 			member_point = 'VIP';
-		}else {
+		}else if(member_point>=10000 || reservCount >= 15) {
 			member_point = 'MVP';
 		}
 		
@@ -32,6 +32,7 @@
 		}
 		
 		alert(member_id+'회원님의 등급은 '+member_point+'입니다.');
+		alert(member_id+'회원님의 예매횟수는 '+reservCount+'입니다.');
 	}
 </script>
      
@@ -153,7 +154,7 @@ a {
  		<font style="font-size: medium; color: #A6A6A6" >* 회원 혜택은 매 선정마다 달라질 수 있습니다.</font>
 		</span><br><br><br>
 			
-			<input type="button" name="member_point" id="memberPointButton" value="나의 회원등급 확인하기" onclick="return pointEvent('${loginInfo.member_id}','${loginInfo.member_point}')">
+			<input type="button" name="member_point" id="memberPointButton" value="나의 회원등급 확인하기" onclick="return pointEvent('${loginInfo.member_id}','${loginInfo.member_point}','${reservCount}')">
 			
 			<div class="tab-content" id="myTabContent">
 				<div class="tab-pane fade show active" id="reservation-tab-pane"
