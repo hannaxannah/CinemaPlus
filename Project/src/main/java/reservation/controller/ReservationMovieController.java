@@ -66,15 +66,11 @@ public class ReservationMovieController {
 	        
 		}
 		
-<<<<<<< HEAD
 		Set<String> set = new HashSet<String>(list);
 		 
         // Set을 List로 변경
        titleList =new ArrayList<String>(set);
        System.out.println(titleList);
-=======
-		
->>>>>>> branch 'main' of https://github.com/JSCU0403/CinePlus.git
 		
 		
 		model.addAttribute("area", area);
