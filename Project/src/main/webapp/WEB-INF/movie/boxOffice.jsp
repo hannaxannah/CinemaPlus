@@ -20,16 +20,8 @@
 	<section id="portfolio" class="portfolio">
 		<div style="width: 90%; margin: 0 auto;">
 			<div class="container-fluid">
-
 				<div class="section-title">
 					<h3>박스오피스</h3>
-					<div class="movie-list-classify">
-						<ol>
-							<li><a href="" style="color: #6B39EA;">예매순</a></li>
-							<li><a href="">개봉일순</a></li>
-							<!-- 선택한 순서일 때, 글자색: #6B39EA, 원래: #FCFBFF -->
-						</ol>
-					</div>
 				</div>
 				<div class="row portfolio-container justify-content-center"
 					style="position: relative; width: 100%; margin: 0 auto;">
@@ -53,11 +45,7 @@
 											</h4>
 
 											<c:if test="${screenOn[status.index] eq 'on'}">
-<<<<<<< HEAD
-												<input type="button" class="movie-list-reservation-btn" value="빠른예매" onclick="location.href='fastReservation.mv?movie_title=${weekly.get('movieNm')}'">
-=======
 												<a class="reserve" href="fastReservation.mv?movie_title=${weekly.get('movieNm')}">예매하기</a>
->>>>>>> branch 'main' of https://github.com/JSCU0403/CinePlus.git
 											</c:if>
 											<div class="portfolio-links">
 												<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->
