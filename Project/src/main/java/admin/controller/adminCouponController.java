@@ -25,8 +25,6 @@ public class adminCouponController {
 	private final String createPage = "adminCouponCreate";
 	private final String re_createCommand = "redirect:/couponCreate.admin";
 	
-	
-	
 	@Autowired
 	StoreCouponDao storeCouponDao;
 	
