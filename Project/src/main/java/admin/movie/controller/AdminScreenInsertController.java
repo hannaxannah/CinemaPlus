@@ -29,9 +29,9 @@ public class AdminScreenInsertController {
 			@RequestParam(value = "rating") String rating,
 			Model model){
 
-		System.out.println(movie_runtime);
-		System.out.println(movie_title);
-		System.out.println(rating);
+//		System.out.println(movie_runtime);
+//		System.out.println(movie_title);
+//		System.out.println(rating);
 		List<ScreenBean> screenList = screenDao.getAllScreen();
 		model.addAttribute("movie_runtime", movie_runtime);
 		model.addAttribute("movie_title", movie_title);
@@ -52,7 +52,7 @@ public class AdminScreenInsertController {
 		int discountPrice = 0;
 		String[] time = (screenBean.getScreen_time()).split(":");
 		screenBean.setTime(time[0]);
-		System.out.println(screenBean.getDiscount());
+//		System.out.println(screenBean.getDiscount());
 		if((screenBean.getDiscount()).equals("first")) {
 			discountPrice = (int) Math.round(screenBean.getTicket_price() * 0.8);//조조 20% 할인
 			screenBean.setTicket_price(discountPrice);

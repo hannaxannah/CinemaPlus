@@ -141,7 +141,7 @@
 	function optionChange() {
 
 		var v = $('#s1').val();
-		alert(v);
+		/* alert(v); */
 		var o = 8;
 		if (v == '1관') {
 			o = 8;
@@ -158,7 +158,7 @@
 			$('#s3').append('<option value = "' + i + ':00">' + i + ":00" + '</option>');
 		}
 		if ('${fn:length(opendScreenTimes)}' != 0) {
-			alert(2);
+			/* alert(2); */
 			<c:forEach var="opendScreenTime" items="${opendScreenTimes}">
 			$("select#s3 option[value='${opendScreenTime}']").remove();
 			</c:forEach>
@@ -170,7 +170,6 @@
 	}
 
 	function emptyCheck() {
-		alert(1);
 		if (screen_form.screen_name.value.length == 0) {
 			alert("상영관을 입력하세요");
 			screen_form.screen_name.focus();
