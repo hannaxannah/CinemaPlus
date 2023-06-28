@@ -67,10 +67,8 @@ public class ReservationMovieController {
 		 
         // Set을 List로 변경
        titleList =new ArrayList<String>(set);
-       System.out.println(titleList.size());
-		for(int i=0; i<titleList.size(); i++) {
-			System.out.println(titleList.get(i));
-		}
+       System.out.println(titleList);
+		
 		
 		model.addAttribute("area", area);
 		model.addAttribute("seoul", seoul);
