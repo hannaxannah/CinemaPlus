@@ -122,8 +122,23 @@ insert into ticket_reservation values(5, '리바운드', sysdate, '24', 14, 1500
 
 
 
+==================================
 
+--mypage review
 
+DROP TABLE reservation_review CASCADE CONSTRAINTS;
+ 
+create table reservation_review (
+	reservation_num number not null,
+	movie_title varchar2(100),
+	reservation_date date default sysdate,
+	reservation_content varchar2(1000),
+	screen_name varchar2(10),
+	member_id varchar2(50)
+	) ;
+
+drop sequence review_seqres ;
+create sequence review_seqres start with 1 increment by 1 nocache ;
 
 
 
