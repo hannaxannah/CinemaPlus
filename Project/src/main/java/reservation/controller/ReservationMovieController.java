@@ -59,15 +59,18 @@ public class ReservationMovieController {
 			ScreenBean screenBean = screenList.get(i);
 			
 			list.add(i, screenBean.getMovie_title()) ;
-	        Set<String> set = new HashSet<String>(list);
-	 
-	        // Set을 List로 변경
-	       titleList =new ArrayList<String>(set);
+	        
 	        
 		}
 		
-		
-		
+		Set<String> set = new HashSet<String>(list);
+		 
+        // Set을 List로 변경
+       titleList =new ArrayList<String>(set);
+       System.out.println(titleList.size());
+		for(int i=0; i<titleList.size(); i++) {
+			System.out.println(titleList.get(i));
+		}
 		
 		model.addAttribute("area", area);
 		model.addAttribute("seoul", seoul);

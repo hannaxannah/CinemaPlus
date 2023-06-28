@@ -84,14 +84,14 @@
 									<div class="reservation-movie-list">
 										
 											
-											  <button class="button" id="open1" onclick="change_btn(event)">
+											<!--   <button class="button" id="open1" onclick="change_btn(event)">
 											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
 											 스파이더맨: 어크로스 더 유니버스</button>
 										
 											 <button class="button" id="open2" onclick="change_btn(event)">
 											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-											 스파이더맨: 어크로스 더 유니버스</button>
-											<%--  <c:forEach var="title" items="${titleList}">
+											 스파이더맨: 어크로스 더 유니버스</button> -->
+											<c:forEach var="title" items="${titleList}">
 											 <button class="button" id="${title}" onclick="change_btn(event)">
 											 <c:if test="${fastReservation.rating eq '18세관람가'}">
 											<img
@@ -116,7 +116,7 @@
 										</c:if>
 											 ${title}</button>
 											 
-											 </c:forEach> --%>
+											 </c:forEach>
 											 
 										<br>
 									</div>
@@ -136,27 +136,39 @@
 										</c:forEach>
 									</div>
 									<div class="reservation-movie-time">
-										<div id="open1" onClick="">
+										<c:forEach var="screen" items="${screenList}">
+											<div id="${screen.movie_title}" onClick="">
 											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
-											16:15<br> <!-- 상영시간 -->
-											5석/30석<br> <!-- 잔여석 -->
-											2관 <!-- 상영관 -->
+											<span id="${screen.movie_title}">${screen.movie_title}</span><br>
+											상영시간 ${screen.screen_time}<br>
+											잔여 ${screen.left_seats}/${screen.seat_count}석<br>
+											상영관${screen.screen_name}
+											</button>
+										</div>
+										</c:forEach>
+									
+									
+										<!-- <div id="open1" onClick="">
+											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
+											16:15<br> 상영시간
+											5석/30석<br> 잔여석
+											2관 상영관
 											</button>
 										</div>
 										<div id="open1" onClick="">
 											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
-											16:15<br> <!-- 상영시간 -->
-											5석/50석<br> <!-- 잔여석 -->
-											2관 <!-- 상영관 -->
+											16:15<br> 상영시간
+											5석/50석<br> 잔여석
+											2관 상영관
 											</button>
 										</div>
 										<div id="open2" onClick="">
 											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
-											16:15<br> <!-- 상영시간 -->
-											10석/30석<br> <!-- 잔여석 -->
-											2관 <!-- 상영관 -->
+											16:15<br> 상영시간
+											10석/30석<br> 잔여석
+											2관 상영관
 											</button>
-										</div>
+										</div> -->
 										<!-- <div id="reservation-movie-time-btn" onClick="">
 											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
 											16:15<br> 상영시간
@@ -244,16 +256,20 @@ function submitSeatnum() {
 
 function change_btn(e) {
 	  var btns = document.querySelectorAll(".button");
+	  
 	  btns.forEach(function (btn, i) {
 	    if (e.currentTarget == btn) {
 	      btn.classList.add("active");
-	     
+	     var eid = e.target.id;
+	     alert(eid);
+	     console.log($('.reservation-movie-time').children());
 	     const divAll = $('.reservation-movie-time').children();//모든 div
-	     const divSelelted = $('.reservation-movie-time').children('#' + e.target.id);//선택한div
-	      
-		   if(divSelelted.attr('id') == e.target.id){
+	     const divSelected = $('.reservation-movie-time').children('#'+eid);//선택한div
+		
+	     alert(divSelected.attr('id'));
+		   if(divSelected.attr('id') == e.target.id){
 			   divAll.hide();
-			   divSelelted.show();
+			   divSelected.show();
 		      
 		   } 
 	      
