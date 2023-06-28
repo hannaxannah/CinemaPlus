@@ -191,8 +191,8 @@
 									 <strong style="color:#000;" class="tit">${weekly.get('movieNm')}</strong>
 									</div>
                                        <div class="infor_btn" style="margin-top: 15px;">
-                                           <a href="movieDetail.mv?title=${weekly.get('movieNm')}&date=${weekly.get('openDt')}">상세정보</a>
-                                           <a href="movieDetail.mv?title=${weekly.get('movieNm')}&date=${weekly.get('openDt')}" style="cursor: pointer;">예매하기</a>
+                                           <a href="movieDetail.mv?title=${weekly.get('movieNm')}&date=${weekly.get('openDt')}"style="cursor: pointer; background-color: #38116a; color:#ffffff; font-size: 13px;">상세정보</a>
+                                           <a href="movieDetail.mv?title=${weekly.get('movieNm')}&date=${weekly.get('openDt')}" style="cursor: pointer; background-color: #38116a; color:#ffffff; font-size: 13px;">예매하기</a>
                                        </div>
                                    </div>
                                </div>
