@@ -1,6 +1,9 @@
 package reservation.controller;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import movie.model.ScreenBean;
+import movie.model.ScreenDao;
 import theater.model.TheaterDao;
 
 @Controller
@@ -18,6 +23,9 @@ public class ReservationMovieController {
 	
 	@Autowired
 	TheaterDao tdao;
+	
+	@Autowired
+	ScreenDao screenDao;
 	
 	@RequestMapping(value = command, method = RequestMethod.GET)
 	public String doActionByGet(Model model) {
@@ -44,6 +52,23 @@ public class ReservationMovieController {
 		System.out.println("gyeongsang.size:"+gyeongsang.size());
 		System.out.println("gwangju.size:"+gwangju.size());
 		
+		List<ScreenBean> screenList = screenDao.getAllScreen();
+		List<String> titleList = null;
+		List<String> list = new ArrayList<String>();
+		for(int i=0; i<screenList.size(); i++) {
+			ScreenBean screenBean = screenList.get(i);
+			
+			list.add(i, screenBean.getMovie_title()) ;
+	        Set<String> set = new HashSet<String>(list);
+	 
+	        // Set을 List로 변경
+	       titleList =new ArrayList<String>(set);
+	        
+		}
+		
+		
+		
+		
 		model.addAttribute("area", area);
 		model.addAttribute("seoul", seoul);
 		model.addAttribute("gyeonggi", gyeonggi);
@@ -54,6 +79,9 @@ public class ReservationMovieController {
 		model.addAttribute("busan", busan);
 		model.addAttribute("gyeongsang", gyeongsang);
 		model.addAttribute("gwangju", gwangju);
+		
+		model.addAttribute("screenList", screenList);
+		model.addAttribute("titleList", titleList);
 		
 		return getPage;
 	}

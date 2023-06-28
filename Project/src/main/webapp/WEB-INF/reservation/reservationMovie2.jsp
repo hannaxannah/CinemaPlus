@@ -84,39 +84,33 @@
 									<div class="reservation-movie-list">
 										
 											
-											  <button class="button" id="open1" onclick="change_btn(event)">
+											 <button class="button" id="open" onclick="change_btn(event)">
 											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
 											 스파이더맨: 어크로스 더 유니버스</button>
 										
-											 <button class="button" id="open2" onclick="change_btn(event)">
+											 <button class="button" id="open" onclick="change_btn(event)">
 											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
 											 스파이더맨: 어크로스 더 유니버스</button>
-											<%--  <c:forEach var="title" items="${titleList}">
-											 <button class="button" id="${title}" onclick="change_btn(event)">
-											 <c:if test="${fastReservation.rating eq '18세관람가'}">
-											<img
-												src="https://img.megabox.co.kr/static/pc/images/common/txt/18_46x46.png"
-												width="23px" height="23px">
-										</c:if>
-										<c:if test="${fastReservation.rating eq '15세관람가'}">
-											<img
-												src="https://img.megabox.co.kr/static/pc/images/common/txt/15_46x46.png"
-												width="23px" height="23px">
-										</c:if>
-										<c:if test="${fastReservation.rating eq '12세관람가'}">
-											<img
-												src="https://img.megabox.co.kr/static/pc/images/common/txt/12_46x46.png"
-												width="23px" height="23px">
-										</c:if>
-										<c:if
-											test="${fastReservation.rating ne '18세관람가' &&  fastReservation.rating ne '12세관람가' && fastReservation.rating ne '15세관람가'}">
-											<img
-												src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png"
-												width="23px" height="23px">
-										</c:if>
-											 ${title}</button>
 											 
-											 </c:forEach> --%>
+											 <button class="button" id="open" onclick="change_btn(event)">
+											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
+											 스파이더맨: 어크로스 더 유니버스</button>
+											 
+											 <button class="button" id="open" onclick="change_btn(event)">
+											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
+											 스파이더맨: 어크로스 더 유니버스</button>
+											 
+											 <button class="button" id="open" onclick="change_btn(event)">
+											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
+											 스파이더맨: 어크로스 더 유니버스</button>
+											 
+											 <button class="button" id="open" onclick="change_btn(event)">
+											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
+											 스파이더맨: 어크로스 더 유니버스</button>
+											 
+											 <button class="button" id="open" onclick="change_btn(event)">
+											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
+											 스파이더맨: 어크로스 더 유니버스</button>
 											 
 										<br>
 									</div>
@@ -136,34 +130,27 @@
 										</c:forEach>
 									</div>
 									<div class="reservation-movie-time">
-										<div id="open1" onClick="">
-											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
-											16:15<br> <!-- 상영시간 -->
-											5석/30석<br> <!-- 잔여석 -->
-											2관 <!-- 상영관 -->
-											</button>
-										</div>
-										<div id="open1" onClick="">
-											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
-											16:15<br> <!-- 상영시간 -->
-											5석/50석<br> <!-- 잔여석 -->
-											2관 <!-- 상영관 -->
-											</button>
-										</div>
-										<div id="open2" onClick="">
+										<div id="reservation-movie-time-btn" onClick="">
 											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
 											16:15<br> <!-- 상영시간 -->
 											10석/30석<br> <!-- 잔여석 -->
 											2관 <!-- 상영관 -->
 											</button>
 										</div>
-										<!-- <div id="reservation-movie-time-btn" onClick="">
+										<div id="reservation-movie-time-btn" onClick="">
 											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
-											16:15<br> 상영시간
-											10석/30석<br> 잔여석
-											2관 상영관
+											16:15<br> <!-- 상영시간 -->
+											10석/30석<br> <!-- 잔여석 -->
+											2관 <!-- 상영관 -->
 											</button>
-										</div> -->
+										</div>
+										<div id="reservation-movie-time-btn" onClick="">
+											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
+											16:15<br> <!-- 상영시간 -->
+											10석/30석<br> <!-- 잔여석 -->
+											2관 <!-- 상영관 -->
+											</button>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -228,6 +215,7 @@ seatContainer.addEventListener('click', (e) => {
         	}
         selec = selec -1;
     }
+    countSeat();
    
 })
 
@@ -247,21 +235,11 @@ function change_btn(e) {
 	  btns.forEach(function (btn, i) {
 	    if (e.currentTarget == btn) {
 	      btn.classList.add("active");
-	     
-	     const divAll = $('.reservation-movie-time').children();//모든 div
-	     const divSelelted = $('.reservation-movie-time').children('#' + e.target.id);//선택한div
-	      
-		   if(divSelelted.attr('id') == e.target.id){
-			   divAll.hide();
-			   divSelelted.show();
-		      
-		   } 
-	      
 	    } else {
 	      btn.classList.remove("active");
 	    }
 	  });
-	  //console.log(e.currentTarget);
+	  console.log(e.currentTarget);
 	}
 	
 function change_btn2(e) {
