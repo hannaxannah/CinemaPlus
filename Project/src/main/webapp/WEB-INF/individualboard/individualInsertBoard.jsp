@@ -205,7 +205,7 @@ a {
         
           <div class="form-group">
     <label for="exampleFormControlTextarea1">내용<span class="t_red">*</span></label>
-    <textarea class="form-control" style="resize: none;" id="content" name="content"  placeholder="- 문의내용에 개인정보(이름,연락처,카드번호 등)가 포함되지 않도록 유의하시기 바랍니다.
+    <textarea class="form-control" style="resize: none; width: 100%; height: 6.25em;" id="content" name="content"  placeholder="- 문의내용에 개인정보(이름,연락처,카드번호 등)가 포함되지 않도록 유의하시기 바랍니다.
 - 회원로그인 후 문의작성시 나의 문의내역을 통해 답변을 확인하실 수 있습니다.">${board.content}</textarea>
  		 </div><br>
         
@@ -230,8 +230,8 @@ a {
         
         <div class="form-group" align="center">
        <div class="col-sm-offset-2 col-sm-10">
-                <input type="submit" class="btn btn-primary" value="등록">
-                <input type="reset" class="btn btn-primary" value="취소">
+                <input type="submit" class="btn btn-primary" style="background-color:#EBE4FC; color:#6b39ea; border-color:#EBE4FC;" value="등록">
+                <input type="reset" class="btn btn-primary" style="background-color:#EBE4FC; color:#6b39ea; border-color:#EBE4FC;" value="취소">
 		</div>        
 		</div>
         

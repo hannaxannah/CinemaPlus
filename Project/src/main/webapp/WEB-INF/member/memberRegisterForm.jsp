@@ -22,7 +22,7 @@
 		</td>
 		<td>
 			<input type="text" class="inputText3" name="member_id" value="${mb.member_id}" id="member_id">
-			<input type="button" class="idcheckbutton" value="중복체크" id="id_check">
+			<input type="button" class="idcheckbutton" value="중복체크" id="id_check" style="background-color:#EBE4FC; color:#6b39ea; border-color:#EBE4FC; width:80px; height: 30px; border-radius: 12px;">
 			<span id="idcheck-message"></span><br>
 			
 		</td>
@@ -38,7 +38,7 @@
 	<tr>
 		<td></td>
 		<td>
-			<a class="register-infor">비밀번호는 영문 소문자/숫자를 조합하여 8~12자 이내로 입력해주세요</a>
+			<a class="register-infor" style="color:#000000;">비밀번호는 영문 소문자/숫자를 조합하여 8~12자 이내로 입력해주세요</a>
 		</td>
 	</tr>
 	<tr>
@@ -70,7 +70,7 @@
 	<tr>
 		<td></td>
 		<td>
-			<a class="register-infor">비밀번호 찾기 시 사용할 질문을 선택해주세요</a>
+			<a class="register-infor" style="color:#000000;">비밀번호 찾기 시 사용할 질문을 선택해주세요</a>
 		</td>
 	</tr>
 	<tr>
@@ -84,7 +84,7 @@
 	<tr>
 		<td></td>
 		<td>
-			<a class="register-infor">비밀번호 찾기 시 사용할 답변을 입력해주세요</a>
+			<a class="register-infor" style="color:#000000;">비밀번호 찾기 시 사용할 답변을 입력해주세요</a>
 		</td>
 	</tr>
 	 <tr>
@@ -98,7 +98,7 @@
    <tr>
 		<td></td>
 		<td>
-			<a class="register-infor">생년월일은 8자리 숫자로 입력해주세요</a>
+			<a class="register-infor" style="color:#000000;">생년월일은 8자리 숫자로 입력해주세요</a>
 		</td>
 	</tr>
 	<tr>
@@ -112,7 +112,7 @@
 	<tr>
 		<td></td>
 		<td>
-			<a class="register-infor">휴대폰 번호는 '-' 없이 11자리의 숫자로 입력해주세요</a>
+			<a class="register-infor" style="color:#000000;">휴대폰 번호는 '-' 없이 11자리의 숫자로 입력해주세요</a>
 		</td>
 	</tr>
 	<tr>
@@ -176,8 +176,8 @@
 	</tr>
 </table>
 <div class="register-button">
-	<input type="button" class="registerButton"  value="취소" onClick="location.href='main.mn'">
-	<input type="submit" class="registerButton"  id="join" value="가입하기">
+	<input type="button" class="registerButton"  value="취소" onClick="location.href='main.mn'" style="background-color:#EBE4FC; color:#6b39ea; border-color:#EBE4FC; width:80px; height: 30px; border-radius: 12px;">
+	<input type="submit" class="registerButton"  id="join" value="가입하기" style="background-color:#EBE4FC; color:#6b39ea; border-color:#EBE4FC; width:80px; height: 30px; border-radius: 12px;">
 </div>
 </form:form>
 </div>
