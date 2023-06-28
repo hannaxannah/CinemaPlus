@@ -59,7 +59,7 @@
 	    font-size: 12px;
 	    color: #666;
 	    line-height: 1.417em;
-	    border: 1px solid #f4f4f4;
+	    border: 1px solid #b2b2b2;
 	    border-radius: 11px;
 	}
 	.giftcon_list dd a {

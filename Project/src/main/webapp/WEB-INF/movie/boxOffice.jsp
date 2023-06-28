@@ -41,7 +41,7 @@
 											</h4>
 
 											<c:if test="${screenOn[status.index] eq 'on'}">
-												<input type="button" class="movie-list-reservation-btn" value="예매하기" onclick="location.href='fastReservation.mv?movie_title=${weekly.get('movieNm')}'">
+												<input type="button" class="movie-list-reservation-btn" value="빠른예매" onclick="location.href='fastReservation.mv?movie_title=${weekly.get('movieNm')}'">
 											</c:if>
 
 											<a class="movie-list-reservation-btn" href="movieDetail.mv?title=${weekly.get('movieNm')}

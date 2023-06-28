@@ -10,7 +10,25 @@
 
 			<div class="section-title">
 				<h3>박스오피스</h3>
+				</div>
+				<div class="col-xl-12" style="display: flex; flex-direction: column; align-items: center;">
+				<nav id="theaterNavbar" class="navbar">
+					<ul>
+						<li class="dropdown"><a href="mymovieshowtime.mv">상영시간표</a></li>
+						<li class="dropdown"><a href="mymovievod.mv">VOD</a></li>
+					</ul>
+				</nav>
+				</div>
+				
 			</div>
+			<div class="movie-list-classify">
+				
+					<ol>
+				      <li><a href="" style="color:#6B39EA;">가격순</a></li>
+				      <li><a href="">개봉일순</a></li>
+				      <!-- 선택한 순서일 때, 글자색: #6B39EA, 원래: #FCFBFF -->
+				    </ol>
+				</div>
 				<div class="row portfolio-container justify-content-center" style="position: relative; width: 100%; margin: 0 auto;">
 					<div class="col-xl-10">
 						<div class="row">

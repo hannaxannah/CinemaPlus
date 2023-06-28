@@ -14,7 +14,7 @@
 								<div class="container-title" style="border-right: 1px solid #FCFBFF;">
 									영화관
 								</div>
-								<div class="reservation-theater-list" style="width: 100%;background: #fff;">
+								<div class="reservation-theater-list" style="width: 400px; height:459px; background: #fff;">
 									<nav id="theaterSidebar" class="navbar">
 										<ul class="theater-area" style="flex-flow: column;align-items: flex-start;">
 											<c:forEach var="areaName" items="${area}">
