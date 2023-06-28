@@ -28,7 +28,7 @@
 						<div class="clearfix"></div>
 					</div>
 					<div class="x_content">
-						<p class="text-muted font-13 m-b-30"></p>
+						<p class="text-muted font-13 m-b-30">설명</p>
 						<table>
 							<tr>
 								<td colspan="14" align="right"><input type="button"

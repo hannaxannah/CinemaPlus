@@ -101,7 +101,7 @@
                     <ul class="nav child_menu">
                       <li><a href="boxOffice.mv?admin=admin">박스오피스 목록</a></li>
                       <li><a href="screenOnList.admin">상영중</a></li>
-                      <li><a href="movieList.admin">영화 목록</a></li>
+                      <li><a href="movieList.admin">VOD 목록</a></li>
                     </ul>
                   </li>
                  

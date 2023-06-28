@@ -53,7 +53,11 @@
 											</h4>
 
 											<c:if test="${screenOn[status.index] eq 'on'}">
+<<<<<<< HEAD
+												<input type="button" class="movie-list-reservation-btn" value="빠른예매" onclick="location.href='fastReservation.mv?movie_title=${weekly.get('movieNm')}'">
+=======
 												<a class="reserve" href="fastReservation.mv?movie_title=${weekly.get('movieNm')}">예매하기</a>
+>>>>>>> branch 'main' of https://github.com/JSCU0403/CinePlus.git
 											</c:if>
 											<div class="portfolio-links">
 												<!-- <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a> -->

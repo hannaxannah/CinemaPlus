@@ -15,12 +15,6 @@
 	li{
 		list-style:none;
 	}
-	.cell{
-		display: table-cell;
-		width: 33%;
-	    text-align: center;
-	    vertical-align: middle;
-	}
 	.div_title{
 	    height: auto;
 	    margin: 0;
@@ -65,7 +59,7 @@
 	    font-size: 12px;
 	    color: #666;
 	    line-height: 1.417em;
-	    border: 1px solid #f4f4f4;
+	    border: 1px solid #b2b2b2;
 	    border-radius: 11px;
 	}
 	.giftcon_list dd a {
@@ -108,12 +102,6 @@
 	    color: #222;
 	    letter-spacing: -0.020em;
 	    line-height: 1.444em;
-	}
-	.sbtn{
-		display: block;
-	    margin: 0 auto;
-	    padding: 10px 0 0 0;
-	    line-height: 1.3;
 	}
 </style>
 <main id="main">
@@ -285,7 +273,6 @@
        </div>
     </section>
     
-    	
 </main>
 <!-- End #main -->
 <%@ include file="mainFooter.jsp"%>

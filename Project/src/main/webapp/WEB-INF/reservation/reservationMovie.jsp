@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../main/mainHeader.jsp"%>
-<style>
-	nav::-webkit-scrollbar {
-		  display: none;
-		}
-	
-</style>
+
 <main id="main">
 
 	<!-- 예매 -->
@@ -15,11 +10,11 @@
 				<div class="row justify-content-center">
 					<div class="col-xl-10" style="padding: 40px 0;">
 						<div class="row">
-							<div class="col-xl-3" style="display: flex; flex-direction: column; padding: 0; background-color: #FFF;">
+							<div class="col-xl-3" style="display: flex; flex-direction: column; padding: 0;">
 								<div class="container-title" style="border-right: 1px solid #FCFBFF;">
 									영화관
 								</div>
-								<div class="reservation-theater-list" style="width: 100%;background: #fff;">
+								<div class="reservation-theater-list" style="width: 400px; height:459px; background: #fff;">
 									<nav id="theaterSidebar" class="navbar">
 										<ul class="theater-area" style="flex-flow: column;align-items: flex-start;">
 											<c:forEach var="areaName" items="${area}">
@@ -89,14 +84,14 @@
 									<div class="reservation-movie-list">
 										
 											
-											<!--   <button class="button" id="open1" onclick="change_btn(event)">
+											  <button class="button" id="open1" onclick="change_btn(event)">
 											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
 											 스파이더맨: 어크로스 더 유니버스</button>
 										
 											 <button class="button" id="open2" onclick="change_btn(event)">
 											 <img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-											 스파이더맨: 어크로스 더 유니버스</button> -->
-											<c:forEach var="title" items="${titleList}">
+											 스파이더맨: 어크로스 더 유니버스</button>
+											<%--  <c:forEach var="title" items="${titleList}">
 											 <button class="button" id="${title}" onclick="change_btn(event)">
 											 <c:if test="${fastReservation.rating eq '18세관람가'}">
 											<img
@@ -121,7 +116,7 @@
 										</c:if>
 											 ${title}</button>
 											 
-											 </c:forEach>
+											 </c:forEach> --%>
 											 
 										<br>
 									</div>
@@ -141,39 +136,27 @@
 										</c:forEach>
 									</div>
 									<div class="reservation-movie-time">
-										<c:forEach var="screen" items="${screenList}">
-											<div id="${screen.movie_title}" onClick="">
+										<div id="open1" onClick="">
 											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
-											<span id="${screen.movie_title}">${screen.movie_title}</span><br>
-											상영시간 ${screen.screen_time}<br>
-											잔여 ${screen.left_seats}/${screen.seat_count}석<br>
-											상영관${screen.screen_name}
-											</button>
-										</div>
-										</c:forEach>
-									
-									
-										<!-- <div id="open1" onClick="">
-											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
-											16:15<br> 상영시간
-											5석/30석<br> 잔여석
-											2관 상영관
+											16:15<br> <!-- 상영시간 -->
+											5석/30석<br> <!-- 잔여석 -->
+											2관 <!-- 상영관 -->
 											</button>
 										</div>
 										<div id="open1" onClick="">
 											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
-											16:15<br> 상영시간
-											5석/50석<br> 잔여석
-											2관 상영관
+											16:15<br> <!-- 상영시간 -->
+											5석/50석<br> <!-- 잔여석 -->
+											2관 <!-- 상영관 -->
 											</button>
 										</div>
 										<div id="open2" onClick="">
 											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
-											16:15<br> 상영시간
-											10석/30석<br> 잔여석
-											2관 상영관
+											16:15<br> <!-- 상영시간 -->
+											10석/30석<br> <!-- 잔여석 -->
+											2관 <!-- 상영관 -->
 											</button>
-										</div> -->
+										</div>
 										<!-- <div id="reservation-movie-time-btn" onClick="">
 											<button class="timeButton" style="width:100px;" onclick="change_btn2(event)">
 											16:15<br> 상영시간
@@ -261,20 +244,16 @@ function submitSeatnum() {
 
 function change_btn(e) {
 	  var btns = document.querySelectorAll(".button");
-	  
 	  btns.forEach(function (btn, i) {
 	    if (e.currentTarget == btn) {
 	      btn.classList.add("active");
-	     var eid = e.target.id;
-	     alert(eid);
-	     console.log($('.reservation-movie-time').children());
+	     
 	     const divAll = $('.reservation-movie-time').children();//모든 div
-	     const divSelected = $('.reservation-movie-time').children('#'+eid);//선택한div
-		
-	     alert(divSelected.attr('id'));
-		   if(divSelected.attr('id') == e.target.id){
+	     const divSelelted = $('.reservation-movie-time').children('#' + e.target.id);//선택한div
+	      
+		   if(divSelelted.attr('id') == e.target.id){
 			   divAll.hide();
-			   divSelected.show();
+			   divSelelted.show();
 		      
 		   } 
 	      

@@ -108,13 +108,13 @@
 									<div class="tab-content" id="myTabContent">
 									  <div class="tab-pane fade" id="purchase-tab-pane" role="tabpanel" aria-labelledby="purchase-tab" tabindex="0">
 									  	<div style="width:100%;">
-									  		<!-- <div class="my-reservation-search">
+									  		<div class="my-reservation-search">
 									  			<a style="font-size:1.1rem;font-weight:600;padding-right:20px;">조회기간</a>
 									  			<input type="date" class="my-reservation-search-date">
 									  			<a style="font-size:1.1rem;font-weight:600;padding:0 10px;">~</a>
 									  			<input type="date" class="my-reservation-search-date">
 									  			<input type="submit" class="my-search" value="검색">
-									  		</div><br> -->
+									  		</div><br>
 								             <div style="width: 100%;display: flex;">
 								             <!--  Table -->
 								             
@@ -122,12 +122,11 @@
 								              <table class="table">
 								                <thead>
 								                  <tr>
-								                    <th scope="col" width="15%">예매날짜</th>
-								                    <th scope="col" width="20%">영화관</th>
-								                    <th scope="col" width="25%">영화</th>
-								                    <th scope="col" width="15%">좌석번호</th>
+								                    <th scope="col" width="20%">예매날짜</th>
+								                    <th scope="col" width="15%">영화관</th>
+								                    <th scope="col" width="30%">영화</th>
+								                    <th scope="col" width="20%">좌석번호</th>
 								                    <th scope="col" width="15%">실행취소</th>
-								                    <th scope="col" width="15%">완전삭제</th>
 								                  </tr>
 								                </thead>
 								                
@@ -148,7 +147,6 @@
 														<td>${del.movie_title}</td>
 														<td>${del.seat_number}</td>
 														<td><a href="cancleDelete.mp?reservation_num=${del.reservation_num}">실행취소</a></td>
-														<td><a href="hangDelete.mp?reservation_num=${del.reservation_num}">완전삭제</a></td>
 													</tr>
 												</c:forEach>												
 												</tbody>

@@ -580,10 +580,10 @@
     padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
     font-size: var(--bs-nav-link-font-size);
     font-weight: var(--bs-nav-link-font-weight);
-    color: #000;
+    
     text-decoration: none;
     background: 0 0;
-    border: 0;
+    border: 1;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 
@@ -1035,8 +1035,8 @@
 .reservation-movie-date {
 	width: 100%;
 	display: flex;
-	justify-content: space-around;
-	/* border: 1px solid black; */
+    justify-content: space-around;
+    border: 1px solid black;
 }
 
 .reservation-movie-date-item {

@@ -60,7 +60,7 @@
 							- 공항버스 : 6009<br>
 						</a>
 					  </div>
-					  <div class="tab-pane fade" id="showtime-tab-pane" role="tabpanel" aria-labelledby="showtime-tab" tabindex="0" style="display:flex;flex-flow:column;padding-top:20px;">
+					   <div class="tab-pane fade" id="showtime-tab-pane" role="tabpanel" aria-labelledby="showtime-tab" tabindex="0">
 					  
 					  </div>
 					  <div class="tab-pane fade" id="fee-tab-pane" role="tabpanel" aria-labelledby="fee-tab" tabindex="0" >
