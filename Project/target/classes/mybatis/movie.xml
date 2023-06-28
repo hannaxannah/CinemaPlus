@@ -204,6 +204,11 @@
 	 where member_id = #{member_id}
 	</select>
 	
+	<!-- 취소내역 - 완전삭제 -->
+	<delete id="DeleteAllServ">
+		delete from cancel_reservation
+		where reservation_num = #{reservation_num}
+	</delete>
 	
 </mapper>
 
