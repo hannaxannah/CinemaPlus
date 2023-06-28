@@ -15,6 +15,12 @@
 	li{
 		list-style:none;
 	}
+	.cell{
+		display: table-cell;
+		width: 33%;
+	    text-align: center;
+	    vertical-align: middle;
+	}
 	.div_title{
 	    height: auto;
 	    margin: 0;
@@ -102,6 +108,12 @@
 	    color: #222;
 	    letter-spacing: -0.020em;
 	    line-height: 1.444em;
+	}
+	.sbtn{
+		display: block;
+	    margin: 0 auto;
+	    padding: 10px 0 0 0;
+	    line-height: 1.3;
 	}
 </style>
 <main id="main">
@@ -273,6 +285,7 @@
        </div>
     </section>
     
+    	
 </main>
 <!-- End #main -->
 <%@ include file="mainFooter.jsp"%>

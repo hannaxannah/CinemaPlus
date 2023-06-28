@@ -164,8 +164,8 @@
 
 /* help */
 .help {overflow: hidden; padding-bottom: 100px;}
-.help article {float: left; width: 32%; margin-right: 2%;}
-.help article > div {border: 1px solid #dbdbdb; height: 350px;}
+.help article {float: left; width: 100%; margin-right: 2%;}
+.help article > div {/* border: 1px solid #dbdbdb; *//* height: 350px; */}
 .help article.help_box3 {margin-right: 0;}
 .help article.help_box3 > div {border: 0;}
 .help article h3 {font-size: 30px; font-weight: 500; margin-bottom: 20px;}
@@ -191,16 +191,13 @@
 
 /* 고객센터 */
 .service ul {overflow: hidden;}
-.service li {float: left; width: 50%; height: 193px; box-sizing: border-box; border: 1px solid #dbdbdb; text-align: center;  }
-.service li a span {display: block; width: 120px; height: 120px; margin: 20px auto 0 auto; overflow: hidden;}
+.service li {float: left;width: 50%;height: 193px;box-sizing: border-box;border: 1px solid #dbdbdb;text-align: center;}
+.service li a span {display: block;/* width: 120px; */height: 120px;margin: 20px auto 0 auto;overflow: hidden;}
 .service li a strong {color: #666; font-size: 18px; font-weight: 500;}
 .service li a .sv1 {background-position: 0 -267px}
 .service li a .sv2 {background-position: -100px -267px}
 .service li a .sv3 {background-position: -201px -267px}
 .service li a .sv4 {background-position: -300px -267px}
-.service li:nth-child(1) {border-right: 0; border-bottom: 0;}
-.service li:nth-child(2) {border-bottom: 0;}
-.service li:nth-child(3) {border-right: 0; }
 
 /* 트레일러 */
 .overlay {background: rgba(0, 0, 0, .92); display: none; width: 100%; height: 100%; position: fixed; top: 0; left: 0; z-index: 10000}
@@ -363,8 +360,6 @@ body.modal_on {overflow: hidden;}
     .help article.help_box1 h3 {font-size: 18px; margin-bottom: 0px;}
     .help article.help_box2 h3 {font-size: 18px; margin-bottom: 0px;}
     .service li {width: 50%; border: 1px solid #dbdbdb;}
-    .service li:nth-child(2) {border-right: 0;}
-    .service li:nth-child(4) {border-right: 0;}
     .notice ul li ul li {padding: 17px 8px;}
     .card {padding: 8px;}
     .service li a span {width: 70px; height: 70px;}

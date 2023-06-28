@@ -38,12 +38,12 @@ public class AdminMovieInsertController {
 		int cnt = 0;
 		for(int i=0; i<jsonArr.size(); i++) {
 			JSONObject movieList = (JSONObject)jsonArr.get(i);
-			System.out.println(movieList.get("movieCd"));
-			System.out.println(movieList.get("movieNm"));
-			System.out.println(movieList.get("story"));
-			System.out.println(movieList.get("openDt"));
-			System.out.println(movieList.get("poster"));
-			System.out.println(movieList.get("director"));
+//			System.out.println(movieList.get("movieCd"));
+//			System.out.println(movieList.get("movieNm"));
+//			System.out.println(movieList.get("story"));
+//			System.out.println(movieList.get("openDt"));
+//			System.out.println(movieList.get("poster"));
+//			System.out.println(movieList.get("director"));
 			MovieBean movieBean = new MovieBean((String)movieList.get("movieCd"),
 										(String)movieList.get("movieNm"),
 										(String)movieList.get("story"),
@@ -56,7 +56,7 @@ public class AdminMovieInsertController {
 										(String)movieList.get("actor"),
 										(String)movieList.get("rating")
 										);
-			System.out.println("영화제목: " + movieBean.getMovie_title());
+//			System.out.println("영화제목: " + movieBean.getMovie_title());
 			cnt += movieDao.insertMovie(movieBean);
 			System.out.println("성공여부: " + cnt);
 			
