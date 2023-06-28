@@ -151,7 +151,6 @@ for (int i = 0; i < 7; i++) {
 		<tr>
 			<td>
 				<font style="font-size: small;">* 인증 확인 메일은 회원가입 시 입력한 메일로 자동 발송됩니다.</font><br>
-				<font style="font-size: small; color: red;">* 메일 발송은 현재 170번 가능함 남용X</font>
 			</td>
 		</tr>
 	</table>
