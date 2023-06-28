@@ -12,6 +12,7 @@ public class ScreenBean {
 	private String discount;
 	private String rating;
 	private String url;
+	private String poster;
 	
 	
 	public ScreenBean() {
@@ -21,7 +22,7 @@ public class ScreenBean {
 	
 
 	public ScreenBean(String movie_title, int seat_count, int left_seats, String screen_time, String time,
-			String screen_name, int runtime, int ticket_price, String discount, String rating, String url) {
+			String screen_name, int runtime, int ticket_price, String discount, String rating, String url, String poster) {
 		
 		super();
 		this.movie_title = movie_title;
@@ -35,6 +36,7 @@ public class ScreenBean {
 		this.discount = discount;
 		this.rating = rating;
 		this.url = url;
+		this.poster = poster;
 	}
 
 
@@ -113,6 +115,18 @@ public class ScreenBean {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+
+
+	public String getPoster() {
+		return poster;
+	}
+
+
+
+	public void setPoster(String poster) {
+		this.poster = poster;
 	}
 
 

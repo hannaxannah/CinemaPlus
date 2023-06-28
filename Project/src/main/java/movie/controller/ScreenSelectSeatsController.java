@@ -13,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import movie.model.MovieBean;
+import movie.model.MovieDao;
 import movie.model.ReservationBean;
 import movie.model.ScreenBean;
 import movie.model.ScreenDao;
@@ -24,6 +26,10 @@ public class ScreenSelectSeatsController {
 
 	@Autowired
 	ScreenDao screenDao;
+	
+	@Autowired
+	MovieDao movieDao;
+	
 
 	@RequestMapping(value = command)
 	public String doAction(
@@ -44,6 +50,7 @@ public class ScreenSelectSeatsController {
 			}
 		
 		
+		
 		List<ReservationBean> reservationList = screenDao.getReservationByTime(screenBean.getScreen_time());
 		for(int i=0; i<reservationList.size(); i++) {
 			ReservationBean reservation = reservationList.get(i);
@@ -56,7 +63,18 @@ public class ScreenSelectSeatsController {
 			reservation.setSeat_number(seatRow);
 			reservation.setSeat_number2(seatCol);
 		}
+		List<ScreenBean> list = screenDao.getAllScreen();
+		for(int i=0; i<list.size(); i++) {
+			ScreenBean screenBean2 = list.get(i);
+			if(screenBean.getMovie_title().equals(screenBean2.getMovie_title())) {
+				screenBean.setPoster(screenBean2.getPoster());
+				break;
+			}
+		}
+		
+		
 		model.addAttribute("reservationList", reservationList);
+		
 		
 		return getPage;
 	}
