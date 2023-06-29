@@ -19,15 +19,17 @@ import board.model.IndividualBoardBean;
 import movie.model.ReservationBean;
 import movie.model.ScreenBean;
 import movie.model.ScreenDao;
+import mypage.model.ReservationReviewBean;
+import mypage.model.ReservationReviewDao;
 
 @Controller
-public class MypageReservDeleteController {
+public class MypageMovieRecodeDeleteController {
 	
-	private final String command = "reservDel.mp";
-	private final String gotoPage = "redirect:/myreservation.mp";
+	private final String command = "MovieRecordDelete.mp";
+	private final String gotoPage = "redirect:/myMovieRecord.mp";
 
 	@Autowired
-	ScreenDao screenDao;
+	ReservationReviewDao reservationReviewDao;
 
 	@RequestMapping(command)
 	public String doAction(@RequestParam("reservation_num") String reservation_num,
@@ -40,20 +42,18 @@ public class MypageReservDeleteController {
 		
 		PrintWriter out = null;
 		response.setContentType("text/html; charset=UTF-8");
-		ReservationBean reservationBean = screenDao.getReservationByNum(reservation_num); //예매번호가져오기
 		
-		int cnt = screenDao.deleteCancle(reservation_num);
+		int cnt = reservationReviewDao.ReviewDelete(reservation_num);
+		System.out.println("return cnt: " + cnt);
 		
 		
-		if(cnt != -1) {
+		if(cnt != 0) {
 			
 			try {
 				
 				out = response.getWriter();
-				System.out.println("예매내역 삭제 성공");
-				int cnt2 = screenDao.insertCancleReservation(reservationBean);
-				System.out.println("cnt " + cnt2);
-				out.print("<script>alert('예매목록이 삭제되었습니다.');location.href='myreservation.mp';</script>");
+				System.out.println("취소내역 삭제 성공");
+				out.print("<script>alert('리뷰내역이 삭제되었습니다.');location.href='myMovieRecord.mp';</script>");
 				out.flush();
 				/*
 				ModelAndView mav = new ModelAndView();
@@ -68,7 +68,7 @@ public class MypageReservDeleteController {
 			try {
 				out = response.getWriter();
 				System.out.println("예매내역 삭제 실패");
-				out.print("<script>alert('예매내역 삭제가 실패하였습니다.');location.href='history.go(-1)' ");
+				out.print("<script>alert('리뷰 삭제가 실패하였습니다.');location.href='history.go(-1)' ");
 				out.print("</script>");
 				out.flush();
 			} catch (IOException e) {

@@ -13,7 +13,7 @@
 						<table>
 							<tr>
 								<td>영화관</td>
-								<td>상암월드컵경기장</td>
+								<td>${reservationBean.screen_name}</td>
 							</tr>
 							<tr>
 								<td>영화</td>
@@ -21,7 +21,7 @@
 							</tr>
 							<tr>
 								<td>상영일시</td>
-								<td>${screenBean.screen_time}</td>
+								<td>${day} ${screenBean.screen_time}</td>
 							</tr>
 							<tr>
 								<td>좌석번호</td>

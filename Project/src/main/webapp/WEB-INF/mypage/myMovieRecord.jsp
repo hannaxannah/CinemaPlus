@@ -145,16 +145,20 @@ a {
 										value="${reservation.reservation_date}" pattern="yyyy-MM-dd" />
 									<fmt:formatDate var="date2" value="${date1}" type="DATE"
 										pattern="yyyy-MM-dd" />
+									<div
+										style="width: 190px; padding-left: 30px; padding-bottom: 50px; float: left;">
 										<img
-											src="${poster}" style="width: 190px; padding-left: 30px; padding-bottom: 50px; float: left;"
-											onerror="" alt="">
+											src="https://img.megabox.co.kr/SharedImg/2021/12/16/ixl5QxDVs5Gn8nQN3rslK8BUmgFVklj8_230.jpg"
+											onerror="noImg(this)" alt="스파이더맨: 노 웨이 홈">
+									</div>
 									<div style="width: 180px; padding-left: 20px; float: left;">
 										<p class="movieTitle">${reservation.movie_title}</p>
 										<p class="reservation_num">${reservation.reservation_num}</p>
+										<p>속초점</p>
 										<p>${reservation.screen_name}</p>
 										<p>${date2}</p>
 										<a href="writeReview.mp?reservation_num=${reservation.reservation_num}&movie_title=${reservation.movie_title}"
-											style="background-color: #EBE4FC; color:#6b39ea; border-radius: 5px; padding: 5px;">리뷰쓰기</a>
+											style="background-color: #EBE4FC; padding: 5px;">리뷰쓰기</a>
 									</div>
 								</c:forEach>
 							</c:if>
@@ -176,27 +180,27 @@ a {
 									<th width="15%">영화제목</th>
 									<th width="40%">한줄평</th>
 									<th width="15%">등록일</th>
-									<th width="10%">수정</th>
+									<!-- <th width="10%">수정</th> -->
 									<th width="10%">삭제</th>
 									
 								</tr>
-								<c:if test="${fn:length(lists) == 0}">
+								<c:if test="${fn:length(reviewList) == 0}">
 									<tr>
 										<td colspan="6" align="center">작성하신 리뷰가 없습니다.</td>
 									</tr>
 								</c:if>
 
-								<c:forEach var="review" items="${lists}">
+								<c:forEach var="review" items="${reviewList}" varStatus="status">
 									<tr>
-										<td align="center">${review}</td>
-										<td align="center">${review}</td>
-										<td style="text-align: left;">${review}</td>
+										<td align="center">${status.index+1}</td>
+										<td align="center">${review.movie_title}</td>
+										<td style="text-align: left;"><pre>${review.review_content}</pre></td>
 										
 										<td align="center"><fmt:formatDate
-												value="${review}" type="date"
+												value="${review.review_date}" type="date"
 												pattern="yyyy-MM-dd HH:ss" /></td>
-												<td><a href="">수정</a></td>
-												<td><a href="">삭제</a></td>
+												<!-- <td><a href="">수정</a></td> -->
+												<td><a href="MovieRecordDelete.mp?reservation_num=${review.reservation_num}">삭제</a></td>
 									</tr>
 								</c:forEach>
 							</table>
