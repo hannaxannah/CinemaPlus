@@ -61,7 +61,7 @@ public class MovieBoxOfficeController {
 		try {
 
 			URL url = new URL("http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json?key="
-					+ key + "&targetDt=20230601");//오늘날짜 박스오피스 가져오기
+					+ key + "&targetDt=20230615");//오늘날짜 박스오피스 가져오기
 			BufferedReader bf;
 
 			bf = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
