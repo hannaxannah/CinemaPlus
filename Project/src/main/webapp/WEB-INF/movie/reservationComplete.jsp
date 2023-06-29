@@ -26,9 +26,9 @@
 							<tr>
 								<td>좌석번호</td>
 								<td>
-									<c:forEach var="reservation" items="${reservationList}" varStatus="stutus"> 
-										${reservation.seat_number}
-										<c:if test="${stutus.index < fn:length(reservationList)-1}">
+									<c:forEach var="seat" items="${seatnum}" varStatus="stutus"> 
+										${seat}
+										<c:if test="${stutus.index < fn:length(seatnum)-1}">
 										,
 										</c:if>
 									</c:forEach>
