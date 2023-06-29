@@ -9443,7 +9443,7 @@ address {
     position: static;
     width: 100%;
     background-color: rgba(255,255,255);
-    padding: 26px 0 0 0;
+    /* padding: 26px 0 0 0; */
 }
 
 .tab-list:after,.tab-list:before {
@@ -9487,7 +9487,7 @@ address {
 
 .tab-list>ul>li.on {
     border: 1px solid #503396;
-    border-bottom: 0
+    border-bottom: 0;
 }
 
 .tab-list>ul>li>a {

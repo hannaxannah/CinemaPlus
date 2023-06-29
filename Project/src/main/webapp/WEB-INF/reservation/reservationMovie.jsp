@@ -156,8 +156,9 @@
 									<div class="reservation-movie-date" style="flex-flow: row;border: 1px solid rgba(242, 242, 242, 1);">
 										<c:forEach var="date" items="22<br>목, 23<br>금, 24<br>토, 25<br>일, 26<br>월, 27<br>화, 28<br>수">
 										<div class="reservation-movie-date-item" >
-											<input type="checkbox" value="${date}">
-											${date}
+											<div class="btn-group">
+						                        <button class="btn btn-default" type="button" id="date">${date}</button>
+						                      </div>
 										</div>
 										</c:forEach>
 									</div>
@@ -169,7 +170,6 @@
 										<c:forEach var="screen" items="${screenList}">
 											<div id="${screen.movie_title}" onClick="" style="margin-bottom: 30px;">
 												<div>
-											 <button class="button" id="${title}" onclick="change_btn(event)">
 											 <c:if test="${screen.rating eq '18세관람가'}">
 											<img
 												src="https://img.megabox.co.kr/static/pc/images/common/txt/18_46x46.png"
@@ -191,7 +191,8 @@
 												src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png"
 												width="23px" height="23px">
 										</c:if>
-													${screen.movie_title }</div>
+													<span style="border: 0;background: #ffffff;margin: 5px;font-size: 18px;">${screen.movie_title }</span>
+													</div>
 											<button class="timeButton"  style="width:100px" onclick="change_btn2(event)" id="${screen.screen_time}">
 											<a style="font-family: 'Roboto'; font-size: 11px;color: #666; padding-right: 0;padding-left:0;"> 
 												<dl>
@@ -268,9 +269,6 @@ function change_btn(e) {
 				   divAll.eq(i).show();
 			   } 
 	     }
-	     
-		
-		   
 	     const divSelelted = $('.reservation-movie-time').children('#' + e.target.id);//선택한div
 	      
 		   if(divSelelted.attr('id') == e.target.id){
@@ -303,6 +301,7 @@ function change_btn2(e) {
 			   $(btn).each( function() {
 			     
 			      var c = $(btn).children();
+			      console.log(c);
 			      alert("영화가 선택되었습니다.");
 			      for(var i=1; i<=6; i++){
 			    	  input = document.createElement("input");
@@ -323,7 +322,17 @@ function change_btn2(e) {
 	  //console.log(e.currentTarget);
 	}
 	
-
+function change_btn3(e) {
+	  var btns3 = document.querySelectorAll("#date");
+	  btns2.forEach(function (btn, i) {
+	    if (e.currentTarget == btn) {
+	      btn.classList.add("active");
+	    } else {
+	      btn.classList.remove("active");
+	    }
+	  });
+	  //console.log(e.currentTarget);
+	}
 </script>
 <!-- End #main -->
 <%@ include file="../main/mainFooter.jsp"%>
