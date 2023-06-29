@@ -188,9 +188,12 @@ public class MovieDetailController {
 			}
 			MovieBean movie = new MovieBean();
 			List<ScreenBean> screenList = screenDao.getScreenByMovieTitle(title);
-			ScreenBean screenBean = screenList.get(0);
-			String sUrl = screenBean.getUrl();
-			model.addAttribute("sUrl", sUrl);
+			if(screeList.size() != 0) {
+				ScreenBean screenBean = screenList.get(0);
+				String sUrl = screenBean.getUrl();
+				model.addAttribute("sUrl", sUrl);
+			}
+			
 			movie.setActors(movieActors[0]);
 			movie.setDirector(movieDirectors[0]);
 			movie.setMovie_story(stories[0]);
