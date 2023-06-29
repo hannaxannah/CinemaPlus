@@ -10,6 +10,12 @@
         order by REVIEW_DATE desc
     </select>
 
+    <select id="getReviewListForMovie" resultType="mypage.model.ReservationReviewBean">
+        select * from RESERVATION_REVIEW
+        where MOVIE_TITLE = #{movie_title}
+        order by REVIEW_DATE desc
+    </select>
+
     <select id="GetTotalCount" resultType="Integer">
         select count(*) from RESERVATION_REVIEW
         where MEMBER_ID = #{member_id}
@@ -28,6 +34,14 @@
             #{member_id}
         )
     </update>
+    
+    <!-- 작성한 리뷰 목록 - 리뷰 삭제 -->
+	<delete id="GetReviewDelete">
+		delete from reservation_review
+		where reservation_num = #{reservation_num}
+	</delete>
+    
+    
 </mapper>
 
 

@@ -9,11 +9,15 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import mypage.model.ReservationReviewBean;
+import mypage.model.ReservationReviewDao;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -39,6 +43,9 @@ public class MovieDetailController {
 	@Autowired
 	ScreenDao screenDao;
 
+	@Autowired
+	ReservationReviewDao reservationReviewDao;
+
 	@RequestMapping(value = command)
 	public String doAction(HttpServletRequest request, Model model,HttpSession session) {
 		
@@ -61,6 +68,11 @@ public class MovieDetailController {
 
 		URL url;
 
+		// 리뷰글 가져오기
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("movie_title", title);
+		List<ReservationReviewBean> reviewList = reservationReviewDao.getReviewListForMovie(map);
+		model.addAttribute("reviewList", reviewList);
 
 		try {
 			url = new URL("https://kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key="
@@ -204,9 +216,6 @@ public class MovieDetailController {
 			model.addAttribute("movie", movie);
 			model.addAttribute("screen_on", screen_on);
 			model.addAttribute("runtimes", runtimes);
-			
-			
-			
 			
 			/*
 			 * for(int i=0; i<posters.length; i++){ out.println("posters: " + posters[i]); }
