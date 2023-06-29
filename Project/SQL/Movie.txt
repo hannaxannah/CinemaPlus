@@ -71,8 +71,8 @@ create table ticket_reservation(
 	seat_number varchar2(10),
 	seat_number2 number,
 	ticket_price number,
-	screen_name varchar2(10),
-	screen_time varchar2(10),
+	screen_name varchar2(50),
+	screen_time varchar2(50),
 	member_id varchar2(50),
 	ticket_type varchar2(10)
 	) ;
