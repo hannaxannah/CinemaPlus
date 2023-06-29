@@ -17,7 +17,14 @@
 	</bean>
 
 	<!-- 스캔 할 패키지(@Controller의 위치)를 적음 -->
+	<context:component-scan base-package="main"/>
+	<context:component-scan base-package="admin"/>
+	<context:component-scan base-package="store"/>
 	<context:component-scan base-package="board"/>
+	<context:component-scan base-package="member"/>
+	<context:component-scan base-package="mypage"/>
+	<context:component-scan base-package="movie"/>
+	<context:component-scan base-package="theater"/>
 	
 </beans>
 

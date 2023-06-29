@@ -135,13 +135,9 @@
 								
 								<div class="container-dropend" id="btn-groupDropendArea" style="width: 100%">
 									<div class="reservation-movie-list">
-										
-											
 											  <c:forEach var="title" items="${titleList}">
 											 <button class="button" id="${title}" onclick="change_btn(event)" style="text-align: left;">
-											
 											 ${title}</button>
-											 
 											 </c:forEach> 
 											 
 										<br>
