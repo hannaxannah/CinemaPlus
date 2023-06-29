@@ -23,7 +23,7 @@ import mypage.model.ReservationReviewBean;
 import mypage.model.ReservationReviewDao;
 
 @Controller
-public class MypageMovieRecodeDeleteController {
+public class MypageMovieRecordDeleteController {
 	
 	private final String command = "MovieRecordDelete.mp";
 	private final String gotoPage = "redirect:/myMovieRecord.mp";
