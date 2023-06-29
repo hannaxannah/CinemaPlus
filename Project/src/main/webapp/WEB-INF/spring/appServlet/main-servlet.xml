@@ -21,5 +21,6 @@
 	<context:component-scan base-package="member"/>
 	<context:component-scan base-package="mypage"/>
 	<context:component-scan base-package="movie"/>
+	<context:component-scan base-package="theater"/>
 </beans>
 <!-- member-servlet.xml -->
