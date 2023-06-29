@@ -41,7 +41,6 @@ public class ScreenReservationInsertController {
 		List<ScreenBean> screenList = screenDao.getScreenByTime(screen_time);
 		System.out.println(adults);
 		
-		List<ReservationBean> reservationList = new ArrayList<ReservationBean>();
 		
 		ScreenBean screenBean = screenList.get(0);
 		int price = screenBean.getTicket_price();
@@ -80,14 +79,15 @@ public class ScreenReservationInsertController {
 					
 					
 					int cnt = screenDao.insertReservation(reservationBean);
-					reservationList.add(reservationBean);
 					if(cnt == 1) {
 						screenDao.removeSeat(screenBean.getScreen_time());
+						
 					}
 					break;
 			}
+			
 		}
-		model.addAttribute("reservationList", reservationList);
+		model.addAttribute("seatnum", seatnum);
 		model.addAttribute("screenBean", screenBean);
 		model.addAttribute("totalPrice", totalPrice);
 		return getPage;

@@ -72,13 +72,13 @@
 										<ul class="theater-area" style="flex-flow: column;align-items: flex-start;">
 											<c:forEach var="areaName" items="${area}">
 												<li class="dropdown" style="width: 100%;">
-													<button style="width: 100%; text-align: left; padding: 10px 25px; border: 0px; background: #fff;">
+													<button style="width: 100%; text-align: left; padding: 10px 25px; border: 0px; background: #fff;" onclick="">
 														<span style="font-size: 1.2rem;color: #000;">${areaName}</span>
 													</button>
 													<ul class="theater-area-branch" id="branchName">
 														<c:if test="${areaName == '서울'}">
 															<c:forEach var="Branch" items="${seoul}">
-																<li class="dropdown"><a class="reservation-theater-branch" href="#">${Branch}</a></li>
+																<li class="dropdown"><a class="reservation-theater-branch" id="" href="#">${Branch}</a></li>
 															</c:forEach>
 														</c:if>
 														<c:if test="${areaName == '경기'}">
@@ -160,34 +160,7 @@
 											${fastReservation.movie_title}
 										</a>
 									</c:forEach>
-										<!-- <a class="reservation-movie-list-item">
-											<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-											스파이더맨: 어크로스 더 유니버스
-										</a>
-										<a class="reservation-movie-list-item">
-											<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-											스파이더맨: 어크로스 더 유니버스
-										</a>
-										<a class="reservation-movie-list-item">
-											<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-											스파이더맨: 어크로스 더 유니버스
-										</a>
-										<a class="reservation-movie-list-item">
-											<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-											스파이더맨: 어크로스 더 유니버스
-										</a>
-										<a class="reservation-movie-list-item">
-											<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-											스파이더맨: 어크로스 더 유니버스
-										</a>
-										<a class="reservation-movie-list-item">
-											<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-											스파이더맨: 어크로스 더 유니버스
-										</a>
-										<a class="reservation-movie-list-item">
-											<img src="https://img.megabox.co.kr/static/pc/images/common/txt/ALL_46x46.png" width="23px" height="23px">
-											스파이더맨: 어크로스 더 유니버스
-										</a> -->
+										
 										<br>
 									</div>
 								</div>
@@ -236,7 +209,7 @@
 												width="23px" height="23px">
 										</c:if>
 													${fastReservation.movie_title }</div>
-											<button class="timeButton"  style="width:100px" onclick="change_btn2(event)" id="${screen.screen_time}">
+											<button class="timeButton"  style="width:100px" onclick="change_btn2(event)" id="${fastReservation.screen_time}">
 											<a style="font-family: 'Roboto'; font-size: 11px;color: #666; padding-right: 0;padding-left:0;"> 
 												<dl>
 													<dt>상영시간</dt>
