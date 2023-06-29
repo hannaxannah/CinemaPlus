@@ -3,8 +3,13 @@ package board.controller;
 import java.io.File;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -69,26 +74,45 @@ public class IndividualBoardInsertController {
 
       //uploadPath:C:\\Users\\user\Downloads\spring-tool-suite-3.9.17.RELEASE\sts-bundle\pivotal-tc-server\instances\Spring3\wtpwebapps\20_Spring_MyBatis_Products\resources
       String uploadPath = servletContext.getRealPath("/resources");
-      System.out.println("uploadPath:" + uploadPath);
-
-      System.out.println("*:" + uploadPath + File.separator + board.getUpload().getOriginalFilename());
-		
-      File destination = new File(uploadPath + File.separator + board.getUpload().getOriginalFilename());
-
-      String str = "c:/tempUpload";
-      File destination_local = new File(str + File.separator + board.getUpload().getOriginalFilename());
-
-      MultipartFile multi = board.getUpload();
-
+      // get Year
+      LocalDate now = LocalDate.now();
+      int year = now.getYear();
 
       Map<String, String> result = new HashMap<String, String>();
+      String uploadRootPathString = uploadPath + "/upload/" + year + "/";
+      String uploadUrlPathString = "/resources/upload/" + year + "/";
+      Path directory = Paths.get(uploadRootPathString);
+      UUID uuid = UUID.randomUUID();
+      String fileType = board.getUpload().getOriginalFilename().substring(board.getUpload().getOriginalFilename().lastIndexOf(".")+1);
+      String fileName = uuid + "." + fileType;
+      
+      try {
+          Files.createDirectories(directory);
+          board.getUpload().transferTo(new File(uploadRootPathString + fileName));
+       } catch (IOException e) {
+    	   e.printStackTrace();
+           result.put("result", "fail");
+           throw e;
+       }
+
+//      System.out.println("*:" + uploadPath + File.separator + board.getUpload().getOriginalFilename());
+		
+//      File destination = new File(uploadPath + File.separator + board.getUpload().getOriginalFilename());
+
+//      String str = "c:/tempUpload";
+//      File destination_local = new File(str + File.separator + board.getUpload().getOriginalFilename());
+      
+      
+//      MultipartFile multi = board.getUpload();
+
+      
       MemberBean mb = (MemberBean) session.getAttribute("loginInfo");
       board.setMember_code2(mb.getMember_code());
       board.setCustomer_id(mb.getMember_id());
       board.setName(mb.getMember_name());
       board.setTel_num(mb.getMember_phone());
       board.setEmail(mb.getMember_email());
-      board.setImage(board.getUpload().getOriginalFilename());
+      board.setImage(uploadUrlPathString + fileName);
       if (board.getIssecret() == null) {
          board.setIssecret("N");
       }
@@ -97,10 +121,10 @@ public class IndividualBoardInsertController {
          // DB insert
          idao.InsertBoard(board);
 
-         multi.transferTo(destination);
+//         multi.transferTo(destination);
          
          //FileCopyUtils.copy(destination_local, destination);
-         FileCopyUtils.copy(destination, destination_local);
+//         FileCopyUtils.copy(destination, destination_local);
 
          result.put("result", "success");
       } catch (Exception e) {

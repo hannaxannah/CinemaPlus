@@ -1,10 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-<mapper namespace="mypage.model.MypageBean">
-	
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mypage.model.ReservationReviewBean">
+    <select id="getReviewList" resultType="mypage.model.ReservationReviewBean">
+        select * from RESERVATION_REVIEW
+        where MEMBER_ID = #{member_id}
+        order by REVIEW_DATE desc
+    </select>
+
+    <select id="GetTotalCount" resultType="Integer">
+        select count(*) from RESERVATION_REVIEW
+        where MEMBER_ID = #{member_id}
+    </select>
+
+    <update id="InsertReview" >
+        insert into RESERVATION_REVIEW
+            (REVIEW_NUM, RESERVATION_NUM, MOVIE_TITLE,
+            REVIEW_CONTENT, SCREEN_NAME, MEMBER_ID)
+        values (
+            review_seqres.nextval,
+            #{reservation_num},
+            #{movie_title},
+            #{review_content},
+            #{screen_name},
+            #{member_id}
+        )
+    </update>
 </mapper>
 
 
