@@ -238,7 +238,7 @@
     </tr>
     <tr>
         <th class="first">참고이미지</th>
-        <th colspan="3">${board.image}</th>
+        <th colspan="3"><img src="${pageContext.request.contextPath}${board.image}" width="50%"></th>
     </tr>
 
     <c:if test="${sessionScope.loginInfo.member_id eq 'admin'}">
