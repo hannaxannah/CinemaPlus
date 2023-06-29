@@ -180,7 +180,7 @@ a {
 									<th width="15%">영화제목</th>
 									<th width="40%">한줄평</th>
 									<th width="15%">등록일</th>
-									<th width="10%">수정</th>
+									<!-- <th width="10%">수정</th> -->
 									<th width="10%">삭제</th>
 									
 								</tr>
@@ -199,8 +199,8 @@ a {
 										<td align="center"><fmt:formatDate
 												value="${review.review_date}" type="date"
 												pattern="yyyy-MM-dd HH:ss" /></td>
-												<td><a href="">수정</a></td>
-												<td><a href="">삭제</a></td>
+												<!-- <td><a href="">수정</a></td> -->
+												<td><a href="MovieRecordDelete.mp?reservation_num=${review.reservation_num}">삭제</a></td>
 									</tr>
 								</c:forEach>
 							</table>

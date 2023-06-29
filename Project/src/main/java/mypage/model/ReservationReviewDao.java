@@ -30,7 +30,18 @@ public class ReservationReviewDao {
       return sqlSessionTemplate.selectList(namespace + ".getReviewList", map);
    }
 
+   public List<ReservationReviewBean> getReviewListForMovie(Map<String, String> map) {
+      return sqlSessionTemplate.selectList(namespace + ".getReviewListForMovie", map);
+   }
+
    public void InsertReview(ReservationReviewBean board) {
       sqlSessionTemplate.insert(namespace + ".InsertReview", board);
    }
+
+   public int ReviewDelete(String reservation_num) {
+		int cnt = -1;
+		cnt = sqlSessionTemplate.delete(namespace + ".GetReviewDelete", reservation_num);
+		System.out.println("cnt:" + cnt);
+		return cnt;
+}
 }

@@ -1,3 +1,4 @@
+<% pageContext.setAttribute("newLineChar", "\n"); %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../main/mainHeader.jsp"%>
@@ -64,16 +65,18 @@
 								<a style="font-size: 1.2rem; font-weight: 500; color: #F7F7F7;">한줄 기록</a>
 								<hr style="width: 100%; border: 1px solid #fff; opacity: 0.8;">
 								<table class="MovieDetailReview">
-									<tr>
-										<td width="15%">
-											<b>gaga1</b>
-											<div style="margin-bottom: 5px;"></div>
-											4.5 / 5.0
-										</td>
-										<td width="85%">
-											내 최애 히어로 스파이디ㅠ 로튼토마토 높은 이유가 있죠 영화관에서 봐야됨
-										</td>
-									</tr>
+									<c:forEach var="review" items="${reviewList}">
+										<tr>
+											<td width="15%">
+												<b>${review.member_id}</b>
+												<div style="margin-bottom: 5px;"></div>
+												<!-- 4.5 / 5.0 -->
+											</td>
+											<td width="85%">
+													${fn:replace(review.review_content, newLineChar, "<br/>")}
+											</td>
+										</tr>
+									</c:forEach>
 								</table>
 							</div>
 							<!-- <hr style="width: 100%; border: 1px solid #fff; opacity: 0.8;"> -->
