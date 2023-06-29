@@ -72,7 +72,7 @@
 										<ul class="theater-area" style="flex-flow: column;align-items: flex-start;">
 											<c:forEach var="areaName" items="${area}">
 												<li class="dropdown" style="width: 100%;">
-													<button style="width: 100%; text-align: left; padding: 10px 25px; border: 0px; background: #fff;" onclick="">
+													<button style="width: 100%; text-align: left; padding: 10px 25px; border: 0px; background: #fff;" onclick="selectArea(this)">
 														<span style="font-size: 1.2rem;color: #000;">${areaName}</span>
 													</button>
 													<ul class="theater-area-branch" id="branchName">
@@ -306,8 +306,9 @@ function change_btn2(e) {
 	  });
 	  //console.log(e.currentTarget);
 	}
-	
-
+	function selectArea(d) {
+		console.log(d);
+	}
 </script>
 <!-- End #main -->
 <%@ include file="../main/mainFooter.jsp"%>
