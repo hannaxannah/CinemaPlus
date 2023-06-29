@@ -14,7 +14,7 @@
 				<div class="col-xl-12" style="display: flex; flex-direction: column; align-items: center;">
 				<nav id="theaterNavbar" class="navbar">
 					<ul>
-						<li class="dropdown"><a href="mymovieshowtime.mv">상영시간표</a></li>
+						<!-- <li class="dropdown"><a href="mymovieshowtime.mv">상영시간표</a></li> -->
 						<li class="dropdown"><a href="mymovievod.mv">VOD</a></li>
 					</ul>
 				</nav>
