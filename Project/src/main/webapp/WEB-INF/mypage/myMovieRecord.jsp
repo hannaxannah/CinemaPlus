@@ -148,7 +148,7 @@ a {
 									<div
 										style="width: 190px; padding-left: 30px; padding-bottom: 50px; float: left;">
 										<img
-											src="https://img.megabox.co.kr/SharedImg/2021/12/16/ixl5QxDVs5Gn8nQN3rslK8BUmgFVklj8_230.jpg"
+											src="${poster}"
 											onerror="noImg(this)" alt="스파이더맨: 노 웨이 홈">
 									</div>
 									<div style="width: 180px; padding-left: 20px; float: left;">
