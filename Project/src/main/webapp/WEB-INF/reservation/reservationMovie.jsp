@@ -219,6 +219,7 @@
 													<dt>상영관</dt>
 													<dd class="hall">${fastReservation.screen_name}</dd>
 												</dl>
+												</a>
 												<input type="hidden" name="screen_time" value="${screen.screen_time}">
 												<input type="hidden" name="movie_title" value="${screen.movie_title}">
 												<input type="hidden" name="seat_count" value="${screen.seat_count}">
@@ -285,12 +286,13 @@ function change_btn(e) {
 	  //console.log(e.currentTarget);
 	}
 	
-function change_btn2(e	) {
+function change_btn2(e) {
 	  var btns2 = document.querySelectorAll(".timeButton");
 	  btns2.forEach(function (btn, i) {
 	    if (e.currentTarget == btn) {
 	      btn.classList.add("active");
-			console.log(btn);	    
+	      console.log("btn=");
+	      console.log(btn.id);
 			$('input[name=screen_time]').attr('value',btn.id);
 			 var input = document.createElement("input");
 			   var values = ['screen_time', 'movie_title', 'seat_count', 'screen_name', 'ticket_price', 'rating'];
@@ -301,8 +303,7 @@ function change_btn2(e	) {
 			   $(btn).each( function() {
 			     
 			      var c = $(btn).children();
-			      console.log(c);
-			      alert(c);
+			      alert("영화가 선택되었습니다.");
 			      for(var i=1; i<=6; i++){
 			    	  input = document.createElement("input");
 			    	  //alert(values[i-1]);
