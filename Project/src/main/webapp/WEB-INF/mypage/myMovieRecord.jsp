@@ -145,16 +145,12 @@ a {
 										value="${reservation.reservation_date}" pattern="yyyy-MM-dd" />
 									<fmt:formatDate var="date2" value="${date1}" type="DATE"
 										pattern="yyyy-MM-dd" />
-									<div
-										style="width: 190px; padding-left: 30px; padding-bottom: 50px; float: left;">
 										<img
-											src="${poster}"
-											onerror="noImg(this)" alt="스파이더맨: 노 웨이 홈">
-									</div>
+											src="${poster}" style="width: 190px; padding-left: 30px; padding-bottom: 50px; float: left;"
+											onerror="" alt="">
 									<div style="width: 180px; padding-left: 20px; float: left;">
 										<p class="movieTitle">${reservation.movie_title}</p>
 										<p class="reservation_num">${reservation.reservation_num}</p>
-										<p>속초점</p>
 										<p>${reservation.screen_name}</p>
 										<p>${date2}</p>
 										<a href="writeReview.mp?reservation_num=${reservation.reservation_num}&movie_title=${reservation.movie_title}"
