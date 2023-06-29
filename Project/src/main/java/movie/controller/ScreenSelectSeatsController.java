@@ -72,9 +72,8 @@ public class ScreenSelectSeatsController {
 			}
 		}
 		
-		
+		System.out.println(screenBean.getScreen_time());
 		model.addAttribute("reservationList", reservationList);
-		
 		
 		return getPage;
 	}

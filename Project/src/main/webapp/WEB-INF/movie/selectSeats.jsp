@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../main/mainHeader.jsp"%>
 <style>
@@ -209,14 +209,18 @@
 											<hr style="width: 70%; border: 1px solid #7F7F7F; margin: 0 auto; margin-top: 5px; margin-bottom: 5px;">
 											<div style="margin: 0; padding-top: 15px;">
 												<p class="tit" style="margin: 0;display: flex;justify-content: center;align-items: center;">
-													<font style="font-size:1.3rem;"><span id="selec">0</span></font>개
+													<font style="font-size:1.3rem;">
+														
+													<span id="selec">0</span></font>개
 												</p>
 											</div>
 										</div>
 									</div>
 									<div class="reservation-ticket-price">
 										<div class="reservation-price">최종결제금액</div>
-										<div class="reservation-price"><a class="reservation-price-bold"><span id="price"></span></a>원</div>
+										<div class="reservation-price"><a class="reservation-price-bold">
+											
+										<span id="price"></span></a>원</div>
 									</div>
 								</div>
 								<div class="reservation-go-pay">
@@ -309,7 +313,7 @@ seatContainer.addEventListener('click', (e) => {
 	if(checkOver() && adults != 4){
 	adults = adults + 1;
 	people = people + 1;
-	price = price + 10000;
+	price = price + Number(${screenBean.ticket_price});
 	
 	$("#adult").text(adults);
 	$("#price").text(price);
@@ -322,7 +326,7 @@ function minusAdult() {
 	if(checkLow() && adults != 0) {
 	adults = adults - 1;
 	people = people - 1;
-	price = price - 10000;
+	price = price - Number(${screenBean.ticket_price});
 	}
 	$("#adult").text(adults);
 	$("#price").text(price);
@@ -334,7 +338,7 @@ function plusTeen() {
 	if(checkOver() && teens != 4){
 	teens = teens + 1;
 	people = people +1;
-	price = price + 8000;
+	price = price + Number(${screenBean.ticket_price})*0.8;
 	}
 	$("#teen").text(teens);
 	$("#price").text(price);
@@ -345,7 +349,7 @@ function minusTeen() {
 	if(checkLow() && teens != 0) {
 	teens = teens - 1;
 	people = people -1;
-	price = price - 8000;
+	price = price - Number(${screenBean.ticket_price})*0.8;
 	}
 	$("#teen").text(teens);
 	$("#price").text(price);
@@ -358,7 +362,7 @@ function plusHandicap() {
 	if(checkOver() && handicaps != 4){
 	handicaps = handicaps + 1;
 	people = people + 1;
-	price = price + 5000;
+	price = price + Number(${screenBean.ticket_price})*0.5;
 	}
 	$("#handicap").text(handicaps);
 	$("#price").text(price);
@@ -370,7 +374,7 @@ function minusHandicap() {
 	if(checkLow() && handicaps != 0) {
 	handicaps = handicaps - 1;
 	people = people - 1;
-	price = price - 5000;
+	price = price - Number(${screenBean.ticket_price})*0.5;
 	}
 	$("#handicap").text(handicaps);
 	$("#price").text(price);
@@ -393,7 +397,10 @@ function checkLow() {
 	return true;
 } 
 function submitSeatnum() {
-	 location.href = "screenReservationInsert.mv?seatnum="+ seatnum + "&screen_time=" + '${screenBean.screen_time}';
+	 location.href = "screenReservationInsert.mv?seatnum="+ seatnum + "&screen_time=" + '${screenBean.screen_time}'
+			 + "&adults=" + adults
+			 + "&teens=" + teens
+			 + "&handicaps=" + handicaps;
 	
 }
 
