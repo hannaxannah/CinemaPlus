@@ -153,7 +153,7 @@
 	<insert id="insertCancleToReservation" useGeneratedKeys="false">
 		insert into ticket_reservation	
 		values(seqres.nextval, #{movie_title}, sysdate, #{seat_number},#{seat_number2}, #{ticket_price}, 
-		#{screen_name}, #{screen_time},  #{member_id})
+		#{screen_name}, #{screen_time},  #{member_id}, #{ticket_type})
 	</insert>
 	
 	
