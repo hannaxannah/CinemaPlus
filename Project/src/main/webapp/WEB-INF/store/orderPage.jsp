@@ -373,20 +373,29 @@ function setTotalInfo(){
 function payment() {//결제 버튼 클릭
 	var birth_regEXP = /([0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1]))/;//주민번호6자리
 	var busi_regEXP = /^[0-9]{6,10}$/;// 숫자6~10자리 정규식
-	var card_regEXP = /^(?:(94[0-9]{14})|(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$/;
+	var card_regEXP = /^[0-9]{16}$/; //카드 유효성 검사
+	var pw_regEXP = /^[0-9]{2}$/; //카드 유효성 검사
 	
 	//유효성 체크
-	if ($("#card_num").val() == "") {
+	if ($("#card_number").val() == "") {
 		alert("카드번호는 필수입력사항입니다.");
 		$("#card_num").focus();
 		return false;
-	}else if ($(".card_mmyy").val() == "") {
-		alert("유효기간은 필수입력사항입니다.");
-		$(".card_mmyy").focus();
+	}else if (!card_regEXP.test($("#card_number").val())) {
+		alert("카드번호 16자리를 입력하십시오");
+		$(".card_num").focus();
 		return false;
-	}else if ($("#card_pwd").val() == "") {
+	}else if ($("#card_mmyy").val() == "") {
+		alert("유효기간은 필수입력사항입니다.");
+		$("#card_mmyy").focus();
+		return false;
+	}else if ($("#card_pw").val() == "") {
 		alert("비밀번호는 필수입력사항입니다.");
-		$("#card_pwd").focus();
+		$("#card_pw").focus();
+		return false;
+	}else if (!pw_regEXP.test($("#card_pw").val())) {
+		alert("카드 비밀번호 앞 2자리를 입력하십시오");
+		$(".card_pw").focus();
 		return false;
 	}else if ($("#card_birth").val() == "") {
 		alert("생년월일은 필수입력사항입니다.");
