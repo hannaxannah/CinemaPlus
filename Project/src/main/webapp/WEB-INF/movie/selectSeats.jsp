@@ -52,6 +52,7 @@
 		cursor: default;
 	}	
 </style>
+<% request.setCharacterEncoding("utf-8"); %>
 <main id="main">
 
 	<!-- 좌석선택 -->
@@ -152,7 +153,7 @@
 							</div>
 							<!-- 선택 정보 조회 -->
 							<div class="col-xl-3" style="padding: 20px 10px 20px 10px;">
-								<div class="" style="padding: 20px 10px 20px 10px; background-color: #ffffff; border-radius: 5px 5px 0 0;">
+								<div class="">
 									<!-- 상영 등급, 제목 -->
 									<div class="rreservation-ticketeservation-ticket-title">
 										<c:if test="${screenBean.rating eq '18세관람가'}">
@@ -182,12 +183,22 @@
 									<!-- 영화관, 상영관, 날짜, 시간, 포스터 -->
 									<div class="reservation-ticket-theater">
 										<div style="width: 50%;">
-											<p class="tit">상암월드컵경기장</p>
+											<p class="tit">${sArea}</p>
 											<p class="tit">${screenBean.screen_name}</p>
-											<c:set var="now" value="<%=new java.util.Date()%>" />
-											<c:set var="sysYear"><fmt:formatDate value="${now}" pattern="yyyy.MM.dd(E)" /></c:set> 
-											<p class="tit">${sysYear}</p>
-											<p class="tit">20:20 ~ 22:50</p>
+											<p class="tit">${day}</p>
+											<p class="tit">${screenBean.screen_time } ~
+															<span>
+																<c:set var="startTime_1" value="${screenBean.time}"/>
+																	<c:if test="${fn:length(screenBean.time) eq 2}">
+																<c:set var="startTime_1" value="${screenBean.time}"/>
+																	</c:if>
+																<fmt:parseNumber var="startTime_2" value="${(startTime_1 * (1000*60*60)) + (screenBean.runtime * (1000*60))}" integerOnly="true" />
+																
+																<fmt:parseNumber var="hh" value="${(startTime_2  / (1000*60)) / 60 }" integerOnly="true" /> 
+																<fmt:parseNumber var="mm" value="${(startTime_2  / (1000*60)) % 60 }" integerOnly="true" />
+																${hh}:<c:if test="${mm < 10}">0</c:if>${mm}
+															</span>
+											</p>
 										</div>
 										<div style="width: 50%; text-align: end;">
 											<img src="${screenBean.poster}" style="width: 60%; text-align: end; padding-right: 5px;">
@@ -196,11 +207,11 @@
 									<hr style="border: 1px solid #7F7F7F">
 									<!-- 좌석 선택 정보 -->
 									<div class="reservation-ticket-seat">
-										<div style="width: 50%; border: 1px solid #CCCCCC; border-radius: 5px 0 0 5px; padding: 5px; backgoround-color:#ffffff">
+										<div style="width: 50%; border: 1px solid #CCCCCC; border-radius: 5px 0 0 5px; padding: 5px;">
 											<div style="margin-top: 5px;"></div>
 											<p class="tit"><i class="bi bi-square-fill" id="selectedSeat" style=" justify-content: unset; display:unset;"></i><span>&nbsp;선택</span></p>
 											<div style="margin-top: 5px;"></div>
-											<p class="tit"><i class="bi bi-x-square-fill" style="border-radius:5px;color:#CCCCCC; margin-left: 5px;"></i>&nbsp;&nbsp;선택불가</p>
+											<p class="tit"><i class="bi bi-x-square-fill" style="color: #CCCCCC"></i>&nbsp;선택불가</p>
 											<div style="margin-top: 5px;"></div>
 											<p class="tit"><i class="bi bi-square-fill" id="seat" style=" justify-content: unset; display:unset;"></i><span>&nbsp;선택가능</span></p>
 										</div>
@@ -271,6 +282,7 @@ seatContainer.addEventListener('click', (e) => {
 	//alert(e.target.className);
 	//alert(e.target.id);
 	//alert(e.target.text);
+	alert(e.target.id)
     if(e.target.id === 'seat' && selec < people && e.target.className === 'bi bi-square-fill'){
         e.target.id = 'selectedSeat';
         var sCol = e.target.children[0].textContent;
@@ -285,7 +297,7 @@ seatContainer.addEventListener('click', (e) => {
     } else if(e.target.id === 'selectedSeat'){
         e.target.id = 'seat';
         
-        seatnum.push(e.target.id)
+        seatnum.push(seat)
         for(var i = 0; i < seatnum.length; i++) {
         	  if(seatnum[i] === seat)  {
         		  seatnum.splice(i, 1);
@@ -397,9 +409,15 @@ function checkLow() {
 	return true;
 } 
 function submitSeatnum() {
+	var area = encodeURIComponent('${sArea}',"UTF-8");
+	var day = encodeURIComponent('${day}',"UTF-8");
+	
 	 location.href = "screenReservationInsert.mv?seatnum="+ seatnum + "&screen_time=" + '${screenBean.screen_time}'
 			 + "&adults=" + adults
 			 + "&teens=" + teens
+			 + "&sArea=" + area			 
+			 + "&day=" + day
+			 + "&time=" + '${screenBean.time}'
 			 + "&handicaps=" + handicaps;
 	
 }

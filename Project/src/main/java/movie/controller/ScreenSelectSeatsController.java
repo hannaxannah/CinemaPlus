@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import movie.model.MovieBean;
 import movie.model.MovieDao;
@@ -34,7 +35,10 @@ public class ScreenSelectSeatsController {
 	@RequestMapping(value = command)
 	public String doAction(
 			@ModelAttribute("screenBean") ScreenBean screenBean,
-			Model model, HttpSession session, HttpServletResponse response) throws IOException {
+			Model model, HttpSession session, HttpServletResponse response,
+			@RequestParam(value = "sArea") String sArea,
+			@RequestParam(value = "day") String day
+			) throws IOException {
 		
 		 response.setCharacterEncoding("EUC-KR");
 	     PrintWriter writer;
@@ -68,12 +72,16 @@ public class ScreenSelectSeatsController {
 			ScreenBean screenBean2 = list.get(i);
 			if(screenBean.getMovie_title().equals(screenBean2.getMovie_title())) {
 				screenBean.setPoster(screenBean2.getPoster());
+				screenBean.setTime(screenBean2.getTime());
+				screenBean.setRuntime(screenBean2.getRuntime());
 				break;
 			}
 		}
 		
 		System.out.println(screenBean.getScreen_time());
 		model.addAttribute("reservationList", reservationList);
+		model.addAttribute("sArea", sArea);
+		model.addAttribute("day", "2023."+day);
 		
 		return getPage;
 	}

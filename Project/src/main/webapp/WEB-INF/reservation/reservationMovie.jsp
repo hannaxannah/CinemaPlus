@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../main/mainHeader.jsp"%>
@@ -47,6 +48,10 @@
 	    background-color: #333;
 	}
 	
+	.reservation-movie-date::-webkit-scrollbar {
+	    display: none; 
+	}
+	
 	.reservation-movie-time::-webkit-scrollbar {
 	    display: none; 
 	}
@@ -78,47 +83,47 @@
 													<ul class="theater-area-branch" id="branchName">
 														<c:if test="${areaName == '서울'}">
 															<c:forEach var="Branch" items="${seoul}">
-																<li class="dropdown"><a class="reservation-theater-branch" href="#">${Branch}</a></li>
+																<li class="dropdown"><a class="reservation-theater-branch" id="${Branch}" href="#">${Branch}</a></li>
 															</c:forEach>
 														</c:if>
 														<c:if test="${areaName == '경기'}">
 															<c:forEach var="Branch" items="${gyeonggi}">
-																<li class="dropdown"><a class="reservation-theater-branch" href="#">${Branch}</a></li>
+																<li class="dropdown"><a class="reservation-theater-branch" id="${Branch}" href="#">${Branch}</a></li>
 															</c:forEach>
 														</c:if>
 														<c:if test="${areaName == '인천'}">
 															<c:forEach var="Branch" items="${incheon}">
-																<li class="dropdown"><a class="reservation-theater-branch" href="#">${Branch}</a></li>
+																<li class="dropdown"><a class="reservation-theater-branch" id="${Branch}" href="#">${Branch}</a></li>
 															</c:forEach>
 														</c:if>
 														<c:if test="${areaName == '강원'}">
 															<c:forEach var="Branch" items="${kangwon}">
-																<li class="dropdown"><a class="reservation-theater-branch" href="#">${Branch}</a></li>
+																<li class="dropdown"><a class="reservation-theater-branch" id="${Branch}" href="#">${Branch}</a></li>
 															</c:forEach>
 														</c:if>
 														<c:if test="${areaName == '대전/충청'}">
 															<c:forEach var="Branch" items="${daejeon}">
-																<li class="dropdown"><a class="reservation-theater-branch" href="#">${Branch}</a></li>
+																<li class="dropdown"><a class="reservation-theater-branch" id="${Branch}" href="#">${Branch}</a></li>
 															</c:forEach>
 														</c:if>
 														<c:if test="${areaName == '대구'}">
 															<c:forEach var="Branch" items="${daegu}">
-																<li class="dropdown"><a class="reservation-theater-branch" href="#">${Branch}</a></li>
+																<li class="dropdown"><a class="reservation-theater-branch" id="${Branch}" href="#">${Branch}</a></li>
 															</c:forEach>
 														</c:if>
 														<c:if test="${areaName == '부산/울산'}">
 															<c:forEach var="Branch" items="${busan}">
-																<li class="dropdown"><a class="reservation-theater-branch" href="#">${Branch}</a></li>
+																<li class="dropdown"><a class="reservation-theater-branch" id="${Branch}" href="#">${Branch}</a></li>
 															</c:forEach>
 														</c:if>
 														<c:if test="${areaName == '경상'}">
 															<c:forEach var="Branch" items="${gyeongsang}">
-																<li class="dropdown"><a class="reservation-theater-branch" href="#">${Branch}</a></li>
+																<li class="dropdown"><a class="reservation-theater-branch" id="${Branch}" href="#">${Branch}</a></li>
 															</c:forEach>
 														</c:if>
 														<c:if test="${areaName == '광주/전라/제주'}">
 															<c:forEach var="seoulBranch" items="${gwangju}">
-																<li class="dropdown"><a class="reservation-theater-branch" href="#">${seoulBranch}</a></li>
+																<li class="dropdown"><a class="reservation-theater-branch" id="${Branch}" href="#">${seoulBranch}</a></li>
 															</c:forEach>
 														</c:if>
 													</ul>
@@ -144,20 +149,33 @@
 									</div>
 								</div>
 							</div>
+							<jsp:useBean id="javaDate" class="java.util.Date" />
+							<fmt:formatDate var="nowDate" value="${javaDate}" pattern="MM.dd(E)"/>
+							
 							<div class="col-xl-5" style="display: flex; flex-direction: column; padding: 0;">
 								<div class="container-title" style="border-right: 1px solid #FCFBFF;">
 									날짜/시간
 								</div>
 								<div class="container-dropend" id="btn-groupDropendArea" style="width:100%; border:1px solid rgba(242, 242, 242, 1);">
-									<div class="reservation-movie-date" style="flex-flow: row;border: 1px solid rgba(242, 242, 242, 1);">
-										<c:forEach var="date" items="22<br>목, 23<br>금, 24<br>토, 25<br>일, 26<br>월, 27<br>화, 28<br>수">
-										<div class="reservation-movie-date-item" >
+									<div class="reservation-movie-date" style="border: 1px solid rgba(242, 242, 242, 1);overflow: scroll;padding: 20px 10px;">
+									<% int i=0; %>
+										<div class="reservation-movie-date-item" style="margin-left:110px">
+										
+										</div>
+										<c:forEach var="i" begin="0" end="6">
+										<c:set var="day" value="<%=new Date(new Date().getTime() + 60*60*24*1000*i)%>"/>
+											<fmt:formatDate var="nowDate" value="${day}" pattern="MM.dd(E)"/>
+										<div class="reservation-movie-date-item" style="">
 											<div class="btn-group">
-						                        <button class="btn btn-default" type="button" id="date">${date}</button>
+						                        <button class="btn btn-default" type="button" id="${nowDate}" style="">
+						                        	${nowDate}
+						                        </button>
 						                      </div>
 										</div>
+										<% i++; %>
 										</c:forEach>
 									</div>
+
 
 									
 
@@ -248,7 +266,8 @@
 	</section>
 </main>
 <script>
-
+var area = null;
+var day = null;	
 function change_btn(e) {
 	  var btns = document.querySelectorAll(".button");
 	  btns.forEach(function (btn, i) {
@@ -287,12 +306,17 @@ function change_btn2(e) {
 	      btn.classList.add("active");
 	      console.log("btn=");
 	      console.log(btn.id);
+	      if(area == null){
+	    	  alert("지역을 선택해주세요");
+	      }else if(day == null){
+	    	  alert("시간을 선택해주세요");
+	      }else{
 			$('input[name=screen_time]').attr('value',btn.id);
 			 var input = document.createElement("input");
 			   var values = ['screen_time', 'movie_title', 'seat_count', 'screen_name', 'ticket_price', 'rating'];
 			   var aForm = document.forms["aForm"].getElementsByTagName("input");
-			   while(aForm[0]){
-				   aForm[0].remove();
+			   while(aForm[2]){
+				   aForm[2].remove();
 			   }
 			   $(btn).each( function() {
 			     
@@ -310,7 +334,7 @@ function change_btn2(e) {
 			      }
 			     
 			   })
-	    
+	      }
 	    } else {
 	      btn.classList.remove("active");
 	    }
@@ -329,6 +353,53 @@ function change_btn3(e) {
 	  });
 	  //console.log(e.currentTarget);
 	}
+	
+document.addEventListener('DOMContentLoaded', () =>{
+
+
+	const time = document.querySelector('.reservation-movie-date');
+	const areaContainer = document.querySelector('.theater-area');
+
+	areaContainer.addEventListener('click', (e) => {
+		if(e.target.innerText == e.target.id){
+			area = e.target.id;
+			alert("영화관이 선택되었습니다.")
+			 var aForm = document.forms["aForm"].getElementsByTagName("input");
+			   while(aForm[0]){
+				   aForm[0].remove();
+			   }
+			   
+		 var input2 = document.createElement("input");
+		 input2.setAttribute("type", "hidden");
+         input2.setAttribute("id", "sArea");
+         input2.setAttribute("name", "sArea");
+         input2.setAttribute("value", area);
+         document.getElementById("myform").appendChild(input2);
+		}
+	})
+	
+	time.addEventListener('click', (e) => {
+		
+		if(area == null){
+	    	  alert("지역을 선택해주세요");
+		}
+		else if(e.target.innerText == e.target.id){
+	  			alert("시간이 선택되었습니다.");
+	  			day = e.target.id;
+	  			 var aForm = document.forms["aForm"].getElementsByTagName("input");
+				   while(aForm[1]){
+					   aForm[1].remove();
+				   }
+			 var input3 = document.createElement("input");
+			 input3.setAttribute("type", "hidden");
+	         input3.setAttribute("id", "day");
+	         input3.setAttribute("name", "day");
+	         input3.setAttribute("value", day);
+	         document.getElementById("myform").appendChild(input3);
+	  		} 
+	})
+	   
+})
 </script>
 <!-- End #main -->
 <%@ include file="../main/mainFooter.jsp"%>

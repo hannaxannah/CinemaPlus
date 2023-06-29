@@ -31,10 +31,12 @@ public class ScreenReservationInsertController {
 			@RequestParam("adults") int adults,
 			@RequestParam("teens") int teens,
 			@RequestParam("handicaps") int handicaps,
+			@RequestParam("sArea") String sArea,
+			@RequestParam("day") String day,
 			@ModelAttribute("screen_time") String screen_time, HttpSession session,
 			Model model) {
 		
-		
+		System.out.println("지역" + sArea);
 		//System.out.println(seatnum.length);
 		MemberBean memberBean = (MemberBean) session.getAttribute("loginInfo");
 		//System.out.println(screen_time);
@@ -48,7 +50,7 @@ public class ScreenReservationInsertController {
 		ReservationBean reservationBean = new ReservationBean();
 		reservationBean.setMember_id(memberBean.getMember_id());
 		reservationBean.setMovie_title(screenBean.getMovie_title());
-		reservationBean.setScreen_name(screenBean.getScreen_name());
+		reservationBean.setScreen_name(sArea + "점 " + screenBean.getScreen_name());
 		reservationBean.setScreen_time(screenBean.getScreen_time());
 		for(int i=0; i<seatnum.length; i++) {
 			while(true) {
@@ -89,6 +91,8 @@ public class ScreenReservationInsertController {
 		}
 		model.addAttribute("seatnum", seatnum);
 		model.addAttribute("screenBean", screenBean);
+		model.addAttribute("reservationBean", reservationBean);
+		model.addAttribute("day", day);
 		model.addAttribute("totalPrice", totalPrice);
 		return getPage;
 	}
