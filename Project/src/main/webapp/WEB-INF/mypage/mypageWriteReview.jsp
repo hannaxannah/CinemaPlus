@@ -6,7 +6,7 @@
 	href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
 <style>
 body {
-	
+
 }
 
 .orderList {
@@ -107,27 +107,67 @@ a {
 }
 </style>
 
+<script type="text/javascript" src="resources/js/jquery.js"></script>
+<script type="text/javascript">
+	function reviewWrite() {
+		if ($("#review_content").val() == "") {
+			alert("관람평을 입력하세요");
+			$("#review_content").focus();
+			return false;
+		}
+
+		var form = $('form')[0];
+		var formData = new FormData(form);
+
+		$.ajax({
+			type:"post",
+			url:'./myMovieReviewInsert.mp',
+			data:formData,
+			dataType:'json',
+			processData:false,
+			contentType:false,
+			cache:false,
+			success:function(data){
+				if (data.result === 'success') {
+					alert('리뷰글이 등록되었습니다.');
+					location.href = './myMovieRecord.mp';
+				} else {
+					alert('리뷰글 등록을 실패하였습니다.');
+				}
+			},
+			error:function(e){
+				alert('리뷰글 등록을 실패하였습니다.');
+			}
+		});
+	}
+</script>
+
+
 	<!-- 회원 상세 정보 요약 -->
 				<div class="card info-card customers-card" id="reservation-tab-pane" role="tabpanel" aria-labelledby="reservation-tab" tabindex="0" style=" flex-flow: column; margin-top: 22px; background-color: #322465;">
 					<div style="width:850px; height: 40px; margin-top: 10px;">
 					<a style="font-size: 19px; font-style: oblique; color:#FFF; ">&nbsp;&nbsp;한줄평 작성하기</a>
 					</div>
-					
-					<div style="width: 850px; height: 503px;  background-color:#FFFFFF;">
-					<c:forEach var="Lists" items="${Lists}">
-						<strong><p style="font-size: 28px; text-align: center; padding-top: 10px;" >"${Lists.movie_title }"</p></strong>
-						</c:forEach>
-						<p style="font-size: 20px; text-align: center;" >영화 어떠셨나요?</p>
-						<textarea rows="12" cols="96" style="margin: 20px; "  placeholder="관람평을 입력해주세요."﻿﻿ ></textarea>
-						
-						<a href="writeReview.mp?member_id=${loginInfo.member_id}&pageNumber=${pageInfo.pageNumber}" style="background-color: #EBE4FC; color:#6b39ea; padding:5px; margin-left: 380px;  border-radius: 5px;">등록</a>
-						<a href="myMovieRecord.mp?member_id=${loginInfo.member_id}" style="background-color: #EBE4FC; padding:5px; border-radius: 5px; color:#6b39ea;">취소</a>
-					</div>
-			</div>
-			
 
+					<form name="reviewForm" method="POST">
+						<input type="hidden" name="reservation_num" value="${param.reservation_num}">
+						<input type="hidden" name="movie_title" value="${param.movie_title}">
+                        <div style="width: 850px; height: 503px;  background-color:#FFFFFF;">
+                            <%--<c:forEach var="List" items="${List}">
+                            <strong><p style="font-size: 28px; text-align: center; padding-top: 10px;" >"${List.reservation_num }"</p></strong>
+                            </c:forEach>--%>
+                            <p style="font-size: 20px; text-align: center;" >영화 어떠셨나요?</p>
+                            <textarea name="review_content" id="review_content" rows="12" cols="96" style="margin: 20px; "  placeholder="관람평을 입력해주세요."﻿﻿ ></textarea>
+
+                            <a href="javascript:reviewWrite();" style="background-color: #EBE4FC; padding:5px; margin-left: 380px;">등록</a>
+                            <a href="myMovieRecord.mp?member_id=${loginInfo.member_id}" style="background-color: #EBE4FC; padding:5px;">취소</a>
+                        </div>
+					</form>
+			</div>
 </section>
 
 </main>
+
+
 <!-- End #main -->
 <%@ include file="../main/mainFooter.jsp"%>
