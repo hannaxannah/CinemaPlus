@@ -129,7 +129,7 @@
 								</div>
 							</div>
 							<div class="col-xl-4" style="display: flex; flex-direction: column; padding: 0;">
-								<div class="container-title">
+								<div class="container-title" style="border-right: 1px solid #FCFBFF;">
 									영화
 								</div>
 								<div class="container-dropend" id="btn-groupDropendArea" style="width: 100%">
@@ -200,8 +200,9 @@
 									<div class="reservation-movie-date" style="flex-flow: row;border: 1px solid rgba(242, 242, 242, 1);">
 										<c:forEach var="date" items="22<br>목, 23<br>금, 24<br>토, 25<br>일, 26<br>월, 27<br>화, 28<br>수">
 										<div class="reservation-movie-date-item" >
-											<input type="checkbox" value="${date}">
-											${date}
+											<div class="btn-group">
+						                        <button class="btn btn-default" type="button" id="date">${date}</button>
+						                      </div>
 										</div>
 										</c:forEach>
 									</div>
@@ -213,7 +214,6 @@
 										<c:forEach var="fastReservation" items="${fastReservationList}">
 											<div id="${fastReservation.movie_title}" onClick="" style="margin-bottom: 30px;">
 												<div>
-											 <button class="button" id="${title}" onclick="change_btn(event)">
 											 <c:if test="${fastReservation.rating eq '18세관람가'}">
 											<img
 												src="https://img.megabox.co.kr/static/pc/images/common/txt/18_46x46.png"
