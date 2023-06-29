@@ -29,9 +29,9 @@
 					  <li class="nav-item" role="presentation">
 					    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">교통안내</button>
 					  </li>
-					  <li class="nav-item" role="presentation">
+					 <!--  <li class="nav-item" role="presentation">
 					    <button class="nav-link" id="showtime-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="showtime-tab-pane" aria-selected="false">상영시간표</button>
-					  </li>
+					  </li> -->
 					  <li class="nav-item" role="presentation">
 					    <button class="nav-link" id="fee-tab" data-bs-toggle="tab" data-bs-target="#fee-tab-pane" type="button" role="tab" aria-controls="fee-tab-pane" aria-selected="false">관람료</button>
 					  </li>
@@ -48,32 +48,31 @@
 					  </div>
 					  <div class="tab-pane fade" id="fee-tab-pane" role="tabpanel" aria-labelledby="fee-tab" tabindex="0">
 					  	 <a class="theater-branch-fee">
-					  <h5>영화관람료</h5>
 					 	 <h5>영화관람료</h5>
 					 	 <table id="fee-table">
 					  		<tr>
-					  			<td>상영시간</td>
-					  			<td>일반</td>
-					  			<td>청소년</td>
-					  			<td>우대</td>
+					  			<td style="border-bottom: 1px solid;">상영시간</td>
+					  			<td style="border-bottom: 1px solid;">일반</td>
+					  			<td style="border-bottom: 1px solid;">청소년</td>
+					  			<td style="border-bottom: 1px solid;">우대</td>
 					  		</tr>
 					  		<tr>
-					  			<td>조조(06:00~)</td>
-					  			<td>8,000</td>
-					  			<td>6,400</td>
-					  			<td>4,000</td>
+					  			<td style="border-bottom: 1px solid;">조조(06:00~)</td>
+					  			<td style="border-bottom: 1px solid;">8,000</td>
+					  			<td style="border-bottom: 1px solid;">6,400</td>
+					  			<td style="border-bottom: 1px solid;">4,000</td>
 					  		</tr>
 					  		<tr>
-					  			<td>일반(10:01~)</td>
-					  			<td>10,000</td>
-					  			<td>8,000</td>
-					  			<td>5,000</td>
+					  			<td style="border-bottom: 1px solid;">일반(10:01~)</td>
+					  			<td style="border-bottom: 1px solid;">10,000</td>
+					  			<td style="border-bottom: 1px solid;">8,000</td>
+					  			<td style="border-bottom: 1px solid;">5,000</td>
 					  		</tr>
 					  		<tr>
-					  			<td>심야(23:01~)</td>
-					  			<td>9,000</td>
-					  			<td>7,200</td>
-					  			<td>4,500</td>
+					  			<td style="border-bottom: 1px solid;">심야(23:01~)</td>
+					  			<td style="border-bottom: 1px solid;">9,000</td>
+					  			<td style="border-bottom: 1px solid;">7,200</td>
+					  			<td style="border-bottom: 1px solid;">4,500</td>
 					  		</tr>
 					 	 </table>
 					 	 <br>

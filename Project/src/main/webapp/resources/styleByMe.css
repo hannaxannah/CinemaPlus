@@ -1070,6 +1070,7 @@
     flex-flow: flex-end;
     flex-direction: row-reverse;
     background: #322465;
+    position:relative;
 }
 
 #reservation-go-seat input {
@@ -1082,7 +1083,7 @@
     border: none;
     border-radius: 20px;
     padding: 5px 20px;
-    margin: 10px;
+    margin-left: 350px;
 }
 
 .reservation-select-number-seat {
