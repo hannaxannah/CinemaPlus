@@ -131,7 +131,7 @@
 								                
 								                <c:if test="${fn:length(reservationList) == 0}">
 												<tr>
-													<td colspan="5" align="center">예매 내역이 없습니다.</td>
+													<td colspan="6" align="center">예매 내역이 없습니다.</td>
 												</tr>
 												
 											</c:if>
