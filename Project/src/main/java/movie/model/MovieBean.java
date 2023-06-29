@@ -15,6 +15,7 @@ public class MovieBean {
 	private String rating;
 	private int screen;
 	private int vod;
+	
 
 
 	

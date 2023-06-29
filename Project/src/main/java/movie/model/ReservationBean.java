@@ -10,6 +10,7 @@ public class ReservationBean {
 	private String screen_name;
 	private String screen_time;
 	private String member_id;
+	private String ticket_type;
 	
 	public int getReservation_num() {
 		return reservation_num;
@@ -64,6 +65,12 @@ public class ReservationBean {
 	}
 	public void setSeat_number2(String seat_number2) {
 		this.seat_number2 = seat_number2;
+	}
+	public String getTicket_type() {
+		return ticket_type;
+	}
+	public void setTicket_type(String ticket_type) {
+		this.ticket_type = ticket_type;
 	}
 	
 	
