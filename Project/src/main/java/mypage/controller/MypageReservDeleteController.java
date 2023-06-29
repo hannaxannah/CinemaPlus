@@ -40,12 +40,10 @@ public class MypageReservDeleteController {
 		
 		PrintWriter out = null;
 		response.setContentType("text/html; charset=UTF-8");
-		ReservationBean reservationBean = screenDao.getReservationByNum(reservation_num);
+		ReservationBean reservationBean = screenDao.getReservationByNum(reservation_num); //예매번호가져오기
+		
 		int cnt = screenDao.deleteCancle(reservation_num);
 		
-		/*
-		 * List<ScreenBean> delList = screenDao.deleteMyReserList(reservation_num);
-		 */		
 		
 		if(cnt != -1) {
 			

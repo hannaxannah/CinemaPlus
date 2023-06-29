@@ -94,8 +94,6 @@ commit;
 
 select * from FAQ;
 
-
-
 DROP TABLE cancel_reservation CASCADE CONSTRAINTS;
  
 create table cancel_reservation (
