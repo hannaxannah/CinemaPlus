@@ -191,7 +191,9 @@
 		delete from cancel_reservation
 		where reservation_num = #{reservation_num}
 	</delete>
-	
+	<select id="GetAllReservationList" resultType = "movie.model.ReservationBean">
+		select * from ticket_reservation
+	</select>
 	<!-- 멤버쉽 - 아이디마다 예매횟수 -->
 	<select id = "GetReservCountById" resultType="int">
 	 select count(*) from ticket_reservation

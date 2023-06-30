@@ -88,11 +88,11 @@
 				, data   : {"movies": movies}
 				, dataType : "text"
 				, success : function(data){
-				      alert(data);
+				      alert("추가되었습니다.");
 					location.href = 'movieList.admin';
 				}
 				, error: function(jqXHR, textStatus, errorThrown) {
-					alert("ERROR : " + textStatus + " : " + errorThrown);
+					alert("실패했습니다.");
 				}
 			});
 		});

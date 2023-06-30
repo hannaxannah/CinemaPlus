@@ -102,6 +102,7 @@
                       <li><a href="boxOffice.mv?admin=admin">박스오피스 목록</a></li>
                       <li><a href="screenOnList.admin">상영중</a></li>
                       <li><a href="movieList.admin">VOD 목록</a></li>
+                      <li><a href="adminSell.admin">영화 판매 내역</a></li>
                     </ul>
                   </li>
                  
