@@ -234,8 +234,13 @@
 									</div>
 								</div>
 								<div class="reservation-go-pay">
-									<input type="button" class="reservation-go-pay-btn" value="결제하기" onClick="submitSeatnum()">
-									<input type="button" class="reservation-go-pay-btn" value="취소하기" onClick="cancelSeat()">
+									<div>
+										<input type="button" class="reservation-go-pay-btn" value="결제하기" style="float: left;
+    width: 50%;margin: 5px;" onClick="submitSeatnum()">
+									</div>
+									<div>
+										<input type="button" class="reservation-go-pay-btn" value="취소하기" style="margin: 5px;" onClick="cancelSeat()">
+									</div>
 								</div>
 							</div>
 						</div>

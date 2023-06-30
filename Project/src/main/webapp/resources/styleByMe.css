@@ -1159,10 +1159,10 @@
 
 .reservation-ticket-price {
 	display: flex;
-    justify-content: space-between;
-    align-items: center;
+	justify-content: space-between;
+	align-items: center;
 	padding: 5px;
-	padding-top: 40px;
+	padding-top: 30px;
 }
 
 .reservation-price {
@@ -1182,11 +1182,11 @@
 
 .reservation-go-pay {
 	width: 100%;
-    height: auto;
-    border-radius: 0 0 10px 10px;
-    padding: 10px;
-    background: #6B39EA;
-    text-align: center;
+	height: auto;
+	border-radius: 0 0 10px 10px;
+	/* padding: 10px; */
+	background: #6B39EA;
+	text-align: center;
 }
 
 .reservation-go-pay-btn {
