@@ -254,7 +254,6 @@
 								</div>
 							</div>
 							<div class="col-xl-10" id="reservation-go-seat" >
-								<div style="width:100px;height:100px; background-color: #ffffff;">sad</div>
 								<input type="submit" value="인원 및 좌석 선택" form="myform">;
 							</div>
 						</div>
