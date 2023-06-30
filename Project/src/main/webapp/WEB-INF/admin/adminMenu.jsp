@@ -41,6 +41,35 @@
     <link href="resources/admin/css/custom.min.css" rel="stylesheet">
   </head>
 
+<style>
+.myButton {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+	background-color:#f9f9f9;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:5px 9px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+	background-color:#e9e9e9;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+	
+</style>
+
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
@@ -58,9 +87,22 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_info">
+              
+               <div> 
+          <c:choose>
+				<c:when test="${loginInfo eq null}">
+		        	&nbsp;<a class="myButton" href="memberlogin">로그인</a>
+		        </c:when>
+				<c:otherwise>
+					&nbsp;<a class="myButton" href="logout.mb">로그아웃</a>
+				</c:otherwise>
+			</c:choose>
+         </div><br>
+              
                 <span><strong>관리자</strong> 님</span>
                 <h2>반갑습니다.</h2>
               </div>
+              
             </div>
             <!-- /menu profile quick info -->
 
@@ -70,6 +112,7 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>관리자 메뉴</h3>
+          
                 <ul class="nav side-menu">
                 	
                     <li><a href="main.mn"><i class="fa fa-home"></i> 유저페이지</a></li>	
