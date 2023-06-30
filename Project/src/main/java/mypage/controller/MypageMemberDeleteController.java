@@ -3,7 +3,9 @@ package mypage.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,6 +38,7 @@ public class MypageMemberDeleteController {
 
 	@RequestMapping(value = command, method = RequestMethod.POST)
 	public String doAction(
+			HttpServletRequest request,
 			@RequestParam("member_id") String member_id,
 			@RequestParam("member_pw") String member_pw,
 			@RequestParam("member_phone") String member_phone,
@@ -57,8 +60,17 @@ public class MypageMemberDeleteController {
 				System.out.println("회원삭제 cnt : " + cnt);
 				
 				out = response.getWriter();
-				out.print("<script>alert('회원 정보가 삭제되었습니다.');location.href='main.mp';</script>");
+				out.print("<script>alert('회원 정보가 삭제되었습니다.');location.href='main.mn'</script>");
 				out.flush();
+				
+				//회원 탈퇴 시 세션 만료시키기
+				 HttpSession session = request.getSession(false);
+			      
+				 	if (session != null) {
+			            session.invalidate();
+			        }
+			        return "redirect:main.mn/";
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
