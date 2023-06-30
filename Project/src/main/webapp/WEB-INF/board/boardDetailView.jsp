@@ -156,7 +156,7 @@
                     <c:if test="${loginInfo.member_id eq 'admin'}">			
                     <button class="btn btn-primary" id="FAQcomment-submit" type="button" onClick="location.href='faqUpdate.bd?movienum=${board.movie_num}'">관리자 수정</button>
 					</c:if>
-                    <button class="btn btn-primary" id="FAQcomment-submit" type="reset" onClick="location.href='list.bd?pageNumber=${param.pageNumber}'">목록으로</button>
+                    <button class="btn btn-primary" id="FAQcomment-submit" type="reset" onClick="location.href='faq.admin'">목록으로</button>
                 </div>
 
             </form>

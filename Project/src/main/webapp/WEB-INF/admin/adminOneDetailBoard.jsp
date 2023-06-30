@@ -261,7 +261,7 @@
     
     <tr>
         <th colspan="4" align="center">
-            <input type="button" class="listButton " value="글목록" onClick="location.href='list.in?pageNumber=${param.pageNumber}'">
+            <input type="button" class="listButton " value="글목록" onClick="location.href='board.admin'">
   			<c:if test="${sessionScope.loginInfo.member_id eq board.customer_id}">         
             <input type="button" class="meButton" value="문의글 삭제" onClick="location.href='delete.in?movie_code=${board.movie_code}&pageNumber=${param.pageNumber}'">
             </c:if>
