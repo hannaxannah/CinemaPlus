@@ -235,6 +235,7 @@
 								</div>
 								<div class="reservation-go-pay">
 									<input type="button" class="reservation-go-pay-btn" value="결제하기" onClick="submitSeatnum()">
+									<input type="button" class="reservation-go-pay-btn" value="취소하기" onClick="cancelSeat()">
 								</div>
 							</div>
 						</div>
@@ -393,6 +394,7 @@ function minusHandicap() {
 
 function checkOver() {
 	if(people == 4){
+		alert("최대 4명까지 선택 가능합니다.");
 		return false;
 	}
 	return true;
@@ -410,7 +412,9 @@ function checkLow() {
 function submitSeatnum() {
 	var area = encodeURIComponent('${sArea}',"UTF-8");
 	var day = encodeURIComponent('${day}',"UTF-8");
-	
+	if(people == 0){
+		alert("최소 1명이라도 좌석을 선택해주세요")
+	}else{
 	 location.href = "screenReservationInsert.mv?seatnum="+ seatnum + "&screen_time=" + '${screenBean.screen_time}'
 			 + "&adults=" + adults
 			 + "&teens=" + teens
@@ -418,7 +422,15 @@ function submitSeatnum() {
 			 + "&day=" + day
 			 + "&time=" + '${screenBean.time}'
 			 + "&handicaps=" + handicaps;
+	}
 	
+}
+function cancelSeat() {
+	 if (confirm("취소하시겠습니까?")) {
+
+		 location.href = document.referrer;
+
+		  }
 }
 
 </script>
