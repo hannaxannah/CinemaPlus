@@ -114,11 +114,11 @@ create table cancel_reservation (
 drop sequence cancel_seqres ;
 create sequence cancel_seqres start with 1 increment by 1 nocache ;
 
-insert into ticket_reservation values(1, '스즈메의 문단속', sysdate, '11', 55, 15000, 'CGV고잔', '150', 'lee');
-insert into ticket_reservation values(2, '탑건', sysdate, '23', 33, 12500, 'CGV중앙', '180', 'lee');
-insert into ticket_reservation values(3, '가오겔3', sysdate, '17', 26, 15500, 'CGV수원', '210', 'lee');
-insert into ticket_reservation values(4, '교섭', sysdate, '57', 23, 17000, 'CGV광교', '110', 'lee');
-insert into ticket_reservation values(5, '리바운드', sysdate, '24', 14, 15000, 'CGV홍대', '160', 'lee');
+insert into ticket_reservation values(1, '스즈메의 문단속', sysdate, '11', 55, 15000, 'CGV고잔', '150', 'lee','일');
+insert into ticket_reservation values(2, '탑건', sysdate, '23', 33, 12500, 'CGV중앙', '180', 'lee','이');
+insert into ticket_reservation values(3, '가오겔3', sysdate, '17', 26, 15500, 'CGV수원', '210', 'lee','삼');
+insert into ticket_reservation values(4, '교섭', sysdate, '57', 23, 17000, 'CGV광교', '110', 'lee','사');
+insert into ticket_reservation values(5, '리바운드', sysdate, '24', 14, 15000, 'CGV홍대', '160', 'lee','오');
 
 
 
