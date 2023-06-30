@@ -1,6 +1,20 @@
 
 ========================================================
 
+--영화 등록
+
+분노의 질주 : zmNRHgRG3lo
+인어공주 : BNQMx5gy5Xg
+남은인생10년 : lZg-NjhG3WQ
+귀공자 : Obc6ecquoA0
+포켓몬스터 : j_mydOm1mMU
+가오갤 : XyHr-s3MfCQ
+트랜스포머 : Ef1TBzqgLk4
+플래시 : Y3abEKHEkGQ
+엘리멘탈 : BOqFRHCrN-k
+범죄도시 : UTPEPu2Je9g
+
+
 --member테이블 insert
 
 [신주영]
@@ -103,8 +117,8 @@ create table cancel_reservation (
 	seat_number varchar2(10),
 	seat_number2 number,
 	ticket_price number,
-	screen_name varchar2(10),
-	screen_time varchar2(10),
+	screen_name varchar2(100),
+	screen_time varchar2(100),
 	is_deleted number default 0,
 	member_id varchar2(50)
 	) ;
@@ -132,7 +146,7 @@ create table reservation_review (
 	movie_title  VARCHAR2(100),
 	review_date date default sysdate,
 	review_content varchar2(1000),
-	screen_name varchar2(10),
+	screen_name varchar2(100),
 	member_id varchar2(50)
 );
 

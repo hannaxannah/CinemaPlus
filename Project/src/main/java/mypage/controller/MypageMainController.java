@@ -2,6 +2,7 @@ package mypage.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import member.model.MemberBean;
 import member.model.MemberDao;
+import movie.model.ReservationBean;
 import movie.model.ScreenDao;
 
 @Controller
@@ -63,9 +65,16 @@ public class MypageMainController {
 		
 		int MembershipCount = screenDao.getReservCountById(id);
 		
+		List<ReservationBean> delList = screenDao.deleteMyMainList(id);
+		
+		List<ReservationBean> reservationList = screenDao.getReservationMainById(id);
+		
 		mav.addObject("mybean", mybean);
+		model.addAttribute("delList", delList);
 		mav.addObject("couponSize", couponSize);
 		mav.addObject("MembershipCount", MembershipCount);
+		model.addAttribute("reservationList", reservationList);
+		
 		mav.setViewName(getPage);
 		
 		return mav;

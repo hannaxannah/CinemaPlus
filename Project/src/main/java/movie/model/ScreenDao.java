@@ -131,13 +131,13 @@ public class ScreenDao {
 		return cnt;
 	}
 
-
+	/* 마이페이지 예매내역 */
 	public ReservationBean getReservationByNum(String reservation_num) {
 		ReservationBean reservationBean = sqlSessionTemplate.selectOne(namespace + ".GetReservationByNum", reservation_num);
 		return reservationBean;
 	}
 
-
+	/* 마이페이지 취소내역 */
 	public List<ReservationBean> deleteMyReserList(String member_id) {
 		List<ReservationBean> list = new ArrayList<ReservationBean>();
 		list = sqlSessionTemplate.selectList(namespace + ".getDeleteMyReserList", member_id);
@@ -197,6 +197,20 @@ public class ScreenDao {
 		reservationList = sqlSessionTemplate.selectList(namespace+".GetAllReservationList");
 		return reservationList;
 		
+	}
+
+	/* 마이페이지 메인 - 취소내역 */
+	public List<ReservationBean> deleteMyMainList(MemberBean id) {
+		List<ReservationBean> list = new ArrayList<ReservationBean>();
+		list = sqlSessionTemplate.selectList(namespace + ".getDeleteMainMyReserList", id);
+		return list;
+	}
+
+	/* 마이페이지 메인 - 예매내역 */
+	public List<ReservationBean> getReservationMainById(MemberBean id) {
+		List<ReservationBean> list = new ArrayList<ReservationBean>();
+		list = sqlSessionTemplate.selectList(namespace + ".GetReservationMainById", id);
+		return list;
 	}
 
 
