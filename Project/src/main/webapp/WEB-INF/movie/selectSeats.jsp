@@ -153,7 +153,7 @@
 							</div>
 							<!-- 선택 정보 조회 -->
 							<div class="col-xl-3" style="padding: 20px 10px 20px 10px;">
-								<div class="">
+								<div class="" style="padding: 20px 10px 20px 10px; background-color: #ffffff; border-radius: 5px 5px 0 0;">
 									<!-- 상영 등급, 제목 -->
 									<div class="rreservation-ticketeservation-ticket-title">
 										<c:if test="${screenBean.rating eq '18세관람가'}">
@@ -208,11 +208,10 @@
 									<!-- 좌석 선택 정보 -->
 									<div class="reservation-ticket-seat">
 										<div style="width: 50%; border: 1px solid #CCCCCC; border-radius: 5px 0 0 5px; padding: 5px;">
-											<div style="margin-top: 5px;"></div>
+											<div style="margin-top: 5px; backgoround-color:#ffffff"></div>
 											<p class="tit"><i class="bi bi-square-fill" id="selectedSeat" style=" justify-content: unset; display:unset;"></i><span>&nbsp;선택</span></p>
 											<div style="margin-top: 5px;"></div>
-											<p class="tit"><i class="bi bi-x-square-fill" style="color: #CCCCCC"></i>&nbsp;선택불가</p>
-											<div style="margin-top: 5px;"></div>
+											<p class="tit"><i class="bi bi-x-square-fill" style="border-radius:5px;color:#CCCCCC; margin-left: 5px;"></i>&nbsp;&nbsp;선택불가</p>
 											<p class="tit"><i class="bi bi-square-fill" id="seat" style=" justify-content: unset; display:unset;"></i><span>&nbsp;선택가능</span></p>
 										</div>
 										<div style="width: 50%; text-align: center; border: 1px solid #CCCCCC; border-radius: 0 5px 5px 0; border-left: 0; padding: 5px;">
@@ -282,7 +281,7 @@ seatContainer.addEventListener('click', (e) => {
 	//alert(e.target.className);
 	//alert(e.target.id);
 	//alert(e.target.text);
-	alert(e.target.id)
+	//alert(e.target.id)
     if(e.target.id === 'seat' && selec < people && e.target.className === 'bi bi-square-fill'){
         e.target.id = 'selectedSeat';
         var sCol = e.target.children[0].textContent;

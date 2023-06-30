@@ -76,19 +76,19 @@ create sequence FAQ_seq
 
 
 insert into FAQ(movie_num,classification,question,qdate,content)
-values(FAQ_seq.nextval,'영화예매','인터넷 예매 취소는 어떻게 하나요?','2021-08-18','FAQ 내용테스트1');
+values(FAQ_seq.nextval,'영화예매','인터넷 예매 취소는 어떻게 하나요?','2021-08-18','마이페이지에서 예매내역에 예매취소 버튼을 누르시면 예매취소가 가능합니다. 자세한 사항은 해당 영화관 지점에 연락 바랍니다.');
 
 insert into FAQ(movie_num,classification,question,qdate,content)
-values(FAQ_seq.nextval,'결제수단/관람권','멤버십에 등록한 영화관람권 삭제는 어떻게 하나요?','2023-01-05','FAQ 내용테스트2');
+values(FAQ_seq.nextval,'결제수단/관람권','멤버십에 등록한 영화관람권 삭제는 어떻게 하나요?','2023-01-05','영화관람권의 경우 번거로우시겠지만 직접 고객센터에 연락을 주셔야 합니다.');
 
 insert into FAQ(movie_num,classification,question,qdate,content)
-values(FAQ_seq.nextval,'멤버십','멤버쉽 카드를 분실했어요. 재발급은 어떻게 하면 되나요?','2019-11-16','FAQ 내용테스트3');
+values(FAQ_seq.nextval,'멤버십','멤버쉽 카드를 분실했어요. 재발급은 어떻게 하면 되나요?','2019-11-16','멤버쉽카드는 홈페이지에서 재발급이 가능하십니다.');
 
 insert into FAQ(movie_num,classification,question,qdate,content)
-values(FAQ_seq.nextval,'스토어','스토어에서 구매한 관람권이 등록이 안됩니다.','2022-10-28','FAQ 내용테스트4');
+values(FAQ_seq.nextval,'스토어','스토어에서 구매한 관람권이 등록이 안됩니다.','2022-10-28','구매번호를 말씀해주시면 바로 등록 및 처리해드리겠습니다.');
 
 insert into FAQ(movie_num,classification,question,qdate,content)
-values(FAQ_seq.nextval,'홈페이지/모바일','아이디와 비밀번호를 잃어버렸습니다.','2023-05-05','FAQ 내용테스트5');
+values(FAQ_seq.nextval,'홈페이지/모바일','아이디와 비밀번호를 잃어버렸습니다.','2023-05-05','로그인페이지에 있는 아이디찾기/비밀번호 찾기를 통해 정보를 찾으실 수 있습니다.');
 
 commit;
 

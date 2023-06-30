@@ -23,10 +23,20 @@ order by member_code asc;
 
 --관리자
 insert into member
-values('M1', 'admin', 'admin1234', '관리자', '19970101', '01000000000', 'admin@naver.com', 'q2','5명',sysdate,'비동의','수신거부','수신거부', null);
+values('M1', 'admin', 'admin1234', '관리자', '19970101', '01000000000', 'admin@naver.com', 'q2','5명',sysdate,'비동의','수신거부','수신거부',0);
 
 insert into member
 values('M2','kim1111','k1234567','김지원',19940718,01012341234,'kim1111@naver.com','q1','분식집',sysdate,'동의','수신거부','수신동의',0);
 insert into member
 values('M3','hong1111','h1234567','홍길동',19990101,01011111111,'hong1111@naver.com','q1','분식집',sysdate,'동의','수신거부','수신동의',0);
+insert into member
+values('M4','park1111','p1234567','박수현',19981205,01050507070,'park1111@naver.com','q1','분식집',sysdate,'동의','수신거부','수신동의',0);
+insert into member
+values('M5','lee1111','l1234567','이진우',19970813,01008130813,'lee1111@naver.com','q1','분식집',sysdate,'동의','수신거부','수신동의',0);
+insert into member
+values('M6','moon1111','m1234567','문동호',19870131,01011112222,'moon1111@naver.com','q1','분식집',sysdate,'동의','수신거부','수신동의',0);
+
+insert into member
+values('M7','bbb1111','b1234567','부승원',20010614,01006140614,'bbb1111@naver.com','q1','분식집',sysdate,'동의','수신거부','수신동의',0);
+
 commit;
