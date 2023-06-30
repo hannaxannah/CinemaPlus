@@ -38,9 +38,9 @@ public class ReservationReviewDao {
       sqlSessionTemplate.insert(namespace + ".InsertReview", board);
    }
 
-   public int ReviewDelete(String reservation_num) {
+   public int ReviewDelete(String review_content) {
 		int cnt = -1;
-		cnt = sqlSessionTemplate.delete(namespace + ".GetReviewDelete", reservation_num);
+		cnt = sqlSessionTemplate.delete(namespace + ".GetReviewDelete", review_content);
 		System.out.println("cnt:" + cnt);
 		return cnt;
 }

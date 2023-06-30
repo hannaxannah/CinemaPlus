@@ -199,7 +199,7 @@ a {
 												value="${review.review_date}" type="date"
 												pattern="yyyy-MM-dd HH:ss" /></td>
 												<!-- <td><a href="">수정</a></td> -->
-												<td><a href="MovieRecordDelete.mp?reservation_num=${review.reservation_num}">삭제</a></td>
+												<td><a href="MovieRecordDelete.mp?review_content=${review.review_content}">삭제</a></td>
 									</tr>
 								</c:forEach>
 							</table>
