@@ -192,4 +192,12 @@ public class ScreenDao {
 	}
 
 
+	public List<ReservationBean> getAllReservationList() {
+		List<ReservationBean> reservationList = new ArrayList<ReservationBean>();
+		reservationList = sqlSessionTemplate.selectList(namespace+".GetAllReservationList");
+		return reservationList;
+		
+	}
+
+
 }
