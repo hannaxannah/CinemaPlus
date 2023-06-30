@@ -94,7 +94,7 @@
 		location.href="fastReservation.mv?movie_title=" + '${movie.movie_title}';
 	}
 	function vodBuy() {
-		alert(1);
+		location.href="vodBuy.mv?movie_code=" + '${movie.movie_code}';
 	}
 	
 	

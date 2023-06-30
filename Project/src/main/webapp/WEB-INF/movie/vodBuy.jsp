@@ -26,12 +26,12 @@
 							</tr>
 							<tr>
 								<td style="background-color: #7B4EEC; color:#FFF;">상영일시</td>
-								<td> ${screenBean.screen_time}</td>
+								<td> ${reservationBean.screen_time}</td>
 							</tr>
 							<tr>
 								<td style="background-color: #7B4EEC; color:#FFF;">좌석번호</td>
 								<td>
-									${reservationBean.seat_num}
+									${reservationBean.seat_number}
 								</td>
 							</tr>
 							<tr>

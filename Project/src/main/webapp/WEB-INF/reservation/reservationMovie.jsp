@@ -123,7 +123,7 @@
 														</c:if>
 														<c:if test="${areaName == '광주/전라/제주'}">
 															<c:forEach var="seoulBranch" items="${gwangju}">
-																<li class="dropdown"><a class="reservation-theater-branch" id="${Branch}" href="#">${seoulBranch}</a></li>
+																<li class="dropdown"><a class="reservation-theater-branch" id="${seoulBranch}" href="#">${seoulBranch}</a></li>
 															</c:forEach>
 														</c:if>
 													</ul>
