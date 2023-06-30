@@ -48,6 +48,10 @@
 	    background-color: #333;
 	}
 	
+	.reservation-movie-date::-webkit-scrollbar {
+	    display: none; 
+	}
+	
 	.reservation-movie-time::-webkit-scrollbar {
 	    display: none; 
 	}
