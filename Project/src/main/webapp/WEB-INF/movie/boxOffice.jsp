@@ -8,7 +8,7 @@
 	    font-weight: 500;
 	    transition: 0.3s;
 	    color : #FFF;
-	    background: #FF4357;
+	    background-color : #6B39EA;
 	    border: none;
 	    border-radius: 20px;
 	    padding: 5px 17px;
