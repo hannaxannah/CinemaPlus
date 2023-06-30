@@ -15,7 +15,6 @@
 				
 				<nav id="theaterNavbar" class="navbar">
 					<ul>
-						<li class="dropdown"><a href="mymovieshowtime.mv">상영시간표</a></li>
 						<li class="dropdown"><a href="vodList.mv">VOD</a></li>
 					</ul>
 				</nav>

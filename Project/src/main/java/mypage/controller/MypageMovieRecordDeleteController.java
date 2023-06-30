@@ -32,18 +32,18 @@ public class MypageMovieRecordDeleteController {
 	ReservationReviewDao reservationReviewDao;
 
 	@RequestMapping(command)
-	public String doAction(@RequestParam("reservation_num") String reservation_num,
+	public String doAction(@RequestParam("review_content") String review_content,
 			
 			HttpServletResponse response,
 			Model model) {
 		
 		
-		System.out.println("my reservation_num: " + reservation_num);
+		System.out.println("my reservation_num: " + review_content);
 		
 		PrintWriter out = null;
 		response.setContentType("text/html; charset=UTF-8");
 		
-		int cnt = reservationReviewDao.ReviewDelete(reservation_num);
+		int cnt = reservationReviewDao.ReviewDelete(review_content);
 		System.out.println("return cnt: " + cnt);
 		
 		

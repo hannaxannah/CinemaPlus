@@ -38,7 +38,7 @@
     <!-- 작성한 리뷰 목록 - 리뷰 삭제 -->
 	<delete id="GetReviewDelete">
 		delete from reservation_review
-		where reservation_num = #{reservation_num}
+		where review_content = #{review_content}
 	</delete>
     
     

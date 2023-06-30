@@ -836,11 +836,11 @@ create table cancel_reservation (
 	reservation_num number not null,
 	movie_title varchar2(100),
 	reservation_date date default sysdate,
-	seat_number varchar2(10),
+	seat_number varchar2(100),
 	seat_number2 number,
 	ticket_price number,
-	screen_name varchar2(10),
-	screen_time varchar2(10),
+	screen_name varchar2(100),
+	screen_time varchar2(100),
 	is_deleted number default 0,
 	member_id varchar2(50)
 	) ;
