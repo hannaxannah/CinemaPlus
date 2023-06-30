@@ -244,7 +244,7 @@
 											</button>
 										</div>
 										</c:forEach>
-										<form action="selectSeats.mv" method="post" id="myform" name="aForm">
+										<form action="selectSeats.mv" method="post" id="myform" name="aForm" >
 										
 										</form>
 									
@@ -252,7 +252,7 @@
 								</div>
 							</div>
 							<div class="col-xl-10" id="reservation-go-seat" >
-								<input type="submit" value="인원 및 좌석 선택" form="myform">;
+								<input type="submit" value="인원 및 좌석 선택" form="myform" onclick="return checking()">;
 							</div>
 						</div>
 					</div>
@@ -268,6 +268,7 @@
 <script>
 var area = null;
 var day = null;	
+var sSeat = null;
 function change_btn(e) {
 	  var btns = document.querySelectorAll(".button");
 	  btns.forEach(function (btn, i) {
@@ -323,6 +324,7 @@ function change_btn2(e) {
 			      var c = $(btn).children();
 			      console.log(c);
 			      alert("영화가 선택되었습니다.");
+			      sSeat = 'on';
 			      for(var i=1; i<=6; i++){
 			    	  input = document.createElement("input");
 			    	  //alert(values[i-1]);
@@ -341,18 +343,7 @@ function change_btn2(e) {
 	  });
 	  //console.log(e.currentTarget);
 	}
-	
-function change_btn3(e) {
-	  var btns3 = document.querySelectorAll("#date");
-	  btns2.forEach(function (btn, i) {
-	    if (e.currentTarget == btn) {
-	      btn.classList.add("active");
-	    } else {
-	      btn.classList.remove("active");
-	    }
-	  });
-	  //console.log(e.currentTarget);
-	}
+
 	
 document.addEventListener('DOMContentLoaded', () =>{
 
@@ -364,6 +355,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 		if(e.target.innerText == e.target.id){
 			area = e.target.id;
 			alert("영화관이 선택되었습니다.")
+			
 			 var aForm = document.forms["aForm"].getElementsByTagName("input");
 			   while(aForm[0]){
 				   aForm[0].remove();
@@ -400,6 +392,21 @@ document.addEventListener('DOMContentLoaded', () =>{
 	})
 	   
 })
+function checking() {
+	 if(area == null){
+	   	  alert("지역을 선택해주세요");
+	   		return false;
+	     }else if(day == null){
+	   	  alert("시간을 선택해주세요");
+	   		return false;
+	     }else if (sSeat == null){
+	    	 alert("영화를 선택해주세요");
+	    	return false;
+	     }else{
+	    	return true; 
+	     }
+}	
+
 </script>
 <!-- End #main -->
 <%@ include file="../main/mainFooter.jsp"%>

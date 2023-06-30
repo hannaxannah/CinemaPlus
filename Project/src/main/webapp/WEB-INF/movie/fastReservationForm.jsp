@@ -271,7 +271,7 @@
 								</div>
 							</div>
 							<div class="col-xl-10" id="reservation-go-seat" >
-								<input type="submit" value="인원 및 좌석 선택" form="myform">;
+								<input type="submit" value="인원 및 좌석 선택" form="myform" onclick="return check()">;
 							</div>
 						</div>
 					</div>
@@ -285,7 +285,9 @@
 	</section>
 </main>
 <script>
-
+var area = null;
+var day = null;	
+var sSeat = null;
 	
 function change_btn2(e) {
 	  var btns2 = document.querySelectorAll(".timeButton");
@@ -301,6 +303,7 @@ function change_btn2(e) {
 	      }else{
 			$('input[name=screen_time]').attr('value',btn.id);
 			 var input = document.createElement("input");
+			 sSeat = 'on';
 			   var values = ['screen_time', 'movie_title', 'seat_count', 'screen_name', 'ticket_price', 'rating'];
 			   var aForm = document.forms["aForm"].getElementsByTagName("input");
 			   while(aForm[2]){
@@ -311,6 +314,7 @@ function change_btn2(e) {
 			      var c = $(btn).children();
 			      console.log(c);
 			      alert("영화가 선택되었습니다.");
+			      
 			      for(var i=1; i<=6; i++){
 			    	  input = document.createElement("input");
 			    	  //alert(values[i-1]);
@@ -375,6 +379,21 @@ document.addEventListener('DOMContentLoaded', () =>{
 	})
 	   
 })
+	function check() {
+	 if(area == null){
+   	  alert("지역을 선택해주세요");
+   		return false;
+     }else if(day == null){
+   	  alert("시간을 선택해주세요");
+   		return false;
+     }else if (sSeat == null){
+    	 alert("영화를 선택해주세요");
+    	return false;
+     }else{
+    	return true; 
+     }
+	}
+
 </script>
 <!-- End #main -->
 <%@ include file="../main/mainFooter.jsp"%>
