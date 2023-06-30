@@ -213,5 +213,19 @@
 	</delete>
 	
 	
+	<!-- 마이페이지 메인 - 예매내역 -->
+	<select id="GetReservationMainById" resultType="movie.model.ReservationBean">
+		select * from ticket_reservation
+		where member_id = #{member_id}
+		order by seat_number2
+	</select>
+	
+	<select id="getDeleteMainMyReserList" resultType="movie.model.ReservationBean">
+		select * from cancel_reservation
+		where member_id = #{member_id}
+		order by seat_number2
+	</select>
+	
+	
 </mapper>
 

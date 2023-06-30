@@ -74,6 +74,7 @@
 							<!-- 예매내역 -->
 							<div class="card info-card customers-card">
 								<div class="card-body align-items-center justify-content-center">
+											
 											<table class="myReservationPurchase">
 												<tr>
 													<td>
@@ -83,40 +84,81 @@
 														<a href="myreservation.mp?member_id=${loginInfo.member_id}">더보기</a>
 													</td>
 												</tr>
-												<tr>
-													<td colspan="2">
-														<!-- <hr style="border: 1px solid black; margin: 0;"> -->
-													</td>
+												
+												  <thead>
+								                  <tr>
+								                    <th scope="col" width="20%">예매날짜</th>
+								                    <th scope="col" width="10%">영화관</th>
+								                    <th scope="col" width="30%">영화</th>
+								                    <th scope="col" width="15%">영화시간</th>
+								                    <th scope="col" width="10%">좌석번호</th>
+								                    <th scope="col" width="20%">예매취소</th>
 												</tr>
-												<tr>
-													<td colspan="2">
-													</td>
-												</tr>
-											</table>
+								                </thead>
+								                
+								                <c:if test="${fn:length(reservationList) == 0}">
+													<tr>
+														<td colspan="6" align="center">예매 내역이 없습니다.</td>
+													</tr>
+												</c:if>
+												
+												 <c:if test="${fn:length(reservationList) != 0}">
+												<tbody>
+												<c:forEach var="reservation" items="${reservationList}" varStatus="status">
+													<tr>
+														<fmt:parseDate var="date1" value="${reservation	.reservation_date}" pattern="yyyy-MM-dd"/>
+														<fmt:formatDate  var="date2" value="${date1}" type="DATE" pattern="yyyy-MM-dd"/> 
+														<td>${date2}</td>
+														<td>${reservation.screen_name}</td>
+														<td>${reservation.movie_title}</td>
+														<td>${reservation.screen_time}</td>
+														<td>${reservation.seat_number}</td>
+														<td><a href="reservDel.mp?reservation_num=${reservation.reservation_num}">예매취소</a></td>
+													</tr>
+												</c:forEach>												
+												</tbody>
+											</c:if>
+								              </table>
+											
+								              
 								</div>
 							</div>
-							<!-- 구매내역 -->
+							<!-- 취소내역 -->
 							<div class="card info-card customers-card">
 								<div class="card-body align-items-center justify-content-center">
-											<table class="myReservationPurchase">
+											 <table class="table">
+								                <thead>
+								                  <tr>
+								                    <th scope="col" width="15%">예매날짜</th>
+								                    <th scope="col" width="15%">영화관</th>
+								                    <th scope="col" width="30%">영화</th>
+								                    <th scope="col" width="15%">좌석번호</th>
+								                    <th scope="col" width="15%">완전삭제</th>
+								                  </tr>
+								                </thead>
+								                
+								                <c:if test="${fn:length(delList) == 0}">
 												<tr>
-													<td>
-														취소내역
-													</td>
-													<td>
-														<a href="myreservDelete.mp?member_id=${loginInfo.member_id}">더보기</a>
-													</td>
+													<td colspan="5" align="center">취소 내역이 없습니다.</td>
 												</tr>
-												<tr>
-													<td colspan="2">
-														<!-- <hr style="border: 1px solid black; margin: 0;"> -->
-													</td>
-												</tr>
-												<tr>
-													<td colspan="2">
-													</td>
-												</tr>
-											</table>
+												
+											</c:if>
+											 <c:if test="${fn:length(delList) != 0}">
+												<tbody>
+												<c:forEach var="del" items="${delList}" varStatus="status">
+													<tr>
+														<fmt:parseDate var="date1" value="${del.reservation_date}" pattern="yyyy-MM-dd"/>
+														<fmt:formatDate  var="date2" value="${date1}" type="DATE" pattern="yyyy-MM-dd"/> 
+														<td>${date2}</td>
+														<td>${del.screen_name}</td>
+														<td>${del.movie_title}</td>
+														<td>${del.seat_number}</td>
+														<td><a href="hangDelete.mp?reservation_num=${del.reservation_num}">완전삭제</a></td>
+													</tr>
+												</c:forEach>												
+												</tbody>
+											</c:if>
+								              </table>
 										</div>
 									</div>
 							</div>
