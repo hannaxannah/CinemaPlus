@@ -9,9 +9,7 @@
 insert into member values('M1', 'admin', 'admin1234', '관리자', '19970101', '01000000000', 'admin@naver.com', 'q2','5명',sysdate,'비동의','수신거부','수신거부', 0);
 
 --일반 회원 로그인 
-insert into member values('M5', 'lee', 'lee1234', '리', '20200101', '01033335555', 'lee@naver.com', 'q3','여름',sysdate,'동의','수신동의','수신거부', 0);
-insert into member values('M7', 'shin', 'shin1234', '주영', '19971110', '01031711401', 'shin@naver.com', 'q7','q7답변',sysdate,'비동의','수신거부','수신거부', '3500');
-insert into member values('M9', 'test', 'test1234', '테스트', '20230615', '01022227777', 'shinjugle@gmail.com', 'q5','답변테스트',sysdate,'동의','수신거부','수신동의', '7000');
+insert into member values('M8', 'test', 'test1234', '테스트', '20230615', '01022227777', 'shinjugle@gmail.com', 'q5','답변테스트',sysdate,'동의','수신거부','수신동의', '7000');
 
 --ticket_reservation insert
 
