@@ -14,35 +14,30 @@
 				<div class="row justify-content-center">
 					<!-- 결제 완료 안내 -->
 					<div class="col-xl-6" id="reservation-complete">
-						<h1 style="margin-bottom: 100px;">영화 예매가 완료됐습니다.</h1>
+						<h1 style="margin-bottom: 100px;">Vod 구매가 완료됐습니다.</h1>
 						<table>
 							<tr>
 								<td style="background-color: #7B4EEC; color:#FFF;">영화관</td>
 								<td>${reservationBean.screen_name}</td>
 							</tr>
 							<tr>
-								<td style="background-color: #7B4EEC; color:#FFF;">영화</td>
-								<td>${screenBean.movie_title}</td>
+								<td style="background-color: #7B4EEC; color:#FFF;">VOD 제목</td>
+								<td>${vodBean.vod_title}</td>
 							</tr>
 							<tr>
 								<td style="background-color: #7B4EEC; color:#FFF;">상영일시</td>
-								<td>${day} ${screenBean.screen_time}</td>
+								<td> ${screenBean.screen_time}</td>
 							</tr>
 							<tr>
 								<td style="background-color: #7B4EEC; color:#FFF;">좌석번호</td>
 								<td>
-									<c:forEach var="seat" items="${seatnum}" varStatus="stutus"> 
-										${seat}
-										<c:if test="${stutus.index < fn:length(seatnum)-1}">
-										,
-										</c:if>
-									</c:forEach>
+									${reservationBean.seat_num}
 								</td>
 							</tr>
 							<tr>
 								<td  style="background-color: #7B4EEC; color:#FFF;">결제금액</td>
 								<td>
-									${totalPrice}
+									${vodBean.vod_price}
 								</td>
 							</tr>
 							<tr>
