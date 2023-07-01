@@ -75,7 +75,7 @@
 							<div class="card info-card customers-card">
 								<div class="card-body align-items-center justify-content-center">
 											
-											<table class="myReservationPurchase">
+										<table class="myReservationPurchase">	
 												<tr>
 													<td>
 														예매내역
@@ -84,15 +84,14 @@
 														<a href="myreservation.mp?member_id=${loginInfo.member_id}">더보기</a>
 													</td>
 												</tr>
-												
+											</table><hr width="96%" align="center" style="margin-left: 15px;">													 <table class="table">
 												  <thead>
 								                  <tr>
 								                    <th scope="col" width="20%">예매날짜</th>
-								                    <th scope="col" width="10%">영화관</th>
+								                    <th scope="col" width="15%">영화관</th>
 								                    <th scope="col" width="30%">영화</th>
 								                    <th scope="col" width="15%">영화시간</th>
-								                    <th scope="col" width="10%">좌석번호</th>
-								                    <th scope="col" width="20%">예매취소</th>
+								                    <th scope="col" width="20%">좌석번호</th>
 												</tr>
 								                </thead>
 								                
@@ -113,7 +112,6 @@
 														<td>${reservation.movie_title}</td>
 														<td>${reservation.screen_time}</td>
 														<td>${reservation.seat_number}</td>
-														<td><a href="reservDel.mp?reservation_num=${reservation.reservation_num}">예매취소</a></td>
 													</tr>
 												</c:forEach>												
 												</tbody>
@@ -126,20 +124,31 @@
 							<!-- 취소내역 -->
 							<div class="card info-card customers-card">
 								<div class="card-body align-items-center justify-content-center">
+										
+										<table class="myReservationPurchase">	
+											<tr>
+													<td>
+														취소내역
+													</td>
+													<td>
+														<a href="myreservation.mp?member_id=${loginInfo.member_id}">더보기</a>
+													</td>
+												</tr>
+										</table><hr width="96%" align="center" style="margin-left: 15px;">	
+											
 											 <table class="table">
 								                <thead>
 								                  <tr>
-								                    <th scope="col" width="15%">예매날짜</th>
-								                    <th scope="col" width="15%">영화관</th>
-								                    <th scope="col" width="30%">영화</th>
-								                    <th scope="col" width="15%">좌석번호</th>
-								                    <th scope="col" width="15%">완전삭제</th>
+								                    <th scope="col" width="20%">예매날짜</th>
+								                    <th scope="col" width="20%">영화관</th>
+								                    <th scope="col" width="35%">영화</th>
+								                    <th scope="col" width="20%">좌석번호</th>
 								                  </tr>
 								                </thead>
 								                
 								                <c:if test="${fn:length(delList) == 0}">
 												<tr>
-													<td colspan="5" align="center">취소 내역이 없습니다.</td>
+													<td colspan="4" align="center">취소 내역이 없습니다.</td>
 												</tr>
 												
 											</c:if>
@@ -153,7 +162,6 @@
 														<td>${del.screen_name}</td>
 														<td>${del.movie_title}</td>
 														<td>${del.seat_number}</td>
-														<td><a href="hangDelete.mp?reservation_num=${del.reservation_num}">완전삭제</a></td>
 													</tr>
 												</c:forEach>												
 												</tbody>

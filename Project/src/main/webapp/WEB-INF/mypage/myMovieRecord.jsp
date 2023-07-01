@@ -175,7 +175,7 @@ a {
 							<table class="table" style="width: 850px">
 								
 								<tr align="center">
-									<th width="5%">번호</th>
+									<th width="10%">번호</th>
 									<th width="15%">영화제목</th>
 									<th width="40%">한줄평</th>
 									<th width="15%">등록일</th>
