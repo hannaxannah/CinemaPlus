@@ -23,7 +23,7 @@
 
 <form:form commandName="member"  action="myDelete.mp" method="post">
 <input type="hidden" name="member_code" value="${member.member_code}">
-<table style="margin-top: 50px;">
+<table style="margin-top: 50px; margin-left: 230px;">
 	<tr align="left">
 		<td colspan="2"><font style="font-size: medium;">* 회원님의 정보를 입력하시고 탈퇴 버튼을 클릭해주세요.</font></td>
 	</tr>
@@ -48,10 +48,10 @@
 		</td>
 	</tr>
 	
-	<tr align="center">
+	<tr align="left">
 		<td colspan="2">
-			<input type="submit" value="탈퇴" onclick="location.href='myDelete.mp'">
-			<input type="reset" value="취소">
+			<input type="submit" value="탈퇴" onclick="location.href='myDelete.mp'" style="background-color: #EBE4FC; color:#6b39ea; border-radius: 5px; padding: 5px; border:0; margin-left: 40px;">
+			<input type="reset" value="취소" style="background-color: #EBE4FC; color:#6b39ea; border-radius: 5px; padding: 5px; border:0; margin-left: 15px;">
 		</td>
 	</tr>
 </table>

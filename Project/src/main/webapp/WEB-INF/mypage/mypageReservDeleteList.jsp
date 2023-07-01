@@ -133,7 +133,7 @@
 								                
 								                <c:if test="${fn:length(delList) == 0}">
 												<tr>
-													<td colspan="5" align="center">취소 내역이 없습니다.</td>
+													<td colspan="6" align="center">취소 내역이 없습니다.</td>
 												</tr>
 												
 											</c:if>
