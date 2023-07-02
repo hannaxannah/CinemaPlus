@@ -1,5 +1,4 @@
 # Team CinePlus to Shin JuYoung
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=SDworkersa&show_icons=true&theme=radical)
 
 <div class="Box mt-4 " >
   <div class="Box-body p-4">
