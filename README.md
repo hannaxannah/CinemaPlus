@@ -54,5 +54,5 @@
 	<br>
 </div><br>
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=CinePlus&layout=compact)](https://github.com/CinePlus/github-readme-stats)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Teamproject_sjy&layout=compact)](https://github.com/Teamproject_sjy/github-readme-stats)
 
