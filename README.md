@@ -1,7 +1,7 @@
 # Team CinePlus to Shin JuYoung
 
 <div align=center>
-	<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=CinemaPlus%20to ShinJuYoung!&fontSize=90" />	
+	<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=CinemaPlus%20!&fontSize=90" />	
 </div>
 
 
