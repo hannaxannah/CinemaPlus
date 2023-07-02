@@ -1,5 +1,22 @@
 # Team CinePlus to Shin JuYoung
-<div align=center>
+![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=SDworkersa&show_icons=true&theme=radical)
+<div class="Box mt-4 " >
+  <div class="Box-body p-4">
+    <div class="d-flex flex-justify-between">
+      <div class="text-mono text-small mb-3">
+        <a
+          href="/hyeg0121/hyeg0121"
+          class="no-underline Link--primary"
+        >hyeg0121</a><span
+          class="color-fg-muted d-inline-block"
+          style="padding:0px 2px;"
+        >/</span>README<span
+         class="color-fg-muted"
+        >.md</span>
+      </div>
+    </div><br>
+
+	  <div align=center>
 	<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=CinePlus%20Github!&fontSize=90" />	
 </div>
 
