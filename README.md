@@ -1,23 +1,9 @@
 # Team CinePlus to Shin JuYoung
 
-<div class="Box mt-4 " >
-  <div class="Box-body p-4">
-    <div class="d-flex flex-justify-between">
-      <div class="text-mono text-small mb-3">
-        <a
-          href="/hyeg0121/hyeg0121"
-          class="no-underline Link--primary"
-        >hyeg0121</a><span
-          class="color-fg-muted d-inline-block"
-          style="padding:0px 2px;"
-        >/</span>README<span
-         class="color-fg-muted"
-        >.md</span>
-      </div>
-
-	  <div align=center>
-	<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=CinePlus%20Github!&fontSize=90" />	
-</div>
+![header](https://capsule-render.vercel.app/api?type=waving&color=timeGradient&text=Welcome%20to%20Jiho's%20GitHub%20👋&animation=twinkling&fontSize=35&fontAlignY=40&fontAlign=70&height=250)
+---
+  
+[![GITHUB](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fjiholee0&count_bg=%23F29494&title_bg=%232F2E2E&icon=github.svg&icon_color=%23FFFFFF&title=GITHUB&edge_flat=false)](https://github.com/SDworkersa)
 
 <div align=center>
 	<h3>📚 Tech Stack 📚</h3><br>
