@@ -20,6 +20,8 @@
 	<img src="https://img.shields.io/badge/Mybatis-000000?style=flat&logo=Fluentd&logoColor=white" />
 	<br>
 	<img src="https://img.shields.io/badge/Oracle%20SQL-F80000?style=flat&logo=Oracle&logoColor=white" />
+ 	<img src="https://img.shields.io/badge/JSP-003545?style=flat&logo=MariaDB&logoColor=white" />
+	<img src="https://img.shields.io/badge/Tomcat-FCC624?style=flat&logo=Linux&logoColor=white" />
 
 </div>
 <br>
