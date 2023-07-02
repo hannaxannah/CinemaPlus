@@ -4,6 +4,9 @@
 	<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=CINEMA&nbsp;PLUS&fontSize=80" />
 </div>
 
+* 💻 아직 배울게 많은 주니어 웹 백엔드 엔지니어입니다.
+* 🎨 현재 국비지원 학원에서 수업을 듣고 있습니다.
+* 😎 나만의 일을 찾기위해 열심히 노력중입니다.
 
 <div align=center>
 	<h3>📚 Tech Stack 📚</h3><br>
