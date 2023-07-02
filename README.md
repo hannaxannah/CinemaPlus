@@ -18,11 +18,11 @@
 	<img src="https://img.shields.io/badge/Spring-6DB33F?style=flat&logo=Spring&logoColor=white" />
 	<img src="https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=Bootstrap&logoColor=white" />
 	<img src="https://img.shields.io/badge/Mybatis-000000?style=flat&logo=Fluentd&logoColor=white" />
-	<img src="https://img.shields.io/badge/AJAX-F7DF1E?style=flat&logo=JavaScript&logoColor=blue" />
+	<img src="https://img.shields.io/badge/AJAX-FFB2D9?style=flat&logo=AJAX&logoColor=white" />
 	<br>
 	<img src="https://img.shields.io/badge/Oracle%20SQL-F80000?style=flat&logo=Oracle&logoColor=white" />
- 	<img src="https://img.shields.io/badge/JSP-003545?style=flat&logo=MariaDB&logoColor=white" />
-	<img src="https://img.shields.io/badge/Tomcat-FCC624?style=flat&logo=Linux&logoColor=white" />
+ 	<img src="https://img.shields.io/badge/JSP-003545?style=flat&logo=JSP&logoColor=white" />
+	<img src="https://img.shields.io/badge/Tomcat-FCC624?style=flat&logo=Tomcat&logoColor=white" />
 
 </div>
 <br>
