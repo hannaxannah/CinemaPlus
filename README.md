@@ -50,7 +50,7 @@
 	<a href="https://github.com/JSCU0403/CinePlus">
 		<img src="https://img.shields.io/badge/Portfolio-FF3633?style=flat&logo=Micro.blog&logoColor=white" />
 	</a>
-	<a href="https://yermi.tistory.com">
+	<a href="https://juyoungsin.tistory.com">
 		<img src="https://img.shields.io/badge/Blog-FF9800?style=flat&logo=Blogger&logoColor=white" />
 	</a>
 	<a href="mailto:bo10820@naver.co.kr">
