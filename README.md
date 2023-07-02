@@ -52,4 +52,7 @@
 		<img src="https://img.shields.io/badge/Mail-30B980?style=flat&logo=Gmail&logoColor=white" />
 	</a>
 	<br>
-</div>
+</div><br>
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=SDworkersa&layout=compact)](https://github.com/SDworkersa/github-readme-stats)
+
