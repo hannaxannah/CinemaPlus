@@ -55,9 +55,10 @@
 	</a>
 	<br>
 </div><br><hr>
-
+<div align=center>
 [![GITHUB](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fjiholee0&count_bg=%23F29494&title_bg=%232F2E2E&icon=github.svg&icon_color=%23FFFFFF&title=GITHUB&edge_flat=false)](https://github.com/SDworkersa)
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=JSCU0403&layout=compact)](https://github.com/JSCU0403/CinePlus/blob/Teamproject_sjy/github-readme-stats)
 
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=SDworkersa&show_icons=true&theme=radical)
+</div>
