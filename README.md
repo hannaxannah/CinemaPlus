@@ -63,6 +63,6 @@
 
 <div align=center dir="auto">
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=JSCU0403&layout=compact)](https://github.com/JSCU0403/CinePlus/blob/Teamproject_sjy/github-readme-stats)
-
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=SDworkersa&show_icons=true&theme=radical)
 </div>
+![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=SDworkersa&show_icons=true&theme=radical)
+
